@@ -1,0 +1,112 @@
+<view class="su-wrapper">
+    <view class="bg-banner" style="background:{{color}}">
+        <view class="title share-title">{{title}}</view>
+    </view>
+    <view class="myshare-main">
+        <view class="item current-item">
+            <view class="current-person">
+                <view class="list p1 {{byInviteUser?'center':'start'}}">
+                    <image class="logo" mode="widthFix" src="{{photo}}" wx:if="{{photo}}"></image>
+                    <image class="logo" mode="widthFix" src="{{userInfo.avatarUrl}}" wx:else></image>
+                    <text>{{userInfo.nickName}}</text>
+                </view>
+                <view class="list plt" wx:if="{{byInviteUser}}">
+                    <image class="leftbtn" mode="widthFix" src="../../common/img/leftbtn.png"></image>
+                </view>
+                <view class="list p2" wx:if="{{byInviteUser}}">
+                    <image class="logo byInvateLogo" src="{{byInviteUser.headimg}}"></image>
+                    <text>{{byInviteUser.uname}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="item friend-item top-item">
+            <view class="info">
+                <view>影响力指数<text class="">{{invitAttentionCount}}</text>
+                </view>
+                <view>影响力排名<text class="">NO.{{shareRanking}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="item friend-item kid-item">
+            <view class="info">
+                <view>邀请观展好友<text class="tongxing">{{sameTrade}}</text>
+                </view>
+                <view>邀请观展排行<text class="yaoqing">NO.{{inviteRanking}}</text>
+                </view>
+            </view>
+            <view class="friend">
+                <view class="inner-box" wx:for="{{inviteUser}}" wx:key="{{item.index}}">
+                    <view class="mbox">
+                        <image class="mlogo" src="{{item.headimg}}" wx:if="{{item.headimg}}"></image>
+                        <image class="mlogo" src="{{item.headimg}}" wx:else></image>
+                        <text>{{item.uname}}</text>
+                    </view>
+                </view>
+                <view bindtap="goMyshare" class="inner-box moreFriendBtn" data-index="1" data-url="../friends/friends" id="moreFriendBtn" wx:if="{{isMore}}">
+                    <view>
+                        <image class="more" src="../../common/img/more.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="item friend-item kid-item">
+            <view class="info">
+                <view>参展成功邀请好友<text class="tongxing">{{canzhanfriend}}</text>
+                </view>
+                <view>邀请参展排行<text class="yaoqing">NO.{{canzhanNo}}</text>
+                </view>
+            </view>
+            <view class="friend">
+                <view class="inner-box" wx:for="{{exhibitionUser}}" wx:key="{{item.index}}">
+                    <view class="mbox">
+                        <image class="mlogo" mode="widthFix" src="{{item.headimg}}" wx:if="{{item.headimg}}"></image>
+                        <image class="mlogo" mode="widthFix" src="{{item.headimg}}" wx:else></image>
+                        <text>{{item.uname}}</text>
+                    </view>
+                </view>
+                <view bindtap="goMyshare" class="inner-box moreFriendBtn" data-index="2" data-url="../friends/friends" id="moreFriendBtn" wx:if="{{isJoin}}">
+                    <view>
+                        <image class="more" mode="widthFix" src="../../common/img/more.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="item friend-item kid-item kid-items">
+            <view class="infos">
+                <view>即将成功邀请参展好友<text class="tongxing">{{soonUser}}</text>
+                </view>
+            </view>
+            <view class="friend">
+                <view class="inner-box" wx:for="{{soonInvite}}" wx:key="{{item.index}}">
+                    <view class="mbox">
+                        <image class="mlogo" src="{{item.headimg}}" wx:if="{{item.headimg}}"></image>
+                        <image class="mlogo" src="{{item.headimg}}" wx:else></image>
+                        <text>{{item.uname}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="tabbar">
+    <view class="tab-main">
+        <view class="flex-tab">
+            <view bindtap="goShare" class="tab-share" go="goshare">
+                <text class="icon-share" style="color:{{color}}"></text>分享
+        </view>
+        </view>
+        <view class="flex-tab">
+            <view bindtap="goPage" class="tab-ticket" data-url="../ticket/ticket" id="goticket" style="background:{{color}}" wx:if="{{isExamine==1}}">
+                <image mode="widthFix" src="../../common/img/ticket.png"></image>我的观展票
+        		</view>
+            <view bindtap="goPage" class="tab-ticket" data-url="../signUp/signUp" id="goticket" style="background:{{color}}" wx:else>
+                <image mode="widthFix" src="../../common/img/ticket.png"></image>观展报名
+        		</view>
+        </view>
+        <view class="flex-tab">
+            <view bindtap="goIndexPage" class="tab-share" data-url="../exhibition/exhibition" id="goindex">
+                <text class="icon-home" style="color:{{color}}"></text>返回展会
+        </view>
+        </view>
+    </view>
+</view>

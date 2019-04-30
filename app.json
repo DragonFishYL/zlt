@@ -1,0 +1,33 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/search/search",
+    "pages/search_list/search_list",
+    "pages/exhibition/exhibition",
+    "pages/details/details",
+    "pages/service/service",
+    "pages/person/person",
+    "pages/view/view",
+    "pages/share/share",
+    "pages/signUp/signUp",
+    "pages/buy/buy",
+    "pages/ticket/ticket",
+    "pages/watchTicket/watchTicket",
+    "pages/collect/collect",
+    "pages/myshare/myshare",
+    "pages/order/order",
+    "pages/orderDetail/orderDetail",
+    "pages/effect/effect",
+    "pages/friends/friends",
+    "pages/out/out"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "展乐淘",
+    "navigationBarTextStyle": "black",
+    "onReachBottomDistance": 50
+  },
+  "sitemapLocation": "sitemap.json"
+}

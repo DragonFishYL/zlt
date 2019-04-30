@@ -1,0 +1,1 @@
+<web-view src="https://fairso.com/Exhibition/redirectFeiOrder?openid={{openId}}"></web-view>

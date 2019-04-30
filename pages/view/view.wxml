@@ -1,0 +1,118 @@
+<import src="../../wxParse/wxParse.wxml"></import>
+<view class="su-wrapper" id="bodyonline">
+    <view class="page-box">
+        <view class="page-list">
+            <view class="details details_1">
+                <view class="mymain swiper-container swiper-container-horizontal swiper-container-3d swiper-container-flip">
+                    <swiper autoplay="{{autoplay}}" bindchange="onSlideChangeEnd" circular="{{circular}}" duration="{{duration}}" indicatorColor="{{indicatorColor}}" indicatorDots="{{indicatorDots}}" interval="{{interval}}" nextMargin="{{nextMargin}}px" previousMargin="{{previousMargin}}px" vertical="{{vertical}}">
+                        <swiper-item wx:for="{{exPosition}}" wx:key="{{index}}">
+                            <view class="mymain_one demo__card mymain_1">
+                                <view class="mymain-b">
+                                    <image alt="" src="{{ZLTBanner}}"></image>
+                                </view>
+                                <view class="mymain-f">
+                                    <view class="mymain_content_one">
+                                        <text class="zhangsan zhangzan_t">{{item.name}} </text>
+                                    </view>
+                                    <view class="mymain_content_two_m clearfix">
+                                        <view>
+                                            <view>
+                                                <text class="orange2">{{item.newtotal}}<text wx:if="{{item.pricedanwei!=null}}">{{item.pricedanwei}}</text>
+                                                    <block wx:else>元</block>
+                                                </text>/{{item.area}}<text wx:if="{{item.areadanwei!=null}}">{{item.areadanwei}}</text>
+                                                <block wx:else>m²</block>起</view>
+                                            <view class="orange3" wx:if="{{item.dtype!='暂无优惠'}}">
+                                                <text>{{item.total}}<text wx:if="{{item.pricedanwei!=null}}">{{item.pricedanwei}}</text>
+                                                    <block wx:else>元</block>
+                                                </text>/{{item.area}}<text wx:if="{{item.areadanwei!=null}}">{{item.areadanwei}}</text>
+                                                <block wx:else>m²</block>起</view>
+                                        </view>
+                                        <view class="content_k" wx:if="{{item.dtype!='暂无优惠'}}">
+                                            <text class="orange1">{{item.dtype}}<text wx:if="{{item.discount!=null}}">{{item.discount}}</text>
+                                            </text>
+                                        </view>
+                                    </view>
+                                    <view class="mymain_content_four clearfix">
+                                        <view class="mymain_content_four_title">展位规格</view>
+                                        <view class="mymain_content_four_div clearfix">
+                                            <view class="four_div_li_l" style="width:228rpx">{{item.area}}<text wx:if="{{item.areadanwei!=null}}">{{item.areadanwei}}</text>
+                                                <block wx:else>m²</block>（{{item.glength}}<block wx:if="{{item.areadanwei=='sqft'}}">ft</block>
+                                                <block wx:else>m</block>*{{item.gwidth}}<block wx:if="{{item.areadanwei=='sqft'}}">ft</block>
+                                                <block wx:else>m</block>）</view>
+                                            <view class="four_div_li_l" style="width:304rpx;" wx:if="{{item.openfare!=null&&item.openfare!=''}}">增加费用：{{item.openfare}}</view>
+                                        </view>
+                                    </view>
+                                    <view class="mymain_content_four">
+                                        <view class="mymain_content_four_title">展位配置</view>
+                                        <view class="mymain_content_four_div mymain_content_four_div2 clearfix">
+                                            <view class="four_div_one" wx:if="{{item.config1!=0}}">楣板*{{item.config1}}</view>
+                                            <view class="four_div_two" wx:if="{{item.config11!=0}}">射灯*{{item.config11}}</view>
+                                            <view class="four_div_three" wx:if="{{item.config12!=0}}">墙板*{{item.config12}}</view>
+                                            <view class="four_div_four" wx:if="{{item.config2!=0}}">地毯*{{item.config2}}</view>
+                                        </view>
+                                        <view class="mymain_content_four_div mymain_content_four_div2 clearfix">
+                                            <view class="four_div_one" wx:if="{{item.config8!=0}}">层板*{{item.config8}}</view>
+                                            <view class="four_div_two" wx:if="{{item.config9!=0}}">垃圾篓*{{item.config9}}</view>
+                                            <view class="four_div_three" wx:if="{{item.config10!=0}}">资料架*{{item.config10}}</view>
+                                            <view class="four_div_four" wx:if="{{item.config7!=0}}">洽谈椅*{{item.config7}}</view>
+                                        </view>
+                                        <view class="mymain_content_four_div clearfix">
+                                            <view class="four_div_li_l four_div_li_l2" wx:if="{{item.config6!=0}}">洽谈圆桌*{{item.config6}}</view>
+                                            <view class="four_div_li_r" wx:if="{{item.config5!=0}}">洽谈方桌*{{item.config5}}</view>
+                                        </view>
+                                        <view class="mymain_content_four_div clearfix">
+                                            <view class="four_div_li_l four_div_li_l2" wx:if="{{item.config3!=0}}">咨询台（带锁）*{{item.config3}}</view>
+                                            <view class="four_div_li_r" wx:if="{{item.config4!=0}}">咨询台（无锁）*{{item.config4}}</view>
+                                        </view>
+                                        <view class="mymain_content_four_div clearfix">
+                                            <view class="four_div_li_l four_div_li_l2" wx:if="{{item.config14!=0}}">电源无插座*{{item.config14}}</view>
+                                            <view class="four_div_li_r" wx:if="{{item.config13!=0}}">电源有插座*{{item.config13}}</view>
+                                        </view>
+                                    </view>
+                                    <view class="mymain_content_four clearfix">
+                                        <view class="mymain_content_four_title"></view>
+                                        <view class="mymain_content_four_div clearfix">
+                                            <view class="four_div_li_l" style="width:120rpx">客服电话</view>
+                                            <view class="four_div_li_l" style="width:228rpx">{{ZLTPhone}}</view>
+                                            <image bindtap="callPhone" data-phone="{{ZLTPhone}}" src="../../common/img/Merchant_offer_phone.png"></image>
+                                        </view>
+                                    </view>
+                                    <view class="cbooth-view clearfix">
+                                        <view bindtap="pidImg" data-pidimg="{{item.pidImg}}">查看展位图</view>
+                                        <view bindtap="sidImg" data-sidimg="{{item.sidImg}}">查看搭建图</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </swiper-item>
+                    </swiper>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="tabbar">
+        <view class="tab-main">
+            <view class="flex-tab">
+                <button bindgetuserinfo="serviceGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                    <image alt="" src="../../common/img/Merchant_offer_kf.png"></image>联系客服</button>
+                <view bindtap="goPage" class="share" data-url="../service/service" go="goshare" wx:else>
+                    <image alt="" src="../../common/img/Merchant_offer_kf.png"></image>联系客服
+	        		</view>
+            </view>
+            <view class="flex-tab">
+                <button bindgetuserinfo="shareGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                    <image alt="" src="../../common/img/u359.png"></image>分享</button>
+                <view bindtap="goShare" class="share" data-url="../share/share" id="goindex" wx:else>
+                    <image alt="" src="../../common/img/u359.png"></image>分享
+	       		 </view>
+            </view>
+            <view class="flex-tab" wx:if="{{isOverTime!='已开展'}}">
+                <button bindgetuserinfo="buyGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                    <text class="baoming">立即订展</text>
+                </button>
+                <view bindtap="goPage" class="share" data-url="../buy/buy" id="go" wx:else>
+                    <text class="baoming">立即订展</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

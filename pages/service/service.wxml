@@ -1,0 +1,51 @@
+<import src="../../wxParse/wxParse.wxml"></import>
+<form bindreset="formReset" bindsubmit="formSubmit">
+    <view class="su-wrapper">
+        <view class="item">
+            <view class="su-container">
+                <text class="su-title">{{form.title}}</text>
+                <view class="su-ctem ctem-top">
+                    <image alt="" src="../../common/img/tel.png"></image>{{form.clickNum}}
+      </view>
+            </view>
+        </view>
+        <view class="item_ctem">
+            <view class="su-container">
+                <view class="su-ctem">
+          {{form.person}}
+      </view>
+            </view>
+        </view>
+        <view class="item_ctem">
+            <view class="su-container-white">
+                <view class="su-ctem">
+          留言内容（必填）
+      </view>
+                <textarea id="textarea" name="message" placeholder="请在此输入留言内容，我们会尽快与您联系"></textarea>
+            </view>
+        </view>
+        <view class="item_ctem introduct">
+            <view class="su-container-white">
+                <view class="item1">
+                    <text>姓名</text>
+                    <input class="input" name="name" placeholderClass="place-holder"></input>
+                </view>
+                <view class="item1">
+                    <text>手机(必填)</text>
+                    <input class="input" name="phone" placeholderClass="place-holder"></input>
+                </view>
+                <view class="item1">
+                    <text>邮箱</text>
+                    <input class="input" name="email" placeholderClass="place-holder"></input>
+                </view>
+                <view class="item1">
+                    <text>地址</text>
+                    <input class="input" name="address" placeholderClass="place-holder"></input>
+                </view>
+            </view>
+        </view>
+        <view class="industry_time_region_close">
+            <button class="button tab-ticket" formType="submit">发送</button>
+        </view>
+    </view>
+</form>

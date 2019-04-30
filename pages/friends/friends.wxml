@@ -1,0 +1,36 @@
+<view class="su-wrapper">
+    <view class="bg-banner" style="background:{{color}}">
+        <view class="title share-title">{{title}}</view>
+    </view>
+    <view class="myshare-main">
+        <view class="item current-item">
+            <view class="current-person">
+                <view class="list p1 {{byInviteUser?'center':'start'}}">
+                    <image class="logo" mode="widthFix" src="{{photo}}" wx:if="{{photo}}"></image>
+                    <image class="logo" mode="widthFix" src="{{userInfo.avatarUrl}}" wx:else></image>
+                    <text>{{userInfo.nickName}}</text>
+                </view>
+                <view class="list plt" wx:if="{{byInviteUser}}">
+                    <image class="leftbtn" mode="widthFix" src="../../common/img/leftbtn.png"></image>
+                </view>
+                <view class="list p2" wx:if="{{byInviteUser}}">
+                    <image class="logo byInvateLogo" src="{{byInviteUser.headimg}}"></image>
+                    <text>{{byInviteUser.uname}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="item friend-item kid-item">
+            <view class="info">
+                <view>受邀好友<text class="tongxing">{{sameTrade}}</text>
+                </view>
+            </view>
+            <view class="friend">
+                <view class="person" wx:for="{{inviteUser}}" wx:key="{{item.index}}">
+                    <image class="mlogo" src="{{item.headimg}}" wx:if="{{item.headimg}}"></image>
+                    <image class="mlogo" src="{{item.headimg}}" wx:else></image>
+                    <text>{{item.uname}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

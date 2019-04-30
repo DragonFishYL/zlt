@@ -1,0 +1,83 @@
+page {
+    background: #f7f7f7;
+}
+
+.su-banner {
+    width: 100%;
+}
+
+.su-banner>image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.item {
+    border-bottom: 2rpx solid #ddd;
+}
+
+.su-title {
+    font-weight: bold;
+    font-size: 36rpx;
+    text-align: center;
+}
+
+.su-ctem>image {
+    width: 20px;
+    height: 20px;
+    margin-right: 12rpx;
+}
+
+.su-ctem {
+    display: flex;
+    align-items: center;
+    direction: row;
+}
+
+.ctem-top {
+    margin-top: 20rpx;
+}
+
+.su-ctem .icon {
+    font-size: 50rpx;
+}
+
+.su-ctem .icon-share {
+    margin-left: 20rpx;
+}
+
+.su-container-white {
+    background: #fff;
+    border-radius: 20rpx;
+    margin: 20rpx 30rpx;
+}
+
+.su-container-white .su-ctem {
+    padding: 30rpx 0 30rpx 30rpx;
+    border-bottom: 2rpx solid #ddd;
+}
+
+.su-container-white>textarea {
+    padding-left: 30rpx;
+}
+
+.industry_time_region_close {
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    background: #3399ff;
+    color: white;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    z-index: 666;
+}
+
+.item1 {
+    border-bottom: 2rpx solid #ddd;
+    padding: 30rpx;
+}
+
+.introduct {
+    margin-bottom: 100rpx;
+}

@@ -1,0 +1,222 @@
+page {
+    background: #fff;
+}
+.valid-person {
+    width: 100%;
+    top: 0rpx;
+    background: #fff;
+    z-index: 88;
+}
+
+.form-sign {
+    padding-bottom: 60rpx;
+}
+
+.sign-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 30rpx 0;
+}
+
+.sign-item .input {
+    border: 1px solid #bebebe;
+    padding-left: 10rpx;
+    border-radius: 8rpx;
+    height: 70rpx;
+    font-size: 30rpx;
+}
+
+.sign-item .mobile {
+    width: 510rpx;
+}
+
+.sign-item .code {
+    width: 250rpx;
+}
+
+.sign-item>text {
+    width: 160rpx;
+}
+
+.order-item {
+    justify-content: flex-start;
+    align-items: center;
+    margin: 30rpx 0;
+}
+
+.sign-item .getCode {
+    font-size: 34rpx;
+    border: none;
+    background: #339AFE;
+    color: #000;
+    border-radius: 10rpx;
+    width: 252rpx;
+    height: 75rpx;
+    text-align: center;
+    line-height: 75rpx;
+    margin-left: 8rpx;
+}
+
+.sign-item .getCode:active {
+    background-color: rgba(0,0,0,0.1);
+    opacity: 0.7;
+}
+
+.getCode.disabled {
+    color: #fff;
+    pointer-events: none;
+}
+
+.getCode.disabled1 {
+    pointer-events: none;
+}
+
+.rightBtn {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-left: 8rpx;
+}
+
+.rightBtn>image {
+    font-size: 40rpx;
+    color: #000000;
+    margin-top: -3rpx;
+    width: 56rpx;
+    height: 56rpx;
+}
+
+.su-container.paddTop {
+    padding-top: 26rpx;
+    padding-bottom: 26rpx;
+}
+
+.form-item>view {
+    display: block;
+    margin-bottom: 16rpx;
+}
+
+.form-item>.input {
+    border: 2rpx solid #bebebe;
+    padding-left: 10rpx;
+    border-radius: 8rpx;
+    height: 70rpx;
+}
+
+form-item>.textarea {
+    border: 2rpx solid #bebebe;
+    width: 600rpx;
+    height: 300rpx;
+}
+
+.mask {
+    position: fixed;
+    z-index: 1;
+    background: rgba(239,242,244,0.8);
+    width: 100%;
+    height: 100%;
+    left: 0rpx;
+    margin-top: 7rpx;
+}
+
+.submit-tab .tab-ticket {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-sign .form-item:first-child {
+    margin-top: 20rpx;
+}
+
+form-sign .form-item {
+    margin-bottom: 32rpx;
+}
+
+.place-holder {
+    color: #d6d2d2;
+}
+
+.item-top {
+    border-top: 2rpx solid #ddd;
+}
+
+.item-name {
+    color: #3399ff;
+    font-size: 40rpx;
+    padding: 10rpx 0rpx;
+}
+
+.error {
+    color: red;
+}
+
+.detail {
+    position: relative;
+    border: 2rpx solid #ddd;
+    padding: 10rpx 30rpx;
+    margin-right: 30rpx;
+    height: 65rpx;
+    line-height: 65rpx;
+    display: inline-block;
+    margin-bottom: 20rpx;
+}
+
+.pay {
+    float: left;
+}
+
+.detail>image {
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    bottom: 0;
+    display: none;
+    right: 0;
+}
+
+.cbooth-view {
+    margin: 20rpx 0;
+}
+
+.cbooth-view>button {
+    margin: 0 auto;
+    text-align: center;
+    width: 300rpx;
+    background: #3399ff;
+    color: #fff;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.active>image {
+    display: block;
+}
+
+.active {
+    border: 2rpx solid #3399ff;
+}
+
+.picker {
+    width: 85%;
+}
+
+.total {
+    color: #616161;
+    text-decoration: line-through;
+    margin: 0rpx 40rpx;
+}
+
+.orange {
+    font-size: 36rpx;
+    color: #fc6709;
+    border: 1rpx solid #ff0000;
+    padding: 10rpx;
+}

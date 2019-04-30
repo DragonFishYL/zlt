@@ -1,0 +1,86 @@
+<import src="../../wxParse/wxParse.wxml"></import>
+<import src="../../template/tabbar/tabbar.wxml"></import>
+<form bindreset="formReset" bindsubmit="formSubmit">
+    <view class="su-wrapper">
+        <view class="form-sign">
+            <view class="su-container">
+                <view class="sign-item">
+                    <text>手机号:</text>
+                    <input bindinput="testMobileLength" class="input mobile" name="phone" placeholder="请输入手机号" type="number"></input>
+                </view>
+                <view class="sign-item">
+                    <text>验证码:</text>
+                    <input bindinput="testCode" class="input code" name="code" placeholder="请输入验证码" type="number"></input>
+                    <text bindtap="getValidCode" class="getCode {{testMobile?!isSending?'':'disabled1':'disabled'}}" wx:if="{{!userLogin}}">{{isSendingTxt}}</text>
+                    <view class="rightBtn" wx:if="{{userLogin}}">
+                        <image mode="widthFix" src="../../common/img/right.png"></image>
+                    </view>
+                </view>
+                <view class="item form-item">
+                    <view>身份性质:</view>
+                    <view class="card">
+                        <radio-group bindchange="radioChange" class="radio-group" name="company" range="{{choose}}">
+                            <label class="radio">
+                                <radio checked="" value="企业"></radio>企业
+				              </label>
+                            <label class="radio">
+                                <radio checked="" value="个人"></radio>个人
+				              </label>
+                        </radio-group>
+                    </view>
+                </view>
+                <view class="item form-item">
+                    <view>联系人:</view>
+                    <input class="input mobile" name="uname" type="text"></input>
+                </view>
+                <view class="item form-item" hidden="{{company}}">
+                    <view>企业名称:</view>
+                    <input class="input mobile" name="bname" type="text"></input>
+                </view>
+                <view class="item form-item" hidden="{{company}}">
+                    <view>职位:</view>
+                    <view class="card">
+                        <radio-group class="radio-group" name="job">
+                            <label class="radio">
+                                <radio checked="" value="经理"></radio>经理
+				              </label>
+                            <label class="radio">
+                                <radio checked="" value="职员"></radio>职员
+				              </label>
+                        </radio-group>
+                    </view>
+                </view>
+                <view class="item form-item">
+                    <view>观展原因:</view>
+                    <view class="card">
+                        <radio-group class="radio-group" name="cause">
+                            <label class="radio">
+                                <radio checked="" value="关注行业动态"></radio>关注行业动态
+				              </label>
+                            <label class="radio">
+                                <radio checked="" value="寻找商业机会"></radio>寻找商业机会
+				              </label>
+                            <label class="radio">
+                                <radio checked="" value="展会不错，随便看看"></radio>展会不错，随便看看
+				              </label>
+                        </radio-group>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="tabbar">
+            <view class="tab-main">
+                <view class="flex-tab">
+                    <view class="tab-share"></view>
+                </view>
+                <view class="flex-tab submit-tab">
+                    <button class="button tab-ticket {{userLogin?'':'disabled'}}" formType="submit" style="background:{{color}}">
+                        <image mode="widthFix" src="../../common/img/submit.png"></image>提交</button>
+                </view>
+                <view class="flex-tab">
+                    <view class="tab-share"></view>
+                </view>
+            </view>
+        </view>
+    </view>
+</form>

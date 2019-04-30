@@ -1,0 +1,236 @@
+page {
+    background: #eff2f4;
+}
+
+.bg-banner {
+    height: 180rpx;
+    width: 100%;
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    position: relative;
+    background: #e70012;
+}
+
+.bg-banner .bgpic {
+    position: absolute;
+    top: 0rpx;
+    left: 0rpx;
+    width: 100%;
+    height: 180rpx;
+}
+
+.myshare-main {
+    margin: 20rpx 30rpx;
+    z-index: 2;
+    position: relative;
+}
+
+.title.share-title {
+    font-size: 40rpx;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    margin-top: -20rpx;
+}
+
+.current-item {
+    margin-top: -60rpx;
+    background: #fff;
+    border-radius: 8rpx;
+}
+
+.current-person {
+    display: flex;
+    align-items: center;
+    padding: 15rpx;
+    font-size: 34rpx;
+    justify-content: flex-start;
+}
+
+.current-person .list.p1.center {
+    justify-content: flex-end;
+}
+
+.current-person .list.p1.start {
+    justify-content: flex-start;
+}
+
+.current-person .list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30rpx;
+    flex: 2;
+}
+
+.current-person .list.plt {
+    margin: 0 10rpx;
+    flex: 1;
+}
+
+.current-person .list.p1 {
+    justify-content: flex-end;
+}
+
+.current-person .list.p2 {
+    justify-content: flex-start;
+}
+
+.current-person .list>image.logo {
+    width: 72rpx;
+    height: 72rpx;
+    border-radius: 50%;
+    display: block;
+    box-shadow: 0rpx 2rpx 8rpx #B7B3B3;
+}
+
+.current-person .list>image.logo {
+    margin-right: 10rpx;
+}
+
+.current-person .leftbtn {
+    width: 56rpx;
+    height: 56rpx;
+}
+
+.current-person>image {
+    width: 72rpx;
+    height: 72rpx;
+    border-radius: 50%;
+    display: block;
+    margin-right: 15rpx;
+    box-shadow: 0px 2rpx 8rpx #B7B3B3;
+}
+
+.friend {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.friend>.inner-box {
+    width: 25%;
+    display: block;
+}
+
+.inner-box>.mbox {
+    padding: 10rpx 20rpx;
+}
+
+.mbox>.mlogo {
+    display: block;
+    width: 80rpx;
+    height: 80rpx;
+    box-shadow: 0px 2rpx 8rpx #B7B3B3;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.mbox>.more {
+    width: 88rpx;
+    height: 88rpx;
+    display: block;
+    margin: 0 auto;
+    margin-top: 2rpx;
+}
+
+.friend-item {
+    background: #fff;
+    border-radius: 8rpx;
+    margin-top: 16rpx;
+}
+
+.friend-item.kid-item {
+    padding-bottom: 20rpx;
+}
+
+.friend-item>.info {
+    display: flex;
+    padding: 35rpx 40rpx;
+    justify-content: space-between;
+    border-bottom: 2rpx solid #f1f1f1;
+}
+
+.friend-item>.infos {
+    display: flex;
+    padding: 35rpx 40rpx;
+    justify-content: space-between;
+    border-bottom: 2rpx solid #f1f1f1;
+}
+
+.kid-item>.info {
+    margin-bottom: 30rpx;
+}
+
+.info>view {
+    font-size: 30rpx;
+    position: relative;
+    width: 50%;
+}
+
+.infos>view {
+    font-size: 30rpx;
+    position: relative;
+    width: 100%;
+}
+
+.friend-item.top-item {
+    margin-top: 16rpx;
+}
+
+.info>view:after {
+    content: '';
+    width: 1rpx;
+    height: 100%;
+    background: #cccccc;
+    display: block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.info>view:last-child {
+    text-align: right;
+}
+
+.info>view:last-child:after {
+    display: none;
+}
+
+.info view>text {
+    margin-left: 26rpx;
+}
+
+.infos view>text {
+    margin-left: 26rpx;
+}
+
+.friend .mbox {
+    text-align: center;
+}
+
+.mbox>text {
+    margin: 7rpx 0;
+    font-size: 30rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.more {
+    display: block;
+    width: 80rpx;
+    height: 80rpx;
+    box-shadow: 0px 2rpx 8rpx #B7B3B3;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.kid-items {
+    margin-bottom: 140rpx;
+}

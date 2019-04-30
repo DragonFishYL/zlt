@@ -1,0 +1,67 @@
+<view class="su-wrapper" id="su-wrapper">
+    <scroll-view scrollY style="height: {{height}}">
+        <view class="su-container su-ticket">
+            <view class="person">
+                <image class="avator" mode="widthFix" src="{{photo}}" wx:if="{{photo}}"></image>
+                <image class="avator" mode="widthFix" src="{{avatarUrl}}" wx:else></image>
+                <view class="user-info">
+                    <text class="name">{{nickName}}邀请您一起参加</text>
+                    <text class="zh">{{company}}</text>
+                </view>
+            </view>
+            <view class="picture-box">
+                <image class="banner" src="{{banner}}"></image>
+            </view>
+            <view class="introduce">
+                <view class="su-ctem">
+                    <text class="icon-time" id="setTime" ref="setTime" style="color:{{color}}"></text>
+            {{setTime}}
+        </view>
+                <view class="su-ctem">
+                    <text class="icon-address" id="zgName" ref="zgName" style="color:{{color}}"></text>
+            {{zgName}}
+        </view>
+                <view class="su-ctem" hidden="{{hidden}}">
+                    <text>{{ZLTPhone}}</text>
+                </view>
+                <view class="su-ctem" wx:if="{{Parea!=0&&area!='0m²'}}">
+                    <text class="gtype" hidden="{{hidden}}" id="gtype" ref="gtype">{{gtype}}</text>
+                    <text class="orange" id="Parea" ref="Parea">{{Parea}}<text wx:if="{{pricedanwei!=null}}">{{pricedanwei}}</text>
+                        <block wx:else>元</block>
+                    </text>
+                    <text id="area" ref="area"> /{{area}}<text wx:if="{{areadanwei!=null}}">{{areadanwei}}</text>
+                        <block wx:else>m²</block>
+                    </text>起
+           <text class="orange2" id="dtype" ref="dtype" wx:if="{{dtype!=null&&dtype!='暂无优惠'&&dtype!=undefined}}">{{dtype}}<text wx:if="{{discount!=null}}">{{discount}}</text>
+                    </text>
+                </view>
+                <view class="su-ctem">
+                    <text class="commission" id="commission" ref="commission" wx:if="{{commission!=null&&commission!='0'}}">佣金：{{commission}}元</text>
+                </view>
+            </view>
+            <view class="company-qcode-box showstatus {{canShow}}">
+                <image class="company-qcode" mode="widthFix" src="{{qrcode}}"></image>
+                <view class="mask-logo">
+                    <view class="mask-box"></view>
+                    <image bindload="imageLoad" class="showstatus {{canShow}}" mode="widthFix" src="{{avatarUrl}}" wx:if="{{avatarUrl}}"></image>
+                    <image bindload="imageLoad" class="showstatus {{canShow}}" mode="widthFix" src="{{photo}}" wx:else></image>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>
+<view class="share-tool">
+    <text class="tip">分享活动卡片给好友</text>
+    <view class="share-box">
+        <view class="share-icon">
+            <image mode="widthFix" src="../../common/img/weixin.png" style="background:{{color}}"></image>微信好友
+      <button class="open-share-btn" openType="share" plain="true"></button>
+        </view>
+        <view bindtap="tabShareImg2" class="share-icon">
+            <image mode="widthFix" src="../../common/img/quan.png" style="background:{{color}}"></image>海报
+    </view>
+    </view>
+</view>
+<canvas canvasId="shareImg1" class="shareImg1"></canvas>
+<canvas canvasId="shareImg2" class="shareImg2" wx:if="{{shareType==2}}"></canvas>
+<canvas canvasId="shareImg3" class="shareImg3" wx:if="{{shareType==1}}"></canvas>

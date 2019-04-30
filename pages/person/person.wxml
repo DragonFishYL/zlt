@@ -1,0 +1,74 @@
+<import src="../../wxParse/wxParse.wxml"></import>
+<view class="su-wrapper">
+    <view class="su-banner">
+        <image class="banner" mode="widthFix" src="../../common/img/index_head.jpg"></image>
+        <view class="show_share">
+            <view bindtap="collect" class="tab-share">
+                <text>展会收藏</text>
+            </view>
+            <view bindtap="myshare" class="tab-share">
+                <text>我的展会影响力</text>
+            </view>
+        </view>
+    </view>
+    <view class="company-qcode-box showstatus {{canShow}}">
+        <view class="mask-logo">
+            <view class="mask-box"></view>
+            <image bindload="imageLoad" class="showstatus1 {{canShow}}" mode="widthFix" src="{{avatarUrl}}" wx:if="{{avatarUrl}}"></image>
+            <image bindload="imageLoad" class="showstatus2 {{canShow}}" mode="widthFix" src="{{photo}}" wx:else></image>
+        </view>
+        <view>
+            <text class="name">{{nickName}}</text>
+        </view>
+    </view>
+    <view class="ticket">
+        <view class="ticket_l">
+  			我的观展票
+  		</view>
+        <view bindtap="watchTicket" class="ticket_r">
+  			查看所有观展票>
+  		</view>
+    </view>
+    <view class="ticket">
+        <view class="ticket_l">
+  			订单中心
+  		</view>
+        <view bindtap="goFair" class="ticket_r">
+  			查看所有订单>
+  		</view>
+    </view>
+    <view class="ticket">
+        <view class="ticket_l">
+  			发票管理
+  		</view>
+        <view class="ticket_r">
+  			查看所有发票>
+  		</view>
+    </view>
+    <view class="tabbar">
+        <view class="tab-main">
+            <view class="flex-tab">
+                <view class="tab-share">
+                    <button bindgetuserinfo="homeGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                        <image mode="widthFix" src="../../common/img/home_w.png"></image>首页</button>
+                    <view bindtap="goPage" data-url="../index/index" wx:else>
+                        <image mode="widthFix" src="../../common/img/home_w.png"></image>首页</view>
+                </view>
+            </view>
+            <view class="flex-tab flex-middle-tab">
+                <view class="tab-share">
+                    <button bindgetuserinfo="exhibitonGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                        <image mode="widthFix" src="../../common/img/onlinelooking.png"></image>展会</button>
+                    <view bindtap="goPage" data-url="../exhibition/exhibition" wx:else>
+                        <image mode="widthFix" src="../../common/img/onlinelooking.png"></image>展会</view>
+                </view>
+            </view>
+            <view class="flex-tab tab-ticket">
+                <button bindgetuserinfo="personGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                    <image mode="widthFix" src="../../common/img/personal_b.png"></image>个人中心</button>
+                <view bindtap="goPage" data-url="../person/person" wx:else>
+                    <image mode="widthFix" src="../../common/img/personal_b.png"></image>个人中心</view>
+            </view>
+        </view>
+    </view>
+</view>

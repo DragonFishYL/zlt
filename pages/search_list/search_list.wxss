@@ -1,0 +1,131 @@
+page {
+    background: #eff2f4;
+}
+
+.page-box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    box-orient: vertical;
+    flex-direction: column;
+}
+
+.inner {
+    -webkit-box-flex: 1;
+    flex: 1;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.page-list {
+    width: 100%;
+    height: auto;
+}
+
+.content {
+    margin: 0 auto;
+    position: relative;
+}
+
+.input_div_search {
+    width: 100%;
+    height: 132rpx;
+    background: white;
+    position: fixed;
+    top: 0;
+}
+
+.main_input {
+    width: 700rpx;
+    height: 90rpx;
+    margin-left: 30rpx;
+    margin-top: 21rpx;
+    border: 2rpx solid #ddd;
+    border-radius: 6rpx;
+    font-size: 30rpx;
+    color: #333;
+}
+
+.main_details {
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 25rpx;
+    background: white;
+    padding-bottom: 30rpx;
+    background: #fff;
+}
+
+.main_details>image {
+    width: 100%;
+    border-radius: 10rpx;
+}
+
+.main_details_div {
+    padding: 0 20rpx;
+}
+
+.li_one {
+    line-height: 40rpx;
+    margin-top: 20rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: 34rpx;
+    color: #333;
+    white-space: nowrap;
+}
+
+.li_two {
+    margin-top: 30rpx;
+    color: #616161;
+    font-size: 30rpx;
+}
+
+.li_two>text {
+    margin-left: 100rpx;
+}
+
+.li_three {
+    color: #616161;
+    font-size: 25rpx;
+    margin-top: 20rpx;
+}
+
+.orange {
+    font-size: 36rpx;
+    color: #fc6709;
+}
+
+.input_div {
+    height: 80rpx;
+    line-height: 80rpx;
+    border: 2rpx solid #ddd;
+    margin: 10rpx auto 0;
+    position: relative;
+    border-radius: 10rpx;
+    width: 90%;
+    padding-left: 20rpx;
+    background: #fff;
+}
+
+.input_div input {
+    float: left;
+    width: 100%;
+    height: 75rpx;
+    line-height: 75rpx;
+    border: none;
+    font-size: 30rpx;
+}
+
+.su-scroll {
+    height: 1000rpx;
+}

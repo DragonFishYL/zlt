@@ -1,0 +1,94 @@
+<import src="../../wxParse/wxParse.wxml"></import>
+<form bindreset="formReset" bindsubmit="formSubmit">
+    <view class="su-wrapper" id="bodyonline">
+        <view class="page-box">
+            <view class="page-list">
+                <view class="details details_1">
+                    <view class="mymain swiper-container swiper-container-horizontal swiper-container-3d swiper-container-flip">
+                        <view class="mymain_one demo__card mymain_1">
+                            <view class="mymain_b">
+                                <image alt="" src="{{ZLTBanner}}"></image>
+                            </view>
+                            <view class="mymain_content_four mymain_content_one clearfix">
+                                <view class="mymain_content_four_type">展位类型</view>
+                                <view class="mymain_content_four_div clearfix">
+                                    <view bindtap="clickNum1" class="four_div_li_l detail {{_num==0?'active':'add_citying'}}" data-num="0" name="type">标展<image src="../../common/img/822_details_7.png"></image>
+                                    </view>
+                                    <view bindtap="clickNum2" class="four_div_li_l detail {{_num==1?'active':'add_citying'}}" data-num="1" name="type">光地<image src="../../common/img/822_details_7.png"></image>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="mymain_content_four clearfix {{num==0?'show':'hide'}}">
+                                <view class="mymain_content_four_title">展位名称</view>
+                                <view class="mymain_content_four_div clearfix">
+                                    <view bindtap="clickName" class="four_div_li_l detail {{_num1==index?'active':'add_citying'}}" data-id="{{item.id}}" data-num="{{index}}" name="name" style="margin-top:20rpx;" wx:if="{{showType!=null}}" wx:for="{{showType}}" wx:key="{{index}}">{{item.name}}<image src="../../common/img/822_details_7.png"></image>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="mymain_content_four clearfix {{num1==index?'show':'hide'}}" wx:for="{{showType}}" wx:key="{{index}}">
+                                <view class="mymain_content_four_title">展位规格</view>
+                                <view class="mymain_content_four_div clearfix">
+                                    <view class="four_div_li_l" style="width:228rpx">{{item.area}}<text wx:if="{{item.areadanwei!=null}}">{{item.areadanwei}}</text>
+                                        <block wx:else>m²</block>（{{item.glength}}<block wx:if="{{item.areadanwei=='sqft'}}">ft</block>
+                                        <block wx:else>m</block>*{{item.gwidth}}<block wx:if="{{item.areadanwei=='sqft'}}">ft</block>
+                                        <block wx:else>m</block>）</view>
+                                    <view class="four_div_li_l" style="width:304rpx;" wx:if="{{item.openfare!=null&&item.openfare!=''}}">增加费用：{{item.openfare}}</view>
+                                </view>
+                            </view>
+                            <view class="{{num1==index?'show':'hide'}}" wx:for="{{showType}}" wx:key="{{index}}">
+                                <view class="mymain_content_four">
+                                    <view class="mymain_content_four_title">展位配置</view>
+                                    <view class="mymain_content_four_div mymain_content_four_div2 clearfix">
+                                        <view class="four_div_one" wx:if="{{item.config1!='0'}}">楣板*{{item.config1}}</view>
+                                        <view class="four_div_two" wx:if="{{item.config11!='0'}}">射灯*{{item.config11}}</view>
+                                        <view class="four_div_three" wx:if="{{item.config12!='0'}}">墙板*{{item.config12}}</view>
+                                        <view class="four_div_four" wx:if="{{item.config2!='0'}}">地毯*{{item.config2}}</view>
+                                    </view>
+                                    <view class="mymain_content_four_div mymain_content_four_div2 clearfix">
+                                        <view class="four_div_one" wx:if="{{item.config8!='0'}}">层板*{{item.config8}}</view>
+                                        <view class="four_div_two" wx:if="{{item.config9!='0'}}">垃圾篓*{{item.config9}}</view>
+                                        <view class="four_div_three" wx:if="{{item.config10!='0'}}">资料架*{{item.config10}}</view>
+                                        <view class="four_div_four" wx:if="{{item.config7!='0'}}">洽谈椅*{{item.config7}}</view>
+                                    </view>
+                                    <view class="mymain_content_four_div clearfix">
+                                        <view class="four_div_li_l four_div_li_l2" wx:if="{{item.config6!='0'}}">洽谈圆桌*{{item.config6}}</view>
+                                        <view class="four_div_li_r" wx:if="{{item.config5!='0'}}">洽谈方桌*{{item.config5}}</view>
+                                    </view>
+                                    <view class="mymain_content_four_div clearfix">
+                                        <view class="four_div_li_l four_div_li_l2" wx:if="{{item.config3!='0'}}">咨询台（带锁）*{{item.config3}}</view>
+                                        <view class="four_div_li_r" wx:if="{{item.config4!='0'}}">咨询台（无锁）*{{item.config4}}</view>
+                                    </view>
+                                    <view class="mymain_content_four_div clearfix">
+                                        <view class="four_div_li_l four_div_li_l2" wx:if="{{item.config14!='0'}}">电源无插座*{{item.config14}}</view>
+                                        <view class="four_div_li_r" wx:if="{{item.config13!='0'}}">电源有插座*{{item.config13}}</view>
+                                    </view>
+                                </view>
+                                <view class="mymain_content_four clearfix" style="border-top:1rpx solid #ddd;padding:20rpx;">
+                                    <view class="mymain_content_four_title" style="border-top:none;display:inline-block;">面积</view>
+                                    <view style="display:inline-block;margin-left:100rpx;position:relative;">
+                                        <text class="number" name="Number" wx:if="{{area}}">{{item.area}}</text>
+                                        <text class="number" name="Number" wx:else>{{e_area}}</text>
+                                        <text bindtap="bindMinus" class="money {{minusStatus}}" data-area="{{item.area}}" data-price="{{item.newtotal}}" style="left:120rpx;" type="number">-</text>
+                                        <text bindtap="bindPlus" class="money" data-area="{{item.area}}" data-price="{{item.newtotal}}" style="left:160rpx;">+</text>
+                                    </view>
+                                </view>
+                                <view class="mymain_content_four price clearfix">
+                                    <view class="mymain_content_four_title" style="border-top:none;">金额</view>
+                                    <view name="price" style="margin-left:100rpx;" wx:if="{{price}}">{{item.newtotal}}<text wx:if="{{item.pricedanwei!=null}}">{{item.pricedanwei}}</text>
+                                        <block wx:else>元</block>
+                                    </view>
+                                    <view name="total" style="margin-left:100rpx;" wx:else>{{total}}<text wx:if="{{item.pricedanwei!=null}}">{{item.pricedanwei}}</text>
+                                        <block wx:else>元</block>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="cbooth-view clearfix">
+                                <button formType="submit">下一步</button>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</form>

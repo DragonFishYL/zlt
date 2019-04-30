@@ -1,0 +1,24 @@
+<import src="../../wxParse/wxParse.wxml"></import>
+<view class="su-wrapper">
+    <view class="search_push">
+        <form class="searchInputs ">
+            <view class="input_div">
+                <input bindinput="testExhibition" class="searchin" focus="true" type="text" value=""></input>
+                <text bindtap="goSearchPage" class="cancel">搜索</text>
+            </view>
+        </form>
+        <view class="historys">
+            <view class="history_image" wx:for="{{items}}" wx:key="*this">
+                <image alt="" mode="widthFix" src="../../common/img/622_search_phone_1.png"></image>
+                <text bindtap="goSearchlogPage" class="seachHistroy" data-search="{{item}}">{{item}}</text>
+            </view>
+        </view>
+        <view bindtap="clearSearch" class="cancel_history">
+            <image alt="" mode="widthFix" src="../../common/img/622_search_phone_2.png"></image>
+            <text>清空历史</text>
+        </view>
+    </view>
+    <view class="search_result" style="display:{{config.tipsshow2}}">
+   		{{result}}
+   	</view>
+</view>

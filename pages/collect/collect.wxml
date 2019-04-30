@@ -1,0 +1,40 @@
+<import src="../../wxParse/wxParse.wxml"></import>
+<form bindreset="formReset" bindsubmit="formSubmit">
+    <view class="su-wrapper">
+        <view class="page-box">
+            <view>
+                <view bindtap="delateDisplay" class="delete">
+                    <image class="{{num1==0?'show':'hide'}}" mode="widthFix" src="../../common/img/delete.png"></image>
+                </view>
+                <view class="confirm {{num1==1?'show':'hide'}}">
+                    <button bindtap="cancelDelate" class="{{num1==1?'show':'hide'}}">取消</button>
+                    <button class="{{num1==1?'show':'hide'}}" formType="submit">确定</button>
+                </view>
+            </view>
+            <view class="inner">
+                <view class="page-list content">
+                    <view>
+                        <checkbox-group bindchange="checkboxChange" name="choose">
+                            <view bindtap="{{bindtolower?'details':'select'}}" class="main_details" data-collectid="{{i.collectid}}" data-id="{{i.id}}" wx:for="{{exhibition}}" wx:for-item="i" wx:key="items">
+                                <view class="list_cons flex_start">
+                                    <image mode="widthFix" src="{{i.thumbnail}}"></image>
+                                    <view class="main_details_div">
+                                        <view class="li_one">{{i.name}}</view>
+                                        <view class="li_two">{{i.setTime}}</view>
+                                        <view class="li_three" hidden="{{i.Parea==0||!i.Parea}}">
+                                            <span class="orange">{{i.Parea}}</span> /{{i.area}}起</view>
+                                        <view class="li_three">
+                                            <span class="orange">{{i.dtype}}</span>
+                                        </view>
+                                    </view>
+                                </view>
+                                <checkbox class="lefts {{num1==1?'show':'hide'}}" value="{{i.collectid}}"></checkbox>
+                                <view class="{{num==1?'back':'opacticy'}}"></view>
+                            </view>
+                        </checkbox-group>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</form>

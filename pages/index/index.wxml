@@ -1,0 +1,77 @@
+<import src="../../wxParse/wxParse.wxml"></import>
+<import src="../../template/tabbar/tabbar.wxml"></import>
+<view class="su-wrapper wrapper-tool" wx:if="{{canShowTab}}">
+    <view class="su-banner">
+        <image class="banner" mode="widthFix" src="../../common/img/index_head.jpg"></image>
+    </view>
+    <view class="su-input">
+        <button bindgetuserinfo="searchUserInfo" class="input mobile" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">搜索展会信息</button>
+        <button bindtap="searchOpacity" class="input mobile" wx:else>搜索展会信息</button>
+        <image class="search" mode="widthFix" src="../../common/img/index_phone.png"></image>
+    </view>
+    <view class="su-search">
+        <text>非速搜展会网</text>
+        <view class="search-count">
+            <text wx:for="{{items}}" wx:key="{{index}}">{{item}}</text>
+        </view>
+        <text>个展会供您选择！</text>
+    </view>
+    <view class="page-section page-section-spacing swiper">
+        <swiper autoplay="{{autoplay}}" circular="{{circular}}" duration="{{duration}}" indicatorDots="{{indicatorDots}}" interval="{{interval}}" nextMargin="{{nextMargin}}px" previousMargin="{{previousMargin}}px" vertical="{{vertical}}">
+            <swiper-item bindtap="details" data-id="{{item.url}}" wx:for="{{banner}}" wx:key="{{index}}">
+                <view class="swiper-item">
+                    <image class="search" src="{{item.img}}"></image>
+                </view>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="su-host">
+        <text>热门展会</text>
+    </view>
+    <view class="su-mmdiv">
+        <view bindtap="details" class="main_details" data-id="{{item.url}}" wx:for="{{exhibitionNew}}" wx:key="{{index}}">
+            <image mode="widthFix" src="{{item.img}}"></image>
+            <view class="main_details_div">
+                <view class="li_one">{{item.name}}</view>
+                <view class="li_two">{{item.realtime}}</view>
+                <view class="li_three" hidden="{{item.Parea==0||!item.Parea}}">
+                    <span>
+                        <span class="orange">{{item.Parea}}<text wx:if="{{item.pricedanwei!=null}}">{{item.pricedanwei}}</text>
+                            <block wx:else>元</block>
+                        </span>  /{{item.area}}<text wx:if="{{item.areadanwei!=null}}">{{item.areadanwei}}</text>
+                        <block wx:else>m²</block>起</span>
+                </view>
+                <view class="li_three" wx:if="{{item.dtype!='暂无优惠'}}">
+                    <span class="orange">{{item.dtype}}<text wx:if="{{item.discount!=null}}">{{item.discount}}</text>
+                    </span>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="tabbar">
+        <view class="tab-main">
+            <view class="flex-tab">
+                <view class="tab-share">
+                    <button bindgetuserinfo="homeGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                        <image mode="widthFix" src="../../common/img/home.png"></image>首页</button>
+                    <view bindtap="goPage" data-url="../index/index" wx:else>
+                        <image mode="widthFix" src="../../common/img/home.png"></image>首页</view>
+                </view>
+            </view>
+            <view class="flex-tab flex-middle-tab">
+                <view class="tab-share">
+                    <button bindgetuserinfo="exhibitonGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                        <image mode="widthFix" src="../../common/img/onlinelooking.png"></image>展会</button>
+                    <view bindtap="goPage" data-url="../exhibition/exhibition" wx:else>
+                        <image mode="widthFix" src="../../common/img/onlinelooking.png"></image>展会</view>
+                </view>
+            </view>
+            <view class="flex-tab tab-ticket">
+                <button bindgetuserinfo="personGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                    <image mode="widthFix" src="../../common/img/personal.png"></image>个人中心</button>
+                <view bindtap="goPage" data-url="../person/person" wx:else>
+                    <image mode="widthFix" src="../../common/img/personal.png"></image>个人中心</view>
+            </view>
+        </view>
+    </view>
+</view>

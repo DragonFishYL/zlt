@@ -1,0 +1,22 @@
+<import src="../../wxParse/wxParse.wxml"></import>
+<view class="su-wrapper">
+    <view class="page-box">
+        <view class="inner">
+            <view class="page-list content">
+                <view class="exhibition_top">
+                    <view bindtap="ticket" class="main_details clearfix" data-id="{{item.id}}" data-uname="{{item.uname}}" wx:for="{{exhibitionList}}" wx:key="*this">
+                        <image src="{{item.thumbnail}}"></image>
+                        <view class="main_details_div">
+                            <view class="li_one"> {{item.name}}</view>
+                            <view class="li_two">{{item.setTime}}</view>
+                            <view class="li_three">
+                                <text class="three_l">{{item.zgName}}</text>
+                                <text class="three_r">{{item.timeDeff}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

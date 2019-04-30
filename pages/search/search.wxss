@@ -1,0 +1,84 @@
+.search_push {
+    width: 100%;
+    background: white;
+    position: absolute;
+    top: 0rpx;
+    z-index: 1000;
+}
+
+.historys {
+    width: 700rpx;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 10rpx;
+}
+
+.historys>view {
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    font-size: 30rpx;
+}
+
+.history_image>image {
+    float: left;
+    width: 5%;
+    margin-top: 30rpx;
+}
+
+.input_div {
+    width: 90%;
+    height: 80rpx;
+    line-height: 80rpx;
+    border: 2rpx solid #ddd;
+    margin: 10rpx auto 0;
+    position: relative;
+    border-radius: 10rpx;
+}
+
+.input_div input {
+    float: left;
+    width: 85%;
+    height: 75rpx;
+    line-height: 75rpx;
+    border: none;
+    font-size: 30rpx;
+}
+
+.seachHistroy {
+    width: 90%;
+    height: 85rpx;
+    line-height: 85rpx;
+    float: left;
+    border-bottom: 2rpx solid #ddd;
+    margin-left: 20rpx;
+}
+
+.cancel_history {
+    width: auto;
+    position: fixed;
+    bottom: 40rpx;
+    font-size: 30rpx;
+    color: #333;
+    margin-left: 285rpx;
+}
+
+.cancel_history>image {
+    float: left;
+    width: 38rpx;
+}
+
+.cancel_history>text {
+    float: left;
+    margin-left: 30rpx;
+    line-height: 45rpx;
+}
+
+.search_result {
+    width: 100%;
+    position: absolute;
+    top: 150rpx;
+    z-index: 10;
+    color: #000;
+    text-align: center;
+}

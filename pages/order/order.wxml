@@ -1,0 +1,154 @@
+<import src="../../wxParse/wxParse.wxml"></import>
+<import src="../../template/tabbar/tabbar.wxml"></import>
+<form bindreset="formReset" bindsubmit="formSubmit">
+    <view class="su-wrapper">
+        <view class="form-sign">
+            <view class="su-container">
+                <view class="sign-item">
+                    <text>手机号:</text>
+                    <input bindinput="testMobileLength" class="input mobile" name="phone" placeholder="请输入手机号" type="number"></input>
+                </view>
+                <view class="sign-item">
+                    <text>验证码:</text>
+                    <input bindinput="testCode" class="input code" name="code" placeholder="请输入验证码" type="number"></input>
+                    <text bindtap="getValidCode" class="getCode {{testMobile?!isSending?'':'disabled1':'disabled'}}" wx:if="{{!userLogin}}">{{isSendingTxt}}</text>
+                    <view class="rightBtn" wx:if="{{userLogin}}">
+                        <image mode="widthFix" src="../../common/img/right.png"></image>
+                    </view>
+                </view>
+                <view class="item-top">
+                    <view class="item-name">参展信息</view>
+                    <view class="sign-item">
+                        <text>真实姓名<text class="error">*</text>
+                        </text>
+                        <input class="input mobile" name="authName" placeholder="请输入真实姓名" type="text" value="{{authName}}"></input>
+                    </view>
+                    <view class="sign-item">
+                        <text>企业名称<text class="error">*</text>
+                        </text>
+                        <input class="input mobile" name="busiName" placeholder="请填写正确的企业名称" type="text" value="{{busiName}}"></input>
+                    </view>
+                    <view class="sign-item">
+                        <text>企业电话<text class="error">*</text>
+                        </text>
+                        <input class="input mobile" name="busiPhone" placeholder="请填写准确的企业电话" type="text" value="{{busiPhone}}"></input>
+                    </view>
+                    <view class="sign-item">
+                        <text>电子邮箱<text class="error">*</text>
+                        </text>
+                        <input class="input mobile" name="authEmail" placeholder="请填写准确的电子邮箱" type="text" value="{{authEmail}}"></input>
+                    </view>
+                    <view class="sign-item">
+                        <text>企业地址<text class="error">*</text>
+                        </text>
+                        <input class="input mobile" name="busiAddress" placeholder="请填写准确的企业详细地址" type="text" value="{{busiAddress}}"></input>
+                    </view>
+                    <view class="sign-item">
+                        <text>参展产品<text class="error">*</text>
+                        </text>
+                        <input class="input mobile" name="einfos" placeholder="请填写本次展会现场参展展品" type="text" value="{{einfos}}"></input>
+                    </view>
+                    <view class="sign-item">
+                        <text>展位编号<text class="error">*</text>
+                        </text>
+                        <input class="input mobile" name="title" placeholder="请详细填写参展展位号" type="text" value="{{title}}"></input>
+                    </view>
+                </view>
+                <view class="item-top">
+                    <view class="item-name">订单信息</view>
+                    <view class="order-item">
+                        <text>展位类型：</text>
+                        <text>{{gtype}}</text>
+                    </view>
+                    <view class="order-item">
+                        <text>单价：</text>
+                        <text>{{price}}<text wx:if="{{pricedanwei!=null}}">{{pricedanwei}}</text>
+                            <block wx:else>元</block>
+                        </text>
+                        <text class="total">{{total}}<text wx:if="{{pricedanwei!=null}}">{{pricedanwei}}</text>
+                            <block wx:else>元</block>
+                        </text>
+                        <text wx:if="{{dtype!='暂无优惠'}}">
+                            <text class="orange">{{dtype}}<text wx:if="{{discount!=null}}">{{discount}}</text>
+                            </text>
+                        </text>
+                    </view>
+                    <view class="order-item">
+                        <text>展位名称：</text>
+                        <text>{{name}}</text>
+                    </view>
+                    <view class="order-item">
+                        <text>展位规格：</text>
+                        <text>{{area}}<text wx:if="{{areadanwei!=null}}">{{areadanwei}}</text>
+                            <block wx:else>m²</block>（{{glength}}<block wx:if="{{item.areadanwei=='sqft'}}">ft</block>
+                            <block wx:else>m</block>*{{gwidth}}<block wx:if="{{item.areadanwei=='sqft'}}">ft</block>
+                            <block wx:else>m</block>）</text>
+                    </view>
+                    <view class="order-item">
+                        <text>展位配置：</text>
+                        <text>
+                            <block wx:if="{{config1!='0'}}">楣板*{{config1}};</block>
+                            <block wx:if="{{config11!='0'}}">射灯*{{config11}};</block>
+                            <block wx:if="{{config12!='0'}}">墙板*{{config12}};</block>
+                            <block wx:if="{{config2!='0'}}">地毯*{{config2}};</block>
+                            <block wx:if="{{config8!='0'}}">层板*{{config8}};</block>
+                            <block wx:if="{{config9!='0'}}">垃圾篓*{{config9}};</block>
+                            <block wx:if="{{config10!='0'}}">资料架*{{config10}};</block>
+                            <block wx:if="{{config7!='0'}}">洽谈椅*{{config7}};</block>
+                            <block wx:if="{{config6!='0'}}">洽谈圆桌*{{config6}};</block>
+                            <block wx:if="{{config5!='0'}}">洽谈方桌*{{config5}};</block>
+                            <block wx:if="{{config3!='0'}}">咨询台（带锁）*{{config3}};</block>
+                            <block wx:if="{{config4!='0'}}">咨询台（无锁）*{{config4}};</block>
+                            <block wx:if="{{config14!='0'}}">电源无插座*{{config14}};</block>
+                            <block wx:if="{{config13!='0'}}">电源有插座*{{config13}}</block>
+                        </text>
+                    </view>
+                    <view class="order-item">
+                        <text>面积：</text>
+                        <text>{{e_area}}<text wx:if="{{areadanwei!=null}}">{{areadanwei}}</text>
+                            <block wx:else>m²</block>
+                        </text>
+                    </view>
+                </view>
+                <view class="item-top">
+                    <view class="item-name">订单信息</view>
+                    <view class="order-item">
+                        <text>订单金额：</text>
+                        <text>￥{{newtotal}}<text wx:if="{{pricedanwei!=null}}">{{pricedanwei}}</text>
+                            <block wx:else>元</block>
+                        </text>
+                    </view>
+                    <view class="order-item">
+                        <text class="pay">支付方式：</text>
+                        <view style="margin-left:200rpx;">
+                            <view bindtap="clickName" class="detail {{_num==3?'active':'add_citying'}}" data-num="3">全额支付<image src="../../common/img/822_details_7.png"></image>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="order-item" hidden="{{merchantDispay}}">
+                        <text class="pay">首付比例：</text>
+                        <view style="margin-left:200rpx;">
+                            <picker bindchange="sexPickerChange" range="{{sex}}" value="{{pindex}}">
+                                <view class="picker">
+                                    <button type="default">{{selectSex}}</button>
+                                </view>
+                            </picker>
+                        </view>
+                    </view>
+                    <view class="order-item">
+                        <text>应付金额：</text>
+                        <text>￥{{newtotal}}<text wx:if="{{pricedanwei!=null}}">{{pricedanwei}}</text>
+                            <block wx:else>元</block>
+                        </text>
+                    </view>
+                    <view class="order-item" hidden="{{merchantDispay}}">
+                        <text>尾款：</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="cbooth-view clearfix">
+            <button formType="submit">提交订单</button>
+        </view>
+    </view>
+</form>

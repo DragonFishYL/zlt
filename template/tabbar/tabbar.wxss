@@ -1,0 +1,60 @@
+.tabbar {
+    position: fixed;
+    bottom: 0rpx;
+    left: 0rpx;
+    width: 100%;
+    background: #ffffff;
+    height: 98rpx;
+    border-top: 1rpx solid #ededed;
+    font-size: 30rpx;
+    z-index: 555;
+}
+
+.tabbar .tab-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.tabbar .tab-main>view {
+    flex: 1;
+    text-align: center;
+}
+
+.flex-tab image {
+    width: 40rpx;
+    margin-right: 15rpx;
+    height: 40rpx;
+    margin-top: 4rpx;
+}
+
+.flex-tab>view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    position: relative;
+}
+
+.flex-tab .tab-share>view,.flex-tab .tab-share>button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.flex-tab>.tab-ticket {
+    background: #e70012;
+    color: #fff;
+    border-radius: 10rpx;
+    height: 66rpx;
+    font-size: 34rpx;
+    font-weight: bold;
+}
+
+.flex-tab .tab-ticket>view,.flex-tab .tab-ticket>button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

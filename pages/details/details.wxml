@@ -1,0 +1,237 @@
+<import src="../../wxParse/wxParse.wxml"></import>
+<import src="../../template/tabbar/tabbar.wxml"></import>
+<view class="su-wrapper">
+    <view class="page-box">
+        <view class="page-list" style="position:relative">
+            <view class="offer_time">
+                <view bindtap="goIndex" class="return">返回首页</view>
+                <view>距离展会开幕还有：<text id="day">{{exhibitionTime}}</text>
+                </view>
+            </view>
+            <view class="banner">
+                <image mode="widthFix" src="{{exhibitionThumbnail}}"></image>
+            </view>
+            <view class="offer_title">
+							{{exhibitionName}}				
+						</view>
+            <view class="offer_money">
+                <text wx:if="{{minPrice!='0'}}">
+                    <text class="orange">{{minPrice}}<text wx:if="{{pricedanwei!=null}}">{{pricedanwei}}</text>
+                        <block wx:else>元</block>/{{minarea}}<text wx:if="{{areadanwei!=null}}">{{areadanwei}}</text>
+                        <block wx:else>m²</block>起</text>
+                </text>
+                <text class="om_2" wx:if="{{average!='0'}}">均价： <text>{{average}}<text wx:if="{{pricedanwei!=null}}">{{pricedanwei}}</text>
+                        <block wx:else>元</block>/<text wx:if="{{areadanwei!=null}}">{{areadanwei}}</text>
+                        <block wx:else>m²</block>
+                    </text>
+                </text>
+                <text class="om_2" wx:if="{{positionCount!=0}}">单品：<text>{{positionCount}}</text>个</text>
+            </view>
+            <view class="gray"></view>
+            <view class="offer_ul clearfix">
+                <view>
+                    <text class="ul_time">开展时间：</text> {{stime}}</view>
+                <view>
+                    <text class="ul_time">展会地址：</text>
+                    <text decode="{{true}}" space="{{true}}"> {{address}}</text>
+                </view>
+                <view>
+                    <text class="ul_time">举办展馆：</text> {{pid}}</view>
+                <view id="last_li_one">
+                    <view class="ul_time ul_time_f">
+                        <text style="color:white">主</text>主办方： </view>
+                    <view class="ul_time_s">
+                        <text wx:for="{{chosts}}" wx:key="unique">{{item}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="gray"></view>
+            <view class="offer_ul_two" id="wrapper" style="overflow: hidden; position: relative;">
+                <view class="scroll clearfix" style="position: absolute; top: 0px; left: 0px;">
+                    <view class="swiper-slide" wx:if="{{exPosition_biao!=null||exPosition_guang!=null}}">
+                        <view bindtap="merchant" class="words" data-num="1">商家报价</view>
+                        <text class="offer_ul_two_blue" hidden="{{merchantDispay}}"></text>
+                    </view>
+                    <view class="swiper-slide">
+                        <view bindtap="introduce" class="words words_zhjs" data-num="2">展会介绍</view>
+                        <text class="offer_ul_two_blue" hidden="{{introduceDispay}}"></text>
+                    </view>
+                </view>
+            </view>
+            <view class="words_div words_1" hidden="{{merchantDispay}}">
+                <view class="main_content" wx:if="{{exPosition_biao!=null}}">
+                    <view class="main_title">标展</view>
+                    <view class="main_content_two" wx:for="{{exPosition_biao}}" wx:key="{{index}}">
+                        <view class="main_content_two_t">{{item.name}} </view>
+                        <view class="main_content_two_m">
+                            <text class="orange2">{{item.newtotal}}<text wx:if="{{item.pricedanwei!=null}}">{{item.pricedanwei}}</text>
+                                <block wx:else>元</block>/<text>{{item.area}}<text wx:if="{{item.areadanwei!=null}}">{{item.areadanwei}}</text>
+                                    <block wx:else>m²</block>
+                                </text>
+                            </text>
+                            <block wx:if="{{item.dtype!='暂无优惠'}}">
+                                <text class="orange3">{{item.total}}<text wx:if="{{item.pricedanwei!=null}}">{{item.pricedanwei}}</text>
+                                    <block wx:else>元</block>/<text>{{item.area}}<text wx:if="{{item.areadanwei!=null}}">{{item.areadanwei}}</text>
+                                        <block wx:else>m²</block>
+                                    </text>
+                                </text>
+                                <text class="orange2">{{item.dtype}}<text wx:if="{{item.discount!=null}}">{{item.discount}}</text>
+                                </text>
+                            </block>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="words_div words_1" hidden="{{merchantDispay}}">
+                <view class="main_content" wx:if="{{exPosition_guang!=null}}">
+                    <view class="main_title">光地</view>
+                    <view class="main_content_two" wx:for="{{exPosition_guang}}" wx:key="{{index}}">
+                        <view class="main_content_two_t">{{item.name}} </view>
+                        <view class="main_content_two_m">
+                            <text class="orange2">{{item.newtotal}}<text wx:if="{{item.pricedanwei!=null}}">{{item.pricedanwei}}</text>
+                                <block wx:else>元</block>/<text>{{item.area}}<text wx:if="{{item.areadanwei!=null}}">{{item.areadanwei}}</text>
+                                    <block wx:else>m²</block>
+                                </text>
+                            </text>
+                            <block wx:if="{{item.dtype!='暂无优惠'}}">
+                                <text class="orange3">{{item.total}}<text wx:if="{{item.pricedanwei!=null}}">{{item.pricedanwei}}</text>
+                                    <block wx:else>元</block>/<text>{{item.area}}<text wx:if="{{item.areadanwei!=null}}">{{item.areadanwei}}</text>
+                                        <block wx:else>m²</block>
+                                    </text>
+                                </text>
+                                <text class="orange2">{{item.dtype}}<text wx:if="{{item.discount!=null}}">{{item.discount}}</text>
+                                </text>
+                            </block>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="words_div words_1" hidden="{{merchantDispay}}">
+                <view class="main_content">
+                    <view class="main_title main_phone">客服电话:</view>
+                    <text>{{phone}}</text>
+                    <button bindgetuserinfo="buyGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                        <text class="baoming">立即订展</text>
+                    </button>
+                    <block wx:else>
+                        <text bindtap="goPage" class="query" data-url="../buy/buy" id="go" wx:if="{{isOverTime!='已开展'}}">
+                            <text class="query_e">立即抢购</text>
+                        </text>
+                    </block>
+                </view>
+            </view>
+            <view bindtap="viewDetail" class="look_details" data-n="1" hidden="{{merchantDispay}}">查看详情</view>
+            <view class="words_div words_2" hidden="{{introduceDispay}}">
+                <view>
+                    <view class="related_title related_title2">展会介绍</view>
+                    <view class="introduce" style="height:{{height}}">
+                        <text decode="{{true}}" space="{{true}}">{{describe}}</text>
+                    </view>
+                    <view bindtap="jieshao" class="all" data-n="1" data-name="{{jieshao}}" style="margin-top: 40rpx;">{{jieshao}}</view>
+                </view>
+                <view>
+                    <view class="related_title related_title2">展品分类</view>
+                    <view class="introduce introduce2" style="height:{{zhanpin}}">
+                        <text decode="{{true}}" space="{{true}}"> {{range}}</text>
+                    </view>
+                    <view bindtap="fenlei" class="all" data-n="1" data-name="{{fenlei}}" style="margin-top: 40rpx;">{{fenlei}}</view>
+                </view>
+                <view>
+                    <view class="related_title related_title2 related_title3">市场分析</view>
+                    <view class="introduce" style="height:{{shichang}}">
+                        <text decode="{{true}}" space="{{true}}">{{previousreview}}</text>
+                    </view>
+                    <view bindtap="fenxi" class="all" data-n="1" data-name="{{fenxi}}" style="margin-top: 40rpx;">{{fenxi}}</view>
+                </view>
+            </view>
+            <view class="words_div words_3" hidden="{{commentDispay}}">
+                <form bindsubmit="bindFormSubmit">
+                    <textarea id="textarea" maxlength="255" name="" placeholder="请发表评论"></textarea>
+                    <view class="publish_div clearfix">
+                        <view class="whitemore">最多填写<text>255</text>个字符</view>
+                        <button class="publish" formType="submit">发表</button>
+                    </view>
+                </form>
+            </view>
+            <view class="gray"></view>
+            <view class="related">
+                <view class="recommendation clearfix">
+                    <view class="related_title">相关推荐</view>
+                    <view bindtap="details" class="recommendation_li clearfix" data-id="{{item.id}}" wx:for="{{moreExPositions}}" wx:key="*this">
+                        <image class="pics" src="{{item.thumbnail}}"></image>
+                        <view class="recommendation_r clearfix">
+                            <view class="recommendation_r_title">{{item.name}}</view>
+                            <view class="recommendation_r_time">{{item.seTime}}</view>
+                            <view class="recommendation_r_money">
+                                <text hidden="{{item.Parea==0||!item.Parea}}">{{item.Parea}}<text wx:if="{{item.pricedanwei!=null}}">{{item.pricedanwei}}</text>
+                                    <block wx:else>元</block>
+                                    <text>/{{item.area}}<text wx:if="{{item.areadanwei!=null}}">{{item.areadanwei}}</text>
+                                        <block wx:else>m²</block>起</text>
+                                </text>
+                                <text class="orange" wx:if="{{item.dtype!='暂无优惠'}}">{{item.dtype}}<text wx:if="{{item.discount!=null}}">{{item.discount}}</text>
+                                </text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="gray"></view>
+        </view>
+    </view>
+    <view class="tabbar">
+        <view class="tab-main">
+            <view class="flex-tab">
+                <button bindgetuserinfo="serviceGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                    <image alt="" src="../../common/img/Merchant_offer_kf.png"></image>客服</button>
+                <view bindtap="goPage" class="share" data-url="../service/service" go="goshare" wx:else>
+                    <image alt="" src="../../common/img/Merchant_offer_kf.png"></image>客服
+		        		</view>
+            </view>
+            <view class="flex-tab">
+                <button bindgetuserinfo="collectGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                    <image alt="" src="../../common/img/Merchant_offer_b.png" wx:if="{{exhibitioncollect==1}}"></image>
+                    <image alt="" src="../../common/img/Merchant_offer_sc.png" wx:else></image>
+		         			  收藏
+		      			</button>
+                <view bindtap="collect" class="share" id="goticket" wx:else>
+                    <image alt="" src="../../common/img/Merchant_offer_b.png" wx:if="{{exhibitioncollect==1}}"></image>
+                    <image alt="" src="../../common/img/Merchant_offer_sc.png" wx:else></image>
+		         			  收藏
+		       		 		</view>
+            </view>
+            <view class="flex-tab">
+                <button bindgetuserinfo="shareGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                    <image alt="" src="../../common/img/u359.png"></image>分享</button>
+                <view bindtap="goShare" class="share" data-url="../share/share" id="goindex" wx:else>
+                    <image alt="" src="../../common/img/u359.png"></image>分享
+			       		 </view>
+            </view>
+            <view class="flex-tab" wx:if="{{isOverTime!='已开展'}}">
+                <block wx:if="{{!hasUserInfo&&canIUse}}">
+                    <block wx:if="{{isExamine==1}}">
+                        <button bindgetuserinfo="ticketGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                            <view class="share" id="goindex">
+                                <button class="baoming">我的电子票</button>
+                            </view>
+                        </button>
+                    </block>
+                    <block wx:else>
+                        <button bindgetuserinfo="signUpGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                            <view class="share" id="goindex">
+                                <button class="baoming">观展报名</button>
+                            </view>
+                        </button>
+                    </block>
+                </block>
+                <block wx:else>
+                    <view bindtap="goTicket" class="share" id="goindex" wx:if="{{isExamine==1}}">
+                        <button class="baoming">我的电子票</button>
+                    </view>
+                    <view bindtap="goPage" class="share" data-url="../signUp/signUp" id="goindex" wx:else>
+                        <button class="baoming">观展报名</button>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+</view>

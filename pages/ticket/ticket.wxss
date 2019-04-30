@@ -1,0 +1,114 @@
+page {
+    background-color: #eff2f4;
+}
+
+page.tool {
+    padding-bottom: 98rpx;
+}
+
+.kd-wrapper {
+    background: #fff;
+    margin: 24rpx;
+    height: 100%;
+    border-radius: 8rpx;
+    box-shadow: 0rpx 0rpx 12rpx #D6CFCF;
+}
+
+.item {
+    border-bottom: 2rpx solid #f1f1f1;
+}
+
+.su-ticket>.item {
+    padding: 20rpx 0;
+}
+
+.su-ctem {
+    display: flex;
+    align-items: center;
+    direction: row;
+}
+
+.su-ctem>image {
+    width: 40rpx;
+    margin-right: 22rpx;
+    height: 40rpx;
+}
+
+.qcode {
+    margin-bottom: 74rpx;
+}
+
+.qcode>image {
+    width: 340rpx;
+    height: 387rpx;
+    display: block;
+    margin: 20rpx auto;
+    border: 2rpx solid #ddd;
+}
+
+.qcode .number {
+    width: 525rpx;
+    height: 72rpx;
+    display: block;
+    margin: 0 auto;
+    background: #f7f7f7;
+    text-align: center;
+    line-height: 72rpx;
+    border-radius: 8rpx;
+    margin-top: 90rpx;
+    margin-bottom: 27rpx;
+    font-size: 30rpx;
+}
+
+.line {
+    height: 32rpx;
+    display: block;
+    margin-top: 20rpx;
+    position: absolute;
+    top: 412rpx;
+    width: 100%;
+}
+
+.line:after {
+    content: "";
+    width: 32rpx;
+    height: 32rpx;
+    display: block;
+    border-radius: 50%;
+    background: #eff2f4;
+    box-shadow: -4rpx 0 2rpx #D6CFCF inset;
+    margin-left: 8rpx;
+    float: left;
+    margin-top: -16rpx;
+}
+
+.line:before {
+    content: "";
+    width: 32rpx;
+    height: 32rpx;
+    display: block;
+    border-radius: 50%;
+    background: #eff2f4;
+    box-shadow: 4rpx 0 2rpx #D6CFCF inset;
+    margin-right: 8rpx;
+    float: right;
+}
+
+.line .line-ret {
+    display: block;
+    border-bottom: 1rpx dashed #dedede;
+    margin: 0rpx 16rpx;
+    padding-top: 16rpx;
+}
+
+.shareImg {
+    width: 750px;
+    height: 1108px;
+    position: fixed;
+    top: 0;
+    left: 999px;
+}
+
+.su-ticket .pitem {
+    font-size: 30rpx;
+}

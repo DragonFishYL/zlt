@@ -1,0 +1,272 @@
+page {
+    background: #f2f2f2;
+    font-family: 'Microsoft YaHei';
+}
+
+.su-banner {
+    width: 100%;
+}
+
+.page-box {
+    width: 100%;
+}
+
+.page-list {
+    height: auto;
+}
+
+.page-list {
+    width: 100%;
+}
+
+.details {
+    width: 100%;
+    height: auto;
+    padding-top: 40rpx;
+    background: #f2f2f2;
+}
+
+.swiper-container {
+    height: 1212rpx;
+}
+
+.mymain {
+    width: 95%;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    background: #fff;
+    border-radius: 30rpx;
+}
+
+.mymain_b {
+    border-radius: 10rpx 10rpx 0 0;
+}
+
+.mymain_b>image {
+    width: 100%;
+    height: 160rpx;
+}
+
+.mymain_one_name>text {
+    font-size: 34rpx;
+    color: #fff;
+}
+
+.mymain_content_one {
+    width: 660rpx;
+    height: 50rpx;
+    margin: 0 auto;
+    line-height: 50rpx;
+    margin-top: 52rpx;
+}
+
+.mymain_content_one .zhangsan {
+    display: block;
+    height: 50rpx;
+    line-height: 50rpx;
+    float: left;
+    font-size: 30rpx;
+    color: #333;
+}
+
+.mymain_content_one_r {
+    float: right;
+    width: 144rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+.mymain_content_one_r>image {
+    width: 40rpx;
+    margin-left: 38rpx;
+    float: left;
+    height: 40rpx;
+}
+
+.mymain_content_one_r_share {
+    height: 50rpx;
+    line-height: 50rpx;
+    display: inline-block;
+    font-size: 24rpx;
+    color: #999;
+    float: right;
+}
+
+.mymain_content_two_m {
+    margin: 0 auto;
+    width: 660rpx;
+    height: auto;
+    margin-top: 19rpx;
+    margin-bottom: 42rpx;
+}
+
+.mymain_content_two_m>text {
+    float: left;
+    display: inline-block;
+    font-size: 24rpx;
+}
+
+.mymain_content_two_m>view {
+    float: left;
+    margin-right: 100rpx;
+}
+
+.orange2 {
+    font-size: 34rpx;
+    color: #fc6709;
+}
+
+.mymain_content_four {
+    margin: 0 auto;
+    width: 660rpx;
+    height: auto;
+}
+
+.mymain_content_four_title {
+    font-size: 28rpx;
+    color: #3399ff;
+    padding: 10rpx 0 10rpx 0;
+    border-top: 2rpx solid #e8e8e8;
+}
+
+.mymain_content_four_type {
+    font-size: 28rpx;
+    color: #3399ff;
+    padding: 10rpx 0 10rpx 0;
+}
+
+.mymain_content_four_div {
+    margin: 0 auto;
+    width: 660rpx;
+    height: auto;
+    margin-bottom: 15rpx;
+}
+
+.mymain_content_four_div>view {
+    font-size: 28rpx;
+    color: #616161;
+}
+
+.detail {
+    position: relative;
+    border: 1rpx solid #ddd;
+    padding: 10rpx 30rpx;
+}
+
+.four_div_li_l {
+    float: left;
+    margin-right: 47rpx;
+}
+
+.mymain_content_four_div2>view {
+    float: left;
+    width: 130rpx;
+}
+
+.four_div_li_r {
+    float: left;
+}
+
+.four_div_one {
+    margin-right: 44rpx;
+}
+
+.four_div_two {
+    margin-right: 36rpx;
+}
+
+.four_div_three {
+    margin-right: 43rpx;
+}
+
+.four_div_li_l2 {
+    margin-right: 110rpx!important;
+}
+
+.four_div_li_l2,.four_div_li_r2 {
+    width: 232rpx!important;
+}
+
+.orange1 {
+    border: 2rpx solid #ff0000;
+    color: #ff0000;
+    padding: 10rpx;
+}
+
+.cbooth-view {
+    margin: 20rpx 0;
+}
+
+.cbooth-view>view {
+    display: inline-block;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    color: #3399ff;
+}
+
+.mymain>swiper {
+    height: 1202rpx;
+}
+
+.baoming {
+    background: #3399ff;
+    width: 190rpx;
+    height: 76rpx;
+    text-align: center;
+    line-height: 76rpx;
+    font-size: 30rpx;
+    color: white;
+    margin-right: 15rpx;
+}
+
+.cbooth-view>button {
+    margin: 0 auto;
+    text-align: center;
+    width: 200rpx;
+    background: #3399ff;
+    color: #fff;
+    margin-bottom: 40rpx;
+}
+
+.price>view {
+    display: inline-block;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.four_div_li_l>image {
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    bottom: 0;
+    display: none;
+    right: 0;
+}
+
+.active>image {
+    display: block;
+}
+
+.number {
+    border: 2rpx solid #ddd;
+    padding: 10rpx;
+}
+
+.money {
+    color: #3399ff;
+    font-size: 100rpx;
+    position: absolute;
+    top: -50rpx;
+}
+
+.active {
+    border: 2rpx solid #3399ff;
+}

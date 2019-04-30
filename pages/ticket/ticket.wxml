@@ -1,0 +1,49 @@
+<import src="../../template/tabbar/tabbar.wxml"></import>
+<view class="kd-wrapper">
+    <scroll-view scrollY style="height: {{height}}" wx:if="{{canShow}}">
+        <view class="su-container su-ticket">
+            <view class="item">
+                <text>{{name}} ({{phone}})</text>
+            </view>
+            <view class="item">
+                <text class="su-title">{{title}}</text>
+            </view>
+            <view class="item pitem">
+                <view class="su-ctem">
+                    <text class="icon-time" style="color:{{color}}"></text>
+               {{setTime}}
+          </view>
+            </view>
+            <view class="item pitem">
+                <view class="su-ctem">
+                    <text class="icon-address" style="color:{{color}}"></text>
+              {{address}}
+          </view>
+            </view>
+        </view>
+        <view class="qcode">
+            <view class="number">{{barcode}}</view>
+            <image mode="widthFix" src="{{qrcode}}"></image>
+        </view>
+    </scroll-view>
+    <canvas canvasId="shareImg" class="shareImg"></canvas>
+    <view class="tabbar">
+        <view class="tab-main">
+            <view class="flex-tab">
+                <view bindtap="goShare" class="tab-share" data-url="../share/share" id="goshare">
+                    <text class="icon-share" style="color:{{color}}"></text>分享
+        </view>
+            </view>
+            <view class="flex-tab">
+                <view bindtap="saveTicket" class="button tab-ticket" id="goticket" style="background:{{color}}">
+                    <image mode="widthFix" src="../../common/img/check.png"></image>保存电子票
+        </view>
+            </view>
+            <view class="flex-tab">
+                <view bindtap="goIndexPage" class="tab-share" data-url="../details/details" id="goindex">
+                    <text class="icon-home" style="color:{{color}}"></text>返回展会
+        </view>
+            </view>
+        </view>
+    </view>
+</view>

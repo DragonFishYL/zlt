@@ -1,0 +1,261 @@
+page {
+    background: #f2f2f2;
+    font-family: 'Microsoft YaHei';
+}
+
+.su-banner {
+    width: 100%;
+}
+
+.page-box {
+    width: 100%;
+}
+
+.page-list {
+    height: auto;
+}
+
+.page-list {
+    width: 100%;
+}
+
+.details {
+    width: 100%;
+    height: auto;
+    padding-top: 40rpx;
+    background: #f2f2f2;
+}
+
+.swiper-container {
+    height: 1050rpx;
+}
+
+.mymain {
+    width: 720rpx;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+}
+
+.mymain_one {
+    width: 720rpx;
+    height: 100%;
+    overflow: hidden;
+}
+
+.mymain_one_title {
+    width: 100%;
+    height: 34rpx;
+    margin-top: 45rpx;
+    font-size: 34rpx;
+    color: #fff;
+    margin-bottom: 28rpx;
+}
+
+.mymain_one_title>text {
+    float: left;
+}
+
+.mymain_one_name .name {
+    margin-left: 74rpx;
+    width: 152rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mymain_one_name .phone {
+    margin-left: 56rpx;
+}
+
+.mymain_one_name>text {
+    font-size: 34rpx;
+    color: #fff;
+}
+
+.mymain_content_one {
+    width: 660rpx;
+    height: 50rpx;
+    margin: 0 auto;
+    line-height: 50rpx;
+    margin-top: 10rpx;
+}
+
+.mymain_content_one .zhangsan {
+    display: block;
+    height: 50rpx;
+    line-height: 50rpx;
+    float: left;
+    font-size: 30rpx;
+    color: #333;
+}
+
+.mymain_content_one_r {
+    float: right;
+    width: 144rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+.mymain_content_one_r>image {
+    width: 40rpx;
+    margin-left: 38rpx;
+    float: left;
+    height: 40rpx;
+}
+
+.mymain_content_one_r_share {
+    height: 50rpx;
+    line-height: 50rpx;
+    display: inline-block;
+    font-size: 24rpx;
+    color: #999;
+    float: right;
+}
+
+.mymain_content_two_m {
+    margin: 0 auto;
+    width: 660rpx;
+    height: auto;
+    margin-bottom: 42rpx;
+}
+
+.mymain_content_two_m>text {
+    float: left;
+    display: inline-block;
+    font-size: 24rpx;
+}
+
+.mymain_content_two_m>view {
+    float: left;
+    margin-top: 25rpx;
+}
+
+.mymain_content_two_m>view>view {
+    margin-right: 20rpx;
+    display: inline-block;
+}
+
+.orange2 {
+    font-size: 34rpx;
+    color: #fc6709;
+}
+
+.orange3 {
+    font-size: 30rpx;
+    color: #616161;
+    text-decoration: line-through;
+}
+
+.mymain_content_four {
+    margin: 0 auto;
+    width: 660rpx;
+    height: auto;
+}
+
+.mymain_content_four_title {
+    font-size: 28rpx;
+    color: #3399ff;
+    padding: 18rpx 0 18rpx 0;
+    border-top: 2rpx solid #e8e8e8;
+}
+
+.mymain_content_four_div {
+    margin: 0 auto;
+    width: 660rpx;
+    height: auto;
+    margin-bottom: 15rpx;
+}
+
+.mymain_content_four_div>view {
+    width: 264rpx;
+    font-size: 28rpx;
+    color: #616161;
+}
+
+.four_div_li_l {
+    float: left;
+    margin-right: 47rpx;
+}
+
+.mymain_content_four_div2>view {
+    float: left;
+    width: 132rpx;
+}
+
+.four_div_li_r {
+    float: left;
+}
+
+.four_div_one {
+    margin-right: 44rpx;
+}
+
+.four_div_two {
+    margin-right: 36rpx;
+}
+
+.four_div_three {
+    margin-right: 44rpx;
+}
+
+.four_div_li_l2,.four_div_li_r2 {
+    width: 232rpx!important;
+}
+
+.orange1 {
+    border: 1rpx solid #ff0000;
+    color: #ff0000;
+    padding: 10rpx;
+}
+
+.cbooth-view {
+    margin: 30rpx 0;
+}
+
+.cbooth-view>view {
+    display: inline-block;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    color: #3399ff;
+}
+
+.mymain>swiper {
+    height: 1050rpx;
+    background: #fff;
+}
+
+.baoming {
+    background: #3399ff;
+    width: 190rpx;
+    height: 76rpx;
+    text-align: center;
+    line-height: 76rpx;
+    font-size: 30rpx;
+    color: white;
+    margin-right: 15rpx;
+    border-radius: 10rpx;
+}
+
+.mymain-b {
+    border-radius: 10rpx 10rpx 0 0;
+}
+
+.mymain-b>image {
+    width: 100%;
+    height: 160rpx;
+}
+
+.mymain-f {
+    background: #fff;
+    border-radius: 0rpx 0rpx 10rpx 10rpx;
+    padding: 10rpx 0;
+    height: 850rpx;
+}
+
+.mymain_content_four_div>image {
+    float: right;
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 100rpx;
+}

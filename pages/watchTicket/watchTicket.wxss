@@ -1,0 +1,263 @@
+page {
+    background: #f2f2f2;
+}
+
+.page-box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    box-orient: vertical;
+    flex-direction: column;
+}
+
+.inner {
+    -webkit-box-flex: 1;
+    flex: 1;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.page-list {
+    width: 100%;
+    height: auto;
+}
+
+.content {
+    margin: 0 auto;
+    position: relative;
+}
+
+.input_div_search {
+    width: 100%;
+    height: 132rpx;
+    background: white;
+    position: fixed;
+    top: 0;
+}
+
+.main_input {
+    width: 700rpx;
+    height: 90rpx;
+    margin-left: 30rpx;
+    margin-top: 22rpx;
+    padding: 30rpx;
+    border: 2rpx solid #ddd;
+    border-radius: 6rpx;
+    font-size: 30rpx;
+    color: #333;
+}
+
+.main_details {
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 25rpx;
+    background: white;
+    background: #fff;
+}
+
+.main_details>image {
+    width: 40%;
+    height: 140rpx;
+    border-radius: 10rpx;
+    float: left;
+}
+
+.main_details_div {
+    width: 57%;
+    float: right;
+}
+
+.li_one {
+    line-height: 40rpx;
+    margin-top: 10rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: 34rpx;
+    color: #333;
+    white-space: nowrap;
+}
+
+.li_two {
+    margin-top: 10rpx;
+    color: #616161;
+    font-size: 30rpx;
+}
+
+.li_two>text {
+    margin-left: 100rpx;
+}
+
+.li_three {
+    color: #616161;
+    font-size: 25rpx;
+    margin-top: 5rpx;
+}
+
+.orange {
+    font-size: 36rpx;
+    color: #fc6709;
+}
+
+.three_l {
+    float: left;
+}
+
+.three_r {
+    float: right;
+    margin-right: 30rpx;
+}
+
+.input_div {
+    height: 80rpx;
+    line-height: 80rpx;
+    border: 1rpx solid #ddd;
+    margin: 10rpx auto 0;
+    position: relative;
+    border-radius: 10rpx;
+    width: 90%;
+    padding-left: 20rpx;
+}
+
+.input_div input {
+    float: left;
+    width: 100%;
+    height: 75rpx;
+    line-height: 75rpx;
+    border: none;
+    font-size: 30rpx;
+}
+
+.maindiv2_div {
+    top: 0rpx;
+    opacity: 1;
+    position: fixed;
+    width: 100%;
+    height: 100rpx;
+    background: white;
+    padding-left: 608rpx;
+    padding-top: 25rpx;
+    z-index: 99;
+}
+
+.maindiv2_div>view {
+    float: left;
+    font-size: 30rpx;
+    width: 172rpx;
+    line-height: 62rpx;
+    text-align: center;
+    background: #f2f2f2;
+    border-radius: 4rpx;
+    margin-right: 60rpx;
+}
+
+.exhibition_top {
+    position: absolute;
+    width: 100%;
+}
+
+.industry_time_region {
+    width: 100%;
+    background: #f2f2f2;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+}
+
+.noscrollbar {
+    height: 1334rpx;
+    top: 0rpx;
+}
+
+.industry {
+    width: 100%;
+    height: 90rpx;
+    background: white;
+}
+
+.industry>view {
+    width: 100rpx;
+    height: 100%;
+    line-height: 90rpx;
+    text-align: center;
+    font-size: 36rpx;
+    color: #333;
+    float: left;
+}
+
+.region {
+    width: 700rpx;
+    height: 80rpx;
+    background: white;
+    border: 2rpx solid #ddd;
+    text-align: center;
+    line-height: 80rpx;
+    font-size: 30rpx;
+    color: #333;
+    border-radius: 6rpx;
+    margin: 0 auto;
+    margin-top: 40rpx;
+    margin-bottom: 40rpx;
+}
+
+.region_div {
+    height: auto;
+    margin-left: 30rpx;
+}
+
+.region_title {
+    color: #3399ff;
+    font-size: 30rpx;
+    margin: 22rpx 0 30rpx 0;
+}
+
+.blue2 {
+    background: #fff!important;
+    border: 2rpx solid #3399ff;
+    color: #3399ff;
+}
+
+.region_li>view {
+    width: 162rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    border: 2rpx solid #ddd;
+    text-align: center;
+    border-radius: 6rpx;
+    float: left;
+    background: white;
+    margin-right: 14rpx;
+    margin-bottom: 18rpx;
+    color: #333;
+    font-size: 24rpx;
+}
+
+.industry_time_region_close {
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    background: #3399ff;
+    color: white;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    z-index: 666;
+}
+
+.blue4 {
+    color: #3399ff!important;
+    border-bottom: 3rpx solid #3399ff;
+}
+
+.itr {
+    margin-bottom: 152rpx;
+}

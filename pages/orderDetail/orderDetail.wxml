@@ -1,0 +1,65 @@
+<import src="../../wxParse/wxParse.wxml"></import>
+<import src="../../template/tabbar/tabbar.wxml"></import>
+<view class="su-wrapper">
+    <view class="form-sign">
+        <view class="su-container">
+            <view class="item-top" style="border-top:none">
+                <view class="item-detail">订单详情</view>
+                <view class="item-name">展会信息</view>
+                <view class="sign-item">
+                    <text class="order">展会名称：</text>
+                    <text>{{company}}</text>
+                </view>
+                <view class="sign-item">
+                    <text class="order">展馆名称：</text>
+                    <text>{{addressName}}</text>
+                </view>
+                <view class="sign-item">
+                    <text class="order">展馆地址：</text>
+                    <text>{{address}}</text>
+                </view>
+                <view class="sign-item">
+                    <text class="order">展会时间：</text>
+                    <text>{{time}}</text>
+                </view>
+            </view>
+            <view class="item-top">
+                <view class="item-name">订单信息</view>
+                <view class="order-item">
+                    <text class="order">订单编号：</text>
+                    <text>{{orderSign}}</text>
+                </view>
+                <view class="order-item">
+                    <text class="order">订单金额：</text>
+                    <text>￥{{price}}</text>
+                </view>
+                <view class="order-item">
+                    <text class="order">展位类型：</text>
+                    <text>{{type}}</text>
+                </view>
+                <view class="order-item">
+                    <text class="order">付款状态：</text>
+                    <text>{{state}}</text>
+                </view>
+            </view>
+            <view class="item-top" wx:for="{{exhibition}}" wx:key="{{index}}">
+                <view class="item-name">卖家信息</view>
+                <view class="order-item">
+                    <text class="order">公司名称：</text>
+                    <text>{{businessName}}</text>
+                </view>
+                <view class="order-item">
+                    <text class="order">联系人：</text>
+                    <text>{{userName}}</text>
+                </view>
+                <view class="order-item">
+                    <text class="order">联系方式：</text>
+                    <text>{{userPhone}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="cbooth-view clearfix" hidden="{{merchantDispay}}">
+        <button bindtap="pay">微信支付</button>
+    </view>
+</view>

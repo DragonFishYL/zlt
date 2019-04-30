@@ -1,0 +1,133 @@
+page {
+    background: #fff;
+}
+.valid-person {
+    width: 100%;
+    top: 0rpx;
+    background: #fff;
+    z-index: 88;
+}
+
+.form-sign {
+    padding-bottom: 120rpx;
+}
+
+.sign-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 30rpx 0;
+}
+
+.sign-item .input {
+    border: 1px solid #bebebe;
+    padding-left: 10rpx;
+    border-radius: 8rpx;
+    height: 70rpx;
+    font-size: 30rpx;
+}
+
+.sign-item .mobile {
+    width: 510rpx;
+}
+
+.sign-item .code {
+    width: 250rpx;
+}
+
+.sign-item>text {
+    width: 140rpx;
+}
+
+.sign-item .getCode {
+    font-size: 34rpx;
+    border: none;
+    background: #339AFE;
+    color: #000;
+    border-radius: 10rpx;
+    width: 252rpx;
+    height: 75rpx;
+    text-align: center;
+    line-height: 75rpx;
+    margin-left: 8rpx;
+}
+
+.sign-item .getCode:active {
+    background-color: rgba(0,0,0,0.1);
+    opacity: 0.7;
+}
+
+.getCode.disabled {
+    color: #fff;
+    pointer-events: none;
+}
+
+.getCode.disabled1 {
+    pointer-events: none;
+}
+
+.rightBtn {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-left: 8rpx;
+}
+
+.rightBtn>image {
+    font-size: 40rpx;
+    color: #000000;
+    margin-top: -3rpx;
+    width: 56rpx;
+    height: 56rpx;
+}
+
+.su-container.paddTop {
+    padding-top: 26rpx;
+    padding-bottom: 26rpx;
+}
+
+.form-item>view {
+    display: block;
+    margin-bottom: 16rpx;
+}
+
+.form-item>.input {
+    border: 1px solid #bebebe;
+    padding-left: 10rpx;
+    border-radius: 8rpx;
+    height: 70rpx;
+}
+
+form-item>.textarea {
+    border: 2rpx solid #bebebe;
+    width: 600rpx;
+    height: 300rpx;
+}
+
+.mask {
+    position: fixed;
+    z-index: 1;
+    background: rgba(239,242,244,0.8);
+    width: 100%;
+    height: 100%;
+    left: 0rpx;
+    margin-top: 7rpx;
+}
+
+.submit-tab .tab-ticket {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-sign .form-item:first-child {
+    margin-top: 20rpx;
+}
+
+form-sign .form-item {
+    margin-bottom: 32rpx;
+}
+
+.place-holder {
+    color: #d6d2d2;
+}

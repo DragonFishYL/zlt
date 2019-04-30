@@ -1,0 +1,102 @@
+<import src="../../wxParse/wxParse.wxml"></import>
+<import src="../../template/tabbar/tabbar.wxml"></import>
+<view class="su-wrapper">
+    <view class="page-box">
+        <view class="inner">
+            <view class="page-list content">
+                <view class="maindiv2_div clearfix" hidden="{{hidden}}">
+                    <view bindtap="trages" class="maindiv2_div_a  {{data1?'blue':'blue2'}}" data-num="1">行业</view>
+                    <view bindtap="time" class="maindiv2_div_b {{data2?'blue':'blue2'}}" data-num="2">时间</view>
+                    <view bindtap="area" class="maindiv2_div_c  {{data3?'blue':'blue2'}}" data-num="3">地区</view>
+                </view>
+                <view class="industry_time_region noscrollbar" hidden="{{industry}}">
+                    <view style="height: 100%; width: 100%;">
+                        <view class="industry clearfix">
+                            <view bindtap="trages" class="maindiv2_div_1 {{white?'blue':'blue4'}}" data-n="1" style="margin-left:80rpx">行业</view>
+                            <view bindtap="time" class="maindiv2_div_2 {{blue?'blue':'blue4'}}" data-n="2" style="margin:0 152rpx">时间</view>
+                            <view bindtap="area" class="maindiv2_div_3 {{area?'blue':'blue4'}}" data-n="3">地区</view>
+                        </view>
+                        <view class="itr itr_1" hidden="{{tragesDispay}}">
+                            <view bindtap="filterExhibition" class="region" data-link="0-000000-0-0">不限行业</view>
+                            <view class="region_div clearfix" wx:for="{{twoList}}" wx:key="id">
+                                <view class="region_title">{{item.name}}</view>
+                                <view class="region_li">
+                                    <view bindtap="filterExhibition" data-link="{{list.link}}" data-num="1" wx:for="{{item.list}}" wx:for-item="list" wx:key="id">
+                                        <text style="display:none;">{{list.link}}</text>{{list.name}}</view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="itr itr_2" hidden="{{timeDisplay}}">
+                            <view bindtap="filterExhibition" class="region" data-link="0-000000-0-0">不限时间</view>
+                            <view class="region_div clearfix" wx:for="{{timeList}}" wx:key="id">
+                                <view class="region_title">{{item.name}}</view>
+                                <view class="region_li">
+                                    <view bindtap="filterExhibition" data-link="{{list.link}}" data-num="2" wx:for="{{item.list}}" wx:for-item="list" wx:key="id">
+                                        <text style="display:none;">{{list.link}}</text>{{list.name}}</view>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="itr itr_3" hidden="{{areaDisplay}}">
+                            <view bindtap="filterExhibition" class="region" data-link="0-000000-0-0">不限地区</view>
+                            <view class="region_div clearfix" wx:for="{{areaList}}" wx:key="id">
+                                <view class="region_title">{{item.name}}</view>
+                                <view class="region_li">
+                                    <view bindtap="filterExhibition" data-link="{{info.link}}" data-num="3" wx:for="{{item.info}}" wx:for-item="info" wx:key="id">
+                                        <text style="display:none;">{{info.link}}</text>{{info.name}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view bindtap="close" class="industry_time_region_close" hidden="{{industry}}">关闭</view>
+                </view>
+                <scroll-view bindscrolltolower="{{bindtolower?'bindDownLoad':'fiflterDownLoad'}}" scrollTop="{{scrollTop}}" scrollY="true" style="height:{{scrollHeight}}px;">
+                    <view class="exhibition_top">
+                        <view bindtap="details" class="main_details" data-id="{{item.id}}" wx:for="{{exhibitionList}}" wx:key="{{index}}">
+                            <image mode="widthFix" src="{{item.thumbnail}}"></image>
+                            <view class="main_details_div">
+                                <view class="li_one">{{item.nameZh}}</view>
+                                <view class="li_two">{{item.seTime}}<text>{{item.backTime}}</text>
+                                </view>
+                                <view class="li_three" hidden="{{item.Parea==0||!item.Parea}}">
+                                    <span class="orange">{{item.Parea}}<text wx:if="{{item.pricedanwei!=null}}">{{item.pricedanwei}}</text>
+                                        <block wx:else>元</block>
+                                    </span> /{{item.area}}<text wx:if="{{item.areadanwei!=null}}">{{item.areadanwei}}</text>
+                                    <block wx:else>m²</block>起</view>
+                                <view class="li_three" wx:if="{{item.dtype!='暂无优惠'}}">
+                                    <span class="orange">{{item.dtype}}<text wx:if="{{item.discount!=null}}">{{item.discount}}</text>
+                                    </span>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+    </view>
+    <view class="tabbar" style="opacity:{{opacity}}">
+        <view class="tab-main">
+            <view class="flex-tab">
+                <view class="tab-share">
+                    <button bindgetuserinfo="homeGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                        <image mode="widthFix" src="../../common/img/home.png"></image>首页</button>
+                    <view bindtap="goPage" data-url="../index/index" wx:else>
+                        <image mode="widthFix" src="../../common/img/home_w.png"></image>首页</view>
+                </view>
+            </view>
+            <view class="flex-tab flex-middle-tab">
+                <view class="tab-share">
+                    <button bindgetuserinfo="exhibitonGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                        <image mode="widthFix" src="../../common/img/onlinelooking.png"></image>展会</button>
+                    <view bindtap="goPage" data-url="../exhibition/exhibition" wx:else>
+                        <image mode="widthFix" src="../../common/img/search_b.png"></image>展会</view>
+                </view>
+            </view>
+            <view class="flex-tab tab-ticket">
+                <button bindgetuserinfo="personGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                    <image mode="widthFix" src="../../common/img/personal.png"></image>个人中心</button>
+                <view bindtap="goPage" data-url="../person/person" wx:else>
+                    <image mode="widthFix" src="../../common/img/personal.png"></image>个人中心</view>
+            </view>
+        </view>
+    </view>
+</view>
