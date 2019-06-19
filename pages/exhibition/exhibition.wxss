@@ -251,3 +251,24 @@ page {
 .itr {
     margin-bottom: 152rpx;
 }
+
+
+.tab-main image{
+  width: 20px;
+  height: 20px;
+}
+
+.flex-tab{
+  width: 33.33%;
+  text-align: center;
+  float: left;
+}
+
+.tabbar{
+  height: 40px;
+  line-height: 40px;
+  width: 100%;
+  background: #fffeaf;
+  position: fixed;
+  bottom: 0px;
+}
