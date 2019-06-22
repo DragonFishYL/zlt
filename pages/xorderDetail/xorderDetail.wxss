@@ -1,0 +1,139 @@
+.detCon {
+  padding: 10px 15px;
+}
+.detTit {
+  display: block;
+  font-size: 32rpx;
+  text-align: left;
+  line-height: 44rpx;
+}
+.actTime {
+  display: block;
+  font-size: 24rpx;
+  color: #666a75;
+  text-align: left
+}
+.groInfo {
+  overflow: hidden;
+  padding: 10px 0;
+  line-height: 42px;
+}
+.groPrice {
+  float: left;
+  text-align: left;
+  font-size: 36rpx;
+  color: #f00;
+  width: 35.33%;
+}
+.groPerNum {
+   float: left;
+   width: 33.33%;
+   text-align: center;
+   font-size: 28rpx;
+}
+.groType {
+  float: right;
+  width: 33.33%;
+  text-align: right;
+  font-size: 28rpx;
+}
+.payDet {
+  padding: 20rpx 30rpx;
+}
+.payTit {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  text-align: left;
+  padding-bottom: 14rpx;
+  border-bottom: 1px solid #ededed;
+  margin-bottom: 14rpx;
+}
+.perNum {
+  float: right;
+  font-size: 28rpx;
+}
+.perDet {
+  padding: 12rpx 0;
+  border-bottom: 2rpx dashed #ededed;
+}
+.perName {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  text-align: left;
+}
+.perIdCard {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  text-align: left;
+}
+.perIdCard text {
+  font-size: 28rpx;
+  padding-left: 16rpx;
+}
+.payTipBox {
+  overflow: hidden;
+  line-height: 48rpx;
+  font-size: 28rpx;
+}
+.payDetTip {
+  float: left;
+  line-height: 48rpx;
+  font-size: 28rpx;
+}
+.changePer {
+  background: transparent;
+  display: inline-block;
+  font-size: 28rpx;
+  float: right;
+  color:blue;
+}
+.changePer::after {
+  border: none;
+}
+.linef7 {
+  background: #f7f7f7;
+  height: 14rpx;
+}
+.payMoney {
+  overflow: hidden;
+  padding: 12rpx 0;
+  line-height: 50rpx;
+}
+.total {
+  float: left;
+  font-size: 28rpx;
+}
+.monNum {
+  float: right;
+  font-size: 38rpx;
+  color: #f00;
+}
+.payTime {
+  padding: 12rpx 0;
+  font-size: 24rpx;
+  line-height: 40rpx;
+  text-align: right;
+  color: #666a75;
+}
+.payStages {
+  border-bottom: 1px solid #eeeeee;
+  padding: 10rpx 0 18rpx 0;
+}
+.payBtnBox {
+  text-align: right;
+}
+.mustPay {
+  display: inline-block;
+  border: 1px solid #dedede;
+  width: 180rpx;
+  height: 58rpx;
+  line-height: 58rpx;
+  font-size: 28rpx;
+  background: transparent;
+  color: #666a75;
+}
+.mustPay::after {
+  border: none;
+}
+
+

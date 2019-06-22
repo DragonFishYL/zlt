@@ -48,7 +48,7 @@ Page({
     },
     onShareAppMessage: function(e) {
         var a = this, t = wx.getStorageSync("user").openid, i = wx.getStorageSync("exhibitionId");
-        if (1 == a.data.shareType) n = "/pages/view/view?business_no=ZhanLeTaoWeChat&fopenid=" + t + "&id=" + i + "&source=1&zlttype=1"; else if (2 == a.data.shareType) var n = "/pages/details/details?business_no=ZhanLeTaoWeChat&fopenid=" + t + "&id=" + i + "&source=1&zlttype=2";
+        if (1 == a.data.shareType) n = "/pages/view/view?business_no=ZhanLeTaoWeChat&fopenid=" + t + "&id=" + i + "&source=1&zlttype=1"; else if (2 == a.data.shareType) var n = "/pages/details/details?business_no=ZhanLeTaoWeChat&fopenid=" + t + "&id=" + i + "&source=1&zlttype=2"; else if (4 == a.data.shareType) var n = "/pages/detail/detail?business_no=ZhanLeTaoWeChat&fopenid=" + t + "&id=" + i + "&source=1&zlttype=4";
         return e.from, console.log(n), {
             title: a.data.company,
             path: n,

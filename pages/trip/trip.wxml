@@ -1,0 +1,45 @@
+<view  data-id="{{item.id}}" wx:for="{{triparr}}" wx:key="unique">
+  <navigator url='../detail/detail?id={{item.id}}'><image src='{{item.thumbnail}}' class="shaImg"></image></navigator>
+  <view class='detCon'>
+    <text class='detTit'>{{item.title}}</text>
+    <text class='actTime'>{{item.stime}}至{{item.etime}}</text>
+    <view class='groPrice'>{{item.xprice}}元/人 起</view>
+  </view>
+  <navigator url='../share/share?id={{item.id}}'  class='shaBtn' wx:if="{{item.bonus}}">分享成功得红包，最高可得{{item.bonus}}元</navigator>
+</view>
+<view class="tabbar">
+	<view class="tab-main">
+		<view class="flex-tab">
+			<view class="tab-share">
+				<button bindgetuserinfo="homeGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+					<image mode="widthFix" src="../../common/img/home.png"></image>首页</button>
+				<view bindtap="goPage" data-url="../index/index" wx:else>
+					<image mode="widthFix" src="../../common/img/home.png"></image>首页</view>
+			</view>
+		</view>
+		<view class="flex-tab flex-middle-tab">
+			<view class="tab-share">
+				<button bindgetuserinfo="exhibitonGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+					<image mode="widthFix" src="../../common/img/onlinelooking.png"></image>展会</button>
+				<view bindtap="goPage" data-url="../exhibition/exhibition" wx:else>
+					<image mode="widthFix" src="../../common/img/onlinelooking.png"></image>展会</view>
+			</view>
+		</view>
+		<view class="flex-tab flex-middle-tab">
+			<view class="tab-share">
+				<button bindgetuserinfo="tripGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+					<image mode="widthFix" src="../../common/img/onlinelooking.png"></image>行程</button>
+				<view bindtap="goPage" data-url="../trip/trip" wx:else>
+					<image mode="widthFix" src="../../common/img/onlinelooking.png"></image>行程</view>
+			</view>
+		</view>
+		<view class="flex-tab tab-ticket">
+			<button bindgetuserinfo="personGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+				<image mode="widthFix" src="../../common/img/personal.png"></image>个人中心</button>
+			<view bindtap="goPage" data-url="../person/person" wx:else>
+				<image mode="widthFix" src="../../common/img/personal.png"></image>个人中心</view>
+		</view>
+	</view>
+</view>
+
+

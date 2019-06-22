@@ -1,0 +1,194 @@
+<view class='payCon'>
+  <view class='detCon'>
+    <text class='detTit'>{{title}}</text>
+    <text class='actTime'>{{time}}</text>
+    <view class='groInfo'>
+      <view class='groPrice'>{{xprice}}元/人</view>
+      <view class='groPerNum'>{{xnum}}人起开团</view>
+      <view class='groType' wx:if="{{xtype == 1}}">商务团</view><view wx:elif="{{xtype == 2}}">游学团</view><view wx:else>展会团</view>
+    </view>
+  </view>
+  <view class='linef7'></view>
+  <view class='payDet' wx:if="{{linker.state == 1}}">
+    <view class='payTit'>联系人</view>
+    <view class='infoBox'>
+      <view class='infoL'>姓名</view><text>{{linker.name}}</text>
+    </view>
+    <view class='infoBox'>
+      <view class='infoL'>手机</view><text>{{linker.phone}}</text>
+    </view>
+  </view>
+  <view class='payDet' wx:else>
+    <view class='payTit'>联系人</view>
+    <view class='infoBox'>
+      <view class='infoL'>姓名</view>
+      <input type='text' class='infoInp'></input>
+    </view>
+    <view class='infoBox'>
+      <view class='infoL'>手机</view>
+      <input type='number' class='infoInp'></input>
+    </view>
+    <view class='infoBox'>
+      <view class='infoL'>验证码</view>
+      <input type='number' class='infoInp codeInp'></input>
+      <button disabled='{{disabled}}' data-id="2" bindtap="getVerificationCode" class='codeBtn'>{{time}}</button>
+    </view>
+    <view class='saveBot'>
+      <button class='saveInfo'>保存</button>
+    </view>
+  </view>
+
+  <view class='payDet'>
+    <view class='payTit'>人员信息</view>
+    <view class='payTipBox'>
+      <view class='payDetTip'>请选择出团人数  至少{{leastNum}}人</view>
+      <button bindtap="changePer" class='changePer'>添加/修改</button>
+    </view>
+    <view class='perDet'>
+      <view class='perDetChi' wx:for="{{tripuser}}">
+        <button class='delePer'>
+          <image src='../../images/acti.png' class='deleIc'></image>
+        </button>
+        <view class='checkInfo'>
+          <view class='cheInDet'>{{item.name}}</view>
+          <view class='cheInDet'>
+            <text wx:if="{{item.type == 1}}">身份证</text>
+            <text wx:else>签证</text>  {{item.value}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <view class='payDet'>
+    <view class='payTit'>付款方式</view>
+    <view>
+      <radio-group class="item-right radio-group raGroup" bindchange="changePay">        
+        <label class="radio" wx:for="{{items}}">               
+          <radio value="{{item.value}}" checked="{{item.checked}}" class='radioChe'/>{{item.name}}
+        </label>     
+      </radio-group>
+
+      <view class='payType' hidden="{{hiddenName}}">
+        <view class="payType-tit">首付比例</view>
+        <Select prop-array='{{selectArray}}' prop-name="depositRate" class="choSele mR20" bind:myevent="onMyEvent"></Select>
+        <view class="payType-tit">分几个月</view>
+        <Select prop-array='{{selectArray2}}' prop-name="stageMonth" class="choSele" bind:myevent="onMyEvent"></Select>
+      </view>
+    </view>
+  </view>
+
+  <view class='payDet'>
+    <view class='payTit'>改退政策</view>
+    <text class='reverTe'>订单支持部分人退订</text>
+    <text class='reverTe'>出行前1天0点（含）之后退订，收取30%的违约金</text>
+    <text class='reverTe'>出行前1天0点（含）至出行前7天0点（含）之间退订，收取10%的违约金</text>
+  </view>
+  <view class='agreement'>
+    <label class="agreeChe">
+      <checkbox value="" checked="checked" class='checkInp'/>
+    </label>
+    <view class='agree'>
+      我已阅读并接受
+      <navigator url='../agreement/agree' class='agreeA'>《展乐淘购买协议》</navigator>
+    </view>
+  </view>
+</view>
+
+<view class='payBot'>
+  <view class='payPri'>总价：{{totalPrice}}</view>
+  <button class='parSubmit'bindtap="submitOrder">提交订单</button>
+</view>
+
+<!--添加修改出团人数  -->
+<view class="modal-box" hidden="{{flag}}">
+  <view class="modal-body">       
+    <view class="modal-content">
+      <view class='modaOpe'>
+        <button class="cancelHide" bindtap="cancelHide">取消</button>
+        <button class="sureHide" bindtap="sureHide">确定</button>
+      </view>
+      <view bindtap='addInfo' class='addPer'>+新增人员</view>
+       <view class='perCheBox'>
+        <checkbox-group bindchange="checkboxChange">
+        <view class='checkChi'>
+          <label class="checkbox" wx:for="{{tripuser}}">
+            <checkbox value="{{item.id}}" checked="{{item.checked}}" data-id="{{item.id}}" class='checkInp'/>
+            <view class='checkInfo'>
+              <view class='cheInDet'>{{item.name}}</view>
+              <view class='cheInDet'><text wx:if="{{item.type == 1}}">身份证</text><text wx:else>签证</text>  {{item.value}}</view>
+            </view>
+            <button bindtap='editInfo' class='editInfo' data-id="{{item.id}}" data-name="{{item.name}}" data-type="{{item.type}}" data-val="{{item.value}}">编辑</button>
+          </label>
+        </view>
+        </checkbox-group> 
+      </view> 
+    </view>    
+  </view>  
+</view>
+
+<view class='edPerDet' hidden="{{adFlag}}">
+  <view class='payDet'>
+    <view class='payTit'>联系人</view>
+    <view class='infoBox'>
+      <view class='infoL'>姓名</view>
+      <input type='text' class='infoInp' bindinput='anamebindinput' value=""></input>
+    </view>
+    <view class='infoBox visi'>
+      <view class='infoL'>证件类型</view>
+      <view class='listMsg'>
+        <view class='list-msg2' bindtap='abindShowMsg'>
+          <text>身份证</text>    
+          <image style='height:20rpx;width:20rpx;' src='../../images/down.png'></image>    
+        </view>    
+        <!-- 下拉需要显示的列表 -->
+        <view class="select_box" wx:if="{{select}}">        
+          <view class="select_one" bindtap="amySelect" data-type="1">身份证</view>        
+          <view class="select_one" bindtap="amySelect" data-type="2">签证</view>  
+        </view>
+      </view>
+    </view>
+    <view class='infoBox'>
+      <view class='infoL'>证件号码</view>
+      <input type='number' class='infoInp' bindinput='avaluebindinput' value=''></input>
+    </view>
+  </view>
+  <view class='edPerBot'>
+    <button class='deleHide' bindtap='acancelHide'>取消</button>
+    <button class='saveHide' bindtap='addHide'>保存</button>
+  </view>
+</view>
+
+<view class='edPerDet' hidden="{{edFlag}}">
+  <view class='payDet'>
+    <view class='payTit'>联系人</view>
+    <view class='infoBox'>
+      <view class='infoL'>姓名</view>
+      <input type='text' class='infoInp' bindinput='enamebindinput' value="{{ename}}"></input>
+    </view>
+    <view class='infoBox visi'>
+      <view class='infoL'>证件类型</view>
+      <view class='listMsg'>
+        <view class='list-msg2' bindtap='bindShowMsg'>
+          <text wx:if="{{etype == 1}}">身份证</text><text wx:else>签证</text>     
+          <image style='height:20rpx;width:20rpx;' src='../../images/down.png'></image>    
+        </view>    
+        <!-- 下拉需要显示的列表 -->
+        <view class="select_box" wx:if="{{select}}">        
+          <view class="select_one" bindtap="mySelect" data-type="1">身份证</view>        
+          <view class="select_one" bindtap="mySelect" data-type="2">签证</view>  
+        </view>
+      </view>
+    </view>
+    <view class='infoBox'>
+      <view class='infoL'>证件号码</view>
+      <input type='number' class='infoInp' bindinput='evaluebindinput' value='{{evalue}}'></input>
+    </view>
+  </view>
+  <view class='edPerBot'>
+    <button class='deleHide' bindtap='ecancelHide'>取消</button>
+    <button class='saveHide' bindtap='saveHide'>保存</button>
+  </view>
+</view>
+
+
+

@@ -1,0 +1,56 @@
+<view>
+  <swiper class='detFocus' indicator-dots='true' indicator-color='#ffffff' indicator-active-color='blue' autoplay='true' interval='3000'>
+    <swiper-item>
+      <image src='{{thumbnail}}'></image>
+    </swiper-item>
+  </swiper>
+</view>
+<view class='detCon'>
+  <text class='detTit'>{{title}}</text>
+  <text class='actTime'>{{setime}}</text>
+  <view class='groInfo'>
+    <view class='groPrice'>{{xprice}}元/人</view>
+    <view class='groPerNum'>{{xnum}}人起开团</view>
+    <view class='groType'>{{xtype}}</view>
+  </view>
+  <text class='actiTit'>优惠活动</text>
+  <text class='actiDis'>{{special}}</text>
+  <text class='actiTit'>行程详情</text>
+  <text class='actiDis'>{{focus}}</text>
+  <text class='actiTit'>推荐航班</text>
+  <text class='actiDis'>{{reairplean}}</text>
+  <text class='actiTit'>推荐酒店</text>
+  <text class='actiDis'>{{rehotel}}</text>
+  <text class='actiTit'>包含费用</text>
+  <text class='actiDis'>{{fee}}</text>
+  <text class='actiTit'>不包含费用</text>
+  <text class='actiDis'>{{nofee}}</text>
+</view>
+<navigator url='../share/share?id={{id}}' class='shaBtn' wx:if="{{bonus}}">分享成功得红包，最高可得{{bonus}}元</navigator>
+<view class='expoTit' wx:if="{{exhibitionObj}}">相关展会</view>
+<view class='expoCon' data-id="{{exhibitionObj.id}}" wx:if="{{exhibitionObj}}" wx:key="unique">
+  <view class='expoName'>{{exhibitionObj.name}}</view>
+  <view class='expoAddre'>{{exhibitionObj.zname}}</view>
+  <view class='expoOpe'>
+    <view class='expoTime'>{{exhibitionObj.setime}}</view>
+    <navigator class='lookExpo'>查看详情</navigator>
+  </view>
+</view>
+<view class='expoTit'>展会行程</view>
+<view class='expoCon' wx:for="{{triparrange}}" wx:for-item="trip">
+  <view class='expoName'>{{trip.dates}}：{{trip.title}}，<block wx:if="{{trip.saddress}}">{{trip.saddress}}-->{{trip.eaddress}}</block></view>
+  <view class='expoOpe'>
+    <view class='expoTime'>{{trip.stime}}</view>
+  </view>
+  <view class='expoAddre'>酒店：<text wx:if="{{trip.hotel == 1}}">是</text><text wx:else>否</text></view>
+  <view class='expoAddre'>餐饮：{{trip.mealss}}</view>
+  <view class='expoAddre'>交通：{{trip.traffic}}</view>
+  <view class='linef7'></view>
+</view>
+<view class='detBot'>
+  <button open-type='share' bindtap='sendfriend' class='detShaBtn'>发给好友</button>
+  <button bindtap='viewTripOrder' class='buyBtn' wx:if="{{authSetting == 1}}">立即购买</button>
+  <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class='buyBtn' wx:else>立即购买</button>
+</view>
+
+

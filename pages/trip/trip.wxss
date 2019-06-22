@@ -1,0 +1,118 @@
+/**index.wxss**/
+/* .userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+}
+.form {
+  position: relative;
+  height: 40px;
+}
+.searchInput {
+  border: 1px solid #dbdbdb;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  border-radius: 5px;
+  color: #333;
+  padding-left: 35px;
+} */
+
+
+/* .searview {  position: relative;  padding-right: 130rpx;  border: 1px solid #e0e0e0;  border-right: 0;  border-radius: 10rpx;  box-sizing: border-box;  padding-left: 70rpx;  height: 85rpx;} .shasbg {  padding: 0 40rpx;} .searview button {  width: 130rpx;  height: 85rpx;  position: absolute;  right: 0;  top: -2rpx;  background: orange;  color: #fff;  font-size: 30rpx;  line-height: 85rpx;  border-radius: 0 10rpx 10rpx 0;} .searview input {  font-size: 28rpx;  color: #555;  height: 83rpx;} .icon-search {  position: absolute;  width: 31rpx;  height: 31rpx;  background-size: 31rpx auto;  left: 25rpx;  top: 27rpx;
+} */
+
+.shaImg {
+  display: block;
+  width: 100%;
+}
+.detCon {
+  padding: 10px 15px;
+}
+.detTit {
+  display: block;
+  font-size: 32rpx;
+  text-align: left;
+  line-height: 44rpx;
+}
+.actTime {
+  display: block;
+  font-size: 24rpx;
+  color: #666a75;
+  text-align: left
+}
+
+.groPrice {
+  text-align: left;
+  font-size: 36rpx;
+  color: #f00;
+  width: 60%;
+}
+.userHead {
+  display: block;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  margin: 20rpx auto;
+}
+
+.shaBtn {
+  display: block;
+  background: orange;
+  color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 60rpx;
+}
+.linef7 {
+  background: #f7f7f7;
+  height: 14rpx;
+}
+.tab-main image{
+  width: 20px;
+  height: 20px;
+}
+
+.flex-tab{
+  width: 25%;
+  text-align: center;
+  float: left;
+}
+
+.tabbar{
+  height: 40px;
+  line-height: 40px;
+  width: 100%;
+  background: #fffeaf;
+  position: fixed;
+  bottom: 0px;
+}
+
+
+
+
+

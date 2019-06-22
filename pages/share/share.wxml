@@ -14,13 +14,11 @@
             </view>
             <view class="introduce">
                 <view class="su-ctem">
-                    <text class="icon-time" id="setTime" ref="setTime" style="color:{{color}}"></text>
-            {{setTime}}
-        </view>
+                    <text class="icon-time" id="setTime" ref="setTime" style="color:{{color}}"></text>{{setTime}}
+				</view>
                 <view class="su-ctem">
-                    <text class="icon-address" id="zgName" ref="zgName" style="color:{{color}}"></text>
-            {{zgName}}
-        </view>
+                    <text class="icon-address" id="zgName" ref="zgName" style="color:{{color}}"></text>{{zgName}}
+				</view>
                 <view class="su-ctem" hidden="{{hidden}}">
                     <text>{{ZLTPhone}}</text>
                 </view>
@@ -32,8 +30,7 @@
                     <text id="area" ref="area"> /{{area}}<text wx:if="{{areadanwei!=null}}">{{areadanwei}}</text>
                         <block wx:else>m²</block>
                     </text>起
-           <text class="orange2" id="dtype" ref="dtype" wx:if="{{dtype!=null&&dtype!='暂无优惠'&&dtype!=undefined}}">{{dtype}}<text wx:if="{{discount!=null}}">{{discount}}</text>
-                    </text>
+					<text class="orange2" id="dtype" ref="dtype" wx:if="{{dtype!=null&&dtype!='暂无优惠'&&dtype!=undefined}}">{{dtype}}<text wx:if="{{discount!=null}}">{{discount}}</text></text>
                 </view>
                 <view class="su-ctem">
                     <text class="commission" id="commission" ref="commission" wx:if="{{commission!=null&&commission!='0'}}">佣金：{{commission}}元</text>

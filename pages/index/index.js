@@ -216,6 +216,9 @@ Page({
     exhibitonGetUserInfo: function(n) {
         t.autoLogin(e, n, this, "../exhibition/exhibition");
     },
+    tripGetUserInfo: function(n) {
+        t.autoLogin(e, n, this, "../trip/trip");
+    },
     personGetUserInfo: function(n) {
         t.autoLogin(e, n, this, "../person/person");
     },

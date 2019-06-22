@@ -1,0 +1,61 @@
+<view class='detCon'>
+  <text class='detTit'>{{trip.title}}</text>
+  <text class='actTime'>{{trip.stime}}</text>
+  <view class='groInfo'>
+    <view class='groPrice'>{{trip.xprice}}元/人</view>
+    <!-- <view class='groPerNum'>{{perNum}}人起开团</view> -->
+    <view class='groType'>{{xtype}}</view>
+  </view>
+</view>
+<view class='linef7'></view>
+<view class='payDet'>
+  <view class='payTit'>人员信息 <text class='perNum'>{{userLength}}人</text></view>
+  <view class='perDet' wx:for="{{userList}}">
+    <text class='perName'>{{item.name}}</text>
+    <view class='perIdCard'>身份证<text>{{item.value}}</text></view>
+  </view>
+</view>
+<view class='linef7'></view>
+<view class='payDet'>
+  <view class='payTit'>订单详情</view>
+  <view class='payMoney'>
+    <view class='total'>共计</view>
+    <view class='monNum'>￥{{trueprice}}元</view>
+  </view>
+  <view class='payTime'>{{trip.setime}}</view>
+</view>
+<view class='linef7'></view>
+<view class='payDet'>
+  <view class='payTit'>付款方式</view>
+  <view class='payMoney'>
+    <view class='total' wx:if="{{payway == 1}}">全额支付</view>
+    <view class='total' wx:elif="{{payway == 2}}">分期付款</view>
+    <view class='total' wx:elif="{{payway == 3}}">担保支付</view>
+    <view class='monNum'>￥{{trueprice}}元</view>
+  </view>
+  <view class='payStages' wx:if="{{payway == 2}}" wx:key="{{index}}" wx:for="{{orderList}}">
+    <view class='payMoney'>
+      <view class='total'>{{index+1}}期款</view>
+      <view class='monNum'>￥{{item.price}}元</view>
+    </view>
+    <view class='payTime'>截止到 {{item.nexttime}}</view>
+    <view class='payBtnBox'>
+      <button class='mustPay'>立即付款</button>
+    </view>
+  </view>
+  
+  <view class='payStages' wx:if="{{payway == 1}}">
+    <view class='payTime'>截止到 {{trip.setime}}</view>
+    <view class='payBtnBox'>
+      <button class='mustPay'>立即付款</button>
+    </view>
+  </view>
+  
+</view>
+
+
+  
+
+
+
+
