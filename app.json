@@ -20,6 +20,10 @@
     "pages/orderDetail/orderDetail",
     "pages/effect/effect",
     "pages/friends/friends",
+    "pages/trip/trip",
+    "pages/detail/detail",
+    "pages/pay/pay",
+    "pages/xorderDetail/xorderDetail",
     "pages/out/out"
   ],
   "window": {
