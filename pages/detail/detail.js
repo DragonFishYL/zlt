@@ -202,6 +202,10 @@ Page({
             }
         });
     },
+    goPage: function(e) {
+        var a = e.currentTarget.dataset.url;
+        t.goPage(a);
+    },
   viewTripOrder:function(){
     //跳转至下单页面
     wx.navigateTo({

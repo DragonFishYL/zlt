@@ -1,4 +1,4 @@
-<view  data-id="{{item.id}}" wx:for="{{triparr}}" wx:key="unique">
+<view  data-id="{{item.id}}" wx:for="{{triparr}}" wx:key="unique" class="view-a">
   <navigator url='../detail/detail?id={{item.id}}'><image src='{{item.thumbnail}}' class="shaImg"></image></navigator>
   <view class='detCon'>
     <text class='detTit'>{{item.title}}</text>
@@ -7,6 +7,7 @@
   </view>
   <navigator url='../share/share?id={{item.id}}'  class='shaBtn' wx:if="{{item.bonus}}">分享成功得红包，最高可得{{item.bonus}}元</navigator>
 </view>
+<view class="view-b"></view>
 <view class="tabbar">
 	<view class="tab-main">
 		<view class="flex-tab">
@@ -35,9 +36,9 @@
 		</view>
 		<view class="flex-tab tab-ticket">
 			<button bindgetuserinfo="personGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
-				<image mode="widthFix" src="../../common/img/personal.png"></image>个人中心</button>
+				<image mode="widthFix" src="../../common/img/personal.png"></image>我的</button>
 			<view bindtap="goPage" data-url="../person/person" wx:else>
-				<image mode="widthFix" src="../../common/img/personal.png"></image>个人中心</view>
+				<image mode="widthFix" src="../../common/img/personal.png"></image>我的</view>
 		</view>
 	</view>
 </view>

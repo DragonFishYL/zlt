@@ -101,9 +101,9 @@
             </view>
             <view class="flex-tab tab-ticket">
                 <button bindgetuserinfo="personGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
-                    <image mode="widthFix" src="../../common/img/personal.png"></image>个人中心</button>
+                    <image mode="widthFix" src="../../common/img/personal.png"></image>我的</button>
                 <view bindtap="goPage" data-url="../person/person" wx:else>
-                    <image mode="widthFix" src="../../common/img/personal.png"></image>个人中心</view>
+                    <image mode="widthFix" src="../../common/img/personal.png"></image>我的</view>
             </view>
         </view>
     </view>
