@@ -38,6 +38,7 @@ Page({
     payway: 1,
     totalPrice: null,
     id:null,
+    oid:null,
     title: null,
     setime: null,
     xprice:  null,
@@ -60,6 +61,7 @@ Page({
     adFlag:true,
     array: ['身份证', '护照', '驾照'],
     tripuser: [],
+    tripusered: [],
     openid:null,
     ctuid:null,
   },
@@ -117,6 +119,9 @@ Page({
           xtype = '展会团';
         }
 
+		if(r.data.oid){
+			t.setData({oid:r.data.oid});
+		}
         t.setData({
           title:r.data.data.title,
           xtype: xtype,
@@ -135,7 +140,23 @@ Page({
     })
   },
   checkboxChange(e) {
-    //console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+    console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+	var t = this,d = e.detail.value;
+	wx.request({
+      url: app.globalData.publicUrl + '/Trip/viewUserChecked',
+      data: { 'business_no': app.globalData.business_no, 'openid': t.data.openid,'d':d},
+      method: 'POST',
+      header: { 
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success(r) {
+		t.setData({
+		   tripusered: r.data.userlist,
+		});
+		//参团人员ctuid
+        t.dealCtuid(r.data.userlist);
+	  }
+	})
   },
 
   //获取验证码
@@ -290,6 +311,11 @@ Page({
       ctuid: tripuserStr,
       totalPrice: totalPrice.toFixed(2)
     })
+  },
+  viewOrderDetails:function(){
+	  wx.navigateTo({
+		 url: '../xorderDetail/xorderDetail?oid=' + this.data.oid,
+	  });
   },
   //提交订单
   submitOrder: function () {

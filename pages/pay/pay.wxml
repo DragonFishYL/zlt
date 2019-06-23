@@ -41,21 +41,23 @@
   <view class='payDet'>
     <view class='payTit'>人员信息</view>
     <view class='payTipBox'>
-      <view class='payDetTip'>请选择出团人数  至少{{leastNum}}人</view>
+      <view class='payDetTip'>请选择出团人数  至少选择1人</view>
       <button bindtap="changePer" class='changePer'>添加/修改</button>
     </view>
     <view class='perDet'>
-      <view class='perDetChi' wx:for="{{tripuser}}">
-        <button class='delePer'>
-          <image src='../../images/acti.png' class='deleIc'></image>
-        </button>
-        <view class='checkInfo'>
-          <view class='cheInDet'>{{item.name}}</view>
-          <view class='cheInDet'>
-            <text wx:if="{{item.type == 1}}">身份证</text>
-            <text wx:else>签证</text>  {{item.value}}</view>
-        </view>
-      </view>
+	 <!-- <block wx:if="{{tripusered}}"> -->
+		  <view class='perDetChi' wx:for="{{tripusered}}">
+			<button class='delePer'>
+			  <image src='../../images/acti.png' class='deleIc'></image>
+			</button>
+			<view class='checkInfo'>
+			  <view class='cheInDet'>{{item.name}}</view>
+			  <view class='cheInDet'>
+				<text wx:if="{{item.type == 1}}">身份证</text>
+				<text wx:else>签证</text>  {{item.value}}</view>
+			</view>
+		  </view>
+	  <!-- </block> -->
     </view>
   </view>
   
@@ -94,7 +96,10 @@
   </view>
 </view>
 
-<view class='payBot'>
+<view class='payBot' wx:if="{{oid}}">
+  <button class='viewOrderDetail' bindtap="viewOrderDetails">已存在该行程的订单,查看详情</button>
+</view>
+<view class='payBot' wx:else>
   <view class='payPri'>总价：{{totalPrice}}</view>
   <button class='parSubmit'bindtap="submitOrder">提交订单</button>
 </view>

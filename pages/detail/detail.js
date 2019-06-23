@@ -2,34 +2,44 @@ var app = getApp(), t = require("../../utils/util.js"), n = (require("../../wxPa
 void 0), o = void 0;
 Page({
   data: {
-    authSetting:null,
-    id:null,
-    openid:123,
-    title: null,
-    xtype:null,
+    authSetting:'',
+	userInfo:'',
+	hasUserInfo:!1,
+    id:'',
+    oid:'',
+    openid:'',
+    title: '',
+    xtype:'',
     exhibitionObj: {},
-    thumbnail: null,
-    setime: null,
-    xprice: null,
-    xnum: null,
-    bonus: null,
-    special: null,
-    focus: null,
-    reairplean: null,
-    rehotel: null,
-    fee: null,
-    notfee: null,
-    triparrange: {}
+    thumbnail: '',
+    setime: '',
+    xprice: '',
+    xnum: '',
+    bonus: '',
+    special: '',
+    focus: '',
+    reairplean: '',
+    rehotel: '',
+    fee: '',
+    notfee: '',
+    triparrange: {},
+    inviteOpenId: '',
+    source: '',
+    zlttype: '',
+    canIUse: '',
+    status: ''
   },
   onLoad: function (e) {
+    this.authorization();
+	var n = wx.getStorageSync("user").openid;
     //判断是否授权
-    this.setData({ authSetting: app.globalData.authSetting, id: e.id });
+    this.setData({ authSetting: app.globalData.authSetting?app.globalData.authSetting:wx.getStorageSync("user").openid, id: e.id });
     wx.showLoading({ title: '加载中', });
     //请求展会详情数据API
     var t = this;
     wx.request({
       url: app.globalData.publicUrl + '/Trip/tripDetail',
-      data: { 'business_no': app.globalData.business_no, 'openid': this.data.openid,'tripid':this.data.id},
+      data: { 'business_no': app.globalData.business_no, 'openid': n,'tripid':this.data.id},
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded' // 默认值
@@ -114,6 +124,84 @@ Page({
       }
     });   
   },
+    authorization: function() {
+        var t = this;
+        console.log(2), wx.getSetting({
+            success: function(a) {
+                a.authSetting["scope.userInfo"] ? e.globalData.userInfo ? (t.setData({
+                    userInfo: e.globalData.userInfo,
+                    hasUserInfo: !0
+                }), t.getData()) : t.data.canIUse && (e.userInfoReadyCallback = function(e) {
+                    t.setData({
+                        userInfo: e.userInfo,
+                        hasUserInfo: !0
+                    }), t.getData(), wx.setStorageSync("userInfo", e.userInfo);
+                }) : console.log(3);
+            }
+        });
+    },
+    getData: function() {
+        var e = this;
+        console.log(1);
+        var t = e.data.inviteOpenId;
+        t = t || "";
+        var a = e.data.source;
+        a = a || "3";
+        var n = e.data.zlttype;
+        n = n || "4";
+        var i = e.data.id;
+        i = i || "", console.log(t), console.log(a), console.log(n), wx.login({
+            success: function(o) {
+                var s = o.code;
+                wx.request({
+                    url: "https://fairso.com/Common/zltLoginWX",
+                    data: {
+                        business_no: "ZhanLeTaoWeChat",
+                        code: s,
+                        type: "1",
+                        fopenid: t,
+                        source: a,
+                        zlttype: n,
+                        id: i
+                    },
+                    method: "POST",
+                    header: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    success: function(t) {
+                        console.log(t.data), wx.setStorageSync("user", {
+                            openid: t.data.openid,
+                            status: t.data.status
+                        }), e.setData({
+                            openId: t.data.openid
+                        }), e.loginWx();
+                    }
+                });
+            }
+        });
+    },
+    loginWx: function() {
+        var e = this, t = e.data.userInfo.nickName, a = e.data.userInfo.avatarUrl, n = e.data.userInfo.gender, i = e.data.openId, o = "https://fairso.com/Common/zltLoginWX?business_no=ZhanLeTaoWeChat&openid=" + i + "&type=2&nickname=" + t + "&headimgurl=" + a + "&gender=" + n;
+        wx.request({
+            url: o,
+            data: {
+                business_no: "ZhanLeTaoWeChat",
+                openid: i,
+                type: "2",
+                nickname: t,
+                headimgurl: a,
+                gender: n
+            },
+            method: "POST",
+            header: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            success: function(e) {
+                var t = e.data.headimgurl;
+                wx.setStorageSync("avatarUrl", t);
+            }
+        });
+    },
   viewTripOrder:function(){
     //跳转至下单页面
     wx.navigateTo({

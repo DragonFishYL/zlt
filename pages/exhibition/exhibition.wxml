@@ -91,6 +91,14 @@
                         <image mode="widthFix" src="../../common/img/search_b.png"></image>展会</view>
                 </view>
             </view>
+            <view class="flex-tab flex-middle-tab">
+                <view class="tab-share">
+                    <button bindgetuserinfo="tripGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                        <image mode="widthFix" src="../../common/img/trip2.png"></image>行程</button>
+                    <view bindtap="goPage" data-url="../trip/trip" wx:else>
+                        <image mode="widthFix" src="../../common/img/trip2.png"></image>行程</view>
+                </view>
+            </view>
             <view class="flex-tab tab-ticket">
                 <button bindgetuserinfo="personGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
                     <image mode="widthFix" src="../../common/img/personal.png"></image>个人中心</button>

@@ -1,11 +1,11 @@
 //index.js
 //获取应用实例
-const app = getApp();
-var common = require('../../utils/util.js');
+var e = getApp(), t = require("../../utils/util.js"), n = (require("../../wxParse/wxParse.js"),
+  void 0), o = void 0;
 
 Page({
   data: {
-    triparr: null,
+    triparr: [],
     userName: null
   },
   /**
@@ -17,18 +17,30 @@ Page({
     wx.showLoading({ title: '加载中', });
     var t = this;
     wx.request({
-      url: app.globalData.publicUrl + '/Trip/tripList',
-      data: { 'business_no': app.globalData.business_no, 'openid': this.data.openId },
+      url: e.globalData.publicUrl + '/Trip/tripList',
+      data: { 'business_no': e.globalData.business_no, 'openid': this.data.openId },
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded' // 默认值
       },
-      success(res) {
+      success:function(res){
         //将行程数据赋值
-        t.setData({ triparr: res.data.data });
+       t.setData({triparr:res.data.data});
         //关闭提示
         wx.hideLoading();
       }
     });
   },
+	homeGetUserInfo: function(n) {
+		t.autoLogin(e, n, this, "../index/index");
+	},
+	exhibitonGetUserInfo: function(n) {
+		t.autoLogin(e, n, this, "../exhibition/exhibition");
+	},
+	tripGetUserInfo: function(n) {
+		t.autoLogin(e, n, this, "../trip/trip");
+	},
+	personGetUserInfo: function(n) {
+		t.autoLogin(e, n, this, "../person/person");
+	},
 })

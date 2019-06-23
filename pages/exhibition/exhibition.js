@@ -147,6 +147,9 @@ Page({
     exhibitonGetUserInfo: function(e) {
         t.autoLogin(a, e, this, "../exhibition/exhibition");
     },
+    tripGetUserInfo: function(n) {
+        t.autoLogin(e, n, this, "../trip/trip");
+    },
     myshareGetUserInfo: function(e) {
         t.autoLogin(a, e, this, "../person/person");
     },
