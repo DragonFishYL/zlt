@@ -75,6 +75,7 @@ page {
     background: #fff;
     margin-top: 15rpx;
     padding: 30rpx;
+	height:25px;
 }
 
 .ticket .ticket_l {
@@ -113,7 +114,27 @@ page {
   height: 40px;
   line-height: 40px;
   width: 100%;
-  background: #fffeaf;
+  background: #fff;
   position: fixed;
   bottom: 0px;
+  border-top:1rpx solid #8a8a8a;
+}
+button{
+	position:relative;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	padding-left:0px;
+	padding-right:0px;
+	box-sizing:border-box;
+	font-size:16px;
+	text-align:center;
+	text-decoration:none;
+	line-height:2.55555556;
+	border-radius:5px;
+	-webkit-tap-highlight-color:transparent;
+	overflow:hidden;
+	color:#000000;
+	background:#fff;
+	border:1rpx solid #fff;
 }

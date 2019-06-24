@@ -19,6 +19,7 @@ Page({
         shareImg2: "",
         shareImg3: "",
         canShow: "",
+        tripid: "",
         eventTime: "",
         setTime: "",
         zgName: "",
@@ -47,7 +48,7 @@ Page({
         });
     },
     onShareAppMessage: function(e) {
-        var a = this, t = wx.getStorageSync("user").openid, i = wx.getStorageSync("exhibitionId");
+        var a = this, t = wx.getStorageSync("user").openid, i = (4 == a.data.shareType?a.data.tripid:wx.getStorageSync("exhibitionId"));
         if (1 == a.data.shareType) n = "/pages/view/view?business_no=ZhanLeTaoWeChat&fopenid=" + t + "&id=" + i + "&source=1&zlttype=1"; else if (2 == a.data.shareType) var n = "/pages/details/details?business_no=ZhanLeTaoWeChat&fopenid=" + t + "&id=" + i + "&source=1&zlttype=2"; else if (4 == a.data.shareType) var n = "/pages/detail/detail?business_no=ZhanLeTaoWeChat&fopenid=" + t + "&id=" + i + "&source=1&zlttype=4";
         return e.from, console.log(n), {
             title: a.data.company,
@@ -227,18 +228,19 @@ Page({
     },
     onLoad: function(e) {
         var a = this, t = wx.getStorageSync("shareType"), i = wx.getStorageSync("user").openid;
-        if (wx.showLoading({
+		t == 4?a.setData({tripid:e.id}):null;
+	  if (wx.showLoading({
             title: "加载中",
             mask: !0
-        }), 1 == t) var n = wx.getStorageSync("zid"), o = "https://fairso.com/Exhibition/exhibitionEnjoyWX?business_no=ZhanLeTaoWeChat&openid=" + i + "&type=" + t + "&zid=" + n; else if (2 == t) var s = wx.getStorageSync("exhibitionId"), o = "https://fairso.com/Exhibition/exhibitionEnjoyWX?business_no=ZhanLeTaoWeChat&openid=" + i + "&type=" + t + "&eid=" + s;
+        }), 1 == t) var n = wx.getStorageSync("zid"), o = "https://fairso.com/Exhibition/exhibitionEnjoyWX?business_no=ZhanLeTaoWeChat&openid=" + i + "&type=" + t + "&zid=" + n; else if (2 == t) var s = wx.getStorageSync("exhibitionId"), o = "https://fairso.com/Exhibition/exhibitionEnjoyWX?business_no=ZhanLeTaoWeChat&openid=" + i + "&type=" + t + "&eid=" + s;else if (4 == t) var s = e.id, o = "https://fairso.com/Exhibition/exhibitionEnjoyWX?business_no=ZhanLeTaoWeChat&openid=" + i + "&type=" + t + "&xid=" + s;
         wx.request({
             url: o,
             header: {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
             success: function(e) {
-                console.log(e.data), wx.setNavigationBarTitle({
-                    title: e.data.exhibition.name
+                console.log(t),console.log(e.data), wx.setNavigationBarTitle({
+                    title: (4 == t ?e.data.newData.title:e.data.exhibition.name)
                 }), 1 == e.data.status && (1 == t ? a.setData({
                     company: e.data.exhibition.name,
                     banner: e.data.exhibition.thumbnail,
@@ -261,7 +263,7 @@ Page({
                     commission: e.data.position.commission
                 }, function() {
                     a.authorization();
-                }) : 2 == t && a.setData({
+                }) : 2 == t ? a.setData({
                     company: e.data.exhibition.name,
                     banner: e.data.exhibition.thumbnail,
                     title: e.data.exhibition.name,
@@ -279,7 +281,21 @@ Page({
                     commission: e.data.exhibition.commission
                 }, function() {
                     a.authorization();
+                }) : 4 == t && a.setData({
+                    company: e.data.newData.title,
+                    banner: e.data.newData.thumbnail,
+                    setTime: e.data.newData.setime,
+                    Parea: e.data.newData.xprice,
+                    area: e.data.newData.xnum,
+                    dtype: e.data.newData.xtype,
+                    discount: e.data.newData.bonus,
+                    hidden: !0,
+                    shareType: t,
+                    qrcode: e.data.weiCode.weiImg,
+                }, function() {
+                    a.authorization();
                 }));
+				wx.hideLoading();
             },
             fail: function() {
                 wx.hideLoading();
