@@ -48,9 +48,9 @@ Page({
         });
     },
     onShareAppMessage: function(e) {
-        var a = this, t = wx.getStorageSync("user").openid, i = (4 == a.data.shareType?a.data.tripid:wx.getStorageSync("exhibitionId"));
+        var a = this,t = wx.getStorageSync("user").openid, i = (4 == a.data.shareType?a.data.tripid:wx.getStorageSync("exhibitionId"));
         if (1 == a.data.shareType) n = "/pages/view/view?business_no=ZhanLeTaoWeChat&fopenid=" + t + "&id=" + i + "&source=1&zlttype=1"; else if (2 == a.data.shareType) var n = "/pages/details/details?business_no=ZhanLeTaoWeChat&fopenid=" + t + "&id=" + i + "&source=1&zlttype=2"; else if (4 == a.data.shareType) var n = "/pages/detail/detail?business_no=ZhanLeTaoWeChat&fopenid=" + t + "&id=" + i + "&source=1&zlttype=4";
-        return e.from, console.log(n), {
+        return e.from,console.log(e), console.log(n), {
             title: a.data.company,
             path: n,
             imageUrl: a.data.shareImg1,

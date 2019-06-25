@@ -1,6 +1,36 @@
 <view class="su-wrapper" id="su-wrapper">
     <scroll-view scrollY style="height: {{height}}">
-        <view class="su-container su-ticket">
+        <view class="su-container su-ticket" wx:if="{{shareType == 4}}">
+            <view class="person">
+                <image class="avator" mode="widthFix" src="{{photo}}" wx:if="{{photo}}"></image>
+                <image class="avator" mode="widthFix" src="{{avatarUrl}}" wx:else></image>
+                <view class="user-info">
+                    <text class="name">{{nickName}}邀请您一起参加</text>
+                    <text class="zh">{{company}}</text>
+                </view>
+            </view>
+            <view class="picture-box">
+                <image class="banner" src="{{banner}}"></image>
+            </view>
+            <view class="introduce">
+                <view class="su-ctem">
+                    <text class="icon-time" id="setTime" ref="setTime" style="color:{{color}}"></text>{{setTime}}
+				</view>
+                <view class="su-ctem">
+                    <text class="orange" id="Parea" ref="Parea">{{Parea}}<text>元/人 </text></text>
+                    <text class="commission" id="commission" ref="commission">{{area}}人起开团</text>
+                </view>
+            </view>	
+            <view class="company-qcode-box showstatus {{canShow}}">
+                <image class="company-qcode" mode="widthFix" src="{{qrcode}}"></image>
+                <view class="mask-logo">
+                    <view class="mask-box"></view>
+                    <image bindload="imageLoad" class="showstatus {{canShow}}" mode="widthFix" src="{{avatarUrl}}" wx:if="{{avatarUrl}}"></image>
+                    <image bindload="imageLoad" class="showstatus {{canShow}}" mode="widthFix" src="{{photo}}" wx:else></image>
+                </view>
+            </view>
+		</view>
+        <view class="su-container su-ticket" wx:else>
             <view class="person">
                 <image class="avator" mode="widthFix" src="{{photo}}" wx:if="{{photo}}"></image>
                 <image class="avator" mode="widthFix" src="{{avatarUrl}}" wx:else></image>

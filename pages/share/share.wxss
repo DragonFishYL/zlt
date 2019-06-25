@@ -231,3 +231,7 @@ page {
 .gtype {
     margin-right: 20rpx;
 }
+
+#commission{
+	margin-left:100px;
+}

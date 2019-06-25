@@ -271,5 +271,5 @@ page {
   background: #fff;
   position: fixed;
   bottom: 0px;
-  border-top:1rpx solid #8a8a8a;
+  border-top:1rpx solid #e2e2e2;
 }
