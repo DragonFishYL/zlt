@@ -135,5 +135,9 @@
 .mustPay::after {
   border: none;
 }
-
+.payed{
+	background:#18bc9c;
+	border:1rpx solid #18bc9c;
+	color:#fff;
+}
 

@@ -1,20 +1,189 @@
 const app = getApp()
 Page({
   data: {
-    oid: null,
+    oid: '',
+    sid: '',
     openid: 123,
     orderList: [],
     trip: [],
     userList: [],
     userLength:0,
-    trueprice: null,
-    xtype: null,
-    payway: null,
+    trueprice: '',
+    xtype: '',
+    userInfo: '',
+	state: "",
+	merchantDispay: !1,
+    payway: ''
+  },
+  pay: function(m) {
+     var e = this,ee = this,p=e.data.payway, t = wx.getStorageSync("orderId"), a = wx.getStorageSync("user").openid;
+	 if(p == 1){ var sid = e.data.oid; }else if(p == 2){ var sid = m.target.dataset.sid; }
+	 wx.setStorageSync("orderId",sid);wx.setStorageSync("payway",p);
+	 wx.request({
+	   url: "https://fairso.com/trip/foreastWePayWX",
+	   data: {
+			business_no: "ZhanLeTaoWeChat",
+			openid: a,
+			payway: p,
+			oid: sid,
+			sid: sid
+	   },
+	   method: "POST",
+	   header: {
+			"Content-Type": "application/x-www-form-urlencoded"
+	   },
+	   success: function(t) {
+		   // console.log(123);
+		   // console.log(t);
+		   // return false;
+			if (console.log(t.data), 1 == t.data.status) {
+				wx.setNavigationBarTitle({
+					title: e.data.trip.title
+				});
+				var a = t.data.data;
+				wx.requestPayment({
+					timeStamp: a.timeStamp,
+					nonceStr: a.nonceStr,
+					package: a.package,
+					signType: a.signType,
+					paySign: a.paySign,
+					success: function(t) {
+						wx.showToast({
+							title: "支付成功",
+							icon: "success",
+							duration: 2e3,
+							success: function() {
+								setTimeout(function() {
+									e.successPay();
+								}, 2e3);
+							}
+						});
+					},
+					fail: function(e) {
+						wx.showToast({
+							title: "支付失败",
+							icon: "none",
+							duration: 2e3,
+							success: function() {
+								setTimeout(function() {
+									wx.redirectTo({
+										url: "../xorderDetail/xorderDetail?oid="+ee.data.oid
+									});
+								}, 2e3);
+							}
+						});
+					}
+				});
+			}else{
+				e.foreastPay(a,p,sid);
+			}
+		}
+     });
+  },
+  foreastPay: function(a,p,sid) {
+	var e = this,ee = this;
+	wx.request({
+	   url: "https://fairso.com/trip/foreastOnlineWX",
+	   data: {
+			business_no: "ZhanLeTaoWeChat",
+			openid: a,
+			payway: p,
+			oid: sid,
+			sid: sid
+	   },
+	   method: "POST",
+	   header: {
+			"Content-Type": "application/x-www-form-urlencoded"
+	   },
+	   success: function(t) {
+			if (console.log(t.data), 1 == t.data.status) {
+				wx.setNavigationBarTitle({
+					title: e.data.trip.title
+				});
+				var a = t.data.data;
+				wx.requestPayment({
+					timeStamp: a.timeStamp,
+					nonceStr: a.nonceStr,
+					package: a.package,
+					signType: a.signType,
+					paySign: a.paySign,
+					success: function(t) {
+						wx.showToast({
+							title: "支付成功",
+							icon: "success",
+							duration: 2e3,
+							success: function() {
+								setTimeout(function() {
+									e.successPay();
+								}, 2e3);
+							}
+						});
+					},
+					fail: function(e) {
+						wx.showToast({
+							title: "支付失败",
+							icon: "none",
+							duration: 2e3,
+							success: function() {
+								setTimeout(function() {
+									wx.redirectTo({
+										url: "../xorderDetail/xorderDetail?oid="+ee.data.oid
+									});
+								}, 2e3);
+							}
+						});
+					}
+				});
+			}
+		}
+     });
+  },
+  successPay: function() {
+        var e = this;
+        console.log(2);
+        var t = wx.getStorageSync("orderId"),p = wx.getStorageSync("payway"), a = wx.getStorageSync("user").openid;
+        wx.request({
+            url: "https://fairso.com/trip/nomallWePayWX",
+            data: {
+                business_no: "ZhanLeTaoWeChat",
+                openid: a,
+                payway: p,
+                oid: t,
+                sid: t
+            },
+            method: "POST",
+            header: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            success: function(t) {
+                console.log(1), console.log(t.data), 1 == t.data.status && (wx.setNavigationBarTitle({
+                    title: e.data.trip.title
+                }), e.setData({
+                    merchantDispay: !0,
+                    state: t.data.orderInfo.statecode
+                }));
+            }
+        });
+  },
+  authorization: function() {
+	var e = this;
+	wx.getSetting({
+		success: function(t) {
+			t.authSetting["scope.userInfo"] && wx.getUserInfo({
+				success: function(t) {
+					e.setData({
+						userInfo: t.userInfo
+					});
+				}
+			});
+		}
+	});
   },
   onLoad: function (e) {
     var t = this;
+    this.authorization();
     //准备行程参数
-    t.setData({ oid: e.oid, openid: app.globalData.openId });
+    t.setData({ oid: e.oid, openid: wx.getStorageSync("user").openid });
     wx.showLoading({ title: '加载中', });
     wx.request({
       url: app.globalData.publicUrl + '/Trip/tripOrderDetail',

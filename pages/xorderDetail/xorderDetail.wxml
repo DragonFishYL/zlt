@@ -39,15 +39,18 @@
       <view class='monNum'>￥{{item.price}}元</view>
     </view>
     <view class='payTime'>截止到 {{item.nexttime}}</view>
-    <view class='payBtnBox'>
-      <button class='mustPay'>立即付款</button>
+    <view class='payBtnBox' wx:if="{{item.statecode == 1}}">
+      <button class='mustPay' bindtap="pay" data-sid="{{item.id}}">立即付款</button>
+    </view>
+    <view class='payBtnBox' wx:elif="{{item.statecode == 2}}">
+      <button class='mustPay payed'>已支付</button>
     </view>
   </view>
   
   <view class='payStages' wx:if="{{payway == 1}}">
     <view class='payTime'>截止到 {{trip.setime}}</view>
     <view class='payBtnBox'>
-      <button class='mustPay'>立即付款</button>
+      <button class='mustPay' bindtap="pay">立即付款</button>
     </view>
   </view>
   
