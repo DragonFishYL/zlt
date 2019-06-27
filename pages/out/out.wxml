@@ -1,1 +1,87 @@
-<web-view src="https://fairso.com/Exhibition/redirectFeiOrder?openid={{openId}}"></web-view>
+<view class="order">
+	<view class="order-list" data-type="{{item.gtype}}" data-id="{{item.id}}" wx:for="{{orderarr}}" wx:key="unique" >
+		<navigator url='../xorderDetail/xorderDetail?oid={{item.id}}' wx:if="{{item.gtype == 6}}">
+			<view class="order-a">
+				<view class="order-aa">订单号:{{item.sign}} ></view>
+				<view class="order-ab" wx:if="{{item.statecode == 1}}">未支付</view>
+				<view class="order-ab" wx:if="{{item.statecode == 3}}">已支付</view>
+				<view class="order-ab" wx:if="{{item.statecode == 6}}">已取消</view>
+				<view class="order-ac"></view>
+			</view>
+			<view class="order-c">
+				<view class="order-ca" wx:if="{{item.gtype == 1 || item.gtype == 3}}">展会展位</view>
+				<view class="order-ca" wx:if="{{item.gtype == 2}}">会刊购买</view>
+				<view class="order-ca" wx:if="{{item.gtype == 6}}">出团行程</view>
+				<view class="order-cb" wx:if="{{item.payway == 1}}">全额付款</view>
+				<view class="order-cb" wx:if="{{item.payway == 2}}">分期付款</view>
+				<view class="order-ac"></view>
+			</view>
+			<view class="order-b">
+				<view class="order-ba"><image mode="widthFix" src="{{item.smallimg}}"></image></view>
+				<view class="order-bb">{{item.titles}}</view>
+				<view class="order-bc" wx:if="{{item.gtype == 6}}">{{item.totalprice}}</view>
+				<view class="order-bc" wx:else>{{item.price}}</view>
+				<view class="order-ac"></view>
+			</view>
+		</navigator>
+		<navigator url='../orderDetail/orderDetail?oid={{item.id}}' wx:else>
+			<view class="order-a">
+				<view class="order-aa">订单号:{{item.sign}} ></view>
+				<view class="order-ab" wx:if="{{item.statecode == 1}}">未支付</view>
+				<view class="order-ab" wx:if="{{item.statecode == 3}}">已支付</view>
+				<view class="order-ab" wx:if="{{item.statecode == 6}}">已取消</view>
+				<view class="order-ac"></view>
+			</view>
+			<view class="order-c">
+				<view class="order-ca" wx:if="{{item.gtype == 1 || item.gtype == 3}}">展会展位</view>
+				<view class="order-ca" wx:if="{{item.gtype == 2}}">会刊购买</view>
+				<view class="order-ca" wx:if="{{item.gtype == 6}}">出团行程</view>
+				<view class="order-cb" wx:if="{{item.payway == 1}}">全额付款</view>
+				<view class="order-cb" wx:if="{{item.payway == 2}}">分期付款</view>
+				<view class="order-ac"></view>
+			</view>
+			<view class="order-b">
+				<view class="order-ba"><image mode="widthFix" src="{{item.smallimg}}"></image></view>
+				<view class="order-bb">{{item.titles}}</view>
+				<view class="order-bc" wx:if="{{item.gtype == 6}}">{{item.totalprice}}</view>
+				<view class="order-bc" wx:else>{{item.price}}</view>
+				<view class="order-ac"></view>
+			</view>
+		</navigator>
+	</view>
+</view>
+<view class="view-b"></view>
+<view class="tabbar">
+	<view class="tab-main">
+		<view class="flex-tab">
+			<view class="tab-share">
+				<button bindgetuserinfo="homeGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+					<image mode="widthFix" src="../../common/img/home_w.png"></image>首页</button>
+				<view bindtap="goPage" data-url="../index/index" wx:else>
+					<image mode="widthFix" src="../../common/img/home_w.png"></image>首页</view>
+			</view>
+		</view>
+		<view class="flex-tab flex-middle-tab">
+			<view class="tab-share">
+				<button bindgetuserinfo="exhibitonGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+					<image mode="widthFix" src="../../common/img/onlinelooking.png"></image>展会</button>
+				<view bindtap="goPage" data-url="../exhibition/exhibition" wx:else>
+					<image mode="widthFix" src="../../common/img/onlinelooking.png"></image>展会</view>
+			</view>
+		</view>
+		<view class="flex-tab flex-middle-tab">
+			<view class="tab-share">
+				<button bindgetuserinfo="tripGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+					<image mode="widthFix" src="../../common/img/trip2.png"></image>行程</button>
+				<view bindtap="goPage" data-url="../trip/trip" wx:else>
+					<image mode="widthFix" src="../../common/img/trip2.png"></image>行程</view>
+			</view>
+		</view>
+		<view class="flex-tab tab-ticket">
+			<button bindgetuserinfo="personGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+				<image mode="widthFix" src="../../common/img/personal_b.png"></image>我的</button>
+			<view bindtap="goPage" data-url="../person/person" wx:else>
+				<image mode="widthFix" src="../../common/img/personal_b.png"></image>我的</view>
+		</view>
+	</view>
+</view>
