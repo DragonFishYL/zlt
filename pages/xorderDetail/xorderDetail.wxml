@@ -1,6 +1,6 @@
 <view class='detCon'>
   <text class='detTit'>{{trip.title}}</text>
-  <text class='actTime'>{{trip.stime}}</text>
+  <text class='actTime'>{{trip.setime}}</text>
   <view class='groInfo'>
     <view class='groPrice'>{{trip.xprice}}元/人</view>
     <!-- <view class='groPerNum'>{{perNum}}人起开团</view> -->
@@ -22,7 +22,10 @@
     <view class='total'>共计</view>
     <view class='monNum'>￥{{trueprice}}元</view>
   </view>
-  <view class='payTime'>{{trip.setime}}</view>
+  <view class='payTime'>创建时间 {{ctime}}</view>
+  <view class='payTime' wx:if="{{statecode == 1}}">未支付</view>
+  <view class='payTime' wx:if="{{statecode == 3}}">已支付</view>
+  <view class='payTime' wx:if="{{statecode == 3}}">支付时间 {{paytime}}</view>
 </view>
 <view class='linef7'></view>
 <view class='payDet'>
@@ -39,6 +42,7 @@
       <view class='monNum'>￥{{item.price}}元</view>
     </view>
     <view class='payTime'>截止到 {{item.nexttime}}</view>
+	<view class='payTime' wx:if="{{item.statecode == 2}}">支付时间 {{item.paytime}}</view>
     <view class='payBtnBox' wx:if="{{item.statecode == 1}}">
       <button class='mustPay' bindtap="pay" data-sid="{{item.id}}">立即付款</button>
     </view>
@@ -48,7 +52,7 @@
   </view>
   
   <view class='payStages' wx:if="{{payway == 1}}">
-    <view class='payTime'>截止到 {{trip.setime}}</view>
+    <view class='payTime' wx:if="{{payway == 2}}">下次付款日期 {{trip.setime}}</view>
     <view class='payBtnBox'>
       <button class='mustPay' bindtap="pay">立即付款</button>
     </view>

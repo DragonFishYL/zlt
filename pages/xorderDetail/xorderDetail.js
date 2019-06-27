@@ -12,6 +12,9 @@ Page({
     xtype: '',
     userInfo: '',
 	state: "",
+	paytime: "",
+	ctime: "",
+	statecode: "",
 	merchantDispay: !1,
     payway: ''
   },
@@ -162,6 +165,11 @@ Page({
                     merchantDispay: !0,
                     state: t.data.orderInfo.statecode
                 }));
+				setTimeout(function() {
+					wx.redirectTo({
+						url: "../xorderDetail/xorderDetail?oid="+e.data.oid
+					});
+				}, 2e3);
             }
         });
   },
@@ -213,6 +221,9 @@ Page({
               xtype: xtype,
               userLength: r.data.data.user.length,
               payway: r.data.data.payway,
+              paytime: r.data.data.paytime,
+              ctime: r.data.data.ctime,
+              statecode: r.data.data.statecode
             })
 
             if (r.data.data.orderList){
