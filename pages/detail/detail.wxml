@@ -14,9 +14,9 @@
     <view class='groType'>{{xtype}}</view>
   </view>
   <text class='actiTit'>优惠活动</text>
-  <text class='actiDis'>{{special}}</text>
+  <rich-text class='actiDis' nodes="{{special}}"></rich-text>
   <text class='actiTit'>行程详情</text>
-  <text class='actiDis'>{{focus}}</text>
+  <rich-text class='actiDis' nodes="{{focus}}"></rich-text>
   <text class='actiTit'>推荐航班</text>
   <text class='actiDis'>{{reairplean}}</text>
   <text class='actiTit'>推荐酒店</text>
@@ -48,7 +48,7 @@
   <view class='linef7'></view>
 </view>
 <view class='detBot'>
-  <button open-type='share' bindtap='sendfriend' class='detShaBtn'>发给好友</button>
+  <button bindtap='sendfriend' class='detShaBtn'>发给好友得红包,最高 <text>￥{{bonus}}</text> 元</button>
   <button bindtap='viewTripOrder' class='buyBtn' wx:if="{{authSetting == 1}}">立即购买</button>
   <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class='buyBtn' wx:else>立即购买</button>
 </view>

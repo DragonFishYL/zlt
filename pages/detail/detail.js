@@ -1,4 +1,4 @@
-var app = getApp(), t = require("../../utils/util.js"), n = (require("../../wxParse/wxParse.js"), 
+var e = getApp(), t = require("../../utils/util.js"), n = (require("../../wxParse/wxParse.js"), 
 void 0), o = void 0;
 Page({
   data: {
@@ -29,17 +29,17 @@ Page({
     canIUse: '',
     status: ''
   },
-  onLoad: function (e) {
+  onLoad: function (d) {
     this.authorization();
 	var n = wx.getStorageSync("user").openid;
     //判断是否授权
-    this.setData({ authSetting: app.globalData.authSetting?app.globalData.authSetting:wx.getStorageSync("user").openid, id: e.id });
+    this.setData({ authSetting: e.globalData.authSetting?e.globalData.authSetting:wx.getStorageSync("user").openid, id: d.id });
     wx.showLoading({ title: '加载中', });
     //请求展会详情数据API
     var t = this;
     wx.request({
-      url: app.globalData.publicUrl + '/Trip/tripDetail',
-      data: { 'business_no': app.globalData.business_no, 'openid': n,'tripid':this.data.id},
+      url: e.globalData.publicUrl + '/Trip/tripDetail',
+      data: { 'business_no': e.globalData.business_no, 'openid': n,'tripid':this.data.id},
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded' // 默认值
@@ -89,10 +89,10 @@ Page({
             if (res.code) {
               //发起网络请求
               wx.request({
-                url: app.globalData.publicUrl + '/Common/zltLoginWX',
+                url: e.globalData.publicUrl + '/Common/zltLoginWX',
                 data: {
                   code: res.code,
-                  business_no: app.globalData.business_no,
+                  business_no: e.globalData.business_no,
                   type: 1,
                   source: 3,
                   zlttype: 4,
@@ -105,7 +105,7 @@ Page({
                 success(r) {
                   console.log(r);
                   //更新globalData的oppenId
-                  app.globalData.openId = r.data.openid;
+                  e.globalData.openId = r.data.openid;
                   wx.setStorageSync('openid', r.data.openid);
                   //跳转至下单页面
                   wx.navigateTo({
@@ -219,21 +219,21 @@ Page({
     })
   },
 	homeGetUserInfo: function(n) {
-		t.autoLogin(app, n, this, "../index/index");
+		t.autoLogin(e, n, this, "../index/index");
 	},
 	exhibitonGetUserInfo: function(n) {
-		t.autoLogin(app, n, this, "../exhibition/exhibition");
+		t.autoLogin(e, n, this, "../exhibition/exhibition");
 	},
 	tripGetUserInfo: function(n) {
-		t.autoLogin(app, n, this, "../trip/trip");
+		t.autoLogin(e, n, this, "../trip/trip");
 	},
 	personGetUserInfo: function(n) {
-		t.autoLogin(app, n, this, "../person/person");
+		t.autoLogin(e, n, this, "../person/person");
 	},
 	ticketGetUserInfo: function(n) {
-		t.autoLogin(app, n, this, "../ticket/ticket");
+		t.autoLogin(e, n, this, "../ticket/ticket");
 	},
 	searchUserInfo: function(n) {
-		t.autoLogin(app, n, this, "../search/search");
+		t.autoLogin(e, n, this, "../search/search");
 	}
 })

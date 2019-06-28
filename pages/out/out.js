@@ -1,5 +1,5 @@
 require("../../utils/util.js");
-var e = getApp();
+var e = getApp(), t = require("../../utils/util.js"), n = (require("../../wxParse/wxParse.js"));
 
 Page({
     data: {
@@ -47,5 +47,21 @@ Page({
 			wx.hideLoading();
 		  }
 		});
-    }
+    },
+    goPage: function(e) {
+        var a = e.currentTarget.dataset.url;
+        t.goPage(a);
+    },
+	homeGetUserInfo: function(n) {
+		t.autoLogin(e, n, this, "../index/index");
+	},
+	exhibitonGetUserInfo: function(n) {
+		t.autoLogin(e, n, this, "../exhibition/exhibition");
+	},
+	tripGetUserInfo: function(n) {
+		t.autoLogin(e, n, this, "../trip/trip");
+	},
+	personGetUserInfo: function(n) {
+		t.autoLogin(e, n, this, "../person/person");
+	},
 });

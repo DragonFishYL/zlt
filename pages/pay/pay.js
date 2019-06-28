@@ -61,7 +61,7 @@ Page({
     adFlag:true,
     array: ['身份证', '护照', '驾照'],
     tripuser: [],
-    tripusered: [],
+    tripusered: '',
     openid:null,
     ctuid:null,
   },
@@ -321,8 +321,25 @@ Page({
   submitOrder: function () {
     var t = this;
     if (t.data.payway == 2 && (!t.data.depositRate || !t.data.stageMonth)){
-      return false;
+		wx.showToast({
+		   title: '请选择付款方式',
+		   icon: 'loading',
+		   duration: 1500,
+		   mask:true
+		});
+		return false;
     }
+	console.log(t.data.tripusered);
+	console.log(t.data.ctuid);
+	if(!t.data.tripusered){
+		wx.showToast({
+		   title: '请选择出团人员',
+		   icon: 'loading',
+		   duration: 1500,
+		   mask:true
+		});
+		return false;
+	}
     var jsonData = { 'depositRate': t.data.depositRate, 'stageMonth': t.data.stageMonth, 'payway': t.data.payway, 'totalprice': t.data.totalPrice, 'ctuid': t.data.ctuid, 'tripid': t.data.id, 'business_no': app.globalData.business_no, 'openid': t.data.openid };
     wx.showLoading({ title: '加载中', });
     //请求展会详情数据API

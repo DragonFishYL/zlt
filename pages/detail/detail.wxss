@@ -101,7 +101,7 @@
 }
 .detShaBtn {
   float: left;
-  width: 50%;
+  width: 70%;
   height: 80rpx;
   color: #fff;
   font-size: 28rpx;
@@ -112,7 +112,7 @@
 }
 .buyBtn {
   float: right;
-  width: 50%;
+  width: 30%;
   height: 80rpx;
   color: #fff;
   font-size: 28rpx;
@@ -124,4 +124,4 @@
 .detShaBtn::after,.buyBtn::after {
   border: none;
 }
-
+.detShaBtn text{font-size:16px;font-weight:bold;color:red;}

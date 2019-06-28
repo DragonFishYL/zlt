@@ -92,7 +92,7 @@ Page({
                                 success: function() {
                                     setTimeout(function() {
                                         wx.redirectTo({
-                                            url: "../orderDetail/orderDetail"
+                                            url: "../orderDetail/orderDetail?oid="+t
                                         });
                                     }, 2e3);
                                 }
@@ -142,8 +142,9 @@ Page({
             }
         });
     },
-    onLoad: function() {
+    onLoad: function(d) {
         var e = this;
+		wx.setStorageSync("orderId",d.oid);
         this.authorization();
         var t = wx.getStorageSync("orderId"), a = wx.getStorageSync("user").openid;
         wx.request({
