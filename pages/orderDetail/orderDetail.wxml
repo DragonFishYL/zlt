@@ -59,7 +59,7 @@
             </view>
         </view>
     </view>
-    <view class="cbooth-view clearfix" hidden="{{merchantDispay}}">
+    <view class="cbooth-view clearfix" hidden="{{merchantDispay}}" wx:if="{{state != '已取消'}}">
         <button bindtap="pay">微信支付</button>
     </view>
 </view>
