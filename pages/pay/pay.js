@@ -21,16 +21,7 @@ Page({
     }],
     selectArray2: [{
       "id": "14",
-      "text": "3"
-    }, {
-      "id": "15",
-      "text": "6"
-    }, {
-      "id": "16",
-      "text": "9"
-    }, {
-      "id": "17",
-      "text": "12"
+      "text": "2"
     }],
     depositRate: null,
     stageMonth: null,
@@ -44,6 +35,7 @@ Page({
     xprice:  null,
     xnum: null,
     xtype: null,
+    ftype: null,
     linker:null,
     leastNum:'3',
     ename: null,
@@ -126,7 +118,9 @@ Page({
           title:r.data.data.title,
           xtype: xtype,
           setime: r.data.data.setime,
+          ftype: r.data.data.ftype,
           xprice: r.data.data.xprice,
+          totalPrice: r.data.data.xprice,
           xnum: r.data.data.xnum,
           linker: r.data.data.linker,
           tripuser: r.data.data.tripuser
@@ -134,8 +128,25 @@ Page({
 
         //参团人员ctuid
         if (r.data.data.tripuser) {
-          t.dealCtuid(r.data.data.tripuser);
+          t.dealCtuid(r.data.data.tripuser,1);
         }
+		
+		//是否存在分期付款
+		if(r.data.data.ftype == 1){
+			t.setData({
+				items:[
+				  { name: '全额支付', checked: true, value: '1'},
+				  { name: '分期付款', checked: false, value: '2'}
+				]
+			});
+		}else{
+			t.setData({
+				items:[
+				  { name: '全额支付', checked: true, value: '1'}
+				]
+			});
+		}
+		
       }
     })
   },
@@ -154,7 +165,7 @@ Page({
 		   tripusered: r.data.userlist,
 		});
 		//参团人员ctuid
-        t.dealCtuid(r.data.userlist);
+        t.dealCtuid(r.data.userlist,2);
 	  }
 	})
   },
@@ -290,7 +301,7 @@ Page({
           adFlag: true
         })
         if (t.data.tripuser){
-          t.dealCtuid(t.data.tripuser);
+          t.dealCtuid(t.data.tripuser,2);
         }
       }
     })
@@ -300,17 +311,24 @@ Page({
     //console.log(e);
   },
   //处理参团人员ctuid
-  dealCtuid:function(ctuidArr){
+  dealCtuid:function(ctuidArr,n){
     var tripuserStr = '';
     var t = this;
     for (let i = 0; i < ctuidArr.length; i++) {
       tripuserStr += ctuidArr[i]['id'] + ',';
     }
-    var totalPrice = t.data.xprice * ctuidArr.length;
-    t.setData({
-      ctuid: tripuserStr,
-      totalPrice: totalPrice.toFixed(2)
-    })
+	if(n == 2){
+		var totalPrice = t.data.xprice * ctuidArr.length;
+		t.setData({
+		  ctuid: tripuserStr,
+		  totalPrice: totalPrice.toFixed(2)
+		})
+	}else{
+		t.setData({
+		  ctuid: tripuserStr
+		})
+	}
+    
   },
   viewOrderDetails:function(){
 	  wx.navigateTo({
@@ -320,6 +338,15 @@ Page({
   //提交订单
   submitOrder: function () {
     var t = this;
+	if(!t.data.payway){
+		wx.showToast({
+		   title: '请选择付款方式',
+		   icon: 'loading',
+		   duration: 1500,
+		   mask:true
+		});
+		return false;
+	}
     if (t.data.payway == 2 && (!t.data.depositRate || !t.data.stageMonth)){
 		wx.showToast({
 		   title: '请选择付款方式',
