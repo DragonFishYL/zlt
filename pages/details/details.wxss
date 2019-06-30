@@ -464,8 +464,8 @@ page {
   height: 40px;
   line-height: 40px;
   width: 100%;
-  background: #fffeaf;
+  background: #fff;
   position: fixed;
-  z-index: 1000;
   bottom: 0px;
+  border-top:1rpx solid #e2e2e2;
 }
