@@ -11,9 +11,11 @@ function a(e, a, t, i, l, r) {
 function t(e, a) {
     2 == wx.getStorageSync("shareType") ? (a.save(), a.beginPath(), a.arc(375, 852, 56, 0, 2 * Math.PI, !1), 
     a.setStrokeStyle("#ffffff"), a.closePath(), a.stroke(), a.clip(), a.drawImage(e, 319, 795, 112, 112), 
-    a.restore()) : 1 == wx.getStorageSync("shareType") && (a.save(), a.beginPath(), 
+    a.restore()) : (1 == wx.getStorageSync("shareType") ?(a.save(), a.beginPath(), 
     a.arc(375, 911, 56, 0, 2 * Math.PI, !1), a.setStrokeStyle("#ffffff"), a.closePath(), 
-    a.stroke(), a.clip(), a.drawImage(e, 319, 855, 112, 112), a.restore());
+    a.stroke(), a.clip(), a.drawImage(e, 319, 855, 112, 112), a.restore()):4 == wx.getStorageSync("shareType") && (a.save(), a.beginPath(), 
+    a.arc(375, 911, 56, 0, 2 * Math.PI, !1), a.setStrokeStyle("#ffffff"), a.closePath(), 
+    a.stroke(), a.clip(), a.drawImage(e, 319, 855, 112, 112), a.restore()));
 }
 
 var i = require("./util.js");
@@ -83,6 +85,7 @@ module.exports = {
         });
     },
     drawQuenImageInfo: function(a, l, r) {
+		console.log(l.shareType);
         if (l.avatarUrl) n = l.canvasAvatarUrl; else var n = l.canvasPhotoUrl;
         null == l.pricedanwei && (l.pricedanwei = "元"), null == l.areadanwei && (l.areadanwei = "m²"), 
         null != l.dtype && void 0 != l.dtype && "暂无优惠" != l.dtype || (console.log(66766), 
@@ -90,7 +93,7 @@ module.exports = {
         l.discount = "", console.log(l.discount));
         var o = l.nickName + "邀请您一起参加", f = l.setTime, s = l.zgName;
         if (a.setFontSize(30), a.fillText(o, 138, 60), a.setFontSize(30), a.drawImage("../../common/img/time2.png", 48, 507, 40, 40), 
-        a.fillText(f, 105, 540), a.drawImage("../../common/img/place2.png", 48, 560, 40, 40), 
+        a.fillText(f, 105, 540),  
         s.length > 20) {
             var c = s.substring(0, 20), g = s.substring(20);
             a.fillText(c, 105, 582), a.fillText(g, 105, 622);
@@ -101,7 +104,7 @@ module.exports = {
             a.fillText(p, 138, 95), a.fillText(w, 138, 130);
         } else a.fillText(m, 138, 115);
         if (1 == l.shareType) {
-            a.drawImage(l.wxBanner, 48, 147, 655, 344);
+            a.drawImage("../../common/img/place2.png", 48, 560, 40, 40),a.drawImage(l.wxBanner, 48, 147, 655, 344);
             var h = l.ZLTPhone;
             if (a.setFontSize(30), a.fillText(h, 48, 640), 0 != l.Parea && "0" != l.area) {
                 var x = l.gtype + l.Parea + l.pricedanwei + "/" + l.area + l.areadanwei + "起        " + l.dtype + l.discount;
@@ -115,6 +118,7 @@ module.exports = {
                 }
             });
         } else if (2 == l.shareType) {
+			a.drawImage("../../common/img/place2.png", 48, 560, 40, 40);
             if (a.drawImage(l.wxBanner, 48, 147, 655, 344), a.moveTo(48, 690), a.lineTo(695, 690), 
             a.lineWidth = 1, a.strokeStyle = "#f1f1f1", a.stroke(), 0 != l.Parea && "0" != l.area) {
                 var T = l.Parea + l.pricedanwei + "/" + l.area + l.areadanwei + "起        " + l.dtype + l.discount;
@@ -125,6 +129,21 @@ module.exports = {
                 src: I,
                 complete: function(i) {
                     a.drawImage(i.path, 244, 720, 262, 262), t(n, a), e(n, a, 48, 30, 80, 80), a.draw();
+                }
+            });
+        }else if (4 == l.shareType) {
+            if (a.drawImage(l.wxBanner, 48, 147, 655, 344), a.moveTo(48, 735), a.lineTo(755, 735), 
+            a.lineWidth = 1, a.strokeStyle = "#f1f1f1", a.stroke(), 0 != l.Parea && "0" != l.area) {
+                var T = l.Parea + "元/人起   "+l.area+"人起开团";
+                a.setFontSize(30), a.setFillStyle("#fc6709"), a.fillText(T, 48, 600);
+				var dis = '分享成功得红包,最高'+ l.discount +'元';
+				a.setFillStyle('orange'),a.fillRect(22, 640, 703, 100),a.setFontSize(30),a.setFillStyle("#fff"),a.fillText(dis,180,700);
+            }
+            var I = l.qrcode;
+            wx.getImageInfo({
+                src: I,
+                complete: function(i) {
+                    a.drawImage(i.path, 244, 780, 262, 262), t(n, a), e(n, a, 48, 30, 80, 80), a.draw();
                 }
             });
         }
