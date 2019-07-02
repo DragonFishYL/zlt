@@ -1,13 +1,16 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/trip/trip",
+    "pages/detail/detail",
+    "pages/pay/pay",
+    "pages/xorderDetail/xorderDetail",
     "pages/logs/logs",
     "pages/search/search",
     "pages/search_list/search_list",
     "pages/exhibition/exhibition",
     "pages/details/details",
     "pages/service/service",
-    "pages/person/person",
     "pages/view/view",
     "pages/share/share",
     "pages/signUp/signUp",
@@ -20,10 +23,8 @@
     "pages/orderDetail/orderDetail",
     "pages/effect/effect",
     "pages/friends/friends",
-    "pages/trip/trip",
-    "pages/detail/detail",
-    "pages/pay/pay",
-    "pages/xorderDetail/xorderDetail",
+    "pages/person/person",
+    "pages/bill/bill",
     "pages/out/out"
   ],
   "window": {

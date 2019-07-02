@@ -36,21 +36,6 @@ Page({
         var n = t.currentTarget.dataset.url;
         e.goPage(n);
     },
-    watchTicket: function() {
-        wx.navigateTo({
-            url: "../watchTicket/watchTicket"
-        });
-    },
-    goFair: function() {
-        wx.navigateTo({
-            url: "../out/out"
-        });
-    },
-    goBill: function() {
-        wx.navigateTo({
-            url: "../bill/bill"
-        });
-    },
     collect: function() {
         wx.navigateTo({
             url: "../collect/collect"
@@ -59,20 +44,6 @@ Page({
     myshare: function() {
         wx.navigateTo({
             url: "../effect/effect"
-        });
-    },
-    homeGetUserInfo: function(n) {
-        e.autoLogin(t, n, this, "../index/index");
-    },
-    exhibitonGetUserInfo: function(n) {
-        e.autoLogin(t, n, this, "../exhibition/exhibition");
-    },
-    myshareGetUserInfo: function(n) {
-        e.autoLogin(t, n, this, "../person/person");
-    },
-    imageLoad: function(t) {
-        this.setData({
-            canShow: "active"
         });
     },
     onLoad: function() {

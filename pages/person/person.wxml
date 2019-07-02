@@ -29,15 +29,15 @@
   			查看所有观展票>
   		</view>
     </view>
-    <view class="ticket">
+    <view bindtap="goFair" class="ticket">
         <view class="ticket_l">
   			订单中心
   		</view>
-        <view bindtap="goFair" class="ticket_r">
+        <view class="ticket_r">
   			查看所有订单>
   		</view>
     </view>
-    <view class="ticket">
+    <view bindtap="goBill" class="ticket">
         <view class="ticket_l">
   			发票管理
   		</view>
