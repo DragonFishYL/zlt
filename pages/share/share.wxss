@@ -228,6 +228,13 @@ page {
     left: 1400px;
 }
 
+.shareImg4 {
+    width: 750px;
+    height: 1102px;
+    position: fixed;
+    top: 0;
+    left: 1400px;
+}
 .gtype {
     margin-right: 20rpx;
 }

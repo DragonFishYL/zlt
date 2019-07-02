@@ -92,4 +92,4 @@
 <canvas canvasId="shareImg1" class="shareImg1"></canvas>
 <canvas canvasId="shareImg2" class="shareImg2" wx:if="{{shareType==2}}"></canvas>
 <canvas canvasId="shareImg3" class="shareImg3" wx:if="{{shareType==1}}"></canvas>
-<!-- <canvas canvasId="shareImg4" class="shareImg4" wx:if="{{shareType==4}}"></canvas> -->
+<canvas canvasId="shareImg4" class="shareImg4" wx:if="{{shareType==4}}"></canvas>

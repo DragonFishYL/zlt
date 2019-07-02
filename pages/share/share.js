@@ -115,6 +115,9 @@ Page({
             } else if (1 == wx.getStorageSync("shareType")) {
                 var n = wx.createCanvasContext("shareImg3", e);
                 n.drawImage("../../common/img/quanShare.jpg", 0, 0, 750, 1102), a.drawQuenImageInfo(n, e.data, t);
+            } else if (4 == wx.getStorageSync("shareType")) {
+                var n = wx.createCanvasContext("shareImg4", e);
+                n.drawImage("../../common/img/quanShare.jpg", 0, 0, 750, 1102), a.drawQuenImageInfo(n, e.data, t);
             }
         });
     },
@@ -163,7 +166,7 @@ Page({
             fail: function(e) {
                 console.log(e);
             }
-        }, this) : 1 == wx.getStorageSync("shareType") && (console.log(2), wx.canvasToTempFilePath({
+        }, this) : (1 == wx.getStorageSync("shareType") && console.log(2)?wx.canvasToTempFilePath({
             x: 0,
             y: 0,
             width: 750,
@@ -200,7 +203,44 @@ Page({
             fail: function(e) {
                 console.log(e);
             }
-        }, this));
+        }, this): 4 == wx.getStorageSync("shareType") && (console.log(2), wx.canvasToTempFilePath({
+            x: 0,
+            y: 0,
+            width: 750,
+            height: 1102,
+            destWidth: 750 * t,
+            destHeight: 1102 * t,
+            canvasId: "shareImg4",
+            quality: 1,
+            success: function(e) {
+                var t = e.tempFilePath;
+                a.setData({
+                    shareImg4: t
+                }), wx.getSetting({
+                    success: function(e) {
+                        0 == e.authSetting["scope.writePhotosAlbum"] ? wx.openSetting({
+                            success: function(e) {}
+                        }) : wx.saveImageToPhotosAlbum({
+                            filePath: t,
+                            success: function(e) {
+                                wx.showModal({
+                                    content: "图片已保存到相册，赶紧晒一下吧~",
+                                    showCancel: !1,
+                                    confirmText: "好的",
+                                    confirmColor: "#333",
+                                    success: function(e) {
+                                        console.log(e);
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+            },
+            fail: function(e) {
+                console.log(e);
+            }
+        }, this)));
     },
     authorization: function() {
         var e = this;
