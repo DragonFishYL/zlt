@@ -30,8 +30,11 @@ Page({
     status: ''
   },
   onLoad: function (d) {
+	console.log(e);
+	var t = decodeURIComponent(e.scene);
     this.authorization();
 	var n = wx.getStorageSync("user").openid;
+	wx.setStorageSync("tripid",d.id);
     //判断是否授权
     this.setData({ authSetting: e.globalData.authSetting?e.globalData.authSetting:wx.getStorageSync("user").openid, id: d.id });
     wx.showLoading({ title: '加载中', });
@@ -74,6 +77,128 @@ Page({
         })
       }
     })
+  },
+    getScene: function(e) {
+        var t = this;
+        return a = new Promise(function(a, n) {
+            wx.request({
+                url: "https://fairso.com/Exhibition/exhibitionEnjoySceneWX ",
+                data: {
+                    business_no: "ZhanLeTaoWeChat",
+                    scene: e
+                },
+                method: "POST",
+                header: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                success: function(e) {
+                    var a = e.data.parames;
+                    return console.log(a), t.setData({
+                        inviteOpenId: a.fopenid,
+                        tripid: a.id,
+                        source: a.source,
+                        zlttype: a.zlttyepe
+                    }, function() {
+                        a.fopenid && a.fopenid;
+                        wx.setStorageSync("inviteOpenId", a.fopenid), wx.setStorageSync("tripid", a.id), 
+                        wx.setStorageSync("source", a.source), wx.setStorageSync("zlttype", a.zlttyepe), 
+                        t.getVote();
+                    }), Promise.resolve(e.data.data);
+                }
+            });
+        });
+    },
+    getVote: function(e) {
+        var t = this;
+        this.authorization();
+        var a = wx.getStorageSync("tripid"), n = wx.getStorageSync("user").openid;
+        wx.login({
+            success: function(e) {
+                wx.showLoading({
+                    title: "加载中",
+                    mask: !0
+                }), wx.request({
+                    url: "https://fairso.com/Exhibition/exhibitionDetailWX",
+                    data: {
+                        business_no: "ZhanLeTaoWeChat",
+                        openid: n,
+                        id: a
+                    },
+                    method: "POST",
+                    header: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    success: function(e) {
+                        console.log(e.data);
+                        e.data.examine;
+                        var a = "";
+                        if (1 == e.data.examine.isExamine && (console.log(1), a = e.data.examine.uname), 
+                        e.data.data.longtime < 0) n = "已开展"; else if (0 == e.data.data.longtime) n = "开展中"; else var n = e.data.data.longtime + "天";
+                        if (null != e.data.describe && "" != e.data.describe) i = e.data.describe.replace(/<br\/>/g, "\n"); else var i = "";
+                        if (null != e.data.range && "" != e.data.range) o = e.data.range.replace(/<br\/>/g, "\n"); else var o = "";
+                        if (null != e.data.previousreview && "" != e.data.previousreview) s = e.data.previousreview.replace(/<br\/>/g, "\n"); else var s = "";
+                        if (null == e.data.exPosition.biaozhan && null == e.data.exPosition.guangdi) {
+                            console.log(2);
+                            var r = !0, c = !1;
+                        } else {
+                            console.log(1);
+                            var r = !1, c = !0;
+                        }
+                        console.log(e.data.exPosition.biaozhan), t.setData({
+                            merchantDispay: r,
+                            introduceDispay: c,
+                            moreExPositions: e.data.moreExPositions,
+                            exhibitionName: e.data.data.name,
+                            exhibitionThumbnail: e.data.data.thumbnail,
+                            average: e.data.data.average,
+                            positionCount: e.data.data.positionCount,
+                            minPrice: e.data.data.minPrice,
+                            minarea: e.data.data.minarea,
+                            stime: e.data.exhibition_basic.info.stime,
+                            address: e.data.exhibition_basic.address,
+                            pid: e.data.exhibition_basic.info.pid,
+                            chosts: e.data.exhibition_basic.chosts,
+                            exPosition_biao: e.data.exPosition.biaozhan,
+                            exPosition_guang: e.data.exPosition.guangdi,
+                            describe: i,
+                            range: o,
+                            previousreview: s,
+                            exhibitionTime: n,
+                            exhibitioncollect: e.data.iscollect,
+                            isExamine: e.data.examine.isExamine,
+                            isOverTime: e.data.isOverTime,
+                            uname: a,
+                            phone: e.data.ZLTPhone,
+                            pricedanwei: e.data.data.pricedanwei,
+                            areadanwei: e.data.data.areadanwei
+                        }, function() {
+                            wx.hideLoading();
+                        });
+                    },
+                    fail: function() {
+                        wx.hideLoading();
+                    }
+                });
+            }
+        });
+    },
+  onShow: function() {
+	var e = this, a = t.getCurrentPage().options;
+	console.log(a);
+	var n = a.fopenid, i = decodeURIComponent(a.scene);
+	if (console.log("scene场景值:" + i), "undefined" !== i) this.getScene(i); else "undefined" == n ? (console.log(22), 
+	e.getVote()) : a.fopenid ? (console.log(33), e.setData({
+		inviteOpenId: a.fopenid,
+		tripid: a.id,
+		source: a.source,
+		zlttype: a.zlttype
+	}, function() {
+		console.log(44);
+		a.fopenid && a.fopenid;
+		wx.setStorageSync("inviteOpenId", a.fopenid), wx.setStorageSync("tripid", a.id), 
+		wx.setStorageSync("source", a.source), wx.setStorageSync("zlttype", a.zlttype), 
+		e.getVote();
+	})) : wx.getStorageSync("tripid") && e.getVote();
   },
   bindGetUserInfo:function(b){
     console.log(b)
