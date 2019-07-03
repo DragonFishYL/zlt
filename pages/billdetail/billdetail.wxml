@@ -1,0 +1,5 @@
+<view class="su-wrapper">
+    <view class="billdetail">
+        <view class="billdetail-a">开票信息</view>
+    </view>
+</view>

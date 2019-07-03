@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/billdetail/billdetail",
     "pages/index/index",
     "pages/trip/trip",
     "pages/detail/detail",
@@ -25,6 +26,7 @@
     "pages/friends/friends",
     "pages/person/person",
     "pages/bill/bill",
+    "pages/billlist/billlist",
     "pages/out/out"
   ],
   "window": {
