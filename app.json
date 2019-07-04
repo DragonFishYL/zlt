@@ -1,5 +1,8 @@
 {
   "pages": [
+    "pages/headerupdate/headerupdate",
+    "pages/headerlist/headerlist",
+    "pages/billlist/billlist",
     "pages/billdetail/billdetail",
     "pages/index/index",
     "pages/trip/trip",
@@ -26,7 +29,6 @@
     "pages/friends/friends",
     "pages/person/person",
     "pages/bill/bill",
-    "pages/billlist/billlist",
     "pages/out/out"
   ],
   "window": {

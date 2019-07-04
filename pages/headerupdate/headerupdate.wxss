@@ -1,0 +1,49 @@
+.su-wrapper{
+	width:100%;
+	height:auto;
+    position: relative;
+	padding:20rpx;
+	box-sizing:border-box;
+}
+.billlist{
+	width:100%;
+	height:300rpx;
+	border-radius:5px;
+}
+.billlist-a{
+	width:100%;
+	height:100%;
+}
+.billlist-aa{
+	width:100%;
+	height:75rpx;
+	line-height:75rpx;
+	font-size:14px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	margin-top:30rpx;
+}
+.billlist-ab{
+	width:22%;
+	height:75rpx;
+	line-height:75rpx;
+	float:left;
+}
+.billlist-ac{
+	width:78%;
+	height:75rpx;
+	line-height:75rpx;
+	float:right;
+}
+.billlist-ac input{
+	border:1px solid #999;
+	text-indent:20rpx;
+	height:70rpx;
+}
+.clear{
+	clear:both;
+}
+button{
+	margin-right:10rpx;
+}

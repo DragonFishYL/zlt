@@ -1,5 +1,5 @@
 <view class="su-wrapper">
-    <view class="billlist" wx:for="{{billlistArr}}" data-id="{{item.id}}" wx:key="unique">
+    <view class="billlist" wx:for="{{billlistArr}}" data-id="{{item.id}}" wx:key="unique" bindtap="billlistToDetail">
         <view class="billlist-a">
 			<view class="billlist-aa">发票金额：￥{{item.price}}</view>
 			<view class="billlist-ab">开票时间：{{item.stime}}</view>

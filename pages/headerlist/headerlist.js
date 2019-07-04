@@ -4,7 +4,7 @@ require("../../utils/canvas.js");
 
 Page({
     data: {
-        billlistArr:[]
+        headerlistArr:[]
     },
     authorization: function() {
         var t = this;
@@ -27,11 +27,11 @@ Page({
         var n = t.currentTarget.dataset.url;
         e.goPage(n);
     },
-    billlistToDetail: function(b) {
+    headerlistToDetail: function(b) {
 		console.log(b);
 		var billId = b.currentTarget.dataset.id;
         wx.navigateTo({
-            url: "../billdetail/billdetail?id="+billId
+            url: "../headerdetail/headerdetail?id="+billId
         });
     },
     onLoad: function() {
@@ -40,7 +40,7 @@ Page({
 		wx.showLoading({ title: '加载中', });
 		var t = this;
 		wx.request({
-		  url: e.globalData.publicUrl + '/Trip/billListPlay',
+		  url: e.globalData.publicUrl + '/Trip/billinfoPlay',
 		  data: { 'business_no': e.globalData.business_no, 'openid': wx.getStorageSync("user").openid },
 		  method: 'POST',
 		  header: {
@@ -49,7 +49,7 @@ Page({
 		  success:function(res){
 			//将发票列表数据赋值
 		    console.log(res);
-			t.setData({billlistArr:res.data.data,});
+			t.setData({headerlistArr:res.data.data,});
 			//关闭提示
 			wx.hideLoading();
 		  }

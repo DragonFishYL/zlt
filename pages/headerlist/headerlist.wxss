@@ -1,0 +1,33 @@
+.su-wrapper{
+	width:100%;
+	height:auto;
+    position: relative;
+	padding:20rpx;
+	box-sizing:border-box;
+}
+.billlist{
+	width:100%;
+	height:300rpx;
+	border:1px solid #779eba;
+	border-radius:5px;
+}
+.billlist-a{
+	width:100%;
+	height:100%;
+}
+.billlist-aa{
+	width:100%;
+	height:75rpx;
+	line-height:75rpx;
+	font-size:14px;
+	text-indent:20rpx;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.clear{
+	clear:both;
+}
+button{
+	margin-right:10rpx;
+}

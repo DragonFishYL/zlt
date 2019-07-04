@@ -4,7 +4,7 @@ require("../../utils/canvas.js");
 
 Page({
     data: {
-        billlistArr:[]
+        billtailArr:[]
     },
     authorization: function() {
         var t = this;
@@ -27,19 +27,14 @@ Page({
         var n = t.currentTarget.dataset.url;
         e.goPage(n);
     },
-    collect: function() {
-        wx.navigateTo({
-            url: "../collect/collect"
-        });
-    },
-    onLoad: function() {
+    onLoad: function(d) {
         this.authorization();
 		//请求
 		wx.showLoading({ title: '加载中', });
 		var t = this;
 		wx.request({
-		  url: e.globalData.publicUrl + '/Trip/billListPlay',
-		  data: { 'business_no': e.globalData.business_no, 'openid': wx.getStorageSync("user").openid },
+		  url: e.globalData.publicUrl + '/Trip/receiveBillId',
+		  data: { 'business_no': e.globalData.business_no, 'openid': wx.getStorageSync("user").openid, 'billId':d.id },
 		  method: 'POST',
 		  header: {
 			'content-type': 'application/x-www-form-urlencoded' // 默认值
@@ -47,7 +42,7 @@ Page({
 		  success:function(res){
 			//将发票列表数据赋值
 		    console.log(res);
-			t.setData({billlistArr:res.data.data,});
+			t.setData({billtailArr:res.data.data,});
 			//关闭提示
 			wx.hideLoading();
 		  }

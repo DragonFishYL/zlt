@@ -1,0 +1,18 @@
+<view class="su-wrapper">
+    <view class="billlist">
+        <view class="billlist-a">
+			<view class="billlist-aa">
+				<view class="billlist-ab">发票抬头：</view>
+				<view class="billlist-ac"><input type="text" auto-focus/></view>
+			</view>
+			<view class="billlist-aa">
+				<view class="billlist-ab">开具类型：</view>
+				<view class="billlist-ac"><input type="text" auto-focus/></view>
+			</view>
+			<view class="billlist-aa">
+				<view class="billlist-ab">发票类型：</view>
+				<view class="billlist-ac"><input type="text" auto-focus/></view>
+			</view>
+		</view>
+    </view>
+</view>
