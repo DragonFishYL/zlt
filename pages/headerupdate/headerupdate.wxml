@@ -3,15 +3,30 @@
         <view class="billlist-a">
 			<view class="billlist-aa">
 				<view class="billlist-ab">发票抬头：</view>
-				<view class="billlist-ac"><input type="text" auto-focus/></view>
+				<view class="billlist-ac"><input type="text" value="{{billheader}}" auto-focus/></view>
 			</view>
 			<view class="billlist-aa">
 				<view class="billlist-ab">开具类型：</view>
-				<view class="billlist-ac"><input type="text" auto-focus/></view>
+				<view class="billlist-ac">
+					<picker bindchange="bindPickerChange" value="{{index1}}" range="{{array1}}">
+						<view class="picker">
+						    {{array1[index1]}}
+						</view>
+					</picker>
+				</view>
 			</view>
 			<view class="billlist-aa">
 				<view class="billlist-ab">发票类型：</view>
-				<view class="billlist-ac"><input type="text" auto-focus/></view>
+				<view class="billlist-ac">
+					<picker bindchange="bindPickerChanges" value="{{index2}}" range="{{array2}}">
+						<view class="picker">
+						    {{array2[index2]}}
+						</view>
+					</picker>
+				</view>
+			</view>
+			<view>
+				<button type="default" size="default" bindtap="headerDetailSave" data-id="{{id}}" style="background:#07c160">保存</button>
 			</view>
 		</view>
     </view>

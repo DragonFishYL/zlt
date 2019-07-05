@@ -31,7 +31,7 @@ Page({
 		console.log(b);
 		var billId = b.currentTarget.dataset.id;
         wx.navigateTo({
-            url: "../headerdetail/headerdetail?id="+billId
+            url: "../headerupdate/headerupdate?id="+billId
         });
     },
     onLoad: function() {

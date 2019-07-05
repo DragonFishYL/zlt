@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/headerupdate/headerupdate",
     "pages/headerlist/headerlist",
+    "pages/headerupdate/headerupdate",
     "pages/billlist/billlist",
     "pages/billdetail/billdetail",
     "pages/index/index",
