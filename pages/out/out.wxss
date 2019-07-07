@@ -1,4 +1,6 @@
 page{height:auto;background:#edeef0;}
+.order-head{width:100%;heigh:auto;background:#fff;}
+.order-model{width:25%;height:80rpx;line-height:80rpx;font-size:16px;font-weight:bold;float:left;text-align:center;}
 .order-list{width:100%;height:auto;background:#fff;margin-top:10px;padding:5px;}
 .order-a{width:100%;heigh:100%;border-bottom:1px solid #999;}
 .order-b{width:100%;heigh:100px;margin-top:5px;}
@@ -12,21 +14,16 @@ page{height:auto;background:#edeef0;}
 .order-c{width:100%;heigh:100px;margin-top:5px;}
 .order-ca{width:60%;height:30px;line-height:30px;float:left;}
 .order-cb{width:40%;height:30px;line-height:30px;float:right;text-align:center;color:orange;}
-
-
-
 .tab-main image{
   width: 20px;
   height: 20px;
   margin-top:10px;
 }
-
 .flex-tab{
   width: 25%;
   text-align: center;
   float: left;
 }
-
 .tabbar{
   height: 40px;
   line-height: 40px;

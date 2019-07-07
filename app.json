@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/out/out",
     "pages/index/index",
     "pages/detail/detail",
     "pages/pay/pay",
@@ -30,7 +31,6 @@
     "pages/billlist/billlist",
     "pages/billdetail/billdetail",
     "pages/billadd/billadd",
-    "pages/out/out",
     "pages/trip/trip",
     "pages/addressadd/addressadd",
     "pages/addresslist/addresslist",

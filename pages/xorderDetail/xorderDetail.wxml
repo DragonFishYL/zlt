@@ -25,8 +25,8 @@
   <view class='payTime'>创建时间 {{ctime}}</view>
   <view class='payTime' wx:if="{{statecode == 1}}">未支付</view>
   <view class='payTime' wx:if="{{statecode == 6}}">已取消</view>
-  <view class='payTime' wx:if="{{statecode == 3}}">已支付</view>
-  <view class='payTime' wx:if="{{statecode == 3}}">支付时间 {{paytime}}</view>
+  <view class='payTime' wx:if="{{statecode == 3 || statecode == 2}}">已支付</view>
+  <view class='payTime' wx:if="{{statecode == 3 || statecode == 2}}">支付时间 {{paytime}}</view>
 </view>
 <view class='linef7'></view>
 <view class='payDet'>
@@ -56,10 +56,11 @@
     <view class='payTime' wx:if="{{payway == 2}}">下次付款日期 {{trip.setime}}</view>
     <view class='payBtnBox'>
       <button class='mustPay' bindtap="pay" wx:if="{{statecode == 1}}">立即付款</button>
+      <button class='mustPay payed' wx:elif="{{statecode == 3 || statecode == 2}}">已支付</button>
     </view>
   </view>
   
-	<view class='billadd' wx:if="{{statecode == 3}}">
+	<view class='billadd' wx:if="{{statecode == 3 || statecode == 2}}">
 		<button wx:if="{{billstate == 1}}" type="default" size="default" bindtap="billAdd" style="background:orange;color:#fff;">索取发票</button>
 		<button wx:else type="default" size="default" bindtap="billDetail" style="background:#07c160;color:#fff;">查看发票</button>
 	</view>
