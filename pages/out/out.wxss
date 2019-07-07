@@ -5,7 +5,7 @@ page{height:auto;background:#edeef0;}
 .order-aa{width:80%;height:40px;line-height:40px;float:left;}
 .order-ab{width:20%;height:40px;line-height:40px;float:right;color:red;text-align:left;}
 .order-ac{clear:both;}
-.order-ba{width:30%;height:60px;float:left;}
+.order-ba{width:30%;height:70px;float:left;}
 .order-ba image{width:100%;}
 .order-bb{width:34%;height:60px;line-height:20px;float:left;overflow:hidden;margin-left:2%;color:#666;}
 .order-bc{width:30%;height:60px;float:left;margin-left:2%;color:#666;}
