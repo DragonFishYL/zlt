@@ -1,14 +1,14 @@
 <import src="../../wxParse/wxParse.wxml"></import>
 <view class="su-wrapper">
-    <view class="ticket">
+    <view class="ticket" bindtap="watchTicket">
         <view class="ticket_l">
   			发票列表
   		</view>
-        <view bindtap="watchTicket" class="ticket_r">
+        <view class="ticket_r">
   			查看所有发票>
   		</view>
     </view>
-    <view class="ticket">
+    <view class="ticket" bindtap="watchTicketHead">
         <view class="ticket_l">
   			发票抬头
   		</view>
@@ -16,7 +16,7 @@
   			查看所有发票抬头>
   		</view>
     </view>
-    <view class="ticket">
+    <view class="ticket" bindtap="watchTicketAddress">
         <view class="ticket_l">
   			地址管理
   		</view>

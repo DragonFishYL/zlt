@@ -140,4 +140,4 @@
 	border:1rpx solid #18bc9c;
 	color:#fff;
 }
-
+.billadd>button{margin-top:80rpx;height:70rpx;line-height:70rpx;color:#fff;font-size:14px;}

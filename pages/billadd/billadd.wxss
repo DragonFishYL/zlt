@@ -1,0 +1,41 @@
+page {background: #f2f2f2;}
+.billadd-a{background: #fff;padding:20rpx;box-sizing:border-box;}
+.su-wrapper{width:100%;height:auto;position: relative;padding:20rpx;box-sizing:border-box;}
+.billadd-a,.billadd-d,.billadd-f{width:100%;height:auto;}
+.billadd-c{width:100%;height:70rpx;line-height:70rpx;font-size:18px;font-weight:bold;color:#999;}
+.billadd-e{width:100%;height:70rpx;line-height:70rpx;font-size:16px;font-weight:bold;color:#333;}
+.billadd-d{border-bottom:1rpx dashed #999;margin-top:20rpx;}
+.billadd-f{color:#666;padding-bottom:20rpx;}
+.billadd-g{width:100%;height:60rpx;line-height:60rpx;font-size:14px;overflow:hidden;}
+button{margin-top:80rpx;height:70rpx;line-height:70rpx;color:#fff;font-size:14px;}
+.picker{width:100%;height:60rpx;line-height:60rpx;font-size:14px;border:1rpx solid #666;text-align:center;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

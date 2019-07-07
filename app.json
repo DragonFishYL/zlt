@@ -1,11 +1,6 @@
 {
   "pages": [
-    "pages/headerlist/headerlist",
-    "pages/headerupdate/headerupdate",
-    "pages/billlist/billlist",
-    "pages/billdetail/billdetail",
     "pages/index/index",
-    "pages/trip/trip",
     "pages/detail/detail",
     "pages/pay/pay",
     "pages/xorderDetail/xorderDetail",
@@ -29,7 +24,17 @@
     "pages/friends/friends",
     "pages/person/person",
     "pages/bill/bill",
-    "pages/out/out"
+    "pages/headerlist/headerlist",
+    "pages/headerupdate/headerupdate",
+    "pages/headeradd/headeradd",
+    "pages/billlist/billlist",
+    "pages/billdetail/billdetail",
+    "pages/billadd/billadd",
+    "pages/out/out",
+    "pages/trip/trip",
+    "pages/addressadd/addressadd",
+    "pages/addresslist/addresslist",
+    "pages/addressupdate/addressupdate"
   ],
   "window": {
     "backgroundTextStyle": "light",

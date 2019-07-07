@@ -4,36 +4,10 @@ require("../../utils/canvas.js");
 
 Page({
     data: {
-		billheader:'',
-		dutynum:'',
-		array1: ['--请选择--','个人', '企业'],
-		objectArray1: [
-		  {
-			id: 0,
-			name: '--请选择--'
-		  },
-		  {
-			id: 1,
-			name: '个人'
-		  },
-		  {
-			id: 2,
-			name: '企业'
-		  }
-		],
-		index1:1,
-		array2: ['--请选择--','增值税普通发票'],
-		objectArray2: [
-		  {
-			id: 0,
-			name: '--请选择--'
-		  },
-		  {
-			id: 1,
-			name: '增值税普通发票'
-		  }
-		],
-		index2:1,
+		address:'',
+		people:'',
+		code:'',
+		phone:'',
 		id:''
     },
     bindPickerChange: function (e) {
@@ -69,43 +43,33 @@ Page({
         var n = t.currentTarget.dataset.url;
         e.goPage(n);
     },
-	billheadtap:function(event){
+	addresstap:function(event){
 		this.setData({
-			billheader:event.detail.value
+			address:event.detail.value
 		});
 	},
-	billdutynumtap:function(event){
+	phonetap:function(event){
 		this.setData({
-			dutynum:event.detail.value
+			phone:event.detail.value
 		});
 	},
-    headerDetailSave: function(b) {
+	peopletap:function(event){
+		this.setData({
+			people:event.detail.value
+		});
+	},
+	codetap:function(event){
+		this.setData({
+			code:event.detail.value
+		});
+	},
+    addressDetailSave: function(b) {
 		var that = this;
-		if(that.data.index1 == 0){
-			wx.showToast({
-			   title: '请选择开票类型',
-			   icon: 'none',
-			   duration: 1500,
-			   mask:true
-			});
-			return false;
-		}
-		
-		if(that.data.index2 == 0){
-			wx.showToast({
-			   title: '请选择发票类型',
-			   icon: 'none',
-			   duration: 1500,
-			   mask:true
-			});
-			return false;
-		}
-		
 		//请求
 		wx.showLoading({ title: '加载中', });
-		var d = {'billId':b.currentTarget.dataset.id,'billheader':that.data.billheader,'dutynum':that.data.dutynum,'opentype':that.data.index1,'billtype':that.data.index2,'type':2,'business_no': e.globalData.business_no, 'openid': wx.getStorageSync("user").openid};
+		var d = {'id':b.currentTarget.dataset.id,'address':that.data.address,'people':that.data.people,'phone':that.data.phone,'code':that.data.code,'type':2,'business_no': e.globalData.business_no, 'openid': wx.getStorageSync("user").openid};
 		wx.request({
-			url:e.globalData.publicUrl + '/Trip/billhead_save',
+			url:e.globalData.publicUrl + '/Trip/billaddress_save',
 			data:d,
 			method:'POST',
 			header:{
@@ -123,7 +87,7 @@ Page({
 					});
 					setTimeout(function() {
 						wx.redirectTo({
-							url: "../headerupdate/headerupdate?id="+b.currentTarget.dataset.id
+							url: "../addressupdate/addressupdate?id="+b.currentTarget.dataset.id
 						});
 					}, 2000);
 				}else{
@@ -144,8 +108,8 @@ Page({
 		wx.showLoading({ title: '加载中', });
 		var t = this;
 		wx.request({
-		  url: e.globalData.publicUrl + '/Trip/billheadPlay',
-		  data: { 'business_no': e.globalData.business_no, 'openid': wx.getStorageSync("user").openid ,'billId':d.id},
+		  url: e.globalData.publicUrl + '/Trip/billaddressPlay',
+		  data: { 'business_no': e.globalData.business_no, 'openid': wx.getStorageSync("user").openid ,'id':d.id},
 		  method: 'POST',
 		  header: {
 			'content-type': 'application/x-www-form-urlencoded' // 默认值
@@ -154,11 +118,11 @@ Page({
 			//将发票列表数据赋值
 		    console.log(res);
 			t.setData({
-				billheader:res.data.data.billheader,
-				dutynum:res.data.data.dutynum,
-				index1:res.data.data.opentype,
-				index2:res.data.data.billtype,
-				id:res.data.data.id,
+				address:res.data.data.address,
+				people:res.data.data.people,
+				code:res.data.data.code,
+				phone:res.data.data.phone,
+				id:res.data.data.id
 			});
 			//关闭提示
 			wx.hideLoading();

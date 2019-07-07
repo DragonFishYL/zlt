@@ -59,6 +59,10 @@
     </view>
   </view>
   
+	<view class='billadd' wx:if="{{statecode == 3}}">
+		<button wx:if="{{billstate == 1}}" type="default" size="default" bindtap="billAdd" style="background:orange;color:#fff;">索取发票</button>
+		<button wx:else type="default" size="default" bindtap="billDetail" style="background:#07c160;color:#fff;">查看发票</button>
+	</view>
 </view>
 
 

@@ -1,0 +1,16 @@
+<view class="su-wrapper">
+	<view>
+		<button class="headerDetailSave" type="default" size="default" bindtap="addressDetailAdd" style="background:#07c160;color:#fff;">添 加</button>
+	</view>
+    <view class="billlist" wx:for="{{addresslistArr}}" wx:key="unique">
+        <view class="billlist-a">
+			<view class="billlist-aa">收件人：{{item.people}}</view>
+			<view class="billlist-aa">联系电话：{{item.phone}}</view>
+			<view class="billlist-aa">详细地址：{{item.address}}</view>
+			<view class="billlist-aa" style="text-align:right;">
+				<button type="default" size="mini" bindtap="addresslistToDetail" data-id="{{item.id}}">修改</button>
+				<button type="warn" size="mini" bindtap="addresslistDelete" data-id="{{item.id}}">删除</button>
+			</view>
+		</view>
+    </view>
+</view>

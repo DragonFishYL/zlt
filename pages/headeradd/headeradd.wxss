@@ -7,10 +7,8 @@
 }
 .billlist{
 	width:100%;
-	height:390rpx;
-	border:1px solid #779eba;
+	height:300rpx;
 	border-radius:5px;
-	margin-top:20rpx;
 }
 .billlist-a{
 	width:100%;
@@ -21,22 +19,42 @@
 	height:75rpx;
 	line-height:75rpx;
 	font-size:14px;
-	text-indent:20rpx;
 	overflow: hidden;
 	text-overflow:ellipsis;
 	white-space: nowrap;
+	margin-top:30rpx;
+}
+.billlist-ab{
+	width:22%;
+	height:75rpx;
+	line-height:75rpx;
+	float:left;
+}
+.billlist-ac{
+	width:78%;
+	height:75rpx;
+	line-height:75rpx;
+	float:right;
+}
+.billlist-ac input{
+	height:70rpx;
+	line-height:70rpx;
+	border:1rpx solid #999;
+	text-indent:20rpx;
 }
 .clear{
 	clear:both;
 }
-.billlist-aa button{
-	margin-right:10rpx;
-}
-.headerDetailSave{
-	margin-top:20rpx;
-	margin-bottom:40rpx;
+button{
+	margin-top:80rpx;
 	height:70rpx;
 	line-height:70rpx;
 	color:#fff;
 	font-size:14px;
+}
+.picker{
+	border:1rpx solid #999;
+	height:70rpx;
+	line-height:70rpx;
+	text-indent:20rpx;
 }

@@ -1,0 +1,49 @@
+<view class="su-wrapper">
+    <view class="billadd-a">
+		<view class="billadd-c">索取类型：行程订单发票</view>
+		<view class="billadd-d">
+			<view class="billadd-e">订单信息</view>
+			<view class="billadd-f">
+				<view class="billadd-g">编号：{{sign}}</view>
+				<view class="billadd-g">名称：{{title}}</view>
+				<view class="billadd-g">金额：{{price}}</view>
+				<view class="billadd-g">状态：{{billstate}}</view>
+				<view class="billadd-g">付款方式：{{payway}}</view>
+			</view>
+		</view>
+		<view class="billadd-d">
+			<view class="billadd-e">发票抬头</view>
+			<view class="billadd-f">
+				<picker bindchange="bindPickerChange"  data-id="{{objectArray1[index1]['id']}}" mode="selector" range-key="{{'name'}}" value="{{index1}}" range="{{objectArray1}}">
+					<view class="picker">
+						{{objectArray1[index1]['name']}}
+					</view>
+				</picker>
+				<view style="display:{{display1}};">
+					<view class="billadd-g">抬头名称：{{name}}</view>
+					<view class="billadd-g">税号：{{sign}}</view>
+					<view class="billadd-g">开据类型：{{opentype}}</view>
+					<view class="billadd-g">发票类型：{{billtype}}</view>
+				</view>
+			</view>
+		</view>
+		<view class="billadd-d">
+			<view class="billadd-e">收件人</view>
+			<view class="billadd-f">
+				<picker bindchange="bindPickerChanges"  data-id="{{objectArray2[index2]['id']}}" mode="selector" range-key="{{'name'}}" value="{{index2}}" range="{{objectArray2}}">
+					<view class="picker">
+						{{objectArray2[index2]['name']}}
+					</view>
+				</picker>
+				<view style="display:{{display2}};">
+					<view class="billadd-g">收件人：{{people}}</view>
+					<view class="billadd-g">联系方式：{{phone}}</view>
+					<view class="billadd-g">收件地址：{{address}}</view>
+				</view>
+			</view>
+		</view>
+		<view class="billadd-b">
+			<button type="default" size="default" bindtap="billAdd" style="background:#07c160;color:#fff;">保存</button>
+		</view>
+	</view>
+</view>

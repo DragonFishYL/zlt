@@ -4,7 +4,7 @@ require("../../utils/canvas.js");
 
 Page({
     data: {
-        headerlistArr:[]
+        addresslistArr:[]
     },
     authorization: function() {
         var t = this;
@@ -27,20 +27,20 @@ Page({
         var n = t.currentTarget.dataset.url;
         e.goPage(n);
     },
-    headerlistToDetail: function(b) {
+    addresslistToDetail: function(b) {
 		console.log(b);
-		var billId = b.currentTarget.dataset.id;
+		var id = b.currentTarget.dataset.id;
         wx.navigateTo({
-            url: "../headerupdate/headerupdate?id="+billId
+            url: "../addressupdate/addressupdate?id="+id
         });
     },
-    headerDetailAdd: function() {
+    addressDetailAdd: function() {
         wx.navigateTo({
-            url: "../headeradd/headeradd"
+            url: "../addressadd/addressadd"
         });
     },
-	headerlistDelete:function(b){
-		var that=this,d = {'billId':b.currentTarget.dataset.id,'type':3,'business_no': e.globalData.business_no, 'openid': wx.getStorageSync("user").openid};;
+	addresslistDelete:function(b){
+		var that=this,d = {'id':b.currentTarget.dataset.id,'type':3,'business_no': e.globalData.business_no, 'openid': wx.getStorageSync("user").openid};;
 		wx.showModal({
 			title:'删除提示',
 			content:'是否删除这条消息',
@@ -50,7 +50,7 @@ Page({
 				if(r.confirm){
 					//执行删除操作
 					wx.request({
-						url:e.globalData.publicUrl + '/Trip/billhead_save',
+						url:e.globalData.publicUrl + '/Trip/billaddress_save',
 						data:d,
 						method:'POST',
 						header:{
@@ -68,7 +68,7 @@ Page({
 								});
 								setTimeout(function() {
 									wx.redirectTo({
-										url: "../headerlist/headerlist"
+										url: "../addresslist/addresslist"
 									});
 								}, 2000);
 							}else{
@@ -99,7 +99,7 @@ Page({
 		wx.showLoading({ title: '加载中', });
 		var t = this;
 		wx.request({
-		  url: e.globalData.publicUrl + '/Trip/billinfoPlay',
+		  url: e.globalData.publicUrl + '/Trip/billaddressList',
 		  data: { 'business_no': e.globalData.business_no, 'openid': wx.getStorageSync("user").openid },
 		  method: 'POST',
 		  header: {
@@ -108,7 +108,7 @@ Page({
 		  success:function(res){
 			//将发票列表数据赋值
 		    console.log(res);
-			t.setData({headerlistArr:res.data.data,});
+			t.setData({addresslistArr:res.data.data,});
 			//关闭提示
 			wx.hideLoading();
 		  }

@@ -36,14 +36,19 @@ Page({
         var n = t.currentTarget.dataset.url;
         e.goPage(n);
     },
-    collect: function() {
+    watchTicket: function() {
         wx.navigateTo({
-            url: "../collect/collect"
+            url: "../billlist/billlist"
         });
     },
-    myshare: function() {
+    watchTicketHead: function() {
         wx.navigateTo({
-            url: "../effect/effect"
+            url: "../headerlist/headerlist"
+        });
+    },
+    watchTicketAddress: function() {
+        wx.navigateTo({
+            url: "../addresslist/addresslist"
         });
     },
     onLoad: function() {

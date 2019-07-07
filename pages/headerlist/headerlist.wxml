@@ -1,7 +1,11 @@
 <view class="su-wrapper">
+	<view>
+		<button class="headerDetailSave" type="default" size="default" bindtap="headerDetailAdd" style="background:#07c160;color:#fff;">添 加</button>
+	</view>
     <view class="billlist" wx:for="{{headerlistArr}}" wx:key="unique">
         <view class="billlist-a">
 			<view class="billlist-aa">发票抬头：{{item.billheader}}</view>
+			<view class="billlist-aa">发票税号：{{item.dutynum}}</view>
 			<view class="billlist-aa" wx:if="{{item.opentype == 1}}">开票类型：个人</view>
 			<view class="billlist-aa" wx:if="{{item.opentype == 2}}">开票类型：企业</view>
 			<view class="billlist-aa"  wx:if="{{item.billtype == 1}}">发票类型：增值税普通发票</view>

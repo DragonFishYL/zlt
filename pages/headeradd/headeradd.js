@@ -21,7 +21,7 @@ Page({
 			name: '企业'
 		  }
 		],
-		index1:1,
+		index1:0,
 		array2: ['--请选择--','增值税普通发票'],
 		objectArray2: [
 		  {
@@ -33,17 +33,14 @@ Page({
 			name: '增值税普通发票'
 		  }
 		],
-		index2:1,
-		id:''
+		index2:0
     },
     bindPickerChange: function (e) {
-		console.log('picker发送选择改变，携带值为', e.detail.value)
 		this.setData({
 		  index1: e.detail.value
 		})
     },
     bindPickerChanges: function (e) {
-		console.log('picker发送选择改变，携带值为', e.detail.value)
 		this.setData({
 		  index2: e.detail.value
 		})
@@ -79,12 +76,13 @@ Page({
 			dutynum:event.detail.value
 		});
 	},
-    headerDetailSave: function(b) {
+    headerDetailAdd: function() {
 		var that = this;
+		// console.log(1);
 		if(that.data.index1 == 0){
 			wx.showToast({
 			   title: '请选择开票类型',
-			   icon: 'none',
+			   icon: 'loading',
 			   duration: 1500,
 			   mask:true
 			});
@@ -94,7 +92,7 @@ Page({
 		if(that.data.index2 == 0){
 			wx.showToast({
 			   title: '请选择发票类型',
-			   icon: 'none',
+			   icon: 'loading',
 			   duration: 1500,
 			   mask:true
 			});
@@ -103,7 +101,7 @@ Page({
 		
 		//请求
 		wx.showLoading({ title: '加载中', });
-		var d = {'billId':b.currentTarget.dataset.id,'billheader':that.data.billheader,'dutynum':that.data.dutynum,'opentype':that.data.index1,'billtype':that.data.index2,'type':2,'business_no': e.globalData.business_no, 'openid': wx.getStorageSync("user").openid};
+		var d = {'billheader':that.data.billheader,'dutynum':that.data.dutynum,'opentype':that.data.index1,'billtype':that.data.index2,'type':1,'business_no': e.globalData.business_no, 'openid': wx.getStorageSync("user").openid};
 		wx.request({
 			url:e.globalData.publicUrl + '/Trip/billhead_save',
 			data:d,
@@ -116,19 +114,19 @@ Page({
 				wx.hideLoading();
 				if(res.data.status == 1){
 					wx.showToast({
-					   title: '修改成功',
+					   title: '保存成功',
 					   icon: 'success',
 					   duration: 2000,
 					   mask:true
 					});
 					setTimeout(function() {
 						wx.redirectTo({
-							url: "../headerupdate/headerupdate?id="+b.currentTarget.dataset.id
+							url: "../headerlist/headerlist"
 						});
 					}, 2000);
 				}else{
 					wx.showToast({
-					   title: '修改失败,请重新修改',
+					   title: '修改失败',
 					   icon: 'none',
 					   duration: 2000,
 					   mask:true
@@ -138,31 +136,11 @@ Page({
 		});
         
     },
-    onLoad: function(d) {
-        this.authorization();
+    onLoad: function() {
 		//请求
 		wx.showLoading({ title: '加载中', });
-		var t = this;
-		wx.request({
-		  url: e.globalData.publicUrl + '/Trip/billheadPlay',
-		  data: { 'business_no': e.globalData.business_no, 'openid': wx.getStorageSync("user").openid ,'billId':d.id},
-		  method: 'POST',
-		  header: {
-			'content-type': 'application/x-www-form-urlencoded' // 默认值
-		  },
-		  success:function(res){
-			//将发票列表数据赋值
-		    console.log(res);
-			t.setData({
-				billheader:res.data.data.billheader,
-				dutynum:res.data.data.dutynum,
-				index1:res.data.data.opentype,
-				index2:res.data.data.billtype,
-				id:res.data.data.id,
-			});
-			//关闭提示
-			wx.hideLoading();
-		  }
-		});
+        this.authorization();
+		//关闭提示
+		wx.hideLoading();
     }
 });

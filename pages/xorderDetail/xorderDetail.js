@@ -3,6 +3,7 @@ Page({
   data: {
     oid: '',
     sid: '',
+    billId: '',
     openid: 123,
     orderList: [],
     trip: [],
@@ -15,6 +16,7 @@ Page({
 	paytime: "",
 	ctime: "",
 	statecode: "",
+	billstate: "",
 	merchantDispay: !1,
     payway: ''
   },
@@ -223,7 +225,9 @@ Page({
               payway: r.data.data.payway,
               paytime: r.data.data.paytime,
               ctime: r.data.data.ctime,
-              statecode: r.data.data.statecode
+              statecode: r.data.data.statecode,
+              billstate: r.data.data.billstate,
+              billId: r.data.data.billId
             })
 
             if (r.data.data.orderList){
@@ -237,7 +241,18 @@ Page({
         
       }
     })
+  },
+  billAdd:function(){
+	  var oid = this.data.oid;
+        wx.navigateTo({
+            url: "../billadd/billadd?id="+oid
+        });
+  },
+  billDetail:function(){
+	  var billId = this.data.billId;
+        wx.navigateTo({
+            url: "../billdetail/billdetail?id="+billId
+        });
   }
-
 
 })
