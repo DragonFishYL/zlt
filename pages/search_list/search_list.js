@@ -21,7 +21,7 @@ Page({
         console.log(e);
         var t = this, a = this.data.keywords, s = this.data.page, o = this.data.searchResult;
         wx.request({
-            url: "https://fairso.com/Search/searchWX",
+            url: getApp().globalData.publicUrl + "/Search/searchWX",
             data: {
                 business_no: "ZhanLeTaoWeChat",
                 keywords: a,

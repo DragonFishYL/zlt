@@ -55,7 +55,7 @@ Page({
                 if (e.confirm) {
                     console.log("用户点击确定");
                     wx.request({
-                        url: "https://fairso.com/Exhibition/collectDeleteWX",
+                        url: getApp().globalData.publicUrl + "/Exhibition/collectDeleteWX",
                         data: {
                             business_no: "ZhanLeTaoWeChat",
                             openid: i,
@@ -96,7 +96,7 @@ Page({
         var e = this, o = wx.getStorageSync("user").openid;
         console.log(o);
         wx.request({
-            url: "https://fairso.com//Exhibition/exhibitionCollectListWX",
+            url: getApp().globalData.publicUrl + "//Exhibition/exhibitionCollectListWX",
             data: {
                 business_no: "ZhanLeTaoWeChat",
                 openid: o

@@ -76,7 +76,7 @@ Page({
         this.authorization();
         var e = wx.getStorageSync("user").openid;
         wx.request({
-            url: "https://fairso.com/Exhibition/exhibitionExaminListWX",
+            url: getApp().globalData.publicUrl + "/Exhibition/exhibitionExaminListWX",
             data: {
                 business_no: "ZhanLeTaoWeChat",
                 openid: e

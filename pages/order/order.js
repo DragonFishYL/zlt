@@ -88,7 +88,7 @@ Page({
                     canClick: !1
                 }), console.log(o), console.log(1);
                 wx.request({
-                    url: "https://fairso.com/Common/zltLoginSmsWX",
+                    url: getApp().globalData.publicUrl + "/Common/zltLoginSmsWX",
                     data: {
                         business_no: "ZhanLeTaoWeChat",
                         openid: i,
@@ -239,7 +239,7 @@ Page({
                     var p = wx.getStorageSync("user").openid, T = wx.getStorageSync("exhibition").total;
                     if ("1" == a) {
                         console.log(33);
-                        var b = "https://fairso.com/Member/createOrderWX", m = {
+                        var b = getApp().globalData.publicUrl + "/Member/createOrderWX", m = {
                             business_no: "ZhanLeTaoWeChat",
                             openid: p,
                             payway: a,
@@ -428,7 +428,7 @@ Page({
         var t = wx.getStorageSync("user").openid, o = wx.getStorageSync("exhibition").eid;
         console.log(o), console.log(t);
         wx.request({
-            url: "https://fairso.com//Member/positionDetailNext",
+            url: getApp().globalData.publicUrl + "//Member/positionDetailNext",
             data: {
                 business_no: "ZhanLeTaoWeChat",
                 openid: t,

@@ -93,7 +93,7 @@ Page({
             title: "加载中",
             mask: !0
         }), wx.request({
-            url: "https://fairso.com/Exhibition/customerSignUpedWX",
+            url: getApp().globalData.publicUrl + "/Exhibition/customerSignUpedWX",
             data: {
                 business_no: "ZhanLeTaoWeChat",
                 openid: a,

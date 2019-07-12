@@ -17,7 +17,7 @@ Page({
         var t = this, a = t.data.searchInput, s = wx.getStorageSync("user").openid, o = t.data.page;
         console.log(a), console.log(s), console.log(o);
         wx.request({
-            url: "https://fairso.com/Search/searchWX",
+            url: getApp().globalData.publicUrl + "/Search/searchWX",
             data: {
                 business_no: "ZhanLeTaoWeChat",
                 openid: s,
@@ -46,7 +46,7 @@ Page({
         var t = this, a = e.target.dataset.search, s = wx.getStorageSync("user").openid, o = t.data.page;
         console.log(a), console.log(s), console.log(o);
         wx.request({
-            url: "https://fairso.com/Search/searchWX",
+            url: getApp().globalData.publicUrl + "/Search/searchWX",
             data: {
                 business_no: "ZhanLeTaoWeChat",
                 openid: s,
@@ -74,7 +74,7 @@ Page({
     clearSearch: function(e) {
         var t = this, a = wx.getStorageSync("user").openid;
         wx.request({
-            url: "https://fairso.com/Search/delSearchWX",
+            url: getApp().globalData.publicUrl + "/Search/delSearchWX",
             data: {
                 business_no: "ZhanLeTaoWeChat",
                 openid: a
@@ -115,7 +115,7 @@ Page({
         this.authorization();
         var t = wx.getStorageSync("user").openid;
         wx.request({
-            url: "https://fairso.com/Search/logSearchWX",
+            url: getApp().globalData.publicUrl + "/Search/logSearchWX",
             data: {
                 business_no: "ZhanLeTaoWeChat",
                 openid: t

@@ -97,7 +97,7 @@ Page({
             data3: !0
         }), console.log("0");
         wx.request({
-            url: "https://fairso.com/Search/searchSeekWX",
+            url: getApp().globalData.publicUrl + "/Search/searchSeekWX",
             data: {
                 business_no: "ZhanLeTaoWeChat",
                 page: "0",
@@ -165,7 +165,7 @@ Page({
             title: "玩命加载中"
         });
         wx.request({
-            url: "https://fairso.com/Search/searchSeekWX",
+            url: getApp().globalData.publicUrl + "/Search/searchSeekWX",
             data: {
                 business_no: "ZhanLeTaoWeChat",
                 page: s,
@@ -191,7 +191,7 @@ Page({
         });
         var e = this.data.page, i = this.data.exhibitionList;
         wx.request({
-            url: "https://fairso.com/Search/searchSeekWX",
+            url: getApp().globalData.publicUrl + "/Search/searchSeekWX",
             data: {
                 business_no: "ZhanLeTaoWeChat",
                 page: e
@@ -246,7 +246,7 @@ Page({
         });
         var a = this.data.page;
         wx.request({
-            url: "https://fairso.com/Search/searchSeekWX",
+            url: getApp().globalData.publicUrl + "/Search/searchSeekWX",
             data: {
                 business_no: "ZhanLeTaoWeChat",
                 page: a

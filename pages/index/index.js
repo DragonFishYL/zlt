@@ -69,7 +69,7 @@ Page({
         var t = this;
         return n = new Promise(function(n, o) {
             wx.request({
-                url: "https://fairso.com/Exhibition/exhibitionEnjoySceneWX ",
+                url: getApp().globalData.publicUrl + "/Exhibition/exhibitionEnjoySceneWX ",
                 data: {
                     business_no: "ZhanLeTaoWeChat",
                     scene: e
@@ -124,7 +124,7 @@ Page({
             success: function(i) {
                 var s = i.code;
                 wx.request({
-                    url: "https://fairso.com/Common/zltLoginWX",
+                    url: getApp().globalData.publicUrl + "/Common/zltLoginWX",
                     data: {
                         business_no: "ZhanLeTaoWeChat",
                         code: s,
@@ -153,7 +153,7 @@ Page({
     loginWx: function() {
         var e = this, t = e.data.userInfo.nickName, n = e.data.userInfo.avatarUrl, o = e.data.userInfo.gender, a = e.data.openId;
         wx.request({
-            url: "https://fairso.com/Common/zltLoginWX",
+            url: getApp().globalData.publicUrl + "/Common/zltLoginWX",
             data: {
                 business_no: "ZhanLeTaoWeChat",
                 openid: a,
@@ -181,7 +181,7 @@ Page({
                         title: "加载中",
                         mask: !0
                     }), wx.request({
-                        url: "https://fairso.com/Index/indexWX",
+                        url: getApp().globalData.publicUrl + "/Index/indexWX",
                         data: {
                             business_no: "ZhanLeTaoWeChat"
                         },

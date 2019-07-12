@@ -272,7 +272,7 @@ Page({
 	  if (wx.showLoading({
             title: "加载中",
             mask: !0
-        }), 1 == t) var n = wx.getStorageSync("zid"), o = "https://fairso.com/Exhibition/exhibitionEnjoyWX?business_no=ZhanLeTaoWeChat&openid=" + i + "&type=" + t + "&zid=" + n; else if (2 == t) var s = wx.getStorageSync("exhibitionId"), o = "https://fairso.com/Exhibition/exhibitionEnjoyWX?business_no=ZhanLeTaoWeChat&openid=" + i + "&type=" + t + "&eid=" + s;else if (4 == t) var s = e.id, o = "https://fairso.com/Exhibition/exhibitionEnjoyWX?business_no=ZhanLeTaoWeChat&openid=" + i + "&type=" + t + "&xid=" + s;
+        }), 1 == t) var n = wx.getStorageSync("zid"), o = getApp().globalData.publicUrl + "/Exhibition/exhibitionEnjoyWX?business_no=ZhanLeTaoWeChat&openid=" + i + "&type=" + t + "&zid=" + n; else if (2 == t) var s = wx.getStorageSync("exhibitionId"), o = getApp().globalData.publicUrl + "/Exhibition/exhibitionEnjoyWX?business_no=ZhanLeTaoWeChat&openid=" + i + "&type=" + t + "&eid=" + s;else if (4 == t) var s = e.id, o = getApp().globalData.publicUrl + "/Exhibition/exhibitionEnjoyWX?business_no=ZhanLeTaoWeChat&openid=" + i + "&type=" + t + "&xid=" + s;
         wx.request({
             url: o,
             header: {

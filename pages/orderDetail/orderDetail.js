@@ -50,7 +50,7 @@ Page({
     pay: function() {
         var e = this, t = wx.getStorageSync("orderId"), a = wx.getStorageSync("user").openid;
         wx.request({
-            url: "https://fairso.com/Common/foreastOnlineWX",
+            url: getApp().globalData.publicUrl + "/Common/foreastOnlineWX",
             data: {
                 business_no: "ZhanLeTaoWeChat",
                 openid: a,
@@ -108,7 +108,7 @@ Page({
         console.log(2);
         var t = wx.getStorageSync("orderId"), a = wx.getStorageSync("user").openid;
         wx.request({
-            url: "https://fairso.com/Common/nomallWePayWX",
+            url: getApp().globalData.publicUrl + "/Common/nomallWePayWX",
             data: {
                 business_no: "ZhanLeTaoWeChat",
                 openid: a,
@@ -148,7 +148,7 @@ Page({
         this.authorization();
         var t = wx.getStorageSync("orderId"), a = wx.getStorageSync("user").openid;
         wx.request({
-            url: "https://fairso.com/Member/orderDetailCheckWX",
+            url: getApp().globalData.publicUrl + "/Member/orderDetailCheckWX",
             data: {
                 business_no: "ZhanLeTaoWeChat",
                 openid: a,

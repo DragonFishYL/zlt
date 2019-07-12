@@ -131,7 +131,7 @@ Page({
             success: function(o) {
                 var s = o.code;
                 wx.request({
-                    url: "https://fairso.com/Common/zltLoginWX",
+                    url: getApp().globalData.publicUrl + "/Common/zltLoginWX",
                     data: {
                         business_no: "ZhanLeTaoWeChat",
                         code: s,
@@ -158,7 +158,7 @@ Page({
         });
     },
     loginWx: function() {
-        var e = this, t = e.data.userInfo.nickName, a = e.data.userInfo.avatarUrl, n = e.data.userInfo.gender, i = e.data.openId, o = "https://fairso.com/Common/zltLoginWX?business_no=ZhanLeTaoWeChat&openid=" + i + "&type=2&nickname=" + t + "&headimgurl=" + a + "&gender=" + n;
+        var e = this, t = e.data.userInfo.nickName, a = e.data.userInfo.avatarUrl, n = e.data.userInfo.gender, i = e.data.openId, o = getApp().globalData.publicUrl + "/Common/zltLoginWX?business_no=ZhanLeTaoWeChat&openid=" + i + "&type=2&nickname=" + t + "&headimgurl=" + a + "&gender=" + n;
         wx.request({
             url: o,
             data: {
@@ -196,7 +196,7 @@ Page({
         }));
     },
     collect: function() {
-        var e = this, t = wx.getStorageSync("exhibitionId"), a = wx.getStorageSync("user").openid, n = "https://fairso.com/Exhibition/exhiCollectWX?business_no=ZhanLeTaoWeChat&openid=" + a + "&id=" + t;
+        var e = this, t = wx.getStorageSync("exhibitionId"), a = wx.getStorageSync("user").openid, n = getApp().globalData.publicUrl + "/Exhibition/exhiCollectWX?business_no=ZhanLeTaoWeChat&openid=" + a + "&id=" + t;
         wx.request({
             url: n,
             data: {
@@ -256,7 +256,7 @@ Page({
         var t = this;
         return a = new Promise(function(a, n) {
             wx.request({
-                url: "https://fairso.com/Exhibition/exhibitionEnjoySceneWX ",
+                url: getApp().globalData.publicUrl + "/Exhibition/exhibitionEnjoySceneWX ",
                 data: {
                     business_no: "ZhanLeTaoWeChat",
                     scene: e
@@ -310,7 +310,7 @@ Page({
                     title: "加载中",
                     mask: !0
                 }), wx.request({
-                    url: "https://fairso.com/Exhibition/exhibitionDetailWX",
+                    url: getApp().globalData.publicUrl + "/Exhibition/exhibitionDetailWX",
                     data: {
                         business_no: "ZhanLeTaoWeChat",
                         openid: n,

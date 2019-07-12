@@ -79,7 +79,7 @@ Page({
                 if (e.code) {
                     var o = n.message, s = n.name, a = n.phone, i = n.email, c = n.address, r = wx.getStorageSync("user").openid;
                     wx.request({
-                        url: "https://fairso.com/Exhibition/leaveMessageWX",
+                        url: getApp().globalData.publicUrl + "/Exhibition/leaveMessageWX",
                         data: {
                             business_no: "ZhanLeTaoWeChat",
                             openid: r,

@@ -57,7 +57,7 @@ Page({
                 this.setData({
                     canClick: !1
                 }), console.log(o);
-                var i = "https://fairso.com/Common/zltLoginSmsWX?business_no=ZhanLeTaoWeChat&openid=" + s + "&phone=" + o;
+                var i = getApp().globalData.publicUrl + "/Common/zltLoginSmsWX?business_no=ZhanLeTaoWeChat&openid=" + s + "&phone=" + o;
                 wx.request({
                     url: i,
                     success: function(t) {
@@ -208,7 +208,7 @@ Page({
                         source: n
                     };
                     wx.request({
-                        url: "https://fairso.com/Exhibition/customerSignUpWX",
+                        url: getApp().globalData.publicUrl + "/Exhibition/customerSignUpWX",
                         data: g,
                         header: {
                             "Content-Type": "application/x-www-form-urlencoded"
