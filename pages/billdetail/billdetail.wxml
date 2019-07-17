@@ -4,7 +4,7 @@
 		<view class="billlist-b">
 			<view class="billlist-aa">发票金额：￥{{billtailArr.billInfo.price}}</view>
 			<view class="billlist-aa">发票抬头：{{billtailArr.billInfo.billheader}}</view>
-			<view class="billlist-aa" wx:if="{{billtailArr.billInfo.statecode == 1}}">状态：代开发票</view>
+			<view class="billlist-aa" wx:if="{{billtailArr.billInfo.statecode == 1}}">状态：待开发票</view>
 			<view class="billlist-aa" wx:if="{{billtailArr.billInfo.statecode == 2}}">状态：已开发票</view>
 			<view class="billlist-aa" wx:if="{{billtailArr.billInfo.statecode == 3}}">状态：作废</view>
 			<view class="billlist-aa">发票编号：{{billtailArr.billInfo.expresssign}}</view>

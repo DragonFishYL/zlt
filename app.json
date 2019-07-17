@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/out/out",
     "pages/index/index",
+    "pages/out/out",
     "pages/detail/detail",
     "pages/pay/pay",
     "pages/xorderDetail/xorderDetail",
@@ -28,9 +28,9 @@
     "pages/headerlist/headerlist",
     "pages/headerupdate/headerupdate",
     "pages/headeradd/headeradd",
-    "pages/billlist/billlist",
     "pages/billdetail/billdetail",
     "pages/billadd/billadd",
+    "pages/billlist/billlist",
     "pages/trip/trip",
     "pages/addressadd/addressadd",
     "pages/addresslist/addresslist",

@@ -1,6 +1,20 @@
 <view class="su-wrapper">
-    <view class="billlist" wx:for="{{billlistArr}}" data-id="{{item.id}}" wx:key="unique" bindtap="billlistToDetail">
-        <view class="billlist-a">
+	<view class="order-head">
+		<view class="order-model" bindtap="ordermodel" data-type="1" style="color:{{color[0]}};">未申请发票</view>
+		<view class="order-model" bindtap="ordermodel" data-type="2" style="color:{{color[1]}};">已申请发票</view>
+		<view class="order-model" bindtap="ordermodel" data-type="3" style="color:{{color[2]}};">已开发票</view>
+		<view style="clear:both;"></view>
+	</view>
+	<view style="margin-top:90rpx;"></view>
+    <view class="billlist" wx:for="{{billlistArr}}" data-id="{{item.id}}" data-type="{{type}}" wx:key="unique" bindtap="billlistToDetail">
+        <view class="billlist-a" wx:if="{{type == 1}}">
+			<view class="billlist-aa">发票金额：￥{{item.price}}</view>
+			<view class="billlist-ab">创建时间：{{item.ctime}}</view>
+			<view class="billlist-ac">发票抬头：{{item.sign}}</view>
+			<view class="billlist-ad">状态：待申请发票</view>
+			<view class="clear"></view>
+		</view>
+		<view class="billlist-a" wx:else>
 			<view class="billlist-aa">发票金额：￥{{item.price}}</view>
 			<view class="billlist-ab">创建时间：{{item.ctime}}</view>
 			<view class="billlist-ac">发票抬头：{{item.billheader}}</view>

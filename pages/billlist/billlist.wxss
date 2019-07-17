@@ -2,15 +2,18 @@
 	width:100%;
 	height:auto;
     position: relative;
-	padding:20rpx;
 	box-sizing:border-box;
 }
+page{height:auto;background:#edeef0;}
+.order-head{width:100%;heigh:auto;background:#fff;position:fixed;top:0px;}
+.order-model{width:33.33%;height:80rpx;line-height:80rpx;font-size:16px;font-weight:bold;float:left;text-align:center;}
 .billlist{
-	width:100%;
+	width:94%;
 	height:300rpx;
-	border:1px solid #779eba;
 	border-radius:5px;
 	margin-top:20rpx;
+	margin-left:3%;
+	background:#fff;
 }
 .billlist-a{
 	width:90%;

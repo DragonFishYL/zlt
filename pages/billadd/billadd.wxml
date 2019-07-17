@@ -43,7 +43,7 @@
 			</view>
 		</view>
 		<view class="billadd-b">
-			<button type="default" size="default" bindtap="billAdd" style="background:#07c160;color:#fff;">保存</button>
+			<button type="default" size="default" bindtap="billAdd" style="background:#07c160;color:#fff;">提交</button>
 		</view>
 	</view>
 </view>
