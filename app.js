@@ -23,7 +23,7 @@ App({
         host: "",
         appId: "wx94bfc7e77f7d67c3",
         business_no: "ZhanLeTaoWeChat",
-		publicUrl: 'https://web.srfairs.com',
+		publicUrl: 'https://fairso.com',
         openId: ""
     }
 });
