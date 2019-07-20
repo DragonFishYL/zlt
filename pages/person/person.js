@@ -1,4 +1,4 @@
-var t = getApp(), e = (require("../../wxParse/wxParse.js"), require("../../utils/util.js"));
+var t = getApp(), e = require("../../utils/util.js"), n = require("../../wxParse/wxParse.js");
 
 require("../../utils/canvas.js");
 
@@ -7,6 +7,7 @@ Page({
         canShow: "",
         hasUserInfo: !1,
         canIUse: wx.canIUse("button.open-type.getUserInfo"),
+        userInfo: "",
         avatarUrl: "",
         canvasAvatarUrl: "",
         photo: "",

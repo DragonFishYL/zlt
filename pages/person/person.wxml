@@ -1,4 +1,3 @@
-<import src="../../wxParse/wxParse.wxml"></import>
 <view class="su-wrapper">
     <view class="su-banner">
         <image class="banner" mode="widthFix" src="../../common/img/index_head.jpg"></image>

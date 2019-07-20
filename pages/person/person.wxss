@@ -86,15 +86,6 @@ page {
     float: right;
 }
 
-
-.shaBtn {
-  display: block;
-  background: orange;
-  color: #fff;
-  font-size: 28rpx;
-  text-align: center;
-  line-height: 60rpx;
-}
 .linef7 {
   background: #f7f7f7;
   height: 14rpx;
@@ -119,22 +110,25 @@ page {
   bottom: 0px;
   border-top:1rpx solid #e2e2e2;
 }
-button{
+.button-hover{
+	background:#fff;
+	color:#333;
+}
+.userinfobtn::after{
 	position:relative;
 	display:block;
 	margin-left:auto;
 	margin-right:auto;
 	padding-left:0px;
 	padding-right:0px;
-	box-sizing:border-box;
-	font-size:16px;
-	text-align:center;
-	text-decoration:none;
-	line-height:2.55555556;
-	border-radius:5px;
+	border-radius:0px;
 	-webkit-tap-highlight-color:transparent;
 	overflow:hidden;
 	color:#000000;
 	background:#fff;
 	border:1rpx solid #fff;
+}
+button{
+	font-size:16px;
+	border-radius:0px;
 }
