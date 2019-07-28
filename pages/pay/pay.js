@@ -6,16 +6,7 @@ Page({
       { name: '全额支付', checked: true, value: '1'},
       { name: '分期付款', checked: false, value: '2'}
     ],
-    selectArray: [{
-      "id": "10",
-      "text": "20%",
-    }, {
-      "id": "11",
-      "text": "30%"
-    }, {
-      "id": "12",
-      "text": "40%"
-    }, {
+    selectArray: [ {
       "id": "13",
       "text": "50%"
     }],

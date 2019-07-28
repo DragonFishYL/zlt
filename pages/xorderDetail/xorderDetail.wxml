@@ -6,6 +6,14 @@
     <!-- <view class='groPerNum'>{{perNum}}人起开团</view> -->
     <view class='groType'>{{xtype}}</view>
   </view>
+  <view class='fee'>
+    <view class='isfee'>包含费用</view>
+    <view class='isfeedetail'>{{trip.fee}}</view>
+  </view>
+  <view class='fee'>
+    <view class='isfee'>不包含费用</view>
+    <view class='isfeedetail'>{{trip.notfee}}</view>
+  </view>
 </view>
 <view class='linef7'></view>
 <view class='payDet'>
@@ -44,7 +52,7 @@
     </view>
     <view class='payTime'>截止到 {{item.nexttime}}</view>
 	<view class='payTime' wx:if="{{item.statecode == 2}}">支付时间 {{item.paytime}}</view>
-    <view class='payBtnBox' wx:if="{{statecode == 1}}">
+    <view class='payBtnBox' wx:if="{{item.statecode == 1}}">
       <button class='mustPay' bindtap="pay" data-sid="{{item.id}}">立即付款</button>
     </view>
     <view class='payBtnBox' wx:elif="{{item.statecode == 2}}">

@@ -19,7 +19,7 @@ Page({
 		oid:'',
 		openid:'',
 		title:'',
-		sign:'',
+		signs:'',
 		payway:'',
 		price:'',
 		billstate:'',
@@ -94,7 +94,7 @@ Page({
 					var m = r.data.data;
 					that.setData({
 						title:m.title,
-						sign:m.sign,
+						signs:m.sign,
 						price:m.price,
 						billstate:(m.billstate==1?'待索要发票':(m.billstate==2?'已索要发票':(m.billstate==3?'待开发票':'已开发票'))),
 						payway:(m.payway==1?'全额付款':'分期付款'),

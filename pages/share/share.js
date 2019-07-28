@@ -36,6 +36,7 @@ Page({
         uname: "",
         ZLTPhone: "",
         discount: "",
+        commitions: "",
         pricedanwei: "",
         areadanwei: "",
         commission: ""
@@ -329,6 +330,7 @@ Page({
                     area: e.data.newData.xnum,
                     dtype: e.data.newData.xtype,
                     discount: e.data.newData.bonus,
+                    commitions: e.data.newData.commitions,
                     hidden: !0,
                     shareType: t,
                     qrcode: e.data.weiCode.weiImg,

@@ -15,15 +15,15 @@
 }
 .groInfo {
   overflow: hidden;
-  padding: 10px 0;
-  line-height: 42px;
+  padding: 5px 0;
+  line-height: 15px;
 }
 .groPrice {
   float: left;
   text-align: left;
   font-size: 36rpx;
   color: #f00;
-  width: 35.33%;
+  width: 50%;
 }
 .groPerNum {
    float: left;
@@ -36,6 +36,17 @@
   width: 33.33%;
   text-align: right;
   font-size: 28rpx;
+}
+.fee{
+	margin-top:5px;
+}
+.isfee{
+  font-size: 30rpx;
+  color:#333;
+}
+.isfeedetail{
+  font-size: 28rpx;
+  color:#666;
 }
 .payDet {
   padding: 20rpx 30rpx;

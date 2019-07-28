@@ -73,7 +73,7 @@
       <view class='payType' hidden="{{hiddenName}}">
         <view class="payType-tit">首付比例</view>
         <Select prop-array='{{selectArray}}' prop-name="depositRate" class="choSele mR20" bind:myevent="onMyEvent"></Select>
-        <view class="payType-tit">分几个月</view>
+        <view class="payType-tit">分几期</view>
         <Select prop-array='{{selectArray2}}' prop-name="stageMonth" class="choSele" bind:myevent="onMyEvent"></Select>
       </view>
     </view>

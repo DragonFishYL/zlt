@@ -60,6 +60,7 @@ page {
 .picture-box>image {
     display: block;
     width: 100%;
+	height:150px;
 }
 
 .introduce {
@@ -239,6 +240,6 @@ page {
     margin-right: 20rpx;
 }
 
-#commission{
-	margin-left:100px;
+.commission{
+	margin-left:40px;
 }

@@ -4,7 +4,7 @@
 		<view class="billadd-d">
 			<view class="billadd-e">订单信息</view>
 			<view class="billadd-f">
-				<view class="billadd-g">编号：{{sign}}</view>
+				<view class="billadd-g">编号：{{signs}}</view>
 				<view class="billadd-g">名称：{{title}}</view>
 				<view class="billadd-g">金额：{{price}}</view>
 				<view class="billadd-g">状态：{{billstate}}</view>
@@ -41,6 +41,10 @@
 					<view class="billadd-g">收件地址：{{address}}</view>
 				</view>
 			</view>
+		</view>
+		<view class="billadd-d">
+			<view class="billadd-e">温馨提示</view>
+			<view class="billadd-f">发票信息及快递信息，一经提交，将无法更改。</view>
 		</view>
 		<view class="billadd-b">
 			<button type="default" size="default" bindtap="billAdd" style="background:#07c160;color:#fff;">提交</button>

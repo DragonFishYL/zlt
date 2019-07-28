@@ -164,8 +164,7 @@ Page({
                 console.log(1), console.log(t.data), 1 == t.data.status && (wx.setNavigationBarTitle({
                     title: e.data.trip.title
                 }), e.setData({
-                    merchantDispay: !0,
-                    state: t.data.orderInfo.statecode
+                    merchantDispay: !0
                 }));
 				setTimeout(function() {
 					wx.redirectTo({

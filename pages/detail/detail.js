@@ -137,9 +137,9 @@ Page({
 	})) : wx.getStorageSync("tripid") && e.getVote();
   },
   bindGetUserInfo:function(b){
-    console.log(b)
+    console.log(b);
     var t = this;
-    //开始弹出框授权
+    //开始弹出框授权    
     wx.getUserInfo({
       scope: 'scope.userInfo',
       success(s) {
@@ -267,6 +267,12 @@ Page({
         var a = e.currentTarget.dataset.url;
         t.goPage(a);
     },
+  toexhibition:function(){
+    //跳转至展会详情页面
+	wx.setStorageSync("exhibitionId", this.data.exhibitionObj.id), wx.redirectTo({
+		url: "../details/details"
+	});
+  },
   viewTripOrder:function(){
     //跳转至下单页面
     wx.navigateTo({

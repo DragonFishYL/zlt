@@ -1,8 +1,9 @@
+.su-wrapper{width:100%;height:auto;position: relative;box-sizing:border-box;}
 page{height:auto;background:#edeef0;}
 .order-head{width:100%;heigh:auto;background:#fff;position:fixed;top:0px;}
 .order-model{width:25%;height:80rpx;line-height:80rpx;font-size:16px;font-weight:bold;float:left;text-align:center;}
 .order-list{width:100%;height:auto;background:#fff;margin-top:10px;padding:5px;}
-.order-a{width:100%;heigh:100%;border-bottom:1px solid #999;}
+.order-a{width:100%;heigh:100%;border-bottom:1px dashed #d0d0d0;}
 .order-b{width:100%;heigh:100px;margin-top:5px;}
 .order-aa{width:80%;height:40px;line-height:40px;float:left;}
 .order-ab{width:20%;height:40px;line-height:40px;float:right;color:red;text-align:left;}

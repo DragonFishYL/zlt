@@ -10,14 +10,14 @@
         <view class="billlist-a" wx:if="{{type == 1}}">
 			<view class="billlist-aa">发票金额：￥{{item.price}}</view>
 			<view class="billlist-ab">创建时间：{{item.ctime}}</view>
-			<view class="billlist-ac">发票抬头：{{item.sign}}</view>
+			<view class="billlist-ac">订单编号：{{item.sign}}</view>
 			<view class="billlist-ad">状态：待申请发票</view>
 			<view class="clear"></view>
 		</view>
 		<view class="billlist-a" wx:else>
 			<view class="billlist-aa">发票金额：￥{{item.price}}</view>
 			<view class="billlist-ab">创建时间：{{item.ctime}}</view>
-			<view class="billlist-ac">发票抬头：{{item.billheader}}</view>
+			<view class="billlist-ac">订单编号：{{item.billheader}}</view>
 			<view class="billlist-ad" wx:if="{{item.statecode == 1}}">状态：待开发票</view>
 			<view class="billlist-ad" wx:if="{{item.statecode == 2}}">状态：已开发票</view>
 			<view class="billlist-ad" wx:if="{{item.statecode == 3}}">状态：作废</view>
