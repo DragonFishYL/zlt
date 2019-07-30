@@ -72,8 +72,11 @@ Page({
 		  success:function(res){
 			//将发票列表数据赋值
 		    console.log(res);
-			t.setData({billlistArr:res.data.data,type:type});
-			
+			if(res.data.status == 1){
+				t.setData({billlistArr:res.data.data,type:type});
+			}else{
+				t.setData({billlistArr:null,type:type});
+			}
 			//关闭提示
 			wx.hideLoading();
 		  }

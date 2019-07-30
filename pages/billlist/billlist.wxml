@@ -6,7 +6,7 @@
 		<view style="clear:both;"></view>
 	</view>
 	<view style="margin-top:90rpx;"></view>
-    <view class="billlist" wx:for="{{billlistArr}}" data-id="{{item.id}}" data-type="{{type}}" wx:key="unique" bindtap="billlistToDetail">
+    <view class="billlist" wx:if="{{billlistArr}}" wx:for="{{billlistArr}}" data-id="{{item.id}}" data-type="{{type}}" wx:key="unique" bindtap="billlistToDetail">
         <view class="billlist-a" wx:if="{{type == 1}}">
 			<view class="billlist-aa">发票金额：￥{{item.price}}</view>
 			<view class="billlist-ab">创建时间：{{item.ctime}}</view>

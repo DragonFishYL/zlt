@@ -1,6 +1,9 @@
 page {
     background: #fff;
 }
+.su-wrapper{
+	padding:10px;
+}
 .valid-person {
     width: 100%;
     top: 0rpx;
@@ -36,7 +39,7 @@ page {
 }
 
 .sign-item>text {
-    width: 160rpx;
+    width: 170rpx;
 }
 
 .order-item {

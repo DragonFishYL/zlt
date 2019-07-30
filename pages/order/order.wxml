@@ -29,29 +29,29 @@
                         <input class="input mobile" name="busiName" placeholder="请填写正确的企业名称" type="text" value="{{busiName}}"></input>
                     </view>
                     <view class="sign-item">
-                        <text>企业电话<text class="error">*</text>
+                        <text>企业电话
                         </text>
                         <input class="input mobile" name="busiPhone" placeholder="请填写准确的企业电话" type="text" value="{{busiPhone}}"></input>
                     </view>
                     <view class="sign-item">
-                        <text>电子邮箱<text class="error">*</text>
+                        <text>电子邮箱
                         </text>
                         <input class="input mobile" name="authEmail" placeholder="请填写准确的电子邮箱" type="text" value="{{authEmail}}"></input>
                     </view>
                     <view class="sign-item">
-                        <text>企业地址<text class="error">*</text>
+                        <text>企业地址
                         </text>
                         <input class="input mobile" name="busiAddress" placeholder="请填写准确的企业详细地址" type="text" value="{{busiAddress}}"></input>
                     </view>
                     <view class="sign-item">
-                        <text>参展产品<text class="error">*</text>
+                        <text>参展产品
                         </text>
                         <input class="input mobile" name="einfos" placeholder="请填写本次展会现场参展展品" type="text" value="{{einfos}}"></input>
                     </view>
                     <view class="sign-item">
                         <text>展位编号<text class="error">*</text>
                         </text>
-                        <input class="input mobile" name="title" placeholder="请详细填写参展展位号" type="text" value="{{title}}"></input>
+                        <input class="input mobile" name="title" placeholder="请填写详细展位号或者简单说明" type="text" value="{{title}}"></input>
                     </view>
                 </view>
                 <view class="item-top">

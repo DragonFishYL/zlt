@@ -30,5 +30,14 @@
 				<view class="clear"></view>
 			</view>
 		</view>
+        <view class="billdetail-a" wx:if="{{billtailArr.billInfo.statecode == 2}}">快递信息</view>
+		<view class="billlist-b" wx:if="{{billtailArr.billInfo.statecode == 2}}">
+			<view class="billlist-ba" >
+				<view class="billlist-bb">快递公司：{{billtailArr.billInfo.expressName}}</view>
+				<view class="billlist-bb">快递单号：{{billtailArr.billInfo.expresssign}}</view>
+				<view class="billlist-bb">寄送日期：{{billtailArr.billInfo.expresstime}}</view>
+				<view class="clear"></view>
+			</view>
+		</view>
     </view>
 </view>

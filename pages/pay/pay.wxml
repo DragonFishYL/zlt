@@ -54,7 +54,7 @@
 			  <view class='cheInDet'>{{item.name}}</view>
 			  <view class='cheInDet'>
 				<text wx:if="{{item.type == 1}}">身份证</text>
-				<text wx:else>签证</text>  {{item.value}}</view>
+				<text wx:else>护照号</text>  {{item.value}}</view>
 			</view>
 		  </view>
 	  <!-- </block> -->
@@ -120,7 +120,7 @@
             <checkbox value="{{item.id}}" checked="{{item.checked}}" data-id="{{item.id}}" class='checkInp'/>
             <view class='checkInfo'>
               <view class='cheInDet'>{{item.name}}</view>
-              <view class='cheInDet'><text wx:if="{{item.type == 1}}">身份证</text><text wx:else>签证</text>  {{item.value}}</view>
+              <view class='cheInDet'><text wx:if="{{item.type == 1}}">身份证</text><text wx:else>护照号</text>  {{item.value}}</view>
             </view>
             <button bindtap='editInfo' class='editInfo' data-id="{{item.id}}" data-name="{{item.name}}" data-type="{{item.type}}" data-val="{{item.value}}">编辑</button>
           </label>
@@ -136,7 +136,7 @@
     <view class='payTit'>联系人</view>
     <view class='infoBox'>
       <view class='infoL'>姓名</view>
-      <input type='text' class='infoInp' bindinput='anamebindinput' value=""></input>
+      <input type='text' class='infoInp' bindinput='anamebindinput' value="" placeholder="请输入与证件一致的名称"></input>
     </view>
     <view class='infoBox visi'>
       <view class='infoL'>证件类型</view>
@@ -148,7 +148,7 @@
         <!-- 下拉需要显示的列表 -->
         <view class="select_box" wx:if="{{select}}">        
           <view class="select_one" bindtap="amySelect" data-type="1">身份证</view>        
-          <view class="select_one" bindtap="amySelect" data-type="2">签证</view>  
+          <view class="select_one" bindtap="amySelect" data-type="2">护照号</view>  
         </view>
       </view>
     </view>
@@ -174,13 +174,13 @@
       <view class='infoL'>证件类型</view>
       <view class='listMsg'>
         <view class='list-msg2' bindtap='bindShowMsg'>
-          <text wx:if="{{etype == 1}}">身份证</text><text wx:else>签证</text>     
+          <text wx:if="{{etype == 1}}">身份证</text><text wx:else>护照号</text>     
           <image style='height:20rpx;width:20rpx;' src='../../images/down.png'></image>    
         </view>    
         <!-- 下拉需要显示的列表 -->
         <view class="select_box" wx:if="{{select}}">        
           <view class="select_one" bindtap="mySelect" data-type="1">身份证</view>        
-          <view class="select_one" bindtap="mySelect" data-type="2">签证</view>  
+          <view class="select_one" bindtap="mySelect" data-type="2">护照号</view>  
         </view>
       </view>
     </view>
