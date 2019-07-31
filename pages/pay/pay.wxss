@@ -389,7 +389,7 @@
   float: left;
   height: 68rpx;
   line-height: 68rpx;
-  width: 24%;
+  width: 22%;
   text-align: center;
   background: #f00;
   color: #fff;
@@ -400,14 +400,26 @@
   float: right;
   height: 68rpx;
   line-height: 68rpx;
-  width: 70%;
+  width: 50%;
   text-align: center;
   background: orange;
   color: #fff;
   font-size: 28rpx;
   border-radius: 6rpx;
+  margin-right:3%;
 }
-.deleHide::after,.saveHide::after {
+.delHide {
+  float: right;
+  height: 68rpx;
+  line-height: 68rpx;
+  width: 22%;
+  text-align: center;
+  background: #dfdfdf;
+  color: #666;
+  font-size: 28rpx;
+  border-radius: 6rpx;
+}
+.deleHide::after,.saveHide::after ,.delHide::after{
   border: none;
 }
 /*单选按钮  */

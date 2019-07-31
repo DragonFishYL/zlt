@@ -22,19 +22,19 @@
     <view class='payTit'>联系人</view>
     <view class='infoBox'>
       <view class='infoL'>姓名</view>
-      <input type='text' class='infoInp'></input>
+      <input type='text' class='infoInp' bindinput="subname"></input>
     </view>
     <view class='infoBox'>
       <view class='infoL'>手机</view>
-      <input type='number' class='infoInp'></input>
+      <input type='number' class='infoInp' bindinput="subphone"></input>
     </view>
     <view class='infoBox'>
       <view class='infoL'>验证码</view>
-      <input type='number' class='infoInp codeInp'></input>
+      <input type='number' bindinput="subcode" class='infoInp codeInp'></input>
       <button disabled='{{disabled}}' data-id="2" bindtap="getVerificationCode" class='codeBtn'>{{time}}</button>
     </view>
     <view class='saveBot'>
-      <button class='saveInfo'>保存</button>
+      <button class='saveInfo' bindtap="savelinker">保存</button>
     </view>
   </view>
 
@@ -53,8 +53,10 @@
 			<view class='checkInfo'>
 			  <view class='cheInDet'>{{item.name}}</view>
 			  <view class='cheInDet'>
-				<text wx:if="{{item.type == 1}}">身份证</text>
-				<text wx:else>护照号</text>  {{item.value}}</view>
+				<text wx:if="{{item.type == 1}}">身份证  {{item.value}}</text>
+				<text wx:if="{{item.type == 2}}">护照  {{item.value}}</text>
+				<text wx:else>无护照</text>
+			  </view>
 			</view>
 		  </view>
 	  <!-- </block> -->
@@ -120,7 +122,7 @@
             <checkbox value="{{item.id}}" checked="{{item.checked}}" data-id="{{item.id}}" class='checkInp'/>
             <view class='checkInfo'>
               <view class='cheInDet'>{{item.name}}</view>
-              <view class='cheInDet'><text wx:if="{{item.type == 1}}">身份证</text><text wx:else>护照号</text>  {{item.value}}</view>
+              <view class='cheInDet'><text wx:if="{{item.type == 1}}">身份证  {{item.value}}</text><text wx:if="{{item.type == 2}}">护照  {{item.value}}</text><text wx:if="{{item.type == 3}}">无护照</text></view>
             </view>
             <button bindtap='editInfo' class='editInfo' data-id="{{item.id}}" data-name="{{item.name}}" data-type="{{item.type}}" data-val="{{item.value}}">编辑</button>
           </label>
@@ -142,13 +144,14 @@
       <view class='infoL'>证件类型</view>
       <view class='listMsg'>
         <view class='list-msg2' bindtap='abindShowMsg'>
-          <text>身份证</text>    
+          <text>{{defaultname}}</text>    
           <image style='height:20rpx;width:20rpx;' src='../../images/down.png'></image>    
         </view>    
         <!-- 下拉需要显示的列表 -->
-        <view class="select_box" wx:if="{{select}}">        
-          <view class="select_one" bindtap="amySelect" data-type="1">身份证</view>        
-          <view class="select_one" bindtap="amySelect" data-type="2">护照号</view>  
+        <view class="select_box" wx:if="{{select}}">               
+          <view class="select_one" bindtap="amySelect" data-type="2" data-defaultname="护照">护照</view>  
+          <view class="select_one" bindtap="amySelect" data-type="3" data-defaultname="无护照">无护照</view>  
+          <view class="select_one" bindtap="amySelect" data-type="1" data-defaultname="身份证">身份证</view> 
         </view>
       </view>
     </view>
@@ -174,13 +177,16 @@
       <view class='infoL'>证件类型</view>
       <view class='listMsg'>
         <view class='list-msg2' bindtap='bindShowMsg'>
-          <text wx:if="{{etype == 1}}">身份证</text><text wx:else>护照号</text>     
+          <text wx:if="{{etype == 1}}">身份证</text>
+		  <text wx:if="{{etype == 2}}">护照</text>
+		  <text wx:if="{{etype == 3}}">无护照</text>     
           <image style='height:20rpx;width:20rpx;' src='../../images/down.png'></image>    
         </view>    
         <!-- 下拉需要显示的列表 -->
         <view class="select_box" wx:if="{{select}}">        
           <view class="select_one" bindtap="mySelect" data-type="1">身份证</view>        
-          <view class="select_one" bindtap="mySelect" data-type="2">护照号</view>  
+          <view class="select_one" bindtap="mySelect" data-type="2">护照</view>  
+          <view class="select_one" bindtap="mySelect" data-type="3">无护照</view>  
         </view>
       </view>
     </view>
@@ -191,6 +197,7 @@
   </view>
   <view class='edPerBot'>
     <button class='deleHide' bindtap='ecancelHide'>取消</button>
+    <button class='delHide' bindtap='delHide'>删除</button>
     <button class='saveHide' bindtap='saveHide'>保存</button>
   </view>
 </view>

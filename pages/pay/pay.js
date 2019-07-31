@@ -42,7 +42,11 @@ Page({
     flag: true,//显示隐藏修改人员弹窗弹窗
     edFlag:true,
     adFlag:true,
+    subphone:'',
+    subcode:'',
+    subname:'',
     array: ['身份证', '护照', '驾照'],
+	defaultname:'护照',
     tripuser: [],
     tripusered: '',
     openid:null,
@@ -161,9 +165,41 @@ Page({
 	})
   },
 
+	//获取手机号和验证码
+	subphone: function (e) {
+		this.setData({ subphone: e.detail.value });
+	},
+	subcode: function (e) {
+		this.setData({ subcode: e.detail.value });
+	},
+	subname: function (e) {
+		this.setData({ subname: e.detail.value });
+	},
   //获取验证码
   getCode: function (options) {
     var that = this;
+	//请求获取验证码API
+    var d = {'business_no': app.globalData.business_no, 'openid': that.data.openid,'phone':that.data.subphone};
+    wx.showLoading({ title: '加载中', });
+	wx.request({
+      url: app.globalData.publicUrl + '/Common/zltLoginSmsWX',
+      data: d,
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success(r) {
+		  wx.showToast({
+			title: r.data.message,
+			icon: 'none',
+			duration: 2000,
+			mask:true
+		  });
+	  }
+	});
+	//关闭提示
+	wx.hideLoading();
+	
     var currentTime = that.data.currentTime
     interval = setInterval(function () {
       currentTime--;
@@ -187,6 +223,37 @@ Page({
       disabled: true
     })
   },
+  //保存联系人
+  savelinker:function(){
+	  var that = this;
+	//请求获取验证码API
+    var d = {'business_no': app.globalData.business_no, 'openid': that.data.openid,'phone':that.data.subphone,'code':that.data.subcode,'name':that.data.subname};
+    
+	wx.showLoading({ title: '加载中', });
+	wx.request({
+      url: app.globalData.publicUrl + '/Trip/savelinker',
+      data: d,
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success(r) {
+		  //关闭提示
+		  wx.hideLoading();
+		  wx.showToast({
+			title: r.data.message,
+			icon: 'none',
+			duration: 2000,
+			mask:true
+		  });
+		  if(r.data.status == 1){
+			  that.setData({linker:r.data.data});
+		  }
+	  }
+	});
+	//关闭提示
+	wx.hideLoading();
+  },
 
 //修改参团人员显示弹窗
   changePer: function () {
@@ -205,6 +272,34 @@ Page({
     this.setData({ edFlag: false });
     var that = e.currentTarget.dataset,id=that.id,name=that.name,type=that.type,val=that.val;
     this.setData({ename:name,eid:id,etype:type,evalue:val});
+  },
+  //执行删除参团人员
+  delHide:function(){
+	  var that = this,d = {'business_no': app.globalData.business_no, 'openid': that.data.openid,'id':that.data.eid,'ctype':3};
+	  wx.showLoading({ title: '加载中', });
+    //请求展会详情数据API
+    wx.request({
+      url: app.globalData.publicUrl + '/Trip/createTripUser',
+      data: d,
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success(r) {
+        //关闭提示
+        wx.hideLoading();
+		wx.showToast({
+			title: r.data.message,
+			icon: 'none',
+			duration: 2000,
+			mask:true
+		  });
+        that.setData({
+          tripuser: r.data.tripuser,
+          edFlag: true
+        })
+      }
+    });
   },
   ecancelHide: function () {
     this.setData({ edFlag: true });
@@ -263,8 +358,8 @@ Page({
     })
   },
   amySelect(e) {
-    var type = e.currentTarget.dataset.type;
-    this.setData({ select: false, atype: type });
+    var type = e.currentTarget.dataset.type,defaultname = e.currentTarget.dataset.defaultname;
+    this.setData({ select: false, atype: type,defaultname :defaultname});
   },
   avaluebindinput: function (e) {
     this.setData({ avalue: e.detail.value });
