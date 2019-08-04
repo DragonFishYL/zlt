@@ -39,8 +39,26 @@ Page({
         commitions: "",
         pricedanwei: "",
         areadanwei: "",
-        commission: ""
+        commission: "",
+		contract: [e.globalData.publicUrl+'/Public/Home/images/zlt_enjoycontract1.png',
+			e.globalData.publicUrl+'/Public/Home/images/zlt_enjoycontract2.png',
+			e.globalData.publicUrl+'/Public/Home/images/zlt_enjoycontract3.png'
+		],
+		buycontractpagestatus:'none',
     },
+    agreeA: function(){
+	  this.setData({buycontractpagestatus:'block'});
+    },
+    buycontractpageb: function(){
+	  this.setData({buycontractpagestatus:'none'});
+    },
+	previewImage: function (e) {
+		var current = e.target.dataset.src;
+		wx.previewImage({
+		  current: current, // 当前显示图片的http链接  
+		  urls: this.data.contract // 需要预览的图片http链接列表  
+		})
+	  }, 
     getHeight: function() {
         var e = wx.getSystemInfoSync().windowHeight;
         wx.getSystemInfoSync().windowWidth, wx.getSystemInfoSync().screenWidth, wx.getSystemInfoSync().screenHeight;

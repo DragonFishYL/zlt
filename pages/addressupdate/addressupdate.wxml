@@ -9,6 +9,14 @@
 				<view class="billlist-ab">手机号码：</view>
 				<view class="billlist-ac"><input type="text" value="{{phone}}" bindinput="phonetap" auto-focus/></view>
 			</view>
+			<view class="section">
+				<view class="section__title">所在城市</view>
+					<picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+						<view class="picker">
+						  {{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
+						</view>
+					</picker>
+			</view>
 			<view class="billlist-aa">
 				<view class="billlist-ab">详细地址：</view>
 				<view class="billlist-ac"><input type="text" value="{{address}}" bindinput="addresstap" auto-focus/></view>

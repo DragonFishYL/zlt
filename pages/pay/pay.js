@@ -51,7 +51,24 @@ Page({
     tripusered: '',
     openid:null,
     ctuid:null,
+	contract: [app.globalData.publicUrl+'/Public/Home/images/zlt_buycontract1.png',
+		app.globalData.publicUrl+'/Public/Home/images/zlt_buycontract2.png'
+	],
+    buycontractpagestatus:'none',
   },
+  agreeA: function(){
+	  this.setData({buycontractpagestatus:'block'});
+  },
+  buycontractpageb: function(){
+	  this.setData({buycontractpagestatus:'none'});
+  },
+	previewImage: function (e) {
+		var current = e.target.dataset.src;
+		wx.previewImage({
+		  current: current, // 当前显示图片的http链接  
+		  urls: this.data.contract // 需要预览的图片http链接列表  
+		})
+	  }, 
   onLoad: function (options) {
     //控制我的变量名初始值以及切换的值
     hiddenName: (options.hiddenName == "true" ? true : false)

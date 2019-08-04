@@ -93,11 +93,20 @@
     </label>
     <view class='agree'>
       我已阅读并接受
-      <navigator url='../agreement/agree' class='agreeA'>《展乐淘购买协议》</navigator>
+      <navigator url='../agreement/agree' class='agreeA' bindtap="agreeA">《展乐淘购买协议》</navigator>
     </view>
   </view>
+  <view style="width:100%;height:100rpx;">
+  </view>
+  <view class="buycontractpage" style="display:{{buycontractpagestatus}};">
+	<scroll-view scroll-with-animation="false" scroll-y="true" class="buycontractpage-a">
+		<view wx:for="{{contract}}" wx:for-index="k" wx:key="uinique">
+			<image src="{{item}}" data-src="{{item}}" bindtap="previewImage"/>
+		</view>
+	</scroll-view>
+	<view class="buycontractpage-b" bindtap="buycontractpageb">确 定</view>
+  </view>
 </view>
-
 <view class='payBot' wx:if="{{oid}}">
   <button class='viewOrderDetail' bindtap="viewOrderDetails">已存在该行程的订单,查看详情</button>
 </view>

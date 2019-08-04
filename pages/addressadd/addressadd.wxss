@@ -1,3 +1,4 @@
+@import "../../utils/weui.wxss";
 .su-wrapper{
 	width:100%;
 	height:auto;
@@ -58,3 +59,26 @@ button{
 	line-height:70rpx;
 	text-indent:20rpx;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

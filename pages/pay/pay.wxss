@@ -1,5 +1,6 @@
 .payCon {
   margin-bottom: 120rpx;
+  position:relative;
 }
 .detCon {
   padding: 10px 15px;
@@ -436,3 +437,10 @@ radio .wx-radio-input.wx-radio-input-checked::before{ border-radius: 50%; width:
 .choSele { float: left; width: 150rpx;}
 .mR20 { margin-right: 40rpx;}
 .payType-tit { font-size: 26rpx; width: 113rpx; float: left; line-height: 60rpx; }
+/*购买协议*/
+.buycontractpage{width:96%;padding:2%;height:100%;background:#fff;z-index:1000;position:fixed;top:0rpx;}
+.buycontractpage-a{width:100%;height:86%;color:#666;line-height:40rpx;font-size:28rpx;overflow-y:auto;}
+.buycontractpage-b{height:70rpx;line-height:70rpx;text-align:center;width:30%;background:#00c250;color:#fff;font-size:32rpx;margin:5% 35% 2% 35%;}
+
+
+

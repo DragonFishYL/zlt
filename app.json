@@ -2,7 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/detail/detail",
-    "pages/pay/pay",
     "pages/xorderDetail/xorderDetail",
     "pages/logs/logs",
     "pages/search/search",
@@ -25,13 +24,14 @@
     "pages/friends/friends",
     "pages/person/person",
     "pages/bill/bill",
-    "pages/trip/trip",
     "pages/headerlist/headerlist",
     "pages/headerupdate/headerupdate",
     "pages/headeradd/headeradd",
     "pages/billdetail/billdetail",
     "pages/billlist/billlist",
     "pages/billadd/billadd",
+    "pages/trip/trip",
+    "pages/pay/pay",
     "pages/addressadd/addressadd",
     "pages/addresslist/addresslist",
     "pages/addressupdate/addressupdate"
