@@ -223,3 +223,12 @@ form-sign .form-item {
     border: 1rpx solid #ff0000;
     padding: 10rpx;
 }
+.section>picker{width:75%;float:right;}
+.picker{
+	border:1px solid #bebebe;
+	height:70rpx;
+	line-height:70rpx;
+	text-indent:20rpx;
+	border-radius:4px;
+	width:97%;
+}

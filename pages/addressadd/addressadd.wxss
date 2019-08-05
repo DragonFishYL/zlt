@@ -53,6 +53,10 @@ button{
 	color:#fff;
 	font-size:14px;
 }
+.section{margin-top:30rpx;}
+.billlist-aas{margin-top:130rpx;}
+.section>.section__title{width:22%;float:left;font-size:35rpx;}
+.section>picker{width:78%;float:right;}
 .picker{
 	border:1rpx solid #999;
 	height:70rpx;

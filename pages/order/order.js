@@ -35,7 +35,19 @@ Page({
         gtype: "",
         dtype: "",
         discount: "",
-        price: ""
+        price: "",
+		multiArray: [],
+		objectMultiArray: [],
+		garr:[],
+		harr:[],
+		aarr:[],
+		aid:'',
+		aindex:'',
+		bid:'',
+		bindex:'',
+		cid:'',
+		cindex:'',
+		multiIndex: [0, 0, 0]
     }, e(t, "total", ""), e(t, "name", ""), e(t, "area", ""), e(t, "areadanwei", ""), 
     e(t, "pricedanwei", ""), e(t, "glength", ""), e(t, "gwidth", ""), e(t, "config1", ""), 
     e(t, "config11", ""), e(t, "config12", ""), e(t, "config2", ""), e(t, "config8", ""), 
@@ -46,6 +58,74 @@ Page({
     e(t, "busiName", ""), e(t, "busiPhone", ""), e(t, "authEmail", ""), e(t, "busiAddress", ""), 
     e(t, "einfos", ""), e(t, "title", ""), e(t, "phone", ""), e(t, "newtotal", ""), 
     t),
+  bindMultiPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      multiIndex: e.detail.value
+    })
+  },
+  bindMultiPickerColumnChange: function (e) {
+    console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
+	this.cityrebackid(e.detail.column,e.detail.value);
+    var data = {
+      multiArray: this.data.multiArray,
+      multiIndex: this.data.multiIndex
+    };
+    data.multiIndex[e.detail.column] = e.detail.value;
+	var garr = this.data.garr,harr = this.data.harr;
+	 console.log(data);
+    switch (e.detail.column) {
+      case 0:
+		switch (data.multiIndex[0]) {
+			case e.detail.value:
+				data.multiArray[1] = garr[e.detail.value][0];
+				data.multiArray[2] = garr[e.detail.value][1];
+				break;
+		}
+        data.multiIndex[1] = 0;
+        data.multiIndex[2] = 0;
+        break;
+      case 1:
+			switch (data.multiIndex[0]) {
+				case e.detail.value:
+					switch (data.multiIndex[1]) {
+						case e.detail.value:
+							data.multiArray[2] = harr[e.detail.value][e.detail.value];
+							break;
+					}
+				break;
+			}
+        data.multiIndex[2] = 0;
+        console.log(data.multiIndex);
+        break;
+    }
+    this.setData(data);
+  },
+  //通过选择胡下标返回id
+  cityrebackid:function(type,index){
+	  var aarr = this.data.aarr;
+	  if(type == 0){
+		  this.setData({
+			  aid:aarr[index]['id'],
+			  aindex:index,
+			  bid:aarr[index]['city'][0]['id'],
+			  bindex:0,
+			  cid:aarr[index]['city'][0]['area'][0]['id'],
+			  cindex:0
+		  });
+	  }else if(type == 1){
+		  var aindex = this.data.aindex;
+		  this.setData({
+			  bid:aarr[aindex]['city'][index]['id'],
+			  bindex:index,
+			  cid:aarr[aindex]['city'][index]['area'][0]['id'],
+			  cindex:0
+		  });
+	  }else if(type == 2){
+		  var aindex = this.data.aindex,bindex = this.data.bindex;
+		  this.setData({cid:aarr[aindex]['city'][bindex]['area'][index]['id'],cindex:index});
+	  }
+  },
     goIndexPage: function(e) {
         var t = e.currentTarget.dataset.url;
         wx.reLaunch({
@@ -258,7 +338,8 @@ Page({
                             gnums: g,
                             fopenid: S,
                             source: y,
-                            price: T
+                            price: T,
+							cid:t.data.cid
                         };
                     }
                     wx.request({
@@ -423,12 +504,14 @@ Page({
         t));
     },
     onLoad: function() {
+		//请求
+		wx.showLoading({ title: '加载中', });
         var e = this;
         this.authorization();
         var t = wx.getStorageSync("user").openid, o = wx.getStorageSync("exhibition").eid;
         console.log(o), console.log(t);
         wx.request({
-            url: getApp().globalData.publicUrl + "//Member/positionDetailNext",
+            url: getApp().globalData.publicUrl + "/Member/positionDetailNext",
             data: {
                 business_no: "ZhanLeTaoWeChat",
                 openid: t,
@@ -439,6 +522,8 @@ Page({
                 "Content-Type": "application/x-www-form-urlencoded"
             },
             success: function(t) {
+				//关闭提示
+				wx.hideLoading();
                 console.info(t.data), 8 == t.data.status ? wx.showToast({
                     title: "已存在未支付订单,请去支付或取消在创建订单",
                     icon: "none",
@@ -458,7 +543,17 @@ Page({
                     busiPhone: t.data.data.etel,
                     authEmail: t.data.data.pemail,
                     busiAddress: t.data.data.eaddress,
-                    phone: t.data.data.ptel
+                    phone: t.data.data.ptel,
+					multiArray:t.data.multiArray,
+					objectMultiArray:t.data.objectMultiArray,
+					aarr:t.data.aarr,
+					garr:t.data.garr,
+					harr:t.data.harr,
+					multiIndex:t.data.multiIndex,
+					aindex:t.data.aindex,
+					bindex:t.data.bindex,
+					cindex:t.data.cindex,
+					cid:t.data.cid
                 }) : 7 == t.data.status && wx.showToast({
                     title: "展会招展时间已结束",
                     icon: "none",

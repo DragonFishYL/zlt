@@ -38,8 +38,16 @@
                         </text>
                         <input class="input mobile" name="authEmail" placeholder="请填写准确的电子邮箱" type="text" value="{{authEmail}}"></input>
                     </view>
+					<view class="section">
+                        <text>所在城市</text>
+						<picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+							<view class="picker">
+							  {{multiArray[0][multiIndex[0]]}}-{{multiArray[1][multiIndex[1]]}}-{{multiArray[2][multiIndex[2]]}}
+							</view>
+						</picker>
+					</view>
                     <view class="sign-item">
-                        <text>企业地址
+                        <text>详细地址
                         </text>
                         <input class="input mobile" name="busiAddress" placeholder="请填写准确的企业详细地址" type="text" value="{{busiAddress}}"></input>
                     </view>
