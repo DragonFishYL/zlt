@@ -6,7 +6,7 @@
         <view class="billlist-a">
 			<view class="billlist-aa">收件人：{{item.people}}</view>
 			<view class="billlist-aa">联系电话：{{item.phone}}</view>
-			<view class="billlist-aa">详细地址：{{item.address}}</view>
+			<view class="billlist-aa">详细地址：{{item.addresspro}}</view>
 			<view class="billlist-aa" style="text-align:right;">
 				<button type="default" size="mini" bindtap="addresslistToDetail" data-id="{{item.id}}">修改</button>
 				<button type="warn" size="mini" bindtap="addresslistDelete" data-id="{{item.id}}">删除</button>
