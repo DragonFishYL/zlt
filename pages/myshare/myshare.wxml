@@ -92,10 +92,10 @@
     <view class="tab-main">
         <view class="flex-tab">
             <view bindtap="goShare" class="tab-share" go="goshare">
-                <text class="icon-share" style="color:{{color}}"></text>分享
+            <text class="icon-share" style="color:{{color}}"></text>分享
         </view>
         </view>
-        <view class="flex-tab">
+        <view class="flex-tabs">
             <view bindtap="goPage" class="tab-ticket" data-url="../ticket/ticket" id="goticket" style="background:{{color}}" wx:if="{{isExamine==1}}">
                 <image mode="widthFix" src="../../common/img/ticket.png"></image>我的观展票
         		</view>
