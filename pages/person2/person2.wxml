@@ -1,0 +1,179 @@
+<view class="su-wrapper">
+    <view class="su-banner">
+        <image class="banner" mode="widthFix" src="../../common/img/index_head.jpg"></image>
+        <view class="show_share">
+            <view bindtap="collect" class="tab-share">
+                <view>111</view>
+                <view>分享次数</view>
+            </view>
+            <view bindtap="myshare" class="tab-share">
+                <view>888</view>
+                <view>红包奖励</view>
+            </view>
+            <view bindtap="myshare" class="tab-share">
+                <view>666</view>
+                <view>现金提现</view>
+            </view>
+            <view bindtap="myshare" class="tab-share">
+                <view>16</view>
+                <view>收藏夹</view>
+            </view>
+        </view>
+    </view>
+    <view class="su-body">
+		<view class="su-a">
+			<view class="su-a-a">
+				<view class="su-a-al">我的影响力</view>
+				<view class="su-a-ar">查看全部影响力 ></view>
+				<view class="floatclear"></view>
+			</view>
+			<view class="su-a-b">
+				<view class="su-a-bl">
+					<view>综合指数</view>
+					<view>影响力 666</view>
+				</view>
+				<view class="su-a-br">
+					<view>2017年第19届中国(青岛)国际....</view>
+					<view>
+						<view>佣金 666.66</view>
+						<view>6分钟前有人浏览</view>
+						<view class="floatclear"></view>
+					</view>
+				</view>
+				<view class="floatclear"></view>
+			</view>
+		</view>
+		<view class="su-a">
+			<view class="su-a-a">
+				<view class="su-a-al">我的订单</view>
+				<view class="su-a-ar">查看全部订单 ></view>
+				<view class="floatclear"></view>
+			</view>
+			<view class="su-a-b">
+				<view class="su-a-c">
+					<view><image src="../../common/img/20190818order.png"/></view>
+					<view>全部</view>
+					<view>266</view>
+				</view>
+				<view class="su-a-c">
+					<view><image src="../../common/img/20190818buyed.png"/></view>
+					<view>已支付</view>
+					<view>266</view>
+				</view>
+				<view class="su-a-c">
+					<view><image src="../../common/img/20190818daizhifu.png"/></view>
+					<view>待支付</view>
+					<view>266</view>
+				</view>
+				<view class="su-a-c">
+					<view><image src="../../common/img/20190818cancell.png"/></view>
+					<view>已取消</view>
+					<view>266</view>
+				</view>
+				<view class="floatclear"></view>
+			</view>
+		</view>
+		<view class="su-a">
+			<view class="su-a-a">
+				<view class="su-a-al">佣金提现</view>
+				<view class="su-a-ar">查看全部佣金 ></view>
+				<view class="floatclear"></view>
+			</view>
+			<view class="su-a-b">
+				<view class="su-a-d">
+					<view>￥8888.68</view>
+					<view>总额度</view>
+				</view>
+				<view class="su-a-d">
+					<view>￥888.68</view>
+					<view>已提现</view>
+				</view>
+				<view class="su-a-d">
+					<view>￥8000.00</view>
+					<view>待提现</view>
+				</view>
+				<view class="floatclear"></view>
+			</view>
+		</view>
+		<view class="su-a">
+			<view class="su-a-a">
+				<view class="su-a-al">其他项目</view>
+				<view class="su-a-ar"></view>
+				<view class="floatclear"></view>
+			</view>
+			<view class="su-a-b">
+				<view class="su-a-c">
+					<view><image src="../../common/img/20190818order.png"/></view>
+					<view>红包</view>
+					<view>最新</view>
+				</view>
+				<view class="su-a-c">
+					<view><image src="../../common/img/20190818buyed.png"/></view>
+					<view>发票</view>
+				</view>
+				<view class="su-a-c">
+					<view><image src="../../common/img/20190818daizhifu.png"/></view>
+					<view>发票抬头</view>
+				</view>
+				<view class="su-a-c">
+					<view><image src="../../common/img/20190818cancell.png"/></view>
+					<view>收件地址</view>
+				</view>
+				<view class="su-a-c">
+					<view><image src="../../common/img/20190818daizhifu.png"/></view>
+					<view>观展门票</view>
+				</view>
+				<view class="su-a-c">
+					<view><image src="../../common/img/20190818cancell.png"/></view>
+					<view>银行卡</view>
+				</view>
+				<view class="floatclear"></view>
+			</view>
+		</view>
+		<view style="height:50px;"></view>
+    </view>
+    <view class="company-qcode-box showstatus {{canShow}}">
+        <view class="mask-logo">
+            <view class="mask-box"></view>
+            <image bindload="imageLoad" class="showstatus1 {{canShow}}" mode="widthFix" src="{{avatarUrl}}" wx:if="{{avatarUrl}}"></image>
+            <image bindload="imageLoad" class="showstatus2 {{canShow}}" mode="widthFix" src="{{photo}}" wx:else></image>
+        </view>
+        <view>
+            <text class="name">{{nickName}}</text>
+        </view>
+    </view>
+    <view class="tabbar">
+        <view class="tab-main">
+            <view class="flex-tab">
+                <view class="tab-share">
+                    <button bindgetuserinfo="homeGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                        <image mode="widthFix" src="../../common/img/home_w.png"></image>首页</button>
+                    <view bindtap="goPage" data-url="../index/index" wx:else>
+                        <image mode="widthFix" src="../../common/img/home_w.png"></image>首页</view>
+                </view>
+            </view>
+            <view class="flex-tab flex-middle-tab">
+                <view class="tab-share">
+                    <button bindgetuserinfo="exhibitonGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                        <image mode="widthFix" src="../../common/img/onlinelooking.png"></image>展会</button>
+                    <view bindtap="goPage" data-url="../exhibition/exhibition" wx:else>
+                        <image mode="widthFix" src="../../common/img/onlinelooking.png"></image>展会</view>
+                </view>
+            </view>
+            <view class="flex-tab flex-middle-tab">
+                <view class="tab-share">
+                    <button bindgetuserinfo="tripGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                        <image mode="widthFix" src="../../common/img/trip2.png"></image>行程</button>
+                    <view bindtap="goPage" data-url="../trip/trip" wx:else>
+                        <image mode="widthFix" src="../../common/img/trip2.png"></image>行程</view>
+                </view>
+            </view>
+            <view class="flex-tab tab-ticket">
+                <button bindgetuserinfo="personGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                    <image mode="widthFix" src="../../common/img/personal_b.png"></image>我的</button>
+                <view bindtap="goPage" data-url="../person/person" wx:else>
+                    <image mode="widthFix" src="../../common/img/personal_b.png"></image>我的</view>
+            </view>
+        </view>
+    </view>
+</view>

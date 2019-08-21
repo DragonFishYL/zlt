@@ -1,0 +1,164 @@
+<view class="su-wrapper">
+	<view class="order-head">
+		<view class="order-model" bindtap="ordermodel" data-type="1" style="color:{{color[0]}};">提现中心</view>
+		<view class="order-model" bindtap="ordermodel" data-type="2" style="color:{{color[1]}};">待提现</view>
+		<view class="order-model" bindtap="ordermodel" data-type="3" style="color:{{color[2]}};">提现中</view>
+		<view class="order-model" bindtap="ordermodel" data-type="4" style="color:{{color[3]}};">已提现</view>
+		<view style="clear:both;"></view>
+	</view>
+    <view class="su-body">
+		<view class="su-a">
+			<view class="su-a-a">
+				<view class="su-a-al">佣金提现统计</view>
+				<view class="su-a-ar"></view>
+				<view class="floatclear"></view>
+			</view>
+			<view class="su-a-b">
+				<view class="su-a-d">
+					<view>￥8888.68</view>
+					<view>总额度</view>
+				</view>
+				<view class="su-a-d">
+					<view>￥888.68</view>
+					<view>已提现</view>
+				</view>
+				<view class="su-a-d">
+					<view>￥8000.00</view>
+					<view>待提现</view>
+				</view>
+				<view class="floatclear"></view>
+			</view>
+		</view>
+		<view class="su-a">
+			<view class="su-a-a">
+				<view class="su-a-al">最新待提现</view>
+				<view class="su-a-ar"></view>
+				<view class="floatclear"></view>
+			</view>
+			<view class="su-a-b">
+				<view class="su-a-c">
+					<view>2019中国（昆明）东南亚、南亚安防暨警用装备展览会</view>
+					<view>
+						<view>佣金 <text>￥688.68</text></view>
+						<view>展会</view>
+						<view class="floatclear"></view>
+					</view>
+					<view>
+						<view>2019-09-26 8:27</view>
+						<view>我要提现 ></view>
+						<view class="floatclear"></view>
+					</view>
+				</view>
+				<view class="su-a-c">
+					<view>2019中国（昆明）东南亚、南亚安防暨警用装备展览会</view>
+					<view>
+						<view>佣金 <text>￥688.68</text></view>
+						<view>展会</view>
+						<view class="floatclear"></view>
+					</view>
+					<view>
+						<view>2019-09-26 8:27</view>
+						<view>我要提现 ></view>
+						<view class="floatclear"></view>
+					</view>
+				</view>
+				<view class="su-a-c">
+					<view>2019中国（昆明）东南亚、南亚安防暨警用装备展览会</view>
+					<view>
+						<view>佣金 <text>￥688.68</text></view>
+						<view>展会</view>
+						<view class="floatclear"></view>
+					</view>
+					<view>
+						<view>2019-09-26 8:27</view>
+						<view>我要提现 ></view>
+						<view class="floatclear"></view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="su-a">
+			<view class="su-a-a">
+				<view class="su-a-al">最新提现记录</view>
+				<view class="su-a-ar"></view>
+				<view class="floatclear"></view>
+			</view>
+			<view class="su-a-b su-a-new">
+				<view class="su-a-c">
+					<view>2019中国（昆明）东南亚、南亚安防暨警用装备展览会</view>
+					<view>
+						<view>佣金 <text>￥688.68</text></view>
+						<view>展会</view>
+						<view class="floatclear"></view>
+					</view>
+					<view>
+						<view>2019-09-26 8:27</view>
+						<view>查看详情 ></view>
+						<view class="floatclear"></view>
+					</view>
+				</view>
+				<view class="su-a-c">
+					<view>2019中国（昆明）东南亚、南亚安防暨警用装备展览会</view>
+					<view>
+						<view>佣金 <text>￥688.68</text></view>
+						<view>展会</view>
+						<view class="floatclear"></view>
+					</view>
+					<view>
+						<view>2019-09-26 8:27</view>
+						<view>查看详情 ></view>
+						<view class="floatclear"></view>
+					</view>
+				</view>
+				<view class="su-a-c">
+					<view>2019中国（昆明）东南亚、南亚安防暨警用装备展览会</view>
+					<view>
+						<view>佣金 <text>￥688.68</text></view>
+						<view>展会</view>
+						<view class="floatclear"></view>
+					</view>
+					<view>
+						<view>2019-09-26 8:27</view>
+						<view>查看详情 ></view>
+						<view class="floatclear"></view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view style="height:50px;"></view>
+    </view>
+    <view class="tabbar">
+        <view class="tab-main">
+            <view class="flex-tab">
+                <view class="tab-share">
+                    <button bindgetuserinfo="homeGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                        <image mode="widthFix" src="../../common/img/home_w.png"></image>首页</button>
+                    <view bindtap="goPage" data-url="../index/index" wx:else>
+                        <image mode="widthFix" src="../../common/img/home_w.png"></image>首页</view>
+                </view>
+            </view>
+            <view class="flex-tab flex-middle-tab">
+                <view class="tab-share">
+                    <button bindgetuserinfo="exhibitonGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                        <image mode="widthFix" src="../../common/img/onlinelooking.png"></image>展会</button>
+                    <view bindtap="goPage" data-url="../exhibition/exhibition" wx:else>
+                        <image mode="widthFix" src="../../common/img/onlinelooking.png"></image>展会</view>
+                </view>
+            </view>
+            <view class="flex-tab flex-middle-tab">
+                <view class="tab-share">
+                    <button bindgetuserinfo="tripGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                        <image mode="widthFix" src="../../common/img/trip2.png"></image>行程</button>
+                    <view bindtap="goPage" data-url="../trip/trip" wx:else>
+                        <image mode="widthFix" src="../../common/img/trip2.png"></image>行程</view>
+                </view>
+            </view>
+            <view class="flex-tab tab-ticket">
+                <button bindgetuserinfo="personGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                    <image mode="widthFix" src="../../common/img/personal_b.png"></image>我的</button>
+                <view bindtap="goPage" data-url="../person/person" wx:else>
+                    <image mode="widthFix" src="../../common/img/personal_b.png"></image>我的</view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,120 @@
+<view class="su-wrapper">
+	<view class="su-body">
+		<view class="su-a">
+			<view class="su-a-a">
+				<view class="su-a-al">佣金相关</view>
+				<view class="su-a-ar"></view>
+				<view class="floatclear"></view>
+			</view>
+			<view class="su-a-b">
+				<view class="su-a-c">
+					<view>2019中国（昆明）东南亚、南亚安防暨警用装备展览会</view>
+					<view>
+						<view>佣金 <text>￥688.68</text></view>
+						<view>展会</view>
+						<view class="floatclear"></view>
+					</view>
+					<view>
+						<view>结束日期 <text>2019-09-26</text></view>
+						<view>可申请日期 <text>2019-10-01</text></view>
+						<view class="floatclear"></view>
+					</view>
+				</view>
+				<view class="su-a-u">
+					<view><image src="../../common/img/20190820head3.jpg"/></view>
+					<view>
+						<view>看你乱七八糟的说了一大堆</view>
+						<view>2019-09-21 8:46</view>
+					</view>
+					<view>已支付</view>
+					<view class="floatclear"></view>
+				</view>
+			</view>
+		</view>
+		<view class="su-a">
+			<view class="su-a-a">
+				<view class="su-a-al">收款账户</view>
+				<view class="su-a-ar"></view>
+				<view class="floatclear"></view>
+			</view>
+			<view class="su-a-b">
+				<view class="billlist-aa">
+					<view class="billlist-ab">银行卡：</view>
+					<view class="billlist-ac">中国农业银行</view>
+				</view>
+				<view class="billlist-aa">
+					<view class="billlist-ab">卡号：</view>
+					<view class="billlist-ac">612401199206208966</view>
+				</view>
+				<view class="billlist-aa">
+					<view class="billlist-ab">收款人：</view>
+					<view class="billlist-ac">大鱼海棠</view>
+				</view>
+				<view class="billlist-aa">
+					<view class="billlist-ab">手机号：</view>
+					<view class="billlist-ac">15311462220</view>
+				</view>
+				<view class="billlist-aa">
+					<view class="billlist-ab">开户行：</view>
+					<view class="billlist-ac">中国农业银行北京昌平区北七家支行</view>
+				</view>
+			</view>
+		</view>
+		<view class="su-a">
+			<view class="su-a-a">
+				<view class="su-a-al">审批信息</view>
+				<view class="su-a-ar"></view>
+				<view class="floatclear"></view>
+			</view>
+			<view class="su-a-b">
+				<view class="billlist-aa">
+					<view class="billlist-ab">审批状态：</view>
+					<view class="billlist-ac" style="color:red;">审批成功</view>
+				</view>
+				<view class="billlist-aa">
+					<view class="billlist-ab">审批时间：</view>
+					<view class="billlist-ac">2019-08-21 8:24</view>
+				</view>
+				<view class="billlist-aa">
+					<view class="billlist-ab">预计到账日期：</view>
+					<view class="billlist-ac">2019-08-26</view>
+				</view>
+			</view>
+		</view>
+		<view style="height:50px;"></view>
+    </view>
+    <view class="tabbar">
+        <view class="tab-main">
+            <view class="flex-tab">
+                <view class="tab-share">
+                    <button bindgetuserinfo="homeGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                        <image mode="widthFix" src="../../common/img/home_w.png"></image>首页</button>
+                    <view bindtap="goPage" data-url="../index/index" wx:else>
+                        <image mode="widthFix" src="../../common/img/home_w.png"></image>首页</view>
+                </view>
+            </view>
+            <view class="flex-tab flex-middle-tab">
+                <view class="tab-share">
+                    <button bindgetuserinfo="exhibitonGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                        <image mode="widthFix" src="../../common/img/onlinelooking.png"></image>展会</button>
+                    <view bindtap="goPage" data-url="../exhibition/exhibition" wx:else>
+                        <image mode="widthFix" src="../../common/img/onlinelooking.png"></image>展会</view>
+                </view>
+            </view>
+            <view class="flex-tab flex-middle-tab">
+                <view class="tab-share">
+                    <button bindgetuserinfo="tripGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                        <image mode="widthFix" src="../../common/img/trip2.png"></image>行程</button>
+                    <view bindtap="goPage" data-url="../trip/trip" wx:else>
+                        <image mode="widthFix" src="../../common/img/trip2.png"></image>行程</view>
+                </view>
+            </view>
+            <view class="flex-tab tab-ticket">
+                <button bindgetuserinfo="personGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                    <image mode="widthFix" src="../../common/img/personal_b.png"></image>我的</button>
+                <view bindtap="goPage" data-url="../person/person" wx:else>
+                    <image mode="widthFix" src="../../common/img/personal_b.png"></image>我的</view>
+            </view>
+        </view>
+    </view>
+</view>
