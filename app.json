@@ -1,5 +1,9 @@
 {
   "pages": [
+    "pages/effect2/effect2",
+    "pages/bankadd/bankadd",
+    "pages/bankupdate/bankupdate",
+    "pages/bank/bank",
     "pages/commisionsdetail/commisionsdetail",
     "pages/commisionsaction/commisionsaction",
     "pages/commisions/commisions",

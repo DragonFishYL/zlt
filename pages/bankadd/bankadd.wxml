@@ -1,0 +1,72 @@
+<view class="su-wrapper">
+	<view class="su-body">
+		<view class="su-a">
+			<view class="su-a-b">
+				<view class="billlist-aa">
+					<view class="billlist-ab">开户行：</view>
+					<view class="billlist-ac">
+						<picker bindchange="bindPickerChanges" value="{{index2}}" range="{{array2}}">
+							<view class="picker">
+								{{array2[index2]}}
+							</view>
+						</picker>
+					</view>
+				</view>
+				<view class="billlist-aa">
+					<view class="billlist-ab">卡号：</view>
+					<view class="billlist-ac"><input type="text" name="" value="" placeholder-style="color:#ccc;" placeholder="请输入卡号" confirm-type="done"/></view>
+				</view>
+				<view class="billlist-aa">
+					<view class="billlist-ab">收款人：</view>
+					<view class="billlist-ac"><input type="text" name="" value="" placeholder-style="color:#ccc;" placeholder="请输入收款人" confirm-type="done"/></view>
+				</view>
+				<view class="billlist-aa">
+					<view class="billlist-ab">手机号：</view>
+					<view class="billlist-ac"><input type="text" name="" value="" placeholder-style="color:#ccc;" placeholder="请输入手机号" confirm-type="done"/></view>
+				</view>
+				<view class="billlist-aa">
+					<view class="billlist-ab">支行：</view>
+					<view class="billlist-ac"><input type="text" name="" value="" placeholder-style="color:#ccc;" placeholder="请输入开户行支行" confirm-type="done"/></view>
+				</view>
+			</view>
+		</view>
+		<view>
+			<button type="default" size="default" bindtap="headerDetailAdd" style="background:#07c160;color:#fff;margin-top:30rpx;">保 存</button>
+		</view>
+		<view style="height:50px;"></view>
+    </view>
+    <view class="tabbar">
+        <view class="tab-main">
+            <view class="flex-tab">
+                <view class="tab-share">
+                    <button bindgetuserinfo="homeGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                        <image mode="widthFix" src="../../common/img/home_w.png"></image>首页</button>
+                    <view bindtap="goPage" data-url="../index/index" wx:else>
+                        <image mode="widthFix" src="../../common/img/home_w.png"></image>首页</view>
+                </view>
+            </view>
+            <view class="flex-tab flex-middle-tab">
+                <view class="tab-share">
+                    <button bindgetuserinfo="exhibitonGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                        <image mode="widthFix" src="../../common/img/onlinelooking.png"></image>展会</button>
+                    <view bindtap="goPage" data-url="../exhibition/exhibition" wx:else>
+                        <image mode="widthFix" src="../../common/img/onlinelooking.png"></image>展会</view>
+                </view>
+            </view>
+            <view class="flex-tab flex-middle-tab">
+                <view class="tab-share">
+                    <button bindgetuserinfo="tripGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                        <image mode="widthFix" src="../../common/img/trip2.png"></image>行程</button>
+                    <view bindtap="goPage" data-url="../trip/trip" wx:else>
+                        <image mode="widthFix" src="../../common/img/trip2.png"></image>行程</view>
+                </view>
+            </view>
+            <view class="flex-tab tab-ticket">
+                <button bindgetuserinfo="personGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
+                    <image mode="widthFix" src="../../common/img/personal_b.png"></image>我的</button>
+                <view bindtap="goPage" data-url="../person/person" wx:else>
+                    <image mode="widthFix" src="../../common/img/personal_b.png"></image>我的</view>
+            </view>
+        </view>
+    </view>
+</view>
