@@ -16,6 +16,16 @@ Page({
         shareImg2: "",
         nickName: "",
     },
+	bankadd:function(){
+		wx.navigateTo({
+			url:"../bankadd/bankadd"
+		});
+	},
+	bankupdate:function(){
+		wx.navigateTo({
+			url:"../bankupdate/bankupdate"
+		});
+	},
     authorization: function() {
         var t = this;
         wx.getSetting({

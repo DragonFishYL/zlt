@@ -45,7 +45,7 @@
 					</view>
 					<view>
 						<view>2019-09-26 8:27</view>
-						<view>我要提现 ></view>
+						<view bindtap="commisionsaction">我要提现 ></view>
 						<view class="floatclear"></view>
 					</view>
 				</view>
@@ -58,7 +58,7 @@
 					</view>
 					<view>
 						<view>2019-09-26 8:27</view>
-						<view>我要提现 ></view>
+						<view bindtap="commisionsaction">我要提现 ></view>
 						<view class="floatclear"></view>
 					</view>
 				</view>
@@ -71,7 +71,7 @@
 					</view>
 					<view>
 						<view>2019-09-26 8:27</view>
-						<view>我要提现 ></view>
+						<view bindtap="commisionsaction">我要提现 ></view>
 						<view class="floatclear"></view>
 					</view>
 				</view>
@@ -93,7 +93,7 @@
 					</view>
 					<view>
 						<view>2019-09-26 8:27</view>
-						<view>查看详情 ></view>
+						<view bindtap="commisionsdetail">查看详情 ></view>
 						<view class="floatclear"></view>
 					</view>
 				</view>
@@ -106,7 +106,7 @@
 					</view>
 					<view>
 						<view>2019-09-26 8:27</view>
-						<view>查看详情 ></view>
+						<view bindtap="commisionsdetail">查看详情 ></view>
 						<view class="floatclear"></view>
 					</view>
 				</view>
@@ -119,7 +119,7 @@
 					</view>
 					<view>
 						<view>2019-09-26 8:27</view>
-						<view>查看详情 ></view>
+						<view bindtap="commisionsdetail">查看详情 ></view>
 						<view class="floatclear"></view>
 					</view>
 				</view>

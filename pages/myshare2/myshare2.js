@@ -14,23 +14,25 @@ Page({
         canvasPhotoUrl: "",
         shareImg1: "",
         shareImg2: "",
-        nickName: ""
+        nickName: "",
+		array2: ['--请选择--','增值税普通发票'],
+		objectArray2: [
+		  {
+			id: 0,
+			name: '--请选择--'
+		  },
+		  {
+			id: 1,
+			name: '增值税普通发票'
+		  }
+		],
+		index2:0
     },
-	myeffect:function(){
-		wx.navigateTo({
-			url:"../effect2/effect2"
-		});
-	},
-	mycommisions:function(){
-		wx.navigateTo({
-			url:"../commisions/commisions"
-		});
-	},
-	mybank:function(){
-		wx.navigateTo({
-			url:"../bank/bank"
-		});
-	},
+    bindPickerChanges: function (e) {
+		this.setData({
+		  index2: e.detail.value
+		})
+    },
     authorization: function() {
         var t = this;
         wx.getSetting({

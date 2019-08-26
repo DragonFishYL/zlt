@@ -1,14 +1,15 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/person2/person2",
     "pages/effect2/effect2",
     "pages/bankadd/bankadd",
     "pages/bankupdate/bankupdate",
     "pages/bank/bank",
+    "pages/myshare2/myshare2",
     "pages/commisionsdetail/commisionsdetail",
     "pages/commisionsaction/commisionsaction",
     "pages/commisions/commisions",
-    "pages/person2/person2",
-    "pages/index/index",
     "pages/detail/detail",
     "pages/xorderDetail/xorderDetail",
     "pages/logs/logs",

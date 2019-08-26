@@ -284,7 +284,7 @@ Page({
     },
     onShow: function() {
         var e = this, a = t.getCurrentPage().options;
-        console.log(a);
+        console.log(a);console.log(111111);
         var n = a.fopenid, i = decodeURIComponent(a.scene);
         if (console.log("scene场景值:" + i), "undefined" !== i) this.getScene(i); else "undefined" == n ? (console.log(22), 
         e.getVote()) : a.fopenid ? (console.log(33), e.setData({

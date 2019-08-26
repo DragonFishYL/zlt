@@ -24,7 +24,7 @@
 		<view class="su-a">
 			<view class="su-a-a">
 				<view class="su-a-al">我的影响力</view>
-				<view class="su-a-ar">查看全部影响力 ></view>
+				<view class="su-a-ar" bindtap="myeffect">查看全部影响力 ></view>
 				<view class="floatclear"></view>
 			</view>
 			<view class="su-a-b">
@@ -76,7 +76,7 @@
 		<view class="su-a">
 			<view class="su-a-a">
 				<view class="su-a-al">佣金提现</view>
-				<view class="su-a-ar">查看全部佣金 ></view>
+				<view class="su-a-ar" bindtap="mycommisions">查看全部佣金 ></view>
 				<view class="floatclear"></view>
 			</view>
 			<view class="su-a-b">
@@ -123,7 +123,7 @@
 					<view><image src="../../common/img/20190818daizhifu.png"/></view>
 					<view>观展门票</view>
 				</view>
-				<view class="su-a-c">
+				<view class="su-a-c" bindtap="mybank">
 					<view><image src="../../common/img/20190818cancell.png"/></view>
 					<view>银行卡</view>
 				</view>

@@ -28,6 +28,11 @@ Page({
 		],
 		index2:0
     },
+	myshare:function(){ 
+		wx.navigateTo({
+			url:"../myshare2/myshare2"
+		});
+	},
     bindPickerChanges: function (e) {
 		this.setData({
 		  index2: e.detail.value
@@ -72,11 +77,6 @@ Page({
     collect: function() {
         wx.navigateTo({
             url: "../collect/collect"
-        });
-    },
-    myshare: function() {
-        wx.navigateTo({
-            url: "../effect/effect"
         });
     },
     homeGetUserInfo: function(n) {

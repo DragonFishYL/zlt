@@ -1,7 +1,7 @@
 <view class="su-wrapper">
 	<view class="su-body">
 		<view>
-			<button type="default" size="default" bindtap="headerDetailAdd" style="background:#07c160;color:#fff;margin-top:30rpx;">添加银行卡 ></button>
+			<button type="default" size="default" bindtap="bankadd" style="background:#07c160;color:#fff;margin-top:30rpx;">添加银行卡 ></button>
 		</view>
 		<view class="su-a">
 			<view class="su-a-b">
@@ -27,7 +27,7 @@
 			</view>
 			<view class="su-a-a">
 				<view class="su-a-al"></view>
-				<view class="su-a-ar">编辑 ></view>
+				<view class="su-a-ar" bindtap="bankupdate">编辑 ></view>
 				<view class="su-a-alr">删除</view>
 				<view class="floatclear"></view>
 			</view>
@@ -56,7 +56,7 @@
 			</view>
 			<view class="su-a-a">
 				<view class="su-a-al"></view>
-				<view class="su-a-ar">编辑 ></view>
+				<view class="su-a-ar" bindtap="bankupdate">编辑 ></view>
 				<view class="su-a-alr">删除</view>
 				<view class="floatclear"></view>
 			</view>
@@ -85,7 +85,7 @@
 			</view>
 			<view class="su-a-a">
 				<view class="su-a-al"></view>
-				<view class="su-a-ar">编辑 ></view>
+				<view class="su-a-ar" bindtap="bankupdate">编辑 ></view>
 				<view class="su-a-alr">删除</view>
 				<view class="floatclear"></view>
 			</view>
@@ -114,7 +114,7 @@
 			</view>
 			<view class="su-a-a">
 				<view class="su-a-al"></view>
-				<view class="su-a-ar">编辑 ></view>
+				<view class="su-a-ar" bindtap="bankupdate">编辑 ></view>
 				<view class="su-a-alr">删除</view>
 				<view class="floatclear"></view>
 			</view>

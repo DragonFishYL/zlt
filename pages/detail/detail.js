@@ -30,7 +30,6 @@ Page({
     status: ''
   },
   onLoad: function (d) {
-	console.log(e);
 	var t = decodeURIComponent(e.scene);
     this.authorization();
 	var n = wx.getStorageSync("user").openid;
@@ -114,11 +113,13 @@ Page({
         var a = wx.getStorageSync("tripid"), n = wx.getStorageSync("user").openid;
         wx.login({
             success: function(e) {
-                
+                console.log(66666666666666);
             }
         });
     },
-  onShow: function() {
+  onShow: function(d) {
+	console.log(d);
+	console.log('dddddddddd');
 	var e = this, a = t.getCurrentPage().options;
 	console.log(a);
 	var n = a.fopenid, i = decodeURIComponent(a.scene);

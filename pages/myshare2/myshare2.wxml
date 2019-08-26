@@ -1,0 +1,87 @@
+<view class="su-wrapper">
+	<view class="su-back">
+		<view>2017第16届中国国际消费电子博览会第届中国国际消费电子博览会2017第16届中国国际消费电子博览会</view>
+	</view>
+	<view class="su-body">
+		<view class="su-h">
+			<view class="su-hl"><view><image src="../../common/img/20190820head1.jpg"/></view><view>灿烂千阳</view></view>
+			<view class="su-hz"><image src="../../common/img/20190823left1.png"/></view>
+			<view class="su-hl"><view><image src="../../common/img/20190820head8.jpg"/></view><view>就是要开心啊</view></view>
+			<view class="floatclear"></view>
+		</view>
+		<view class="su-h">
+			<view class="su-hl2"><view><image src="../../common/img/20190820head5.jpg"/><text style="color:red;">666</text></view><view>影响力指数</view></view>
+			<view class="su-hl2"><view><image src="../../common/img/20190820head6.jpg"/><text style="color:orange;">999</text></view><view>影响力排名</view></view>
+			<view class="floatclear"></view>
+		</view>
+		<view class="su-a">
+			<view class="su-a-a">
+				<view class="su-a-al">分享数据</view>
+				<view class="su-a-ar">86次</view>
+				<view class="floatclear"></view>
+			</view>
+			<view class="su-a-b">
+				<view>
+					<view>26</view>
+					<view>访客</view>
+				</view>
+				<view>
+					<view>16</view>   
+					<view>门票</view>
+				</view>
+				<view>
+					<view>12</view>
+					<view>展会订单</view>
+				</view>
+				<view>
+					<view>18</view>
+					<view>行程订单</view>
+				</view>
+			</view>
+		</view>
+		<view class="su-a">
+			<view class="su-a-a">
+				<view class="su-a-al">佣金&红包</view>
+				<view class="su-a-ar"></view>
+				<view class="floatclear"></view>
+			</view>
+			<view class="su-a-c">
+				<view>
+					<view>
+						<view>佣金</view>
+						<view>￥8898.88</view>
+					</view>
+					<view>已支付订单中对应的展会/行程所获得的佣金的总额</view>
+				</view>
+				<view>
+					<view>
+						<view>红包</view>
+						<view>￥8696.99</view>
+					</view>
+					<view>已分享当前展会/行程被朋友点击所获得红包胡总额</view>
+				</view>
+			</view>
+		</view>
+		<view class="su-a">
+			<view class="su-a-a">
+				<view class="su-a-al">访客</view>
+				<view class="su-a-ar">86个</view>
+				<view class="floatclear"></view>
+			</view>
+			<view class="su-a-d">
+				<view class="su-a-dl"><image src="../../common/img/20190820head1.jpg"/></view>
+				<view class="su-a-dl"><image src="../../common/img/20190820head2.jpg"/></view>
+				<view class="su-a-dl"><image src="../../common/img/20190820head3.jpg"/></view>
+				<view class="su-a-dl"><image src="../../common/img/20190820head4.jpg"/></view>
+				<view class="su-a-dl"><image src="../../common/img/20190820head5.jpg"/></view>
+				<view class="su-a-dl"><image src="../../common/img/20190820head6.jpg"/></view>
+				<view class="su-a-dl"><image src="../../common/img/20190820head7.jpg"/></view>
+				<view class="su-a-dl"><image src="../../common/img/20190820head8.jpg"/></view>
+				<view class="su-a-dl"><image src="../../common/img/20190820head9.jpg"/></view>
+				<view class="su-a-dl"><image src="../../common/img/20190820head3.jpg"/></view>
+				<view class="floatclear" style="clear:both;"></view>
+			</view>
+		</view>
+		<view style="height:50px;"></view>
+    </view>
+</view>

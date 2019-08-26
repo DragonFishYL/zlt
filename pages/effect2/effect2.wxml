@@ -1,73 +1,139 @@
 <view class="su-wrapper">
 	<view class="su-body">
-		<view class="su-a">
+		<view class="su-a" bindtap="myshare">
 			<view class="su-a-a">
-				<view class="su-a-al">佣金相关</view>
-				<view class="su-a-ar"></view>
+				<view class="su-a-al">展会项目</view>
+				<view class="su-a-ar">详情 ></view>
 				<view class="floatclear"></view>
 			</view>
 			<view class="su-a-b">
-				<view class="su-a-c">
-					<view>2019中国（昆明）东南亚、南亚安防暨警用装备展览会</view>
-					<view>
-						<view>佣金 <text>￥688.68</text></view>
-						<view>展会</view>
-						<view class="floatclear"></view>
-					</view>
-					<view>
-						<view>结束日期 <text>2019-09-26</text></view>
-						<view>可申请日期 <text>2019-10-01</text></view>
-						<view class="floatclear"></view>
-					</view>
+				<view class="su-a-bl">
+					<image src="https://fairso.com/Public/Uploads/exhibitionImg/exhibition/exhibitionSmall/20161021142346735.jpg"/>
 				</view>
-				<view class="su-a-u">
-					<view><image src="../../common/img/20190820head3.jpg"/></view>
+				<view class="su-a-br">
+					<view>2017第16届中国国际消费电子博览会</view>
 					<view>
-						<view>看你乱七八糟的说了一大堆</view>
-						<view>2019-09-21 8:46</view>
+						<view>佣金 ￥666.60</view>
+						<view>红包 ￥896.60</view>
 					</view>
-					<view>已支付</view>
-					<view class="floatclear"></view>
+					<view>3分钟前有人浏览</view>
 				</view>
+				<view class="floatclear"></view>
+			</view>
+			<view class="su-a-c">
+				<view><text>86</text>次分享</view>
+				<view>26人浏览</view>
+				<view><image src="https://fairso.com/Public/Home/images/822_details_3.png"/>2019-08-16 6:26</view>
+				<view class="floatclear"></view>
 			</view>
 		</view>
-		<view class="su-a">
+		<view class="su-a" bindtap="myshare">
 			<view class="su-a-a">
-				<view class="su-a-al">收款账户</view>
-				<view class="su-a-ar">添加银行卡 ></view>
+				<view class="su-a-al">展会项目</view>
+				<view class="su-a-ar">详情 ></view>
 				<view class="floatclear"></view>
 			</view>
 			<view class="su-a-b">
-				<view class="billlist-aa">
-					<view class="billlist-ab">银行卡：</view>
-					<view class="billlist-ac">
-						<picker bindchange="bindPickerChanges" value="{{index2}}" range="{{array2}}">
-							<view class="picker">
-								{{array2[index2]}}
-							</view>
-						</picker>
+				<view class="su-a-bl">
+					<image src="https://fairso.com/Public/Uploads/exhibitionImg/exhibition/exhibitionSmall/20161021142346735.jpg"/>
+				</view>
+				<view class="su-a-br">
+					<view>2017第16届中国国际消费电子博览会</view>
+					<view>
+						<view>佣金 ￥666.60</view>
+						<view>红包 ￥896.60</view>
 					</view>
+					<view>3分钟前有人浏览</view>
 				</view>
-				<view class="billlist-aa">
-					<view class="billlist-ab">卡号：</view>
-					<view class="billlist-ac">612401199206208966</view>
-				</view>
-				<view class="billlist-aa">
-					<view class="billlist-ab">收款人：</view>
-					<view class="billlist-ac">大鱼海棠</view>
-				</view>
-				<view class="billlist-aa">
-					<view class="billlist-ab">手机号：</view>
-					<view class="billlist-ac">15311462220</view>
-				</view>
-				<view class="billlist-aa">
-					<view class="billlist-ab">开户行：</view>
-					<view class="billlist-ac">中国农业银行北京昌平区北七家支行</view>
-				</view>
+				<view class="floatclear"></view>
+			</view>
+			<view class="su-a-c">
+				<view><text>86</text>次分享</view>
+				<view>26人浏览</view>
+				<view><image src="https://fairso.com/Public/Home/images/822_details_3.png"/>2019-08-16 6:26</view>
+				<view class="floatclear"></view>
 			</view>
 		</view>
-		<view>
-			<button type="default" size="default" bindtap="headerDetailAdd" style="background:#07c160;color:#fff;margin-top:30rpx;">保 存</button>
+		<view class="su-a" bindtap="myshare">
+			<view class="su-a-a">
+				<view class="su-a-al">展会项目</view>
+				<view class="su-a-ar">详情 ></view>
+				<view class="floatclear"></view>
+			</view>
+			<view class="su-a-b">
+				<view class="su-a-bl">
+					<image src="https://fairso.com/Public/Uploads/exhibitionImg/exhibition/exhibitionSmall/20161021142346735.jpg"/>
+				</view>
+				<view class="su-a-br">
+					<view>2017第16届中国国际消费电子博览会</view>
+					<view>
+						<view>佣金 ￥666.60</view>
+						<view>红包 ￥896.60</view>
+					</view>
+					<view>3分钟前有人浏览</view>
+				</view>
+				<view class="floatclear"></view>
+			</view>
+			<view class="su-a-c">
+				<view><text>86</text>次分享</view>
+				<view>26人浏览</view>
+				<view><image src="https://fairso.com/Public/Home/images/822_details_3.png"/>2019-08-16 6:26</view>
+				<view class="floatclear"></view>
+			</view>
+		</view>
+		<view class="su-a" bindtap="myshare">
+			<view class="su-a-a">
+				<view class="su-a-al">展会项目</view>
+				<view class="su-a-ar">详情 ></view>
+				<view class="floatclear"></view>
+			</view>
+			<view class="su-a-b">
+				<view class="su-a-bl">
+					<image src="https://fairso.com/Public/Uploads/exhibitionImg/exhibition/exhibitionSmall/20161021142346735.jpg"/>
+				</view>
+				<view class="su-a-br">
+					<view>2017第16届中国国际消费电子博览会</view>
+					<view>
+						<view>佣金 ￥666.60</view>
+						<view>红包 ￥896.60</view>
+					</view>
+					<view>3分钟前有人浏览</view>
+				</view>
+				<view class="floatclear"></view>
+			</view>
+			<view class="su-a-c">
+				<view><text>86</text>次分享</view>
+				<view>26人浏览</view>
+				<view><image src="https://fairso.com/Public/Home/images/822_details_3.png"/>2019-08-16 6:26</view>
+				<view class="floatclear"></view>
+			</view>
+		</view>
+		<view class="su-a" bindtap="myshare">
+			<view class="su-a-a">
+				<view class="su-a-al">展会项目</view>
+				<view class="su-a-ar">详情 ></view>
+				<view class="floatclear"></view>
+			</view>
+			<view class="su-a-b">
+				<view class="su-a-bl">
+					<image src="https://fairso.com/Public/Uploads/exhibitionImg/exhibition/exhibitionSmall/20161021142346735.jpg"/>
+				</view>
+				<view class="su-a-br">
+					<view>2017第16届中国国际消费电子博览会</view>
+					<view>
+						<view>佣金 ￥666.60</view>
+						<view>红包 ￥896.60</view>
+					</view>
+					<view>3分钟前有人浏览</view>
+				</view>
+				<view class="floatclear"></view>
+			</view>
+			<view class="su-a-c">
+				<view><text>86</text>次分享</view>
+				<view>26人浏览</view>
+				<view><image src="https://fairso.com/Public/Home/images/822_details_3.png"/>2019-08-16 6:26</view>
+				<view class="floatclear"></view>
+			</view>
 		</view>
 		<view style="height:50px;"></view>
     </view>

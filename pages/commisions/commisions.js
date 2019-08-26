@@ -16,6 +16,16 @@ Page({
         shareImg2: "",
         nickName: ""
     },
+	commisionsaction:function(){
+		wx.navigateTo({
+			url:"../commisionsaction/commisionsaction"
+		});
+	},
+	commisionsdetail:function(){
+		wx.navigateTo({
+			url:"../commisionsdetail/commisionsdetail"
+		});
+	},
     authorization: function() {
         var t = this;
         wx.getSetting({
