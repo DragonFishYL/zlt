@@ -117,11 +117,10 @@ Page({
             }
         });
     },
-  onShow: function(d) {
-	console.log(d);
+  onShow: function() {
 	console.log('dddddddddd');
-	var e = this, a = t.getCurrentPage().options;
-	console.log(a);
+	var e = this, d = t.getCurrentPage(), a = t.getCurrentPage().options;
+	console.log(d);console.log(a.fopenid);
 	var n = a.fopenid, i = decodeURIComponent(a.scene);
 	if (console.log("scene场景值:" + i), "undefined" !== i) this.getScene(i); else "undefined" == n ? (console.log(22), 
 	e.getVote()) : a.fopenid ? (console.log(33), e.setData({
