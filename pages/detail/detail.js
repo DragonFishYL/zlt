@@ -39,43 +39,6 @@ Page({
     wx.showLoading({ title: '加载中', });
     //请求展会详情数据API
     var t = this;
-    wx.request({
-      url: e.globalData.publicUrl + '/Trip/tripDetail',
-      data: { 'business_no': e.globalData.business_no, 'openid': n,'tripid':this.data.id},
-      method: 'POST',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded' // 默认值
-      },
-      success(r) {
-        //关闭提示
-        wx.hideLoading();
-        var xtype = null;
-        if (r.data.data.xtype == 1){
-          xtype = '商务团';
-        } else if (r.data.data.xtype == 2) {
-          xtype = '游学团';
-        } else if (r.data.data.xtype == 3) {
-          xtype = '展会团';
-        }
-        t.setData({
-          title:r.data.data.title,
-          xtype: xtype,
-          exhibitionObj: r.data.data.exhibition,
-          thumbnail: r.data.data.thumbnail,
-          setime: r.data.data.setime,
-          xprice: r.data.data.xprice,
-          xnum: r.data.data.xnum,
-          bonus: r.data.data.bonus,
-          special: r.data.data.special,
-          focus: r.data.data.focus,
-          reairplean: r.data.data.reairplean,
-          rehotel: r.data.data.rehotel,
-          fee: r.data.data.fee,
-          notfee: r.data.data.notfee,
-          triparrange: r.data.data.triparrange
-        })
-      }
-    })
   },
     getScene: function(e) {
         var t = this;
@@ -107,20 +70,60 @@ Page({
             });
         });
     },
-    getVote: function(e) {
+    getVote: function(s) {
         var t = this;
         this.authorization();
         var a = wx.getStorageSync("tripid"), n = wx.getStorageSync("user").openid;
         wx.login({
-            success: function(e) {
-                console.log(66666666666666);
+            success: function(m) {
+                wx.showLoading({
+                    title: "加载中",
+                    mask: !0
+                }),wx.request({
+				  url: e.globalData.publicUrl + '/Trip/tripDetail',
+				  data: { 'business_no': e.globalData.business_no, 'openid': n,'tripid':a},
+				  method: 'POST',
+				  header: {
+					'content-type': 'application/x-www-form-urlencoded' // 默认值
+				  },
+				  success(r) {
+					//关闭提示
+					wx.hideLoading();
+					var xtype = null;
+					if (r.data.data.xtype == 1){
+					  xtype = '商务团';
+					} else if (r.data.data.xtype == 2) {
+					  xtype = '游学团';
+					} else if (r.data.data.xtype == 3) {
+					  xtype = '展会团';
+					}
+					t.setData({
+					  title:r.data.data.title,
+					  xtype: xtype,
+					  exhibitionObj: r.data.data.exhibition,
+					  thumbnail: r.data.data.thumbnail,
+					  setime: r.data.data.setime,
+					  xprice: r.data.data.xprice,
+					  xnum: r.data.data.xnum,
+					  bonus: r.data.data.bonus,
+					  special: r.data.data.special,
+					  focus: r.data.data.focus,
+					  reairplean: r.data.data.reairplean,
+					  rehotel: r.data.data.rehotel,
+					  fee: r.data.data.fee,
+					  notfee: r.data.data.notfee,
+					  triparrange: r.data.data.triparrange
+					})
+				  },
+                    fail: function() {
+                        wx.hideLoading();
+                    }
+				})
             }
         });
     },
   onShow: function() {
-	console.log('dddddddddd');
-	var e = this, d = t.getCurrentPage(), a = t.getCurrentPage().options;
-	console.log(d);console.log(a.fopenid);
+	var e = this, d = t.getCurrentPage(), a = t.getCurrentPage().options;console.log(a);
 	var n = a.fopenid, i = decodeURIComponent(a.scene);
 	if (console.log("scene场景值:" + i), "undefined" !== i) this.getScene(i); else "undefined" == n ? (console.log(22), 
 	e.getVote()) : a.fopenid ? (console.log(33), e.setData({
