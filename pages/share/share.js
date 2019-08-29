@@ -300,6 +300,7 @@ Page({
                 "Content-Type": "application/x-www-form-urlencoded"
             },
             success: function(e) {
+				wx.setStorageSync('scene',e.data.weiCode.scene); //保存小程序码场景值
                 console.log(t),console.log(e.data), wx.setNavigationBarTitle({
                     title: (4 == t ?e.data.newData.title:e.data.exhibition.name)
                 }), 1 == e.data.status && (1 == t ? a.setData({
