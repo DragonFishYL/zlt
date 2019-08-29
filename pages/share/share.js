@@ -73,7 +73,9 @@ Page({
             title: a.data.company,
             path: n,
             imageUrl: a.data.shareImg1,
-            success: function(e) {}
+            success: function(e) {
+				console.log('余龙');
+			}
         };
     },
     drawImage1: function() {
