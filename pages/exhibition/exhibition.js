@@ -151,7 +151,7 @@ Page({
         t.autoLogin(e, n, this, "../trip/trip");
     },
     myshareGetUserInfo: function(e) {
-        t.autoLogin(a, e, this, "../person/person");
+        t.autoLogin(a, e, this, "../person2/person2");
     },
     details: function(t) {
         wx.setStorageSync("exhibitionId", t.currentTarget.dataset.id), wx.redirectTo({

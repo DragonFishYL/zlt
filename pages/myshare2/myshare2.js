@@ -15,19 +15,20 @@ Page({
         shareImg1: "",
         shareImg2: "",
         nickName: "",
-		array2: ['--请选择--','增值税普通发票'],
-		objectArray2: [
-		  {
-			id: 0,
-			name: '--请选择--'
-		  },
-		  {
-			id: 1,
-			name: '增值税普通发票'
-		  }
-		],
-		index2:0
+		voice:""
     },
+	voicedetails:function(res){
+		var type = res.currentTarget.dataset.type,oid = res.currentTarget.dataset.id;
+		if(type == 1){
+			wx.setStorageSync("exhibitionId", oid),wx.navigateTo({
+				url:"../details/details"
+			});
+		}else{
+			wx.navigateTo({
+				url:"../detail/detail?id="+oid
+			});
+		}
+	},
     bindPickerChanges: function (e) {
 		this.setData({
 		  index2: e.detail.value
@@ -54,46 +55,42 @@ Page({
         var n = t.currentTarget.dataset.url;
         e.goPage(n);
     },
-    watchTicket: function() {
-        wx.navigateTo({
-            url: "../watchTicket/watchTicket"
-        });
-    },
-    goFair: function() {
-        wx.navigateTo({
-            url: "../out/out"
-        });
-    },
-    goBill: function() {
-        wx.navigateTo({
-            url: "../bill/bill"
-        });
-    },
-    collect: function() {
-        wx.navigateTo({
-            url: "../collect/collect"
-        });
-    },
-    myshare: function() {
-        wx.navigateTo({
-            url: "../effect/effect"
-        });
-    },
-    homeGetUserInfo: function(n) {
-        e.autoLogin(t, n, this, "../index/index");
-    },
-    exhibitonGetUserInfo: function(n) {
-        e.autoLogin(t, n, this, "../exhibition/exhibition");
-    },
-    myshareGetUserInfo: function(n) {
-        e.autoLogin(t, n, this, "../person/person");
-    },
     imageLoad: function(t) {
         this.setData({
             canShow: "active"
         });
     },
-    onLoad: function() {
+    onLoad: function(d) {
         this.authorization();
+		wx.showLoading({title:'加载中'});
+		var that = this;
+		wx.request({
+			url: t.globalData.publicUrl + '/Trip/v3myshare2',
+			data: { 'business_no': t.globalData.business_no, 'openid': wx.getStorageSync("user").openid ,'oid':d.oid},
+			method: 'POST',
+			header: {
+				'content-type': 'application/x-www-form-urlencoded' // 默认值
+			},
+			success:function(res){
+				//关闭提示
+				wx.hideLoading();
+				if(res.data.status == 1){
+					wx.showToast({
+						title: res.data.message,
+						icon: 'success',
+						duration: 3000
+					})
+					that.setData({
+						voice:res.data.voice,
+					});
+				}else{
+					wx.showToast({
+						title: res.data.message,
+						icon: 'none',
+						duration: 3000
+					})
+				}
+			}
+		});
     }
 });

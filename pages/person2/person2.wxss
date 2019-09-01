@@ -132,16 +132,16 @@ button{
 .su-a-bl>view:nth-child(1){font-size:36rpx;font-weight:bold;color:orange;height:60rpx;line-height:60rpx;}
 .su-a-bl>view:nth-child(2){font-size:26rpx;color:#aaa;height:40rpx;line-height:40rpx;}
 .su-a-br{width:69%;height:100rpx;text-align:left;float:right;}
-.su-a-br>view:nth-child(1){font-size:28rpx;overflow:hidden;height:60rpx;line-height:60rpx;color:#999;text-indent:20rpx;}
-.su-a-br>view>view{float:left;font-size:26rpx;color:#aaa;height:40rpx;line-height:40rpx;}
-.su-a-br>view>view:nth-child(1){width:40%;text-indent:20rpx;}
+.su-a-br>view:nth-child(1){font-size:28rpx;overflow:hidden;height:60rpx;line-height:60rpx;color:#999;text-indent:20rpx;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+.su-a-br>view>view{float:left;font-size:26rpx;color:#aaa;height:40rpx;line-height:40rpx;text-align:right;}
+.su-a-br>view>view:nth-child(1){width:40%;text-indent:20rpx;text-align:left;}
 .su-a-br>view>view:nth-child(2){width:60%;}
 .su-a:nth-child(2),.su-a:nth-child(3),.su-a:nth-child(4){margin-top:20rpx;}
 .su-a-c{width:25%;height:110rpx;float:left;position:relative;}
-.su-a-c>view:nth-child(1){width:100%;height:70rpx;line-height:70rpx;text-align:center;}
-.su-a-c>view>image{width:60rpx;height:60rpx;}
+.su-a-c>view:nth-child(1){width:100%;height:60rpx;line-height:60rpx;text-align:center;}
+.su-a-c>view>image{width:50rpx;height:50rpx;}
 .su-a-c>view:nth-child(2){width:100%;height:40rpx;line-height:40rpx;font-size:28rpx;color:#666;text-align:center;}
-.su-a-c>view:nth-child(3){width:auto;height:25rpx;line-height:25rpx;padding:6rpx;font-size:22rpx;background:red;color:#fff;position:absolute;top:10rpx;right:22rpx;border-radius:50%;}
+.su-a-c>view:nth-child(3){min-width:25rpx;min-height:25rpx;line-height:25rpx;padding:6rpx;font-size:22rpx;background:red;color:#fff;position:absolute;top:10rpx;right:35rpx;border-radius:100%;}
 .su-a-d:nth-child(1){width:34%;height:110rpx;float:left;}
 .su-a-d:nth-child(2),.su-a-d:nth-child(3){width:33%;height:110rpx;float:left;}
 .su-a-d:nth-child(1)>view:nth-child(1){height:70rpx;line-height:70rpx;text-align:center;font-size:40rpx;color:#3eb94e;}

@@ -14,7 +14,12 @@ Page({
         canvasPhotoUrl: "",
         shareImg1: "",
         shareImg2: "",
-        nickName: ""
+        nickName: "",
+        person: "",
+        voice: "",
+        order: "",
+        comissions: "",
+        ico: ""
     },
 	myeffect:function(){
 		wx.navigateTo({
@@ -31,6 +36,21 @@ Page({
 			url:"../bank/bank"
 		});
 	},
+    watchBill: function() {
+        wx.navigateTo({
+            url: "../billlist/billlist"
+        });
+    },
+    watchTicketHead: function() {
+        wx.navigateTo({
+            url: "../headerlist/headerlist"
+        });
+    },
+    watchTicketAddress: function() {
+        wx.navigateTo({
+            url: "../addresslist/addresslist"
+        });
+    },
     authorization: function() {
         var t = this;
         wx.getSetting({
@@ -83,8 +103,8 @@ Page({
     exhibitonGetUserInfo: function(n) {
         e.autoLogin(t, n, this, "../exhibition/exhibition");
     },
-    myshareGetUserInfo: function(n) {
-        e.autoLogin(t, n, this, "../person/person");
+    tripGetUserInfo: function(n) {
+        e.autoLogin(t, n, this, "../trip/trip");
     },
     imageLoad: function(t) {
         this.setData({
@@ -93,5 +113,39 @@ Page({
     },
     onLoad: function() {
         this.authorization();
+		wx.showLoading({title:'加载中'});
+		var that = this;
+		wx.request({
+			url: t.globalData.publicUrl + '/Trip/v3person',
+			data: { 'business_no': t.globalData.business_no, 'openid': wx.getStorageSync("user").openid },
+			method: 'POST',
+			header: {
+				'content-type': 'application/x-www-form-urlencoded' // 默认值
+			},
+			success:function(res){
+				//关闭提示
+				wx.hideLoading();
+				if(res.data.status == 1){
+					wx.showToast({
+						title: res.data.message,
+						icon: 'success',
+						duration: 3000
+					})
+					that.setData({
+						person:res.data.person,
+						voice:res.data.voice,
+						order:res.data.order,
+						comissions:res.data.comissions,
+						ico:res.data.ico
+					});
+				}else{
+					wx.showToast({
+						title: res.data.message,
+						icon: 'none',
+						duration: 3000
+					})
+				}
+			}
+		});
     }
 });

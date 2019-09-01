@@ -1,174 +1,38 @@
 <view class="su-wrapper">
 	<view class="su-body">
-		<view class="su-a" bindtap="myshare">
+		<view  data-id="{{item.id}}" data-type="{{item.type}}" wx:for="{{voice}}" wx:key="unique" class="su-a" bindtap="myshare">
 			<view class="su-a-a">
-				<view class="su-a-al">展会项目</view>
+				<view class="su-a-al" wx:if="{{item.type == 1}}">展会项目</view>
+				<view class="su-a-al" wx:else>行程项目</view>
 				<view class="su-a-ar">详情 ></view>
 				<view class="floatclear"></view>
 			</view>
 			<view class="su-a-b">
 				<view class="su-a-bl">
-					<image src="https://fairso.com/Public/Uploads/exhibitionImg/exhibition/exhibitionSmall/20161021142346735.jpg"/>
+					<image src="{{item.img}}"/>
 				</view>
 				<view class="su-a-br">
-					<view>2017第16届中国国际消费电子博览会</view>
+					<view>{{item.namev}}</view>
 					<view>
-						<view>佣金 ￥666.60</view>
-						<view>红包 ￥896.60</view>
+						<view wx:if="{{item.commisionv == null}}">佣金 0.00</view>
+						<view wx:else>佣金 {{item.commisionv}}</view>
+						<view wx:if="{{item.commisionv == null}}">红包 0.00</view>
+						<view wx:else>红包 {{item.bonus}}</view>
 					</view>
-					<view>3分钟前有人浏览</view>
+					<view wx:if="{{item.timetype == 1}}">{{item.time}}秒前有人浏览</view>
+					<view wx:if="{{item.timetype == 2}}">{{item.time}}分钟前有人浏览</view>
+					<view wx:if="{{item.timetype == 3}}">{{item.time}}小时前有人浏览</view>
+					<view wx:if="{{item.timetype == 4}}">{{item.time}}天前有人浏览</view>
 				</view>
 				<view class="floatclear"></view>
 			</view>
 			<view class="su-a-c">
-				<view><text>86</text>次分享</view>
-				<view>26人浏览</view>
-				<view><image src="https://fairso.com/Public/Home/images/822_details_3.png"/>2019-08-16 6:26</view>
-				<view class="floatclear"></view>
-			</view>
-		</view>
-		<view class="su-a" bindtap="myshare">
-			<view class="su-a-a">
-				<view class="su-a-al">展会项目</view>
-				<view class="su-a-ar">详情 ></view>
-				<view class="floatclear"></view>
-			</view>
-			<view class="su-a-b">
-				<view class="su-a-bl">
-					<image src="https://fairso.com/Public/Uploads/exhibitionImg/exhibition/exhibitionSmall/20161021142346735.jpg"/>
-				</view>
-				<view class="su-a-br">
-					<view>2017第16届中国国际消费电子博览会</view>
-					<view>
-						<view>佣金 ￥666.60</view>
-						<view>红包 ￥896.60</view>
-					</view>
-					<view>3分钟前有人浏览</view>
-				</view>
-				<view class="floatclear"></view>
-			</view>
-			<view class="su-a-c">
-				<view><text>86</text>次分享</view>
-				<view>26人浏览</view>
-				<view><image src="https://fairso.com/Public/Home/images/822_details_3.png"/>2019-08-16 6:26</view>
-				<view class="floatclear"></view>
-			</view>
-		</view>
-		<view class="su-a" bindtap="myshare">
-			<view class="su-a-a">
-				<view class="su-a-al">展会项目</view>
-				<view class="su-a-ar">详情 ></view>
-				<view class="floatclear"></view>
-			</view>
-			<view class="su-a-b">
-				<view class="su-a-bl">
-					<image src="https://fairso.com/Public/Uploads/exhibitionImg/exhibition/exhibitionSmall/20161021142346735.jpg"/>
-				</view>
-				<view class="su-a-br">
-					<view>2017第16届中国国际消费电子博览会</view>
-					<view>
-						<view>佣金 ￥666.60</view>
-						<view>红包 ￥896.60</view>
-					</view>
-					<view>3分钟前有人浏览</view>
-				</view>
-				<view class="floatclear"></view>
-			</view>
-			<view class="su-a-c">
-				<view><text>86</text>次分享</view>
-				<view>26人浏览</view>
-				<view><image src="https://fairso.com/Public/Home/images/822_details_3.png"/>2019-08-16 6:26</view>
-				<view class="floatclear"></view>
-			</view>
-		</view>
-		<view class="su-a" bindtap="myshare">
-			<view class="su-a-a">
-				<view class="su-a-al">展会项目</view>
-				<view class="su-a-ar">详情 ></view>
-				<view class="floatclear"></view>
-			</view>
-			<view class="su-a-b">
-				<view class="su-a-bl">
-					<image src="https://fairso.com/Public/Uploads/exhibitionImg/exhibition/exhibitionSmall/20161021142346735.jpg"/>
-				</view>
-				<view class="su-a-br">
-					<view>2017第16届中国国际消费电子博览会</view>
-					<view>
-						<view>佣金 ￥666.60</view>
-						<view>红包 ￥896.60</view>
-					</view>
-					<view>3分钟前有人浏览</view>
-				</view>
-				<view class="floatclear"></view>
-			</view>
-			<view class="su-a-c">
-				<view><text>86</text>次分享</view>
-				<view>26人浏览</view>
-				<view><image src="https://fairso.com/Public/Home/images/822_details_3.png"/>2019-08-16 6:26</view>
-				<view class="floatclear"></view>
-			</view>
-		</view>
-		<view class="su-a" bindtap="myshare">
-			<view class="su-a-a">
-				<view class="su-a-al">展会项目</view>
-				<view class="su-a-ar">详情 ></view>
-				<view class="floatclear"></view>
-			</view>
-			<view class="su-a-b">
-				<view class="su-a-bl">
-					<image src="https://fairso.com/Public/Uploads/exhibitionImg/exhibition/exhibitionSmall/20161021142346735.jpg"/>
-				</view>
-				<view class="su-a-br">
-					<view>2017第16届中国国际消费电子博览会</view>
-					<view>
-						<view>佣金 ￥666.60</view>
-						<view>红包 ￥896.60</view>
-					</view>
-					<view>3分钟前有人浏览</view>
-				</view>
-				<view class="floatclear"></view>
-			</view>
-			<view class="su-a-c">
-				<view><text>86</text>次分享</view>
-				<view>26人浏览</view>
-				<view><image src="https://fairso.com/Public/Home/images/822_details_3.png"/>2019-08-16 6:26</view>
+				<view><text>{{item.num}}</text>次分享</view>
+				<view>{{item.num}}人浏览</view>
+				<view><image src="https://fairso.com/Public/Home/images/822_details_3.png"/>{{item.ctime}}</view>
 				<view class="floatclear"></view>
 			</view>
 		</view>
 		<view style="height:50px;"></view>
-    </view>
-    <view class="tabbar">
-        <view class="tab-main">
-            <view class="flex-tab">
-                <view class="tab-share">
-                    <button bindgetuserinfo="homeGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
-                        <image mode="widthFix" src="../../common/img/home_w.png"></image>首页</button>
-                    <view bindtap="goPage" data-url="../index/index" wx:else>
-                        <image mode="widthFix" src="../../common/img/home_w.png"></image>首页</view>
-                </view>
-            </view>
-            <view class="flex-tab flex-middle-tab">
-                <view class="tab-share">
-                    <button bindgetuserinfo="exhibitonGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
-                        <image mode="widthFix" src="../../common/img/onlinelooking.png"></image>展会</button>
-                    <view bindtap="goPage" data-url="../exhibition/exhibition" wx:else>
-                        <image mode="widthFix" src="../../common/img/onlinelooking.png"></image>展会</view>
-                </view>
-            </view>
-            <view class="flex-tab flex-middle-tab">
-                <view class="tab-share">
-                    <button bindgetuserinfo="tripGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
-                        <image mode="widthFix" src="../../common/img/trip2.png"></image>行程</button>
-                    <view bindtap="goPage" data-url="../trip/trip" wx:else>
-                        <image mode="widthFix" src="../../common/img/trip2.png"></image>行程</view>
-                </view>
-            </view>
-            <view class="flex-tab tab-ticket">
-                <button bindgetuserinfo="personGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
-                    <image mode="widthFix" src="../../common/img/personal_b.png"></image>我的</button>
-                <view bindtap="goPage" data-url="../person/person" wx:else>
-                    <image mode="widthFix" src="../../common/img/personal_b.png"></image>我的</view>
-            </view>
-        </view>
     </view>
 </view>

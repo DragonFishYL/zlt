@@ -1,63 +1,6 @@
 page {
     background: #f2f2f2;
 }
-.linef7 {
-  background: #f7f7f7;
-  height: 14rpx;
-}
-.tab-main image{
-  width: 20px;
-  height: 20px;
-}
-
-.flex-tab{
-  width: 25%;
-  text-align: center;
-  float: left;
-}
-
-.tabbar{
-  height: 40px;
-  line-height: 40px;
-  width: 100%;
-  background: #fff;
-  position: fixed;
-  bottom: 0px;
-  border-top:1rpx solid #e2e2e2;
-}
-.button-hover{
-	background:#fff;
-	color:#333;
-}
-.userinfobtn::after{
-	position:relative;
-	display:block;
-	margin-left:auto;
-	margin-right:auto;
-	padding-left:0px;
-	padding-right:0px;
-	border-radius:0px;
-	-webkit-tap-highlight-color:transparent;
-	overflow:hidden;
-	color:#000000;
-	background:#fff;
-	border:1rpx solid #fff;
-}
-button{
-	font-size:16px;
-	border-radius:0px;
-}
-.tab-share>view:nth-child(1){
-	font-size:34rpx;
-}
-.tab-share>view{
-	height:50rpx;
-	line-height:50rpx;
-	width:100%;
-	text-align:center;
-	font-size:28rpx;
-	color:#fff;
-}
 .su-body{padding:0 20rpx 0 20rpx;position:relative;}
 .su-a{width:100%;height:auto;background:#fff;border-radius:20rpx;margin-top:20rpx;}
 .su-a-a{height:auto;padding:20rpx;}
@@ -72,10 +15,10 @@ button{
 .su-a-br>view:nth-child(2)>view{height:40rpx;line-height:40rpx;width:50%;float:left;font-size:28rpx;color:#666;}
 .su-a-br>view:nth-child(3){height:40rpx;line-height:40rpx;font-size:28rpx;color:#666;}
 .su-a-c{height:80rpx;padding:0 20rpx 0 20rpx;}
-.su-a-c>view:nth-child(1),.su-a-c>view:nth-child(2){width:30%;height:50rpx;line-height:50rpx;float:left;font-size:28rpx;border-top:1rpx dashed #eee;padding-top:20rpx;color:#999;}
-.su-a-c>view:nth-child(3){width:40%;height:50rpx;line-height:50rpx;float:right;font-size:28rpx;border-top:1rpx dashed #eee;padding-top:20rpx;color:#999;}
-.su-a-c>view:nth-child(3)>image{width:30rpx;height:30rpx;}
-
+.su-a-c>view:nth-child(1),.su-a-c>view:nth-child(2){width:25%;height:50rpx;line-height:50rpx;float:left;font-size:28rpx;border-top:1rpx dashed #eee;padding-top:20rpx;color:#999;}
+.su-a-c>view:nth-child(3){width:50%;height:50rpx;line-height:50rpx;float:right;font-size:28rpx;border-top:1rpx dashed #eee;padding-top:20rpx;color:#999;}
+.su-a-c>view:nth-child(3)>image{width:20rpx;height:25rpx;}
+.su-a-c>view:nth-child(1)>text{color:orange;}
 
 
 

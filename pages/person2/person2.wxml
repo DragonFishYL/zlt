@@ -2,20 +2,24 @@
     <view class="su-banner">
         <image class="banner" mode="widthFix" src="../../common/img/index_head.jpg"></image>
         <view class="show_share">
-            <view bindtap="collect" class="tab-share">
-                <view>111</view>
+            <view bindtap="myshare" class="tab-share">
+				<view wx:if="{{person.enjoynum == null}}">0</view>
+                <view wx:else>{{person.enjoynum}}</view>
                 <view>分享次数</view>
             </view>
             <view bindtap="myshare" class="tab-share">
-                <view>888</view>
+				<view wx:if="{{person.redenvelopes == null}}">0.00</view>
+                <view wx:else>{{person.redenvelopes}}</view>
                 <view>红包奖励</view>
             </view>
-            <view bindtap="myshare" class="tab-share">
-                <view>666</view>
-                <view>现金提现</view>
+            <view bindtap="mycommisions" class="tab-share">
+				<view wx:if="{{person.comissions == null}}">0.00</view>
+                <view wx:else>{{person.comissions}}</view>
+                <view>佣金总额</view>
             </view>
-            <view bindtap="myshare" class="tab-share">
-                <view>16</view>
+            <view bindtap="collect" class="tab-share">
+				<view wx:if="{{person.collects == null}}">0</view>
+                <view wx:else>{{person.collects}}</view>
                 <view>收藏夹</view>
             </view>
         </view>
@@ -24,7 +28,8 @@
 		<view class="su-a">
 			<view class="su-a-a">
 				<view class="su-a-al">我的影响力</view>
-				<view class="su-a-ar" bindtap="myeffect">查看全部影响力 ></view>
+				<view class="su-a-ar" bindtap="myeffect" wx:if="{{voice.name == null}}"></view>
+				<view class="su-a-ar" bindtap="myeffect" wx:else>查看全部影响力 ></view>
 				<view class="floatclear"></view>
 			</view>
 			<view class="su-a-b">
@@ -33,10 +38,14 @@
 					<view>影响力 666</view>
 				</view>
 				<view class="su-a-br">
-					<view>2017年第19届中国(青岛)国际....</view>
+					<view>{{voice.name}}</view>
 					<view>
-						<view>佣金 666.66</view>
-						<view>6分钟前有人浏览</view>
+						<view wx:if="{{voice.commision == null}}">佣金 ￥0.00</view>
+						<view wx:else>佣金 ￥{{voice.commision}}</view>
+						<view wx:if="{{voice.timetype == 1}}">{{voice.time}}秒前有人浏览</view>
+						<view wx:if="{{voice.timetype == 2}}">{{voice.time}}分钟前有人浏览</view>
+						<view wx:if="{{voice.timetype == 3}}">{{voice.time}}小时前有人浏览</view>
+						<view wx:if="{{voice.timetype == 4}}">{{voice.time}}天前有人浏览</view>
 						<view class="floatclear"></view>
 					</view>
 				</view>
@@ -46,29 +55,30 @@
 		<view class="su-a">
 			<view class="su-a-a">
 				<view class="su-a-al">我的订单</view>
-				<view class="su-a-ar">查看全部订单 ></view>
+				<view class="su-a-ar" wx:if="{{order.one == null}}"></view>
+				<view bindtap="goFair" class="su-a-ar" wx:else>查看全部订单 ></view>
 				<view class="floatclear"></view>
 			</view>
 			<view class="su-a-b">
 				<view class="su-a-c">
 					<view><image src="../../common/img/20190818order.png"/></view>
 					<view>全部</view>
-					<view>266</view>
+					<view>{{order.one}}</view>
 				</view>
 				<view class="su-a-c">
 					<view><image src="../../common/img/20190818buyed.png"/></view>
 					<view>已支付</view>
-					<view>266</view>
+					<view>{{order.two}}</view>
 				</view>
 				<view class="su-a-c">
 					<view><image src="../../common/img/20190818daizhifu.png"/></view>
 					<view>待支付</view>
-					<view>266</view>
+					<view>{{order.three}}</view>
 				</view>
 				<view class="su-a-c">
 					<view><image src="../../common/img/20190818cancell.png"/></view>
 					<view>已取消</view>
-					<view>266</view>
+					<view>{{order.four}}</view>
 				</view>
 				<view class="floatclear"></view>
 			</view>
@@ -76,20 +86,24 @@
 		<view class="su-a">
 			<view class="su-a-a">
 				<view class="su-a-al">佣金提现</view>
-				<view class="su-a-ar" bindtap="mycommisions">查看全部佣金 ></view>
+				<view class="su-a-ar" bindtap="mycommisions" wx:if="{{comissions.one == null}}"></view>
+				<view class="su-a-ar" bindtap="mycommisions" wx:else>查看全部佣金 ></view>
 				<view class="floatclear"></view>
 			</view>
 			<view class="su-a-b">
 				<view class="su-a-d">
-					<view>￥8888.68</view>
+					<view wx:if="{{comissions.one == null}}">0.00</view>
+					<view wx:else>￥{{comissions.one}}</view>
 					<view>总额度</view>
 				</view>
 				<view class="su-a-d">
-					<view>￥888.68</view>
+					<view wx:if="{{comissions.two == null}}">0.00</view>
+					<view wx:else>￥{{comissions.two}}</view>
 					<view>已提现</view>
 				</view>
 				<view class="su-a-d">
-					<view>￥8000.00</view>
+					<view wx:if="{{comissions.three == 0}}">0.00</view>
+					<view wx:else>￥{{comissions.three}}</view>
 					<view>待提现</view>
 				</view>
 				<view class="floatclear"></view>
@@ -103,28 +117,28 @@
 			</view>
 			<view class="su-a-b">
 				<view class="su-a-c">
-					<view><image src="../../common/img/20190818order.png"/></view>
+					<view><image src="{{ico.one}}"/></view>
 					<view>红包</view>
 					<view>最新</view>
 				</view>
-				<view class="su-a-c">
-					<view><image src="../../common/img/20190818buyed.png"/></view>
+				<view class="su-a-c" bindtap="watchBill">
+					<view><image src="{{ico.two}}"/></view>
 					<view>发票</view>
 				</view>
-				<view class="su-a-c">
-					<view><image src="../../common/img/20190818daizhifu.png"/></view>
+				<view class="su-a-c" bindtap="watchTicketHead">
+					<view><image src="{{ico.three}}"/></view>
 					<view>发票抬头</view>
 				</view>
-				<view class="su-a-c">
-					<view><image src="../../common/img/20190818cancell.png"/></view>
+				<view class="su-a-c" bindtap="watchTicketAddress">
+					<view><image src="{{ico.four}}"/></view>
 					<view>收件地址</view>
 				</view>
-				<view class="su-a-c">
-					<view><image src="../../common/img/20190818daizhifu.png"/></view>
+				<view class="su-a-c" bindtap="watchTicket">
+					<view><image src="{{ico.five}}"/></view>
 					<view>观展门票</view>
 				</view>
 				<view class="su-a-c" bindtap="mybank">
-					<view><image src="../../common/img/20190818cancell.png"/></view>
+					<view><image src="{{ico.six}}"/></view>
 					<view>银行卡</view>
 				</view>
 				<view class="floatclear"></view>
@@ -171,7 +185,7 @@
             <view class="flex-tab tab-ticket">
                 <button bindgetuserinfo="personGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
                     <image mode="widthFix" src="../../common/img/personal_b.png"></image>我的</button>
-                <view bindtap="goPage" data-url="../person/person" wx:else>
+                <view bindtap="goPage" data-url="../person2/person2" wx:else>
                     <image mode="widthFix" src="../../common/img/personal_b.png"></image>我的</view>
             </view>
         </view>

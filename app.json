@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/person2/person2",
     "pages/effect2/effect2",
+    "pages/person2/person2",
     "pages/bankadd/bankadd",
     "pages/bankupdate/bankupdate",
     "pages/bank/bank",

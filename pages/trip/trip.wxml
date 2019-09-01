@@ -37,7 +37,7 @@
 		<view class="flex-tab tab-ticket">
 			<button bindgetuserinfo="personGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
 				<image mode="widthFix" src="../../common/img/personal.png"></image>我的</button>
-			<view bindtap="goPage" data-url="../person/person" wx:else>
+			<view bindtap="goPage" data-url="../person2/person2" wx:else>
 				<image mode="widthFix" src="../../common/img/personal.png"></image>我的</view>
 		</view>
 	</view>
