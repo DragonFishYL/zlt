@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/bankadd/bankadd",
     "pages/index/index",
     "pages/effect2/effect2",
     "pages/person2/person2",
-    "pages/bankadd/bankadd",
     "pages/bankupdate/bankupdate",
     "pages/bank/bank",
     "pages/myshare2/myshare2",
