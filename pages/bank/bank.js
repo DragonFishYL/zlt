@@ -15,6 +15,7 @@ Page({
         shareImg1: "",
         shareImg2: "",
         nickName: "",
+        bankarr: ""
     },
 	bankadd:function(){
 		wx.navigateTo({
@@ -47,36 +48,14 @@ Page({
         var n = t.currentTarget.dataset.url;
         e.goPage(n);
     },
-    watchTicket: function() {
-        wx.navigateTo({
-            url: "../watchTicket/watchTicket"
-        });
-    },
-    goFair: function() {
-        wx.navigateTo({
-            url: "../out/out"
-        });
-    },
-    goBill: function() {
-        wx.navigateTo({
-            url: "../bill/bill"
-        });
-    },
-    collect: function() {
-        wx.navigateTo({
-            url: "../collect/collect"
-        });
-    },
-    myshare: function() {
-        wx.navigateTo({
-            url: "../effect/effect"
-        });
-    },
     homeGetUserInfo: function(n) {
         e.autoLogin(t, n, this, "../index/index");
     },
     exhibitonGetUserInfo: function(n) {
         e.autoLogin(t, n, this, "../exhibition/exhibition");
+    },
+    tripGetUserInfo: function(n) {
+        e.autoLogin(t, n, this, "../trip/trip");
     },
     myshareGetUserInfo: function(n) {
         e.autoLogin(t, n, this, "../person/person");
@@ -87,6 +66,37 @@ Page({
         });
     },
     onLoad: function() {
-        this.authorization();
+		var that = this;that.authorization();
+		wx.request({
+			url: t.globalData.publicUrl + '/Trip/v3bank_add_update',
+			data: { 'business_no': t.globalData.business_no, 'openid': wx.getStorageSync("user").openid,'type':4 },
+			method: 'POST',
+			header: {
+				'content-type': 'application/x-www-form-urlencoded' // 默认值
+			},
+			success:function(res){
+				console.log(res);
+				if(res.data.status == 1){
+					that.setData({
+						bankarr:res.data.data
+					});
+					//关闭提示
+					wx.hideLoading();
+					wx.showToast({
+						title: res.data.message,
+						icon: 'success',
+						duration: 3000
+					})
+				}else{
+					//关闭提示
+					wx.hideLoading();
+					wx.showToast({
+						title: res.data.message,
+						icon: 'none',
+						duration: 3000
+					})
+				}
+			}
+		});
     }
 });

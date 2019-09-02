@@ -98,14 +98,7 @@ Page({
 			},
 			success:function(res){
 				console.log(res);
-				//关闭提示
-				wx.hideLoading();
 				if(res.data.status == 1){
-					wx.showToast({
-						title: res.data.message,
-						icon: 'success',
-						duration: 3000
-					})
 					if(level == 1){
 						that.setData({
 							array1:res.data.nameArr,
@@ -127,7 +120,16 @@ Page({
 							objectArray4:res.data.objArr
 						});
 					}
+					//关闭提示
+					wx.hideLoading();
+					wx.showToast({
+						title: res.data.message,
+						icon: 'success',
+						duration: 3000
+					})
 				}else{
+					//关闭提示
+					wx.hideLoading();
 					wx.showToast({
 						title: res.data.message,
 						icon: 'none',
@@ -164,19 +166,52 @@ Page({
 		this.publiclevel(1);
     },
 	useraccount:function(d){
-		setData({useraccount: e.detail.value});
+		this.setData({useraccount: d.detail.value});
 	},
 	username:function(d){
-		setData({username: e.detail.value});
+		this.setData({username: d.detail.value});
 	},
 	userphone:function(d){
-		setData({userphone: e.detail.value});
+		this.setData({userphone: d.detail.value});
 	},
 	bankinfo:function(d){
-		setData({bankinfo: e.detail.value});
+		this.setData({bankinfo: d.detail.value});
 	},
 	bankDetailAdd:function(){
-		var useraccount = this.data.useraccount,username = this.data.username,userphone = this.data.userphone,bankinfo = this.data.bankinfo,bankdataid = this.data.bankdataid;
-		
+		var useraccount = this.data.useraccount,
+			username = this.data.username,
+			userphone = this.data.userphone,
+			bankinfo = this.data.bankinfo,
+			bankdataid = this.data.bankdataid,
+			d = {'business_no':t.globalData.business_no,'openid':wx.getStorageSync("user").openid,'useraccount':useraccount,'username':username,'userphone':userphone,'bankinfo':bankinfo,'bankdataid':bankdataid,'type':1};
+		console.log(d);
+		wx.request({
+			url:t.globalData.publicUrl + '/Trip/v3bank_add_update',
+			data:d,
+			method:'POST',
+			header:{
+				'content-type': 'application/x-www-form-urlencoded' // 默认值
+			},
+			success:function(res){
+				if(res.data.status == 1){
+					//关闭提示
+					wx.hideLoading();
+					wx.showToast({
+						title: res.data.message,
+						icon: 'success',
+						duration: 3000
+					})
+					//跳转页面
+				}else{
+					//关闭提示
+					wx.hideLoading();
+					wx.showToast({
+						title: res.data.message,
+						icon: 'none',
+						duration: 3000
+					})
+				}
+			}
+		});
 	}
 });

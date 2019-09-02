@@ -3,113 +3,27 @@
 		<view>
 			<button type="default" size="default" bindtap="bankadd" style="background:#07c160;color:#fff;margin-top:30rpx;">添加银行卡 ></button>
 		</view>
-		<view class="su-a">
+		<view class="su-a" wx:for="{{bankarr}}" data-id="{{item.id}}">
 			<view class="su-a-b">
 				<view class="billlist-aa">
-					<view class="billlist-ab">中国农业银行</view>
+					<view class="billlist-ab">{{item.banksname}}</view>
 				</view>
 				<view class="billlist-aa">
 					<view class="billlist-ab">卡号：</view>
-					<view class="billlist-ac">612401199206208966</view>
+					<view class="billlist-ac">{{item.useraccount}}</view>
 				</view>
 				<view class="billlist-aa">
 					<view class="billlist-ab">收款人：</view>
-					<view class="billlist-ac">大鱼海棠</view>
+					<view class="billlist-ac">{{item.username}}</view>
 				</view>
 				<view class="billlist-aa">
 					<view class="billlist-ab">手机号：</view>
-					<view class="billlist-ac">15311462220</view>
+					<view class="billlist-ac">{{item.userphone}}</view>
 				</view>
 				<view class="billlist-aa">
 					<view class="billlist-ab">开户行：</view>
-					<view class="billlist-ac">中国农业银行北京昌平区北七家支行</view>
-				</view>
-			</view>
-			<view class="su-a-a">
-				<view class="su-a-al"></view>
-				<view class="su-a-ar" bindtap="bankupdate">编辑 ></view>
-				<view class="su-a-alr">删除</view>
-				<view class="floatclear"></view>
-			</view>
-		</view>
-		<view class="su-a">
-			<view class="su-a-b">
-				<view class="billlist-aa">
-					<view class="billlist-ab">中国农业银行</view>
-				</view>
-				<view class="billlist-aa">
-					<view class="billlist-ab">卡号：</view>
-					<view class="billlist-ac">612401199206208966</view>
-				</view>
-				<view class="billlist-aa">
-					<view class="billlist-ab">收款人：</view>
-					<view class="billlist-ac">大鱼海棠</view>
-				</view>
-				<view class="billlist-aa">
-					<view class="billlist-ab">手机号：</view>
-					<view class="billlist-ac">15311462220</view>
-				</view>
-				<view class="billlist-aa">
-					<view class="billlist-ab">开户行：</view>
-					<view class="billlist-ac">中国农业银行北京昌平区北七家支行</view>
-				</view>
-			</view>
-			<view class="su-a-a">
-				<view class="su-a-al"></view>
-				<view class="su-a-ar" bindtap="bankupdate">编辑 ></view>
-				<view class="su-a-alr">删除</view>
-				<view class="floatclear"></view>
-			</view>
-		</view>
-		<view class="su-a">
-			<view class="su-a-b">
-				<view class="billlist-aa">
-					<view class="billlist-ab">中国农业银行</view>
-				</view>
-				<view class="billlist-aa">
-					<view class="billlist-ab">卡号：</view>
-					<view class="billlist-ac">612401199206208966</view>
-				</view>
-				<view class="billlist-aa">
-					<view class="billlist-ab">收款人：</view>
-					<view class="billlist-ac">大鱼海棠</view>
-				</view>
-				<view class="billlist-aa">
-					<view class="billlist-ab">手机号：</view>
-					<view class="billlist-ac">15311462220</view>
-				</view>
-				<view class="billlist-aa">
-					<view class="billlist-ab">开户行：</view>
-					<view class="billlist-ac">中国农业银行北京昌平区北七家支行</view>
-				</view>
-			</view>
-			<view class="su-a-a">
-				<view class="su-a-al"></view>
-				<view class="su-a-ar" bindtap="bankupdate">编辑 ></view>
-				<view class="su-a-alr">删除</view>
-				<view class="floatclear"></view>
-			</view>
-		</view>
-		<view class="su-a">
-			<view class="su-a-b">
-				<view class="billlist-aa">
-					<view class="billlist-ab">中国农业银行</view>
-				</view>
-				<view class="billlist-aa">
-					<view class="billlist-ab">卡号：</view>
-					<view class="billlist-ac">612401199206208966</view>
-				</view>
-				<view class="billlist-aa">
-					<view class="billlist-ab">收款人：</view>
-					<view class="billlist-ac">大鱼海棠</view>
-				</view>
-				<view class="billlist-aa">
-					<view class="billlist-ab">手机号：</view>
-					<view class="billlist-ac">15311462220</view>
-				</view>
-				<view class="billlist-aa">
-					<view class="billlist-ab">开户行：</view>
-					<view class="billlist-ac">中国农业银行北京昌平区北七家支行</view>
+					<view class="billlist-ac" wx:if="{{item.bankinfo == null}}">{{item.banksinfo}}</view>
+					<view class="billlist-ac" wx:else>{{item.banksinfo}}</view>
 				</view>
 			</view>
 			<view class="su-a-a">
