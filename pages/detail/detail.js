@@ -97,6 +97,9 @@ Page({
 					} else if (r.data.data.xtype == 3) {
 					  xtype = '展会团';
 					}
+					wx.setNavigationBarTitle({
+					  title: r.data.data.title 
+					})
 					t.setData({
 					  title:r.data.data.title,
 					  xtype: xtype,
