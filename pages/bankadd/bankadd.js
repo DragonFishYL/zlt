@@ -202,6 +202,9 @@ Page({
 						duration: 3000
 					})
 					//跳转页面
+					wx.navigateTo({
+						url: "../bank/bank"
+					});
 				}else{
 					//关闭提示
 					wx.hideLoading();

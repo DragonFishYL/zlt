@@ -28,8 +28,8 @@
 			</view>
 			<view class="su-a-a">
 				<view class="su-a-al"></view>
-				<view class="su-a-ar" bindtap="bankupdate">编辑 ></view>
-				<view class="su-a-alr">删除</view>
+				<view class="su-a-ar" bindtap="bankupdate" data-id="{{item.id}}">编辑 ></view>
+				<view class="su-a-alr" bindtap="bankdel" data-id="{{item.id}}">删除</view>
 				<view class="floatclear"></view>
 			</view>
 		</view>

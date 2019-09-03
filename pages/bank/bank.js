@@ -22,9 +22,10 @@ Page({
 			url:"../bankadd/bankadd"
 		});
 	},
-	bankupdate:function(){
+	bankupdate:function(d){
+		var id = d.target.dataset.id;
 		wx.navigateTo({
-			url:"../bankupdate/bankupdate"
+			url:"../bankupdate/bankupdate?id="+id
 		});
 	},
     authorization: function() {
@@ -57,8 +58,8 @@ Page({
     tripGetUserInfo: function(n) {
         e.autoLogin(t, n, this, "../trip/trip");
     },
-    myshareGetUserInfo: function(n) {
-        e.autoLogin(t, n, this, "../person/person");
+    personGetUserInfo: function(n) {
+        e.autoLogin(t, n, this, "../person2/person2");
     },
     imageLoad: function(t) {
         this.setData({
@@ -98,5 +99,41 @@ Page({
 				}
 			}
 		});
-    }
+    },
+	bankdel:function(m){
+		wx.showLoading({title:'加载中'});
+		var id = m.target.dataset.id,d = {'business_no':t.globalData.business_no,'openid':wx.getStorageSync("user").openid,'type':3,'id':id};
+		console.log(d);
+		wx.request({
+			url:t.globalData.publicUrl + '/Trip/v3bank_add_update',
+			data:d,
+			method:'POST',
+			header:{
+				'content-type': 'application/x-www-form-urlencoded' // 默认值
+			},
+			success:function(res){
+				if(res.data.status == 1){
+					//关闭提示
+					wx.hideLoading();
+					wx.showToast({
+						title: res.data.message,
+						icon: 'success',
+						duration: 3000
+					})
+					//跳转页面
+					wx.navigateTo({
+						url: "../bank/bank"
+					});
+				}else{
+					//关闭提示
+					wx.hideLoading();
+					wx.showToast({
+						title: res.data.message,
+						icon: 'none',
+						duration: 3000
+					})
+				}
+			}
+		});
+	}
 });
