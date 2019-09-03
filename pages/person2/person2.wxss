@@ -141,7 +141,7 @@ button{
 .su-a-c>view:nth-child(1){width:100%;height:60rpx;line-height:60rpx;text-align:center;}
 .su-a-c>view>image{width:50rpx;height:50rpx;}
 .su-a-c>view:nth-child(2){width:100%;height:40rpx;line-height:40rpx;font-size:28rpx;color:#666;text-align:center;}
-.su-a-c>view:nth-child(3){min-width:25rpx;min-height:25rpx;line-height:25rpx;padding:6rpx;font-size:22rpx;background:red;color:#fff;position:absolute;top:10rpx;right:35rpx;border-radius:100%;}
+.su-a-c>view:nth-child(3){min-width:25rpx;min-height:25rpx;line-height:25rpx;padding:6rpx;font-size:22rpx;background:red;color:#fff;position:absolute;top:10rpx;right:35rpx;border-radius:100%;text-align:center;}
 .su-a-d:nth-child(1){width:34%;height:110rpx;float:left;}
 .su-a-d:nth-child(2),.su-a-d:nth-child(3){width:33%;height:110rpx;float:left;}
 .su-a-d:nth-child(1)>view:nth-child(1){height:70rpx;line-height:70rpx;text-align:center;font-size:40rpx;color:#3eb94e;}
