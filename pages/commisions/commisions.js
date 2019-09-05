@@ -14,7 +14,20 @@ Page({
         canvasPhotoUrl: "",
         shareImg1: "",
         shareImg2: "",
-        nickName: ""
+        nickName: "",
+		commisions1:'block',
+		commisions2:'block',
+		commisions3:'block',
+        commisionarr: [],
+		color:{
+			0:'#07c160',
+			1:'#333',
+			2:'#333',
+			3:'#333'
+		},
+		onelist:'',
+		twolist:'',
+        openId: ""
     },
 	commisionsaction:function(){
 		wx.navigateTo({
@@ -43,34 +56,89 @@ Page({
             }
         });
     },
+	publicFunc:function(type){//1全部 2已支付 3未支付 4已取消
+		var that = this;
+		wx.request({
+		  url: t.globalData.publicUrl + '/Trip/v3commisionlist',
+		  data: { 'business_no': t.globalData.business_no, 'openid': wx.getStorageSync("user").openid,'type':type},
+		  method: 'POST',
+		  header: {
+			'content-type': 'application/x-www-form-urlencoded' // 默认值
+		  },
+		  success:function(res){
+			if(res.data.status == 1){
+				//关闭提示
+				wx.hideLoading();
+				wx.showToast({
+					title: res.data.message,
+					icon: 'success',
+					duration: 3000
+				})
+				if(type == 1){
+					//将行程数据赋值
+					that.setData({
+						one:res.data.data.one,
+						two:res.data.data.two,
+						three:res.data.data.three,
+						onelist:res.data.data.onelist,
+						twolist:res.data.data.twolist,
+						commisions1:'block',
+						commisions2:'block',
+						commisions3:'block',
+					});
+				}else if(type == 2){
+					//将行程数据赋值
+					that.setData({
+						onelist:res.data.data.onelist,
+						commisions1:'none',
+						commisions2:'block',
+						commisions3:'none',
+					});
+				}else if(type == 3){
+					//将行程数据赋值
+					that.setData({
+						onelist:res.data.data.onelist,
+						commisions1:'none',
+						commisions2:'none',
+						commisions3:'block',
+					});
+				}else if(type == 4){
+					//将行程数据赋值
+					that.setData({
+						onelist:res.data.data.onelist,
+						commisions1:'none',
+						commisions2:'none',
+						commisions3:'block',
+					});
+				}
+			}else{
+				wx.showToast({
+					title: res.data.message,
+					icon: 'none',
+					duration: 3000
+				})
+			}
+		  }
+		});
+	},
+	ordermodel:function(o){
+		console.log(o);
+        var a = o.currentTarget.dataset.type,colors=this.data.color;
+		//请求
+		wx.showLoading({ title: '加载中', });
+		colors[0] = '#333';
+		colors[1] = '#333';
+		colors[2] = '#333';
+		colors[3] = '#333';
+		colors[a-1] = '#07c160';
+		this.setData({
+            color:colors
+        });
+		this.publicFunc(a);
+	},
     goPage: function(t) {
         var n = t.currentTarget.dataset.url;
         e.goPage(n);
-    },
-    watchTicket: function() {
-        wx.navigateTo({
-            url: "../watchTicket/watchTicket"
-        });
-    },
-    goFair: function() {
-        wx.navigateTo({
-            url: "../out/out"
-        });
-    },
-    goBill: function() {
-        wx.navigateTo({
-            url: "../bill/bill"
-        });
-    },
-    collect: function() {
-        wx.navigateTo({
-            url: "../collect/collect"
-        });
-    },
-    myshare: function() {
-        wx.navigateTo({
-            url: "../effect/effect"
-        });
     },
     homeGetUserInfo: function(n) {
         e.autoLogin(t, n, this, "../index/index");
@@ -78,8 +146,11 @@ Page({
     exhibitonGetUserInfo: function(n) {
         e.autoLogin(t, n, this, "../exhibition/exhibition");
     },
-    myshareGetUserInfo: function(n) {
-        e.autoLogin(t, n, this, "../person/person");
+	tripGetUserInfo: function(n) {
+		t.autoLogin(e, n, this, "../trip/trip");
+	},
+    personGetUserInfo: function(n) {
+        e.autoLogin(t, n, this, "../person2/person2");
     },
     imageLoad: function(t) {
         this.setData({
@@ -88,5 +159,6 @@ Page({
     },
     onLoad: function() {
         this.authorization();
+		this.publicFunc(1);
     }
 });

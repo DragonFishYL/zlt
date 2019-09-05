@@ -86,6 +86,6 @@ Page({
 		t.autoLogin(e, n, this, "../trip/trip");
 	},
 	personGetUserInfo: function(n) {
-		t.autoLogin(e, n, this, "../person/person");
+		t.autoLogin(e, n, this, "../person2/person2");
 	},
 });

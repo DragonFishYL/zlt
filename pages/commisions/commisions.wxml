@@ -7,7 +7,7 @@
 		<view style="clear:both;"></view>
 	</view>
     <view class="su-body">
-		<view class="su-a">
+		<view class="su-a" style="display:{{commisions1}}">
 			<view class="su-a-a">
 				<view class="su-a-al">佣金提现统计</view>
 				<view class="su-a-ar"></view>
@@ -15,111 +15,70 @@
 			</view>
 			<view class="su-a-b">
 				<view class="su-a-d">
-					<view>￥8888.68</view>
+					<view wx:if="{{one == null}}">0.00</view>
+					<view wx:else>￥{{one}}.00</view>
 					<view>总额度</view>
 				</view>
 				<view class="su-a-d">
-					<view>￥888.68</view>
+					<view wx:if="{{two == null}}">0.00</view>
+					<view wx:else>￥{{two}}.00</view>
 					<view>已提现</view>
 				</view>
 				<view class="su-a-d">
-					<view>￥8000.00</view>
+					<view wx:if="{{three == null}}">0.00</view>
+					<view wx:else>￥{{three}}.00</view>
 					<view>待提现</view>
 				</view>
 				<view class="floatclear"></view>
 			</view>
 		</view>
-		<view class="su-a">
+		<view class="su-a" style="display:{{commisions2}}">
 			<view class="su-a-a">
 				<view class="su-a-al">最新待提现</view>
 				<view class="su-a-ar"></view>
 				<view class="floatclear"></view>
 			</view>
 			<view class="su-a-b">
-				<view class="su-a-c">
-					<view>2019中国（昆明）东南亚、南亚安防暨警用装备展览会</view>
-					<view>
-						<view>佣金 <text>￥688.68</text></view>
-						<view>展会</view>
-						<view class="floatclear"></view>
-					</view>
-					<view>
-						<view>2019-09-26 8:27</view>
-						<view bindtap="commisionsaction">我要提现 ></view>
-						<view class="floatclear"></view>
-					</view>
+				<view class="su-a-c" wx:if="{{onelist == null}}">
+					<view>暂无数据</view>
 				</view>
-				<view class="su-a-c">
-					<view>2019中国（昆明）东南亚、南亚安防暨警用装备展览会</view>
+				<view class="su-a-c" wx:for="{{onelist}}" data-id="{{item.id}}">
+					<view>{{item.xzname}}</view>
 					<view>
-						<view>佣金 <text>￥688.68</text></view>
-						<view>展会</view>
+						<view>佣金 <text>￥{{item.tprice}}.00</text></view>
+						<view wx:if="{{item.zlttype == 1}}">展会</view>
+						<view wx:if="{{item.zlttype == 2}}">行程</view>
 						<view class="floatclear"></view>
 					</view>
 					<view>
-						<view>2019-09-26 8:27</view>
-						<view bindtap="commisionsaction">我要提现 ></view>
-						<view class="floatclear"></view>
-					</view>
-				</view>
-				<view class="su-a-c">
-					<view>2019中国（昆明）东南亚、南亚安防暨警用装备展览会</view>
-					<view>
-						<view>佣金 <text>￥688.68</text></view>
-						<view>展会</view>
-						<view class="floatclear"></view>
-					</view>
-					<view>
-						<view>2019-09-26 8:27</view>
-						<view bindtap="commisionsaction">我要提现 ></view>
+						<view>{{item.ctime}}</view>
+						<view bindtap="commisionsaction" data-id="{{item.id}}" data-type="{{item.zlttype}}">我要提现 ></view>
 						<view class="floatclear"></view>
 					</view>
 				</view>
 			</view>
 		</view>
-		<view class="su-a">
+		<view class="su-a" style="display:{{commisions3}}">
 			<view class="su-a-a">
 				<view class="su-a-al">最新提现记录</view>
 				<view class="su-a-ar"></view>
 				<view class="floatclear"></view>
 			</view>
 			<view class="su-a-b su-a-new">
-				<view class="su-a-c">
-					<view>2019中国（昆明）东南亚、南亚安防暨警用装备展览会</view>
-					<view>
-						<view>佣金 <text>￥688.68</text></view>
-						<view>展会</view>
-						<view class="floatclear"></view>
-					</view>
-					<view>
-						<view>2019-09-26 8:27</view>
-						<view bindtap="commisionsdetail">查看详情 ></view>
-						<view class="floatclear"></view>
-					</view>
+				<view class="su-a-c" wx:if="{{twolist == null}}">
+					<view>暂无数据</view>
 				</view>
-				<view class="su-a-c">
-					<view>2019中国（昆明）东南亚、南亚安防暨警用装备展览会</view>
+				<view class="su-a-c" wx:for="{{twolist}}" data-id="{{item.id}}">
+					<view>{{item.xzname}}</view>
 					<view>
-						<view>佣金 <text>￥688.68</text></view>
-						<view>展会</view>
+						<view>佣金 <text>￥{{item.tprice}}.00</text></view>
+						<view wx:if="{{item.zlttype == 1}}">展会</view>
+						<view wx:if="{{item.zlttype == 2}}">行程</view>
 						<view class="floatclear"></view>
 					</view>
 					<view>
-						<view>2019-09-26 8:27</view>
-						<view bindtap="commisionsdetail">查看详情 ></view>
-						<view class="floatclear"></view>
-					</view>
-				</view>
-				<view class="su-a-c">
-					<view>2019中国（昆明）东南亚、南亚安防暨警用装备展览会</view>
-					<view>
-						<view>佣金 <text>￥688.68</text></view>
-						<view>展会</view>
-						<view class="floatclear"></view>
-					</view>
-					<view>
-						<view>2019-09-26 8:27</view>
-						<view bindtap="commisionsdetail">查看详情 ></view>
+						<view>{{item.ctime}}</view>
+						<view bindtap="commisionsdetail" data-id="{{item.id}}" data-type="{{item.zlttype}}">查看详情 ></view>
 						<view class="floatclear"></view>
 					</view>
 				</view>
