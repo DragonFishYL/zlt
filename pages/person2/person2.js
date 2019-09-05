@@ -112,6 +112,9 @@ Page({
         });
     },
     onLoad: function() {
+		wx.setNavigationBarTitle({
+		  title: '个人中心' 
+		})
         this.authorization();
 		wx.showLoading({title:'加载中'});
 		var that = this;
