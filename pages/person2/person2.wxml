@@ -35,7 +35,7 @@
 			<view class="su-a-b">
 				<view class="su-a-bl">
 					<view>综合指数</view>
-					<view>影响力 666</view>
+					<view>展乐淘分 {{person.invoice}}</view>
 				</view>
 				<view class="su-a-br">
 					<view>{{voice.name}}</view>
