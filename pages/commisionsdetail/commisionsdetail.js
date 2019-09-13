@@ -15,6 +15,9 @@ Page({
         shareImg1: "",
         shareImg2: "",
         nickName: "",
+        twolist: "",
+        bankinfo: "",
+        approvalinfo: "",
     },
     authorization: function() {
         var t = this;
@@ -76,7 +79,38 @@ Page({
             canShow: "active"
         });
     },
-    onLoad: function() {
-        this.authorization();
-    }
+    onLoad: function(d) {
+		wx.showLoading({ title: '加载中', });
+        var that = this;that.authorization();that.setData({commisionid:d.id});
+		wx.request({
+		  url: t.globalData.publicUrl + '/Trip/v3commisionlist',
+		  data: { 'business_no': t.globalData.business_no, 'openid': wx.getStorageSync("user").openid,'type':5,'id':d.id},
+		  method: 'POST',
+		  header: {
+			'content-type': 'application/x-www-form-urlencoded' // 默认值
+		  },
+		  success:function(res){
+			//关闭提示
+			wx.hideLoading();
+			if(res.data.status == 1){
+				wx.showToast({
+					title: res.data.message,
+					icon: 'success',
+					duration: 3000
+				})
+				that.setData({
+					twolist:res.data.twolist,
+					bankinfo:res.data.bankinfo,
+					approvalinfo:res.data.approvalinfo
+				});
+			}else{
+				wx.showToast({
+					title: res.data.message,
+					icon: 'none',
+					duration: 3000
+				})
+			}
+		  }
+		})
+    },
 });

@@ -71,9 +71,10 @@ Page({
 		username:'',
 		userphone:'',
 		bankinfo:'',
+		bankname:'',
     },
     bindPickerChanges1: function (e) {
-		var index = e.detail.value,object = this.data.objectArray1,value = object[index]['id'];this.setData({index1: index,index2: 0,index3: 0,index4: 0,select2:'block',select3:'none',select4:'none'});
+		var index = e.detail.value,object = this.data.objectArray1,value = object[index]['id'];this.setData({bankname:object[index]['name'],index1: index,index2: 0,index3: 0,index4: 0,select2:'block',select3:'none',select4:'none'});
 		this.publiclevel(2,value);
     },
     bindPickerChanges2: function (e) {
@@ -183,8 +184,9 @@ Page({
 			userphone = this.data.userphone,
 			bankinfo = this.data.bankinfo,
 			bankdataid = this.data.bankdataid,
-			d = {'business_no':t.globalData.business_no,'openid':wx.getStorageSync("user").openid,'useraccount':useraccount,'username':username,'userphone':userphone,'bankinfo':bankinfo,'bankdataid':bankdataid,'type':1};
-		console.log(d);
+			bankname = this.data.bankname,
+			d = {'business_no':t.globalData.business_no,'openid':wx.getStorageSync("user").openid,'useraccount':useraccount,'username':username,'userphone':userphone,'bankinfo':bankinfo,'bankdataid':bankdataid,'type':1,'bankname':bankname};
+		// console.log(d);return false;
 		wx.request({
 			url:t.globalData.publicUrl + '/Trip/v3bank_add_update',
 			data:d,

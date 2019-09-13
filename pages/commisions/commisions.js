@@ -27,16 +27,19 @@ Page({
 		},
 		onelist:'',
 		twolist:'',
+		title1:'最新待提现',
+		title2:'最新提现记录',
         openId: ""
     },
-	commisionsaction:function(){
+	commisionsaction:function(d){
+		var id = d.target.dataset.id;
 		wx.navigateTo({
-			url:"../commisionsaction/commisionsaction"
+			url:"../commisionsaction/commisionsaction?id="+id
 		});
 	},
-	commisionsdetail:function(){
+	commisionsdetail:function(d){
 		wx.navigateTo({
-			url:"../commisionsdetail/commisionsdetail"
+			url:"../commisionsdetail/commisionsdetail?id="+d.target.dataset.id
 		});
 	},
     authorization: function() {
@@ -82,9 +85,11 @@ Page({
 						three:res.data.data.three,
 						onelist:res.data.data.onelist,
 						twolist:res.data.data.twolist,
+						title1:'最新待提现',
+						title2:'最新提现记录',
 						commisions1:'block',
 						commisions2:'block',
-						commisions3:'block',
+						commisions3:'block'
 					});
 				}else if(type == 2){
 					//将行程数据赋值
@@ -92,22 +97,25 @@ Page({
 						onelist:res.data.data.onelist,
 						commisions1:'none',
 						commisions2:'block',
+						title1:'所有待提现佣金',
 						commisions3:'none',
 					});
 				}else if(type == 3){
 					//将行程数据赋值
 					that.setData({
-						onelist:res.data.data.onelist,
+						twolist:res.data.data.onelist,
 						commisions1:'none',
 						commisions2:'none',
+						title2:'所有提现中佣金',
 						commisions3:'block',
 					});
 				}else if(type == 4){
 					//将行程数据赋值
 					that.setData({
-						onelist:res.data.data.onelist,
+						twolist:res.data.data.onelist,
 						commisions1:'none',
 						commisions2:'none',
+						title2:'所有已提现佣金',
 						commisions3:'block',
 					});
 				}
@@ -158,6 +166,7 @@ Page({
         });
     },
     onLoad: function() {
+		wx.showLoading({ title: '加载中', });
         this.authorization();
 		this.publicFunc(1);
     }

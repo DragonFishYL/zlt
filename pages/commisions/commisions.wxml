@@ -34,7 +34,7 @@
 		</view>
 		<view class="su-a" style="display:{{commisions2}}">
 			<view class="su-a-a">
-				<view class="su-a-al">最新待提现</view>
+				<view class="su-a-al">{{title1}}</view>
 				<view class="su-a-ar"></view>
 				<view class="floatclear"></view>
 			</view>
@@ -60,7 +60,7 @@
 		</view>
 		<view class="su-a" style="display:{{commisions3}}">
 			<view class="su-a-a">
-				<view class="su-a-al">最新提现记录</view>
+				<view class="su-a-al">{{title2}}</view>
 				<view class="su-a-ar"></view>
 				<view class="floatclear"></view>
 			</view>

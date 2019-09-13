@@ -94,7 +94,9 @@ button{
 .billlist-ac input{height:45rpx;line-height:45rpx;border:1rpx solid #999;text-indent:20rpx;}
 .clear{clear:both;}
 .picker{color:#999;border:2rpx solid #ccc;height:50rpx;text-indent:20rpx;font-size:28rpx;}
-
+.textarearemark{height:auto;width:84%;float:right;margin-top:10rpx;}
+.textarearemark>textarea{height:180rpx;border:1rpx solid #eee;width:565rpx;text-indent:20rpx;}
+.billlist-aa:nth-last-child(1){height:auto;}
 
 
 

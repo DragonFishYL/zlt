@@ -72,7 +72,7 @@ Page({
     },
     getVote: function(s) {
         var t = this;
-        this.authorization();
+        // this.authorization();
         var a = wx.getStorageSync("tripid"), n = wx.getStorageSync("user").openid;
         wx.login({
             success: function(m) {

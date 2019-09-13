@@ -10,8 +10,8 @@
 			<view class="floatclear"></view>
 		</view>
 		<view class="su-h" style="height:100rpx;">
-			<view class="su-hl2"><view><image src="../../common/img/20190820head5.jpg"/><text style="color:red;">666</text></view><view>影响力指数</view></view>
-			<view class="su-hl2"><view><image src="../../common/img/20190820head6.jpg"/><text style="color:orange;">999</text></view><view>影响力排名</view></view>
+			<view class="su-hl2"><view><image src="{{zhishuimg}}"/><text style="color:red;">666</text></view><view>影响力指数</view></view>
+			<view class="su-hl2"><view><image src="{{paimingimg}}"/><text style="color:orange;">999</text></view><view>影响力排名</view></view>
 			<view class="floatclear"></view>
 		</view>
 		<view class="su-a">

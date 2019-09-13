@@ -15,6 +15,8 @@ Page({
         shareImg1: "",
         shareImg2: "",
         nickName: "",
+        zhishuimg: t.globalData.publicUrl + '/Public/Home/images/20190908zhishu.png',
+        paimingimg: t.globalData.publicUrl + '/Public/Home/images/20190908paiming.png',
 		voice:""
     },
 	voicedetails:function(res){

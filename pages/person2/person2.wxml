@@ -40,7 +40,7 @@
 				<view class="su-a-br">
 					<view>{{voice.name}}</view>
 					<view>
-						<view wx:if="{{voice.commision == null}}">佣金 ￥0.00</view>
+						<view wx:if="{{voice.commision == 0}}">暂无佣金</view>
 						<view wx:else>佣金 ￥{{voice.commision}}</view>
 						<view wx:if="{{voice.timetype == 1}}">{{voice.time}}秒前有人浏览</view>
 						<view wx:if="{{voice.timetype == 2}}">{{voice.time}}分钟前有人浏览</view>
