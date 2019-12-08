@@ -6,6 +6,8 @@ Page({
     data: {
 		billheader:'',
 		dutynum:'',
+		addressphone:'',
+		bankaccount:'',
 		array1: ['--请选择--','个人', '企业'],
 		objectArray1: [
 		  {
@@ -79,6 +81,16 @@ Page({
 			dutynum:event.detail.value
 		});
 	},
+	addressphonetap:function(event){
+		this.setData({
+			addressphone:event.detail.value
+		});
+	},
+	bankaccounttap:function(event){
+		this.setData({
+			bankaccount:event.detail.value
+		});
+	},
     headerDetailSave: function(b) {
 		var that = this;
 		if(that.data.index1 == 0){
@@ -103,7 +115,7 @@ Page({
 		
 		//请求
 		wx.showLoading({ title: '加载中', });
-		var d = {'billId':b.currentTarget.dataset.id,'billheader':that.data.billheader,'dutynum':that.data.dutynum,'opentype':that.data.index1,'billtype':that.data.index2,'type':2,'business_no': e.globalData.business_no, 'openid': wx.getStorageSync("user").openid};
+		var d = {'addressphone':that.data.addressphone,'bankaccount':that.data.bankaccount,'billId':b.currentTarget.dataset.id,'billheader':that.data.billheader,'dutynum':that.data.dutynum,'opentype':that.data.index1,'billtype':that.data.index2,'type':2,'business_no': e.globalData.business_no, 'openid': wx.getStorageSync("user").openid};
 		wx.request({
 			url:e.globalData.publicUrl + '/Trip/billhead_save',
 			data:d,
@@ -156,6 +168,8 @@ Page({
 			t.setData({
 				billheader:res.data.data.billheader,
 				dutynum:res.data.data.dutynum,
+				addressphone:res.data.data.addressphone,
+				bankaccount:res.data.data.bankaccount,
 				index1:res.data.data.opentype,
 				index2:res.data.data.billtype,
 				id:res.data.data.id,

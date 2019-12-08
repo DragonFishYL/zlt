@@ -29,6 +29,14 @@
 					</picker>
 				</view>
 			</view>
+			<view class="billlist-aa">
+				<view class="billlist-ab">地址&电话：</view>
+				<view class="billlist-ac"><input type="text" value="{{addressphone}}" bindinput="addressphonetap" auto-focus/></view>
+			</view>
+			<view class="billlist-aa">
+				<view class="billlist-ab">开户行&账号：</view>
+				<view class="billlist-ac"><input type="text" value="{{bankaccount}}" bindinput="bankaccounttap" auto-focus/></view>
+			</view>
 			<view>
 				<button type="default" size="default" bindtap="headerDetailAdd" style="background:#07c160;color:#fff;">保 存</button>
 			</view>

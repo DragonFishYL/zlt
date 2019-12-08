@@ -34,6 +34,8 @@ Page({
     this.authorization();
 	var n = wx.getStorageSync("user").openid;
 	wx.setStorageSync("tripid",d.id);
+	console.log(n);
+	console.log(this.data.hasUserInfo);
     //判断是否授权
     this.setData({ authSetting: e.globalData.authSetting?e.globalData.authSetting:wx.getStorageSync("user").openid, id: d.id });
     wx.showLoading({ title: '加载中', });
@@ -143,53 +145,65 @@ Page({
 	})) : wx.getStorageSync("tripid") && e.getVote();
   },
   bindGetUserInfo:function(b){
-    console.log(b);
-    var t = this;
+    // console.log(b);
+    var t = this,that = this;
     //开始弹出框授权    
-    wx.getUserInfo({
-      scope: 'scope.userInfo',
-      success(s) {
-        // 用户已经同意小程序使用用户信息功能，后续调用 wx.login 接口不会弹窗询问
-        //判断是否登录
-        wx.login({
-          success(res) {
-            if (res.code) {
-              //发起网络请求
-              wx.request({
-                url: e.globalData.publicUrl + '/Common/zltLoginWX',
-                data: {
-                  code: res.code,
-                  business_no: e.globalData.business_no,
-                  type: 1,
-                  source: 3,
-                  zlttype: 4,
-                  id: t.data.id,
-                },
-                method: 'POST',
-                header: {
-                  'content-type': 'application/x-www-form-urlencoded' // 默认值
-                },
-                success(r) {
-                  console.log(r);
-                  //更新globalData的oppenId
-                  e.globalData.openId = r.data.openid;
-                  wx.setStorageSync('openid', r.data.openid);
-                  //跳转至下单页面
-                  wx.navigateTo({
-                    url: '../pay/pay?id='+t.data.id,
-                  })
-                },
-              })
-            } else {
-              console.log('登录失败！' + res.errMsg)
-            }
-          }
-        });
-      },
-      fail(f){
-
-      }
+    wx.checkSession({
+		success: function (s) {
+		  //存在登陆态
+		  var hasUserInfo = t.data.hasUserInfo;
+		  if(hasUserInfo){
+			  //跳转至下单页面
+			  wx.navigateTo({
+				url: '../pay/pay?id='+t.data.id,
+			  })
+		  }else{
+			  that.pubLogin(t);
+		  }
+		},
+		fail: function () {
+		  console.log(22222);
+		  that.pubLogin(t);
+		}
     });   
+  },
+  pubLogin:function(t){
+	// 用户已经同意小程序使用用户信息功能，后续调用 wx.login 接口不会弹窗询问
+	//判断是否登录
+	wx.login({
+	  success(res) {
+		if (res.code) {
+		  //发起网络请求
+		  wx.request({
+			url: e.globalData.publicUrl + '/Common/zltLoginWX',
+			data: {
+			  code: res.code,
+			  business_no: e.globalData.business_no,
+			  type: 1,
+			  source: 3,
+			  zlttype: 4,
+			  id: t.data.id,
+			},
+			method: 'POST',
+			header: {
+			  'content-type': 'application/x-www-form-urlencoded' // 默认值
+			},
+			success(r) {
+			  console.log(r);
+			  //更新globalData的oppenId
+			  e.globalData.openId = r.data.openid;
+			  wx.setStorageSync('openid', r.data.openid);
+			  //跳转至下单页面
+			  wx.navigateTo({
+				url: '../pay/pay?id='+t.data.id,
+			  })
+			},
+		  })
+		} else {
+		  console.log('登录失败！' + res.errMsg)
+		}
+	  }
+	});  
   },
     authorization: function() {
         var t = this;
@@ -290,6 +304,14 @@ Page({
     wx.navigateTo({
       url: '../share/share?id=' + this.data.id,
     })
+  },
+  bindsendfriend:function(n){
+	var o = this;console.log(o);
+	t.autoLogin(e, n, this, '../share/share?id='+o.data.id); 
+  },
+  bindGetUserOrder:function(n){
+	var o = this;console.log(o);
+	t.autoLogin(e, n, this, '../pay/pay?id='+o.data.id); 
   },
 	homeGetUserInfo: function(n) {
 		t.autoLogin(e, n, this, "../index/index");

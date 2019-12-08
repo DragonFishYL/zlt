@@ -36,7 +36,7 @@
 	line-height:75rpx;
 	float:right;
 }
-.billlist-ac input{
+.billlist-ac>input{
 	height:70rpx;
 	line-height:70rpx;
 	border:1rpx solid #999;

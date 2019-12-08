@@ -101,7 +101,7 @@ Page({
   onLoad: function (e) {
     var t = this;
 	  //准备行程参数
-    t.setData({ id: e.id,openid:app.globalData.openId });
+    t.setData({ id: e.id,openid:wx.getStorageSync("user").openid});
     wx.showLoading({ title: '加载中', });
   	//请求展会详情数据API
     wx.request({

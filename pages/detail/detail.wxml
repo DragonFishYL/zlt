@@ -49,9 +49,10 @@
 <view style="height:40px;"></view>
 <view class='detBot'>
   <view bindtap='goPage' class='chatBtn' data-url="../service/service"><image alt="" src="../../common/img/Merchant_offer_kf.png"></image>客服</view>
-  <view bindtap='viewTripOrder' class='buyBtn' wx:if="{{authSetting == 1}}">立即购买</view>
-  <view open-type="getUserInfo" bindtap="bindGetUserInfo" class='buyBtn' wx:else>立即购买</view>
-  <view bindtap='sendfriend' class='detShaBtn'>分享得红包,最高 <text>￥{{bonus}}</text> 元</view>
+  <view bindtap='viewTripOrder' class='buyBtn' wx:if="{{!hasUserInfo&&canIUse}}">立即购买</view>
+  <button open-type="getUserInfo" bindgetuserinfo="bindGetUserOrder" class='buyBtn' wx:else>立即购买</button>
+  <view bindtap='sendfriend' class='detShaBtn' wx:if="{{!hasUserInfo&&canIUse}}">分享得红包,最高 <text>￥{{bonus}}</text> 元</view>
+  <button open-type="getUserInfo" bindgetuserinfo='bindsendfriend' class='detShaBtn' wx:else>分享得红包,最高 <text>￥{{bonus}}</text> 元</button>
 </view>
 
 

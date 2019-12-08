@@ -6,6 +6,8 @@ Page({
     data: {
 		billheader:'',
 		dutynum:'',
+		addressphone:'',
+		bankaccount:'',
 		array1: ['--请选择--','个人', '企业'],
 		objectArray1: [
 		  {
@@ -76,13 +78,41 @@ Page({
 			dutynum:event.detail.value
 		});
 	},
+	addressphonetap:function(event){
+		this.setData({
+			addressphone:event.detail.value
+		});
+	},
+	bankaccounttap:function(event){
+		this.setData({
+			bankaccount:event.detail.value
+		});
+	},
     headerDetailAdd: function() {
 		var that = this;
+		if(that.data.billheader == '' || that.data.billheader == undefined){
+			wx.showToast({
+			   title: '请填写发票抬头',
+			   icon: 'none',
+			   duration: 1500,
+			   mask:true
+			});
+			return false;
+		}
+		if(that.data.dutynum == '' || that.data.dutynum == undefined){
+			wx.showToast({
+			   title: '请填写税号',
+			   icon: 'none',
+			   duration: 1500,
+			   mask:true
+			});
+			return false;
+		}
 		// console.log(1);
 		if(that.data.index1 == 0){
 			wx.showToast({
 			   title: '请选择开票类型',
-			   icon: 'loading',
+			   icon: 'none',
 			   duration: 1500,
 			   mask:true
 			});
@@ -92,7 +122,7 @@ Page({
 		if(that.data.index2 == 0){
 			wx.showToast({
 			   title: '请选择发票类型',
-			   icon: 'loading',
+			   icon: 'none',
 			   duration: 1500,
 			   mask:true
 			});
@@ -101,7 +131,7 @@ Page({
 		
 		//请求
 		wx.showLoading({ title: '加载中', });
-		var d = {'billheader':that.data.billheader,'dutynum':that.data.dutynum,'opentype':that.data.index1,'billtype':that.data.index2,'type':1,'business_no': e.globalData.business_no, 'openid': wx.getStorageSync("user").openid};
+		var d = {'addressphone':that.data.addressphone,'bankaccount':that.data.bankaccount,'billheader':that.data.billheader,'dutynum':that.data.dutynum,'opentype':that.data.index1,'billtype':that.data.index2,'type':1,'business_no': e.globalData.business_no, 'openid': wx.getStorageSync("user").openid};
 		wx.request({
 			url:e.globalData.publicUrl + '/Trip/billhead_save',
 			data:d,
