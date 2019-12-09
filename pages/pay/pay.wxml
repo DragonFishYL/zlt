@@ -166,7 +166,7 @@
     </view>
     <view class='infoBox'>
       <view class='infoL'>证件号码</view>
-      <input type='number' class='infoInp' bindinput='avaluebindinput' value=''></input>
+      <input type='text' class='infoInp' bindinput='avaluebindinput' value=''></input>
     </view>
   </view>
   <view class='edPerBot'>

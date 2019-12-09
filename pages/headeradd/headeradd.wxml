@@ -30,12 +30,20 @@
 				</view>
 			</view>
 			<view class="billlist-aa">
-				<view class="billlist-ab">地址&电话：</view>
-				<view class="billlist-ac"><input type="text" value="{{addressphone}}" bindinput="addressphonetap" auto-focus/></view>
+				<view class="billlist-ab">注册地址：</view>
+				<view class="billlist-ac"><input type="text" value="{{address}}" bindinput="addresstap" auto-focus/></view>
 			</view>
 			<view class="billlist-aa">
-				<view class="billlist-ab">开户行&账号：</view>
-				<view class="billlist-ac"><input type="text" value="{{bankaccount}}" bindinput="bankaccounttap" auto-focus/></view>
+				<view class="billlist-ab">注册电话：</view>
+				<view class="billlist-ac"><input type="text" value="{{phone}}" bindinput="phonetap" auto-focus/></view>
+			</view>
+			<view class="billlist-aa">
+				<view class="billlist-ab">开户行：</view>
+				<view class="billlist-ac"><input type="text" value="{{bank}}" bindinput="banktap" auto-focus/></view>
+			</view>
+			<view class="billlist-aa">
+				<view class="billlist-ab">银行账号：</view>
+				<view class="billlist-ac"><input type="text" value="{{account}}" bindinput="accounttap" auto-focus/></view>
 			</view>
 			<view>
 				<button type="default" size="default" bindtap="headerDetailAdd" style="background:#07c160;color:#fff;">保 存</button>

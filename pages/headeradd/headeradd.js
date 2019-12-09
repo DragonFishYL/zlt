@@ -6,8 +6,10 @@ Page({
     data: {
 		billheader:'',
 		dutynum:'',
-		addressphone:'',
-		bankaccount:'',
+		phone:'',
+		address:'',
+		bank:'',
+		account:'',
 		array1: ['--请选择--','个人', '企业'],
 		objectArray1: [
 		  {
@@ -78,14 +80,24 @@ Page({
 			dutynum:event.detail.value
 		});
 	},
-	addressphonetap:function(event){
+	phonetap:function(event){
 		this.setData({
-			addressphone:event.detail.value
+			phone:event.detail.value
 		});
 	},
-	bankaccounttap:function(event){
+	banktap:function(event){
 		this.setData({
-			bankaccount:event.detail.value
+			bank:event.detail.value
+		});
+	},
+	addresstap:function(event){
+		this.setData({
+			address:event.detail.value
+		});
+	},
+	accounttap:function(event){
+		this.setData({
+			account:event.detail.value
 		});
 	},
     headerDetailAdd: function() {
@@ -131,7 +143,7 @@ Page({
 		
 		//请求
 		wx.showLoading({ title: '加载中', });
-		var d = {'addressphone':that.data.addressphone,'bankaccount':that.data.bankaccount,'billheader':that.data.billheader,'dutynum':that.data.dutynum,'opentype':that.data.index1,'billtype':that.data.index2,'type':1,'business_no': e.globalData.business_no, 'openid': wx.getStorageSync("user").openid};
+		var d = {'address':that.data.address,'bank':that.data.bank,'phone':that.data.phone,'account':that.data.account,'billheader':that.data.billheader,'dutynum':that.data.dutynum,'opentype':that.data.index1,'billtype':that.data.index2,'type':1,'business_no': e.globalData.business_no, 'openid': wx.getStorageSync("user").openid};
 		wx.request({
 			url:e.globalData.publicUrl + '/Trip/billhead_save',
 			data:d,
