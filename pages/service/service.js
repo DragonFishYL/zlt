@@ -7,7 +7,7 @@ Page({
         motto: "非速搜",
         form: {
             title: "非速搜展会网",
-            clickNum: "客服电话:010-56109497",
+            clickNum: "客服电话:010-56264887",
             person: "当前没有客服在线，请留言"
         },
         userInfo: "",

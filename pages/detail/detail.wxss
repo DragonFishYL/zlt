@@ -2,6 +2,7 @@
 .detFocus image {
   display: block;
   width: 100%;
+  height:150px !important;
 }
 .detCon {
   padding: 10px 15px;

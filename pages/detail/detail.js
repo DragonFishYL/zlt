@@ -9,6 +9,7 @@ Page({
     oid:'',
     openid:'',
     title: '',
+    mtitle: '',
     xtype:'',
     exhibitionObj: {},
     thumbnail: '',
@@ -22,6 +23,8 @@ Page({
     rehotel: '',
     fee: '',
     notfee: '',
+    signinfo: '',
+    ruleinfo: '',
     triparrange: {},
     inviteOpenId: '',
     source: '',
@@ -104,6 +107,7 @@ Page({
 					})
 					t.setData({
 					  title:r.data.data.title,
+					  mtitle:r.data.data.mtitle,
 					  xtype: xtype,
 					  exhibitionObj: r.data.data.exhibition,
 					  thumbnail: r.data.data.thumbnail,
@@ -117,6 +121,8 @@ Page({
 					  rehotel: r.data.data.rehotel,
 					  fee: r.data.data.fee,
 					  notfee: r.data.data.notfee,
+					  signinfo: r.data.data.signinfo,
+					  ruleinfo: r.data.data.ruleinfo,
 					  triparrange: r.data.data.triparrange
 					})
 				  },

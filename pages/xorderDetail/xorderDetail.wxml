@@ -53,7 +53,8 @@
     <view class='payTime'>截止到 {{item.nexttime}}</view>
 	<view class='payTime' wx:if="{{item.statecode == 2}}">支付时间 {{item.paytime}}</view>
     <view class='payBtnBox' wx:if="{{item.statecode == 1}}">
-      <button class='mustPay' bindtap="pay" data-sid="{{item.id}}">立即付款</button>
+      <view class='payTime' wx:if="{{statecode == 6}}">已取消</view>
+      <button wx:else class='mustPay' bindtap="pay" data-sid="{{item.id}}">立即付款</button>
     </view>
     <view class='payBtnBox' wx:elif="{{item.statecode == 2}}">
       <button class='mustPay payed'>已支付</button>
@@ -64,7 +65,8 @@
     <view class='payTime' wx:if="{{payway == 2}}">下次付款日期 {{trip.setime}}</view>
     <view class='payBtnBox'>
       <button class='mustPay' bindtap="pay" wx:if="{{statecode == 1}}">立即付款</button>
-      <button class='mustPay payed' wx:elif="{{statecode == 3 || statecode == 2}}">已支付</button>
+      <button class='mustPay payed' wx:if="{{statecode == 3 || statecode == 2}}">已支付</button>
+      <button class='mustPay payed' wx:if="{{statecode == 6}}">已取消</button>
     </view>
   </view>
   

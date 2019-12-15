@@ -83,9 +83,11 @@
 
   <view class='payDet'>
     <view class='payTit'>改退政策</view>
-    <text class='reverTe'>订单支持部分人退订</text>
-    <text class='reverTe'>出行前1天0点（含）之后退订，收取30%的违约金</text>
-    <text class='reverTe'>出行前1天0点（含）至出行前7天0点（含）之间退订，收取10%的违约金</text>
+    <text class='reverTe'>1、行程开始前90日至60（含）日，按旅游费用总额的10%收取费用;</text>
+    <text class='reverTe'>2、行程开始前60日至30（含）日，按旅游费用总额的20%收取费用;</text>
+    <text class='reverTe'>3、行程开始前30日至15（含）日，按旅游费用总额的50%收取费用;</text>
+    <text class='reverTe'>4、行程开始前15日内，按旅游费用总额的90%收取费用;</text>
+    <text class='reverTe'>以上费用不包括已发生的实际损失，如按上述约定比例扣除的必要费用低于实际损失费用，旅游者应按照实际发生的费用支付;</text>
   </view>
   <view class='agreement'>
     <label class="agreeChe">
@@ -107,8 +109,9 @@
 	<view class="buycontractpage-b" bindtap="buycontractpageb">确 定</view>
   </view>
 </view>
-<view class='payBot' wx:if="{{oid}}">
-  <button class='viewOrderDetail' bindtap="viewOrderDetails">已存在该行程的订单,查看详情</button>
+<view class='payBot1' wx:if="{{oid}}">
+  <button class='viewOrderDetail' bindtap="viewOrderDetails">已存在该行程的订单,立即支付</button>
+  <button class='viewOrdercancell' bindtap="viewOrdercancell">如需增减人员,点击取消重新下单</button>
 </view>
 <view class='payBot' wx:else>
   <view class='payPri'>总价：{{totalPrice}}</view>

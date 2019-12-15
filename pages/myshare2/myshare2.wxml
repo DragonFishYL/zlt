@@ -82,7 +82,7 @@
 						<view wx:if="{{voice.redenvelopes == null}}">--</view>
 						<view wx:else>￥{{voice.redenvelopes}}</view>
 					</view>
-					<view>已分享当前展会/行程被朋友点击所获得红包胡总额</view>
+					<view>已分享当前展会/行程被朋友点击所获得红包的总额</view>
 				</view>
 			</view>
 		</view>

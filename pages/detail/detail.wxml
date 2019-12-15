@@ -7,6 +7,7 @@
 </view>
 <view class='detCon'>
   <text class='detTit'>{{title}}</text>
+  <text class='actTime'>{{mtitle}}</text>
   <text class='actTime'>{{setime}}</text>
   <view class='groInfo'>
     <view class='groPrice'>{{xprice}}元/人</view>
@@ -23,8 +24,12 @@
   <text class='actiDis' wx:if="{{rehotel}}">{{rehotel}}</text>
   <text class='actiTit' wx:if="{{fee}}">包含费用</text>
   <text class='actiDis' wx:if="{{fee}}">{{fee}}</text>
-  <text class='actiTit' wx:if="{{nofee}}">不含费用</text>
-  <text class='actiDis' wx:if="{{nofee}}">{{nofee}}</text>
+  <text class='actiTit' wx:if="{{notfee}}">不含费用</text>
+  <text class='actiDis' wx:if="{{notfee}}">{{notfee}}</text>
+  <text class='actiTit' wx:if="{{signinfo}}">签证说明</text>
+  <text class='actiDis' wx:if="{{signinfo}}">{{signinfo}}</text>
+  <text class='actiTit' wx:if="{{ruleinfo}}">规则条例</text>
+  <text class='actiDis' wx:if="{{ruleinfo}}">{{ruleinfo}}</text>
 </view>
 <navigator url='../share/share?id={{id}}' class='shaBtn' wx:if="{{bonus}}">分享成功得红包，最高可得{{bonus}}元</navigator>
 <view class='expoTit' wx:if="{{exhibitionObj}}">相关展会</view>

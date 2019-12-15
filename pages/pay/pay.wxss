@@ -170,6 +170,16 @@
   color: blue;
 }
 
+.payBot1 {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  width: 100%;
+  height: 180rpx;
+  background: #ffffff;
+  border-top: 2rpx solid #ededed;
+}
 .payBot {
   position: fixed;
   left: 0;
@@ -200,6 +210,17 @@
   text-align: center;
   line-height: 80rpx;
   border-radius: 0;
+}
+.viewOrdercancell{
+  width: 100%;
+  height: 80rpx;
+  background: #ccc;
+  color: #333;
+  font-size: 34rpx;
+  text-align: center;
+  line-height: 80rpx;
+  border-radius: 0;
+  margin-top:20rpx;
 }
 .parSubmit {
   float: right;
