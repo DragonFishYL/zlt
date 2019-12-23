@@ -22,8 +22,25 @@ Page({
 		bankinfoid:'',
 		commisionid:'',
 		remark:'',
-		displaybankinfo:'none'
+		displaybankinfo:'none',
+		contract: [t.globalData.publicUrl+'/Public/Home/images/zlt_commisions_20191222120226.png',
+			t.globalData.publicUrl+'/Public/Home/images/zlt_commisions_20191222120257.png'
+		],
+		buycontractpagestatus:'none',
     },
+  agreeA: function(){
+	  this.setData({buycontractpagestatus:'block'});
+  },
+  buycontractpageb: function(){
+	  this.setData({buycontractpagestatus:'none'});
+  },
+	previewImage: function (e) {
+		var current = e.target.dataset.src;
+		wx.previewImage({
+		  current: current, // 当前显示图片的http链接  
+		  urls: this.data.contract // 需要预览的图片http链接列表  
+		})
+	  }, 
     bindPickerChanges: function (e) {
 		var objectArray2 = this.data.objectArray2;
 		this.setData({

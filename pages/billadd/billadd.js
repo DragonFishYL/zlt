@@ -14,6 +14,10 @@ Page({
 		objectArray2: [],
 		index2:0,
 		object2:[],
+		array3: [],
+		objectArray3: [],
+		index3:0,
+		contentid:'',
 		display2:'block',
 		aid:'',
 		oid:'',
@@ -76,6 +80,14 @@ Page({
 		  address:that[e.detail.value]['address']
 		})
     },
+    bindPickerChangess: function (e) {
+		console.log(e);
+		var that = this.data.objectArray3;
+		this.setData({
+		  index3: e.detail.value,
+		  contentid: that[e.detail.value]['id']
+		})
+    },
     onLoad: function(d) {
 		wx.showLoading({ title: '加载中', });
         this.authorization();
@@ -104,6 +116,8 @@ Page({
 						array2:m.address.addressname,
 						objectArray2:m.address.addressarr,
 						object2:m.address.addressinfo,
+						array3:m.address.billcontents,
+						objectArray3:m.address.billcontent,
 						infoid:m.head.headinfo[0]['id'],
 						name:m.head.headinfo[0]['billheader'],
 						sign:m.head.headinfo[0]['dutynum'],
@@ -113,6 +127,10 @@ Page({
 					    people:m.address.addressinfo[0]['people'],
 					    phone:m.address.addressinfo[0]['phone'],
 					    address:m.address.addressinfo[0]['address']
+					});
+					var objectArray3 = that.data.objectArray3,index3 = that.data.index3;
+					that.setData({
+						contentid:objectArray3[index3]
 					});
 				}else{
 					wx.showToast({
@@ -128,9 +146,19 @@ Page({
 		});
     },
 	billAdd:function(){
+		var that = this,contentid = that.data.contentid;
+		if(!contentid){
+			wx.showToast({
+			   title: '请选择发票内容',
+			   icon: 'none',
+			   duration: 2000,
+			   mask:false
+			});
+			return false;
+		}
 		wx.showLoading({ title: '加载中', });
-		var that = this,oid = that.data.oid,infoid = that.data.infoid,aid = that.data.aid,price = that.data.price,d={'oid':oid,'infoid':infoid,'aid':aid,'price':price,'business_no': t.globalData.business_no, 'openid': that.data.openid};
-		console.log(d);
+		var oid = that.data.oid,infoid = that.data.infoid,aid = that.data.aid,price = that.data.price,d={'oid':oid,'infoid':infoid,'aid':aid,'price':price,'business_no': t.globalData.business_no, 'openid': that.data.openid ,'contentid': contentid};
+		// console.log(d);return false;
 		wx.request({
 			url: t.globalData.publicUrl + '/Trip/addbillAction',
 			data: d,

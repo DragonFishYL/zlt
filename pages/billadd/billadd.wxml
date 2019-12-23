@@ -12,6 +12,16 @@
 			</view>
 		</view>
 		<view class="billadd-d">
+			<view class="billadd-e">发票内容</view>
+			<view class="billadd-f">
+				<picker bindchange="bindPickerChangess"  data-id="{{objectArray3[index3]['id']}}" mode="selector" range-key="{{'content'}}" value="{{index3}}" range="{{objectArray3}}">
+					<view class="picker">
+						{{objectArray3[index3]['content']}}
+					</view>
+				</picker>
+			</view>
+		</view>
+		<view class="billadd-d">
 			<view class="billadd-e">发票抬头</view>
 			<view class="billadd-f">
 				<picker bindchange="bindPickerChange"  data-id="{{objectArray1[index1]['id']}}" mode="selector" range-key="{{'name'}}" value="{{index1}}" range="{{objectArray1}}">

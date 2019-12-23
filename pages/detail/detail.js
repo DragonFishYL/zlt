@@ -6,10 +6,10 @@ Page({
 	userInfo:'',
 	hasUserInfo:!1,
     id:'',
+    tripid:'',
     oid:'',
     openid:'',
     title: '',
-    mtitle: '',
     xtype:'',
     exhibitionObj: {},
     thumbnail: '',
@@ -23,8 +23,6 @@ Page({
     rehotel: '',
     fee: '',
     notfee: '',
-    signinfo: '',
-    ruleinfo: '',
     triparrange: {},
     inviteOpenId: '',
     source: '',
@@ -62,6 +60,7 @@ Page({
                     var a = e.data.parames;
                     return console.log(a), t.setData({
                         inviteOpenId: a.fopenid,
+                        id: a.id,
                         tripid: a.id,
                         source: a.source,
                         zlttype: a.zlttyepe
@@ -107,7 +106,6 @@ Page({
 					})
 					t.setData({
 					  title:r.data.data.title,
-					  mtitle:r.data.data.mtitle,
 					  xtype: xtype,
 					  exhibitionObj: r.data.data.exhibition,
 					  thumbnail: r.data.data.thumbnail,
@@ -121,8 +119,6 @@ Page({
 					  rehotel: r.data.data.rehotel,
 					  fee: r.data.data.fee,
 					  notfee: r.data.data.notfee,
-					  signinfo: r.data.data.signinfo,
-					  ruleinfo: r.data.data.ruleinfo,
 					  triparrange: r.data.data.triparrange
 					})
 				  },
@@ -237,7 +233,7 @@ Page({
         var n = e.data.zlttype;
         n = n || "4";
         var i = e.data.id;
-        i = i || "", console.log(t), console.log(a), console.log(n), wx.login({
+        i = i || "", console.log(t), console.log(a), console.log(n), console.log(i),wx.login({
             success: function(o) {
                 var s = o.code;
                 wx.request({

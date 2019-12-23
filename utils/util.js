@@ -37,8 +37,13 @@ module.exports = {
                 s = s || "3";
                 var i = r.data.zlttype;
                 i = i || "";
-                var u = r.data.exhibitionId;
-                u = u || "", console.log(c), console.log(s), console.log(i), wx.request({
+				if(i == 4){
+					var u = r.data.exhibitionId;
+				}else{
+					var u = r.data.tripid;
+				}
+                
+                u = u || "", console.log(c), console.log(s), console.log(i),console.log(u), wx.request({
                     url: "https://fairso.com/Common/zltLoginWX",
                     data: {
                         business_no: "ZhanLeTaoWeChat",

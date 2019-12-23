@@ -8,6 +8,7 @@
 			<view class="billlist-aa" wx:if="{{billtailArr.billInfo.statecode == 2}}">状态：已开发票</view>
 			<view class="billlist-aa" wx:if="{{billtailArr.billInfo.statecode == 3}}">状态：作废</view>
 			<view class="billlist-aa">发票编号：{{billtailArr.billInfo.expresssign}}</view>
+			<view class="billlist-aa">发票内容：{{billtailArr.billInfo.content}}</view>
 			<view class="billlist-aa" wx:if="{{billtailArr.billInfo.billtype == 1}}">发票类型：普通增值税发票</view>
 			<view class="billlist-aa">申请时间：{{billtailArr.billInfo.ctime}}</view>
 			<view class="clear"></view>

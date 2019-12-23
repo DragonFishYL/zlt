@@ -438,37 +438,6 @@ Page({
 		 url: '../xorderDetail/xorderDetail?oid=' + this.data.oid,
 	  });
   },
-  viewOrdercancell:function(){
-		var that = this;
-		var jsonData = {'business_no': app.globalData.business_no, 'openid': this.data.openid,'oid':this.data.oid};
-		wx.showLoading({ title: '加载中', });
-		//请求展会详情数据API
-		wx.request({
-		  url: app.globalData.publicUrl + '/Trip/xorderCancell',
-		  data: jsonData,
-		  method: 'POST',
-		  header: {
-			'content-type': 'application/x-www-form-urlencoded' // 默认值
-		  },
-		  success(m) {
-			//关闭提示
-			wx.hideLoading();
-			  var status = m.data.status;
-			  if (status == 1 || status==6){
-				wx.navigateTo({
-				  url: '../xorderDetail/xorderDetail?oid=' + that.data.oid,
-				})
-			  }else{
-				 wx.showToast({
-				   title: '订单取消失败',
-				   icon: 'loading',
-				   duration: 1500,
-				   mask:true
-				}); 
-			  }
-		  }
-		})
-  },
   //提交订单
   submitOrder: function () {
     var t = this;

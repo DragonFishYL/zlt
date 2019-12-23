@@ -71,8 +71,25 @@
 				</view>
 			</view>
 		</view>
+		<view class='agreement'>
+			<label class="agreeChe">
+			  <checkbox value="" checked="checked" class='checkInp'/>
+			</label>
+			<view class='agree'>
+			  我已阅读并接受
+			  <navigator url='' class='agreeA' bindtap="agreeA">《展乐淘购买协议》</navigator>
+			</view>
+		</view>
+		<view class="buycontractpage" style="display:{{buycontractpagestatus}};">
+			<scroll-view scroll-with-animation="false" scroll-y="true" class="buycontractpage-a">
+				<view wx:for="{{contract}}" wx:for-index="k" wx:key="uinique">
+					<image src="{{item}}" data-src="{{item}}" bindtap="previewImage"/>
+				</view>
+			</scroll-view>
+			<view class="buycontractpage-b" bindtap="buycontractpageb">确 定</view>
+		</view>
 		<view>
-			<button type="default" size="default" bindtap="approvalbtn" style="background:#07c160;color:#fff;margin-top:30rpx;">保 存</button>
+			<button type="default" size="default" bindtap="approvalbtn" style="background:#07c160;color:#fff;margin-top:30rpx;">提 交</button>
 		</view>
 		<view style="height:50px;"></view>
     </view>

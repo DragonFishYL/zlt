@@ -45,7 +45,7 @@
 				<view class="su-a-c" wx:for="{{onelist}}" data-id="{{item.id}}">
 					<view>{{item.xzname}}</view>
 					<view>
-						<view>佣金 <text>￥{{item.tprice}}.00</text></view>
+						<view>佣金 <text>￥{{item.tprice}}</text></view>
 						<view wx:if="{{item.zlttype == 1}}">展会</view>
 						<view wx:if="{{item.zlttype == 2}}">行程</view>
 						<view class="floatclear"></view>
@@ -71,7 +71,7 @@
 				<view class="su-a-c" wx:for="{{twolist}}" data-id="{{item.id}}">
 					<view>{{item.xzname}}</view>
 					<view>
-						<view>佣金 <text>￥{{item.tprice}}.00</text></view>
+						<view>佣金 <text>￥{{item.tprice}}</text></view>
 						<view wx:if="{{item.zlttype == 1}}">展会</view>
 						<view wx:if="{{item.zlttype == 2}}">行程</view>
 						<view class="floatclear"></view>
