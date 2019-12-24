@@ -62,16 +62,12 @@ Page({
   buycontractpageb: function(){
 	  this.setData({buycontractpagestatus:'none'});
   },
-	previewImage: function (e) {
-		var current = e.target.dataset.src;
-		wx.previewImage({
-		  current: current, // 当前显示图片的http链接  
-		  urls: this.data.contract // 需要预览的图片http链接列表  
-		})
-	  }, 
-  onLoad: function (options) {
-    //控制我的变量名初始值以及切换的值
-    hiddenName: (options.hiddenName == "true" ? true : false)
+  previewImage: function (e) {
+	var current = e.target.dataset.src;
+	wx.previewImage({
+	  current: current, // 当前显示图片的http链接  
+	  urls: this.data.contract // 需要预览的图片http链接列表  
+	})
   },
   onMyEvent: function (e) {
     //通过事件接收

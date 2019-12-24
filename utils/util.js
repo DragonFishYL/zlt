@@ -40,10 +40,10 @@ module.exports = {
 				if(i == 4){
 					var u = r.data.exhibitionId;
 				}else{
-					var u = r.data.tripid;
+					var u = wx.getStorageSync("tripid");
 				}
                 
-                u = u || "", console.log(c), console.log(s), console.log(i),console.log(u), wx.request({
+                 console.log(c), console.log(s), console.log(i),console.log(u), wx.request({
                     url: "https://fairso.com/Common/zltLoginWX",
                     data: {
                         business_no: "ZhanLeTaoWeChat",
