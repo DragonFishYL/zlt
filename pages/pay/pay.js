@@ -490,5 +490,29 @@ Page({
       }
     })
   },
-  
+  viewOrdercancell:function(){
+	  wx.showLoading({ title: '加载中', });
+	  var that = this,jsonData = {'business_no': app.globalData.business_no, 'openid': that.data.openid,'oid': that.data.oid};
+	  //请求展会详情数据API
+	  wx.request({
+		  url: app.globalData.publicUrl + '/Trip/xorderCancell',
+		  data: jsonData,
+		  method: 'POST',
+		  header: {
+			'content-type': 'application/x-www-form-urlencoded' // 默认值
+		  },
+		  success(m) {
+			//关闭提示
+			wx.hideLoading();
+			if (m.statusCode == 200){
+			  var status = m.data.status;
+			  if (status == 1 || status==6){
+				wx.navigateTo({
+				  url: '../xorderDetail/xorderDetail?oid=' + that.data.oid,
+				})
+			  }
+			}
+		  }
+	  })
+  }
 })

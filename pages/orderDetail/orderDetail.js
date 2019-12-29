@@ -92,7 +92,7 @@ Page({
                                 success: function() {
                                     setTimeout(function() {
                                         wx.redirectTo({
-                                            url: "../orderDetail/orderDetail?oid="+t
+                                            url: "../orderDetail/orderDetail?oid="+wx.getStorageSync("orderId")
                                         });
                                     }, 2e3);
                                 }

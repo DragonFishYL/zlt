@@ -358,7 +358,7 @@ Page({
                                 success: function() {
                                     setTimeout(function() {
                                         wx.navigateTo({
-                                            url: "../orderDetail/orderDetail"
+                                            url: "../orderDetail/orderDetail?oid="+e.data.orderid
                                         });
                                     }, 2e3);
                                 }
@@ -402,7 +402,7 @@ Page({
                                     success: function() {
                                         setTimeout(function() {
                                             wx.redirectTo({
-                                                url: "../orderDetail/orderDetail"
+                                                url: "../orderDetail/orderDetail?oid="+e.data.orderid
                                             });
                                         }, 2e3);
                                     }
@@ -424,7 +424,7 @@ Page({
                                     success: function() {
                                         setTimeout(function() {
                                             wx.redirectTo({
-                                                url: "../orderDetail/orderDetail"
+                                                url: "../orderDetail/orderDetail?oid="+e.data.orderid
                                             });
                                         }, 2e3);
                                     }

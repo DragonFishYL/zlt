@@ -16,17 +16,17 @@
 			<view class="su-a-b">
 				<view class="su-a-d">
 					<view wx:if="{{one == null}}">0.00</view>
-					<view wx:else>￥{{one}}.00</view>
+					<view wx:else>￥{{one}}</view>
 					<view>总额度</view>
 				</view>
 				<view class="su-a-d">
 					<view wx:if="{{two == null}}">0.00</view>
-					<view wx:else>￥{{two}}.00</view>
+					<view wx:else>￥{{two}}</view>
 					<view>已提现</view>
 				</view>
 				<view class="su-a-d">
 					<view wx:if="{{three == null}}">0.00</view>
-					<view wx:else>￥{{three}}.00</view>
+					<view wx:else>￥{{three}}</view>
 					<view>待提现</view>
 				</view>
 				<view class="floatclear"></view>
@@ -85,39 +85,5 @@
 			</view>
 		</view>
 		<view style="height:50px;"></view>
-    </view>
-    <view class="tabbar">
-        <view class="tab-main">
-            <view class="flex-tab">
-                <view class="tab-share">
-                    <button bindgetuserinfo="homeGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
-                        <image mode="widthFix" src="../../common/img/home_w.png"></image>首页</button>
-                    <view bindtap="goPage" data-url="../index/index" wx:else>
-                        <image mode="widthFix" src="../../common/img/home_w.png"></image>首页</view>
-                </view>
-            </view>
-            <view class="flex-tab flex-middle-tab">
-                <view class="tab-share">
-                    <button bindgetuserinfo="exhibitonGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
-                        <image mode="widthFix" src="../../common/img/onlinelooking.png"></image>展会</button>
-                    <view bindtap="goPage" data-url="../exhibition/exhibition" wx:else>
-                        <image mode="widthFix" src="../../common/img/onlinelooking.png"></image>展会</view>
-                </view>
-            </view>
-            <view class="flex-tab flex-middle-tab">
-                <view class="tab-share">
-                    <button bindgetuserinfo="tripGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
-                        <image mode="widthFix" src="../../common/img/trip2.png"></image>行程</button>
-                    <view bindtap="goPage" data-url="../trip/trip" wx:else>
-                        <image mode="widthFix" src="../../common/img/trip2.png"></image>行程</view>
-                </view>
-            </view>
-            <view class="flex-tab tab-ticket">
-                <button bindgetuserinfo="personGetUserInfo" class="userinfobtn" openType="getUserInfo" wx:if="{{!hasUserInfo&&canIUse}}">
-                    <image mode="widthFix" src="../../common/img/personal_b.png"></image>我的</button>
-                <view bindtap="goPage" data-url="../person/person" wx:else>
-                    <image mode="widthFix" src="../../common/img/personal_b.png"></image>我的</view>
-            </view>
-        </view>
     </view>
 </view>

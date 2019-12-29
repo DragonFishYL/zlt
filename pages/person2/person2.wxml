@@ -14,7 +14,7 @@
             </view>
             <view bindtap="mycommisions" class="tab-share">
 				<view wx:if="{{person.comissions == null}}">0.00</view>
-                <view wx:else>{{person.comissions}}.00</view>
+                <view wx:else>{{person.comissions}}</view>
                 <view>佣金总额</view>
             </view>
             <view bindtap="collect" class="tab-share">
@@ -93,17 +93,17 @@
 			<view class="su-a-b">
 				<view class="su-a-d">
 					<view wx:if="{{comissions.one == null}}">0.00</view>
-					<view wx:else>￥{{comissions.one}}.00</view>
+					<view wx:else>￥{{comissions.one}}</view>
 					<view>总额度</view>
 				</view>
 				<view class="su-a-d">
 					<view wx:if="{{comissions.two == null}}">0.00</view>
-					<view wx:else>￥{{comissions.two}}.00</view>
+					<view wx:else>￥{{comissions.two}}</view>
 					<view>已提现</view>
 				</view>
 				<view class="su-a-d">
 					<view wx:if="{{comissions.three == 0}}">0.00</view>
-					<view wx:else>￥{{comissions.three}}.00</view>
+					<view wx:else>￥{{comissions.three}}</view>
 					<view>待提现</view>
 				</view>
 				<view class="floatclear"></view>
