@@ -16,6 +16,8 @@ Page({
 	paytime: "",
 	ctime: "",
 	statecode: "",
+	backimage: "",
+	backimages: "",
 	billstate: "",
 	merchantDispay: !1,
     payway: ''
@@ -225,6 +227,8 @@ Page({
               paytime: r.data.data.paytime,
               ctime: r.data.data.ctime,
               statecode: r.data.data.statecode,
+              backimage: r.data.data.backimage,
+              backimages: r.data.data.backimages,
               billstate: r.data.data.billstate,
               billId: r.data.data.billId
             })

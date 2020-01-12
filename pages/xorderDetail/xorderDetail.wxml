@@ -33,8 +33,14 @@
   <view class='payTime'>创建时间 {{ctime}}</view>
   <view class='payTime' wx:if="{{statecode == 1}}">未支付</view>
   <view class='payTime' wx:if="{{statecode == 6}}">已取消</view>
-  <view class='payTime' wx:if="{{statecode == 3 || statecode == 2}}">已支付</view>
+  <view class='payTime' wx:if="{{statecode == 3}}">已线下支付</view>
+  <view class='payTime' wx:if="{{statecode == 2}}">已网络支付</view>
   <view class='payTime' wx:if="{{statecode == 3 || statecode == 2}}">支付时间 {{paytime}}</view>
+  <view class='payTime' wx:if="{{statecode == 3 || statecode == 2}}">
+	<view wx:if="{{backimage != null}}">
+		<image src="{{backimages}}"></image>
+	</view>
+  </view>
 </view>
 <view class='linef7'></view>
 <view class='payDet'>
