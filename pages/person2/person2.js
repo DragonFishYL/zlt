@@ -36,6 +36,11 @@ Page({
 			url:"../bank/bank"
 		});
 	},
+	redpackage:function(){
+		wx.navigateTo({
+			url:"../redpackage/redpackage"
+		});
+	},
     watchBill: function() {
         wx.navigateTo({
             url: "../billlist/billlist"
@@ -94,7 +99,7 @@ Page({
     },
     myshare: function() {
         wx.navigateTo({
-            url: "../effect/effect"
+            url: "../effect2/effect2"
         });
     },
     homeGetUserInfo: function(n) {

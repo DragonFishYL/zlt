@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/out/out",
+    "pages/redpackage/redpackage",
     "pages/person2/person2",
     "pages/commisions/commisions",
     "pages/bank/bank",
@@ -27,7 +29,6 @@
     "pages/collect/collect",
     "pages/myshare/myshare",
     "pages/order/order",
-    "pages/out/out",
     "pages/orderDetail/orderDetail",
     "pages/effect/effect",
     "pages/friends/friends",

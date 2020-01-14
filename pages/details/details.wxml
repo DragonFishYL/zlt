@@ -125,21 +125,24 @@
                 <view>
                     <view class="related_title related_title2">展会介绍</view>
                     <view class="introduce" style="height:{{height}}">
-                        <text decode="{{true}}" space="{{true}}">{{describe}}</text>
+                        <!-- <text decode="{{true}}" space="{{true}}">{{describe}}</text> -->
+						<rich-text  nodes="{{describe}}" wx:if="{{describe}}"></rich-text>
                     </view>
                     <view bindtap="jieshao" class="all" data-n="1" data-name="{{jieshao}}" style="margin-top: 40rpx;">{{jieshao}}</view>
                 </view>
                 <view>
                     <view class="related_title related_title2">展品分类</view>
                     <view class="introduce introduce2" style="height:{{zhanpin}}">
-                        <text decode="{{true}}" space="{{true}}"> {{range}}</text>
+                        <!-- <text decode="{{true}}" space="{{true}}"> {{range}}</text> -->
+						<rich-text  nodes="{{range}}" wx:if="{{range}}"></rich-text>
                     </view>
                     <view bindtap="fenlei" class="all" data-n="1" data-name="{{fenlei}}" style="margin-top: 40rpx;">{{fenlei}}</view>
                 </view>
                 <view>
                     <view class="related_title related_title2 related_title3">市场分析</view>
                     <view class="introduce" style="height:{{shichang}}">
-                        <text decode="{{true}}" space="{{true}}">{{previousreview}}</text>
+                        <!-- <text decode="{{true}}" space="{{true}}">{{previousreview}}</text> -->
+						<rich-text  nodes="{{previousreview}}" wx:if="{{previousreview}}"></rich-text>
                     </view>
                     <view bindtap="fenxi" class="all" data-n="1" data-name="{{fenxi}}" style="margin-top: 40rpx;">{{fenxi}}</view>
                 </view>

@@ -1,0 +1,89 @@
+<view class="su-wrapper">
+	<view class="order-head">
+		<view class="order-model" bindtap="ordermodel" data-type="1" style="color:{{color[0]}};">红包</view>
+		<view class="order-model" bindtap="ordermodel" data-type="2" style="color:{{color[1]}};">待领取</view>
+		<view class="order-model" bindtap="ordermodel" data-type="3" style="color:{{color[2]}};">领取中</view>
+		<view class="order-model" bindtap="ordermodel" data-type="4" style="color:{{color[3]}};">已领取</view>
+		<view style="clear:both;"></view>
+	</view>
+    <view class="su-body">
+		<view class="su-a" style="display:{{commisions1}}">
+			<view class="su-a-a">
+				<view class="su-a-al">红包领取统计</view>
+				<view class="su-a-ar"></view>
+				<view class="floatclear"></view>
+			</view>
+			<view class="su-a-b">
+				<view class="su-a-d">
+					<view wx:if="{{one == null}}">0.00</view>
+					<view wx:else>￥{{one}}</view>
+					<view>总额度</view>
+				</view>
+				<view class="su-a-d">
+					<view wx:if="{{two == null}}">0.00</view>
+					<view wx:else>￥{{two}}</view>
+					<view>已领取</view>
+				</view>
+				<view class="su-a-d">
+					<view wx:if="{{three == null}}">0.00</view>
+					<view wx:else>￥{{three}}</view>
+					<view>待领取</view>
+				</view>
+				<view class="floatclear"></view>
+			</view>
+		</view>
+		<view class="su-a" style="display:{{commisions2}}">
+			<view class="su-a-a">
+				<view class="su-a-al">{{title1}}</view>
+				<view class="su-a-ar"></view>
+				<view class="floatclear"></view>
+			</view>
+			<view class="su-a-b">
+				<view class="su-a-c" wx:if="{{onelist == null}}">
+					<view>暂无数据</view>
+				</view>
+				<view class="su-a-c" wx:for="{{onelist}}" data-id="{{item.id}}">
+					<view>{{item.xzname}}</view>
+					<view>
+						<view>红包 <text>￥{{item.price}}</text></view>
+						<view wx:if="{{item.zlttype == 1}}">展会</view>
+						<view wx:if="{{item.zlttype == 2}}">行程</view>
+						<view class="floatclear"></view>
+					</view>
+					<view>
+						<view>{{item.ctime}}</view>
+						<view bindtap="commisionsaction" data-id="{{item.id}}" data-type="{{item.zlttype}}">领取红包 ></view>
+						<view class="floatclear"></view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="su-a" style="display:{{commisions3}}">
+			<view class="su-a-a">
+				<view class="su-a-al">{{title2}}</view>
+				<view class="su-a-ar"></view>
+				<view class="floatclear"></view>
+			</view>
+			<view class="su-a-b su-a-new">
+				<view class="su-a-c" wx:if="{{twolist == null}}">
+					<view>暂无数据</view>
+				</view>
+				<view class="su-a-c" wx:for="{{twolist}}" data-id="{{item.id}}">
+					<view>{{item.xzname}}</view>
+					<view>
+						<view>全部 <text>￥{{item.price}}</text></view>
+						<view wx:if="{{item.zlttype == 1}}">展会</view>
+						<view wx:if="{{item.zlttype == 2}}">行程</view>
+						<view class="floatclear"></view>
+					</view>
+					<view>
+						<view>{{item.ctime}}</view>
+						<view data-id="{{item.id}}" data-type="{{item.zlttype}}">领取时间 {{item.etime}}</view>
+						<view class="floatclear"></view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view style="height:50px;"></view>
+    </view>
+</view>

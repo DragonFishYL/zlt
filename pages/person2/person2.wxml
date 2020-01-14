@@ -7,7 +7,7 @@
                 <view wx:else>{{person.enjoynum}}</view>
                 <view>分享次数</view>
             </view>
-            <view bindtap="myshare" class="tab-share">
+            <view class="tab-share">
 				<view wx:if="{{person.redenvelopes == null}}">0.00</view>
                 <view wx:else>{{person.redenvelopes}}</view>
                 <view>红包奖励</view>
@@ -116,7 +116,7 @@
 				<view class="floatclear"></view>
 			</view>
 			<view class="su-a-b">
-				<view class="su-a-c">
+				<view class="su-a-c" bindtap="redpackage">
 					<view><image src="{{ico.one}}"/></view>
 					<view>红包</view>
 					<view>最新</view>

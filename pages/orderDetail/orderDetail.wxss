@@ -140,9 +140,9 @@ form-sign .form-item {
 }
 
 .item-top {
-    border-top: 2rpx solid #ddd;
+    border-top: 2rpx solid #ddd;padding:20rpx;font-size:35rpx;color:#999;
 }
-
+.item-top>.sign-item>.order,.item-top>.order-item>.order{color:#666;}
 .item-name {
     font-size: 34rpx;
     padding: 10rpx 0rpx;
