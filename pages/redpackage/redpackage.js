@@ -42,10 +42,10 @@ Page({
 			'content-type': 'application/x-www-form-urlencoded' // 默认值
 		  },
 		  success:function(res){
-			  
+			console.log(res);  
 			if(res.data.status == 1){
 				var scenes = wx.getLaunchOptionsSync()//获取场景代码
-				if (scenes.scene == 1047 || scenes.scene == 1011 || scenes.scene == 1025 || scenes.scene == 1124){
+				// if (scenes.scene == 1047 || scenes.scene == 1011 || scenes.scene == 1025 || scenes.scene == 1124){
 					//that.getredpacket()
 					var data = res.data.data;console.log(data);
 					wx.sendBizRedPacket({
@@ -64,7 +64,7 @@ Page({
 								'content-type': 'application/x-www-form-urlencoded' // 默认值
 							  },
 							  success:function(res){
-								  
+								console.log(res);  
 								wx.showToast({
 									title: "领取成功",
 									icon: "success",
@@ -90,7 +90,7 @@ Page({
 							console.log(res);
 						}
 					})
-				}
+				// }
 			}
 		  }
 		});
