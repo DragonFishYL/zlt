@@ -45,7 +45,8 @@ Page({
 			console.log(res);  
 			if(res.data.status == 1){
 				var scenes = wx.getLaunchOptionsSync()//获取场景代码
-				// if (scenes.scene == 1047 || scenes.scene == 1011 || scenes.scene == 1025 || scenes.scene == 1124){
+				if (scenes.scene == 1036 || scenes.scene == 1017 || scenes.scene == 1089 || scenes.scene == 1047 || scenes.scene == 1011 || scenes.scene == 1025 || scenes.scene == 1124){
+				// if (scenes.scene >= 1001 && scenes.scene <= 1104){
 					//that.getredpacket()
 					var data = res.data.data;console.log(data);
 					wx.sendBizRedPacket({
@@ -90,7 +91,7 @@ Page({
 							console.log(res);
 						}
 					})
-				// }
+				}
 			}
 		  }
 		});
