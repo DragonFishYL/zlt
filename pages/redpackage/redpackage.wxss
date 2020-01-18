@@ -89,9 +89,10 @@ button{
 .su-a-d:nth-child(2)>view:nth-child(1){height:70rpx;line-height:70rpx;text-align:center;font-size:40rpx;color:orange;}
 .su-a-d:nth-child(3)>view:nth-child(1){height:70rpx;line-height:70rpx;text-align:center;font-size:40rpx;color:red;}
 .su-a:nth-child(4)>view:nth-child(2)>view{margin-bottom:20rpx;}
-
-
-
+.redpackageimage{width:100%;height:100%;z-index:1000;position:fixed;top:0rpx;left:0px;background:#999;background:rgba(0,0,0,0.6)}
+.redpackageimage>image{margin-left:10%;margin-top:120rpx;width:80%;pointer-events:auto;}
+.redpackagediv{width:100%;height:200rpx;position:absolute;top:580rpx;left:0rpx;text-align: center;}
+.redpackageclick{width:200rpx;height:200rpx;border-radius:100rpx;margin:0rpx auto;}
 
 
 

@@ -29,7 +29,10 @@ Page({
 		twolist:'',
 		title1:'最新待领取',
 		title2:'最新领取记录',
-        openId: ""
+        openId: "",
+		redpackageimagestate:'none',
+		redpackageid:null,
+        redpackageimage: t.globalData.publicUrl + "/Public/Home/images/20200117205337redpackge.jpg"
     },
 	commisionsaction:function(d){
 		var id = d.target.dataset.id,that = this;
@@ -94,6 +97,69 @@ Page({
 				}
 			}
 		  }
+		});
+	},
+	commisionsactions:function(d){
+		var id = d.target.dataset.id,that = this;
+		that.setData({
+			redpackageid:id,
+			redpackageimagestate:'block',
+		});
+	},
+	redpackageimagestate:function(){
+		this.setData({
+			redpackageimagestate:'none',
+		});
+	},
+	redpackageimage:function(d){
+		var id = d.target.dataset.id,that = this;
+		console.log(d);
+		console.log(id);
+		// return false;
+		wx.showLoading({ title: '加载中', });
+		wx.request({
+			url: t.globalData.publicUrl + '/Trip/businesspaymentWX',
+			data: { 'business_no': t.globalData.business_no, 'openid': wx.getStorageSync("user").openid,'id':id},
+			method: 'POST',
+			header: {
+				'content-type': 'application/x-www-form-urlencoded' // 默认值
+			},
+			success:function(res){
+				console.log(res);
+				if(res.data.status == 1){
+					wx.request({
+						url: t.globalData.publicUrl + '/Trip/updateredWX',
+						data: { 'id':id},
+						method: 'POST',
+						header: {
+							'content-type': 'application/x-www-form-urlencoded' // 默认值
+						},
+						success:function(res){
+							console.log(res);  
+							wx.showToast({
+								title: "领取成功",
+								icon: "success",
+								duration: 2e3,
+								success: function() {
+									setTimeout(function() {
+										//that.onload();//更新当前页面
+										wx.redirectTo({
+											url: "../redpackage/redpackage"
+										});
+									}, 2e3);
+								}
+							}); 
+						}	
+					})
+				}else{
+					wx.showToast({
+					   title: res.data.message,
+					   icon: 'none',
+					   duration: 1500,
+					   mask:true
+					});
+				}
+			}
 		});
 	},
 	commisionsdetail:function(d){

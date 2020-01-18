@@ -52,11 +52,15 @@
 					</view>
 					<view>
 						<view>{{item.ctime}}</view>
-						<view bindtap="commisionsaction" data-id="{{item.id}}" data-type="{{item.zlttype}}">领取红包 ></view>
+						<view bindtap="commisionsactions" data-id="{{item.id}}" data-type="{{item.zlttype}}">领取红包 ></view>
 						<view class="floatclear"></view>
 					</view>
 				</view>
 			</view>
+		</view>
+		<view bindtap="redpackageimagestate" class="redpackageimage" style="display:{{redpackageimagestate}}">
+			<image src="{{redpackageimage}}" mode="widthFix" catchtap="redpackageimages"></image>
+			<view class="redpackagediv"><view class="redpackageclick" bindtap="redpackageimage" data-id="{{redpackageid}}"></view></view>
 		</view>
 		<view class="su-a" style="display:{{commisions3}}">
 			<view class="su-a-a">
