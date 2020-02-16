@@ -27,6 +27,7 @@
                 </text>
                 <text class="om_2" wx:if="{{positionCount!=0}}">单品：<text>{{positionCount}}</text>个</text>
             </view>
+			<navigator url='../share/share?id={{exhibitionId}}' class='shaBtn' wx:if="{{bonus.isbonus == 1}}">点击得红包，最高可得{{bonus.bonus}}元</navigator>
             <view class="gray"></view>
             <view class="offer_ul clearfix">
                 <view>
@@ -181,6 +182,10 @@
             <view class="gray"></view>
         </view>
     </view>
+	<view bindtap="redpackageimagestate" class="redpackageimage" style="display:{{redpackageimagestate}}">
+		<image src="{{redpackageimage}}" mode="widthFix" catchtap="redpackageimages"></image>
+		<view class="redpackagediv"><view class="redpackageclick" bindtap="redpackageimage"></view></view>
+	</view>
     <view class="tabbar">
         <view class="tab-main">
             <view class="flex-tab">

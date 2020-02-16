@@ -91,11 +91,12 @@ Page({
         e.goPage(t);
     },
     formSubmit: function(a) {
-        var t = this;
+        var t = this; //console.log(t.data.Number);return false;
         if (console.log(t.data.showType[t.data._num1].area), t.data.e_area) e = t.data.e_area; else var e = t.data.showType[t.data._num1].area;
         if (t.data.total) r = n = parseInt(t.data.total); else var n = parseInt(t.data.showType[t.data._num1].newtotal), r = n;
         wx.setStorageSync("exhibition", {
             showType: t.data.showType[t.data._num1],
+            Number: t.data.Number,
             eid: t.data.zid,
             total: r,
             e_area: e,

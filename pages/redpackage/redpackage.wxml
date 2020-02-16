@@ -52,7 +52,8 @@
 					</view>
 					<view>
 						<view>{{item.ctime}}</view>
-						<view bindtap="commisionsactions" data-id="{{item.id}}" data-type="{{item.zlttype}}">领取红包 ></view>
+						<view bindtap="commisionsactions" data-id="{{item.id}}" data-type="{{item.zlttype}}" wx:if="{{item.price >= 0.3}}">领取红包 ></view>
+						<view wx:else>红包异常</view>
 						<view class="floatclear"></view>
 					</view>
 				</view>
@@ -61,6 +62,10 @@
 		<view bindtap="redpackageimagestate" class="redpackageimage" style="display:{{redpackageimagestate}}">
 			<image src="{{redpackageimage}}" mode="widthFix" catchtap="redpackageimages"></image>
 			<view class="redpackagediv"><view class="redpackageclick" bindtap="redpackageimage" data-id="{{redpackageid}}"></view></view>
+		</view>
+		<view bindtap="redpackageimagestateok" class="redpackageimage" style="display:{{redpackageimagestateok}}">
+			<image src="{{redpackageimageok}}" mode="widthFix" catchtap="redpackageimages"></image>
+			<view class="redpackagediv"><view class="redpackageclick" bindtap="redpackageimageok"></view></view>
 		</view>
 		<view class="su-a" style="display:{{commisions3}}">
 			<view class="su-a-a">

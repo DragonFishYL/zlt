@@ -43,7 +43,11 @@ Page({
         isOverTime: "",
         uname: "",
         phone: "",
-        minarea: ""
+        bonus: "",
+        minarea: "",
+		redpackageimagestate:'none',
+		redpackageid:null,
+        redpackageimage: e.globalData.publicUrl + "/Public/Home/images/20200211redtoperoson.png"
     },
     viewDetail: function(e) {
         wx.redirectTo({
@@ -152,6 +156,21 @@ Page({
                         }), e.setData({
                             openId: t.data.openid
                         }), e.loginWx();
+						if(t.data.isred == 1){
+							e.setData({
+								redpackageimagestate: 'block'
+							})
+						}else if(t.data.isred == 3){
+							e.setData({
+								redpackageimage: getApp().globalData.publicUrl + "/Public/Home/images/20200211205447redpackageover.png",
+								redpackageimagestate: 'block'
+							})
+						}else{
+							e.setData({
+								redpackageimage: getApp().globalData.publicUrl + "/Public/Home/images/20200211205447redpackagepublic.png",
+								redpackageimagestate: 'block'
+							})
+						}
                     }
                 });
             }
@@ -361,6 +380,7 @@ Page({
                             isOverTime: e.data.isOverTime,
                             uname: a,
                             phone: e.data.ZLTPhone,
+                            bonus: e.data.bonus,
                             pricedanwei: e.data.data.pricedanwei,
                             areadanwei: e.data.data.areadanwei
                         }, function() {
@@ -400,5 +420,15 @@ Page({
     },
     buyGetUserInfo: function(a) {
         t.autoLogin(e, a, this, "../buy/buy");
-    }
+    },
+	redpackageimagestate:function(){
+		this.setData({
+			redpackageimagestate:'none',
+		});
+	},
+	redpackageimage:function(){
+		wx.navigateTo({
+            url: "../redpackage/redpackage"
+        })
+	}
 });

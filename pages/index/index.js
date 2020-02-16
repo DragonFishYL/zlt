@@ -111,6 +111,7 @@ Page({
             wx.setStorageSync("source", n.source), wx.setStorageSync("zlttype", n.zlttype), 
             e.getVote();
         }) : e.getVote();
+		wx.setStorageSync("shareType",2);//设置分享类型为2展会、1展位、4行程
     },
     getData: function() {
         var e = this, t = e.data.inviteOpenId;
@@ -209,7 +210,9 @@ Page({
             });
         });
     },
-    onLoad: function() {},
+    onLoad: function() {
+        wx.setStorageSync("shareType", 2);
+	},
     homeGetUserInfo: function(n) {
         t.autoLogin(e, n, this, "../index/index");
     },

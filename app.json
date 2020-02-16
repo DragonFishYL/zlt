@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/search/search",
+    "pages/exhibition/exhibition",
     "pages/redpackage/redpackage",
     "pages/out/out",
     "pages/person2/person2",
@@ -15,9 +17,7 @@
     "pages/detail/detail",
     "pages/xorderDetail/xorderDetail",
     "pages/logs/logs",
-    "pages/search/search",
     "pages/search_list/search_list",
-    "pages/exhibition/exhibition",
     "pages/details/details",
     "pages/service/service",
     "pages/view/view",

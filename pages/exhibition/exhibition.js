@@ -265,5 +265,6 @@ Page({
                 }), wx.hideLoading();
             }
         });
+		wx.setStorageSync("shareType",2);//设置分享类型为2展会、1展位、4行程
     }
 });

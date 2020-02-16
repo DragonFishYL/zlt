@@ -29,9 +29,9 @@
         <text>热门展会</text>
     </view>
     <view class="su-mmdiv">
-        <view bindtap="details" class="main_details" data-id="{{item.url}}" wx:for="{{exhibitionNew}}" wx:key="{{index}}">
-            <image mode="widthFix" src="{{item.img}}"></image>
-            <view class="main_details_div">
+        <view class="main_details" wx:for="{{exhibitionNew}}" wx:key="{{index}}">
+            <image mode="widthFix" src="{{item.img}}" bindtap="details" data-id="{{item.url}}"></image>
+            <view class="main_details_div" bindtap="details" data-id="{{item.url}}">
                 <view class="li_one">{{item.name}}</view>
                 <view class="li_two">{{item.realtime}}</view>
                 <view class="li_three" hidden="{{item.Parea==0||!item.Parea}}">
@@ -46,6 +46,7 @@
                     </span>
                 </view>
             </view>
+			<navigator url='../share/share?id={{item.url}}'  class='shaBtn' wx:if="{{item.isbonus == 1}}">点击得红包，最高可得{{item.bonus}}元</navigator>
         </view>
     </view>
     <view class="tabbar">

@@ -58,7 +58,6 @@ page {
     margin: 0 auto;
     margin-top: 25rpx;
     background: white;
-    padding-bottom: 30rpx;
     background: #fff;
 }
 
@@ -68,7 +67,7 @@ page {
 }
 
 .main_details_div {
-    padding: 0 20rpx;
+    padding: 20rpx;
 }
 
 .li_one {
@@ -128,4 +127,12 @@ page {
 
 .su-scroll {
     height: 1000rpx;
+}
+.shaBtn {
+  display: block;
+  background: orange;
+  color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 80rpx;
 }

@@ -31,7 +31,7 @@
   <text class='actiTit' wx:if="{{ruleinfo}}">规则条例</text>
   <text class='actiDis' wx:if="{{ruleinfo}}">{{ruleinfo}}</text>
 </view>
-<navigator url='../share/share?id={{id}}' class='shaBtn' wx:if="{{bonus}}">分享成功得红包，最高可得{{bonus}}元</navigator>
+<navigator url='../share/share?id={{id}}' class='shaBtn' wx:if="{{bonus > 0}}">点击得红包，最高可得{{bonus}}元</navigator>
 <view class='expoTit' wx:if="{{exhibitionObj}}">相关展会</view>
 <view class='expoCon' wx:if="{{exhibitionObj}}" bindtap="toexhibition" data-id="{{exhibitionObj.id}}" wx:key="unique">
   <view class='expoName'>{{exhibitionObj.name}}</view>
@@ -40,6 +40,10 @@
     <view class='expoTime'>{{exhibitionObj.setime}}</view>
     <navigator class='lookExpo'>查看详情</navigator>
   </view>
+</view>
+<view bindtap="redpackageimagestate" class="redpackageimage" style="display:{{redpackageimagestate}}">
+	<image src="{{redpackageimage}}" mode="widthFix" catchtap="redpackageimages"></image>
+	<view class="redpackagediv"><view class="redpackageclick" bindtap="redpackageimage"></view></view>
 </view>
 <view class='expoTit'>展会行程</view>
 <view class='expoCon' wx:for="{{triparrange}}" wx:for-item="trip">

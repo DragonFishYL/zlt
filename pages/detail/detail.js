@@ -28,7 +28,10 @@ Page({
     source: '',
     zlttype: '',
     canIUse: '',
-    status: ''
+    status: '',
+	redpackageimagestate:'none',
+	redpackageid:null,
+	redpackageimage: e.globalData.publicUrl + "/Public/Home/images/20200211redtoperoson.png"
   },
   onLoad: function (d) {
 	var t = decodeURIComponent(e.scene);
@@ -258,6 +261,22 @@ Page({
                         }), e.setData({
                             openId: t.data.openid
                         }), e.loginWx();
+						
+						if(t.data.isred == 1){
+							e.setData({
+								redpackageimagestate: 'block'
+							})
+						}else if(t.data.isred == 3){
+							e.setData({
+								redpackageimage: getApp().globalData.publicUrl + "/Public/Home/images/20200211205447redpackageover.png",
+								redpackageimagestate: 'block'
+							})
+						}else{
+							e.setData({
+								redpackageimage: getApp().globalData.publicUrl + "/Public/Home/images/20200211205447redpackagepublic.png",
+								redpackageimagestate: 'block'
+							})
+						}
                     }
                 });
             }
@@ -332,5 +351,15 @@ Page({
 	},
 	searchUserInfo: function(n) {
 		t.autoLogin(e, n, this, "../search/search");
+	},
+	redpackageimagestate:function(){
+		this.setData({
+			redpackageimagestate:'none',
+		});
+	},
+	redpackageimage:function(){
+		wx.navigateTo({
+            url: "../redpackage/redpackage"
+        })
 	}
 })

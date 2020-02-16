@@ -5,7 +5,7 @@
     <text class='actTime'>{{item.stime}}至{{item.etime}}</text>
     <view class='groPrice'>{{item.xprice}}元/人 起</view>
   </view>
-  <navigator url='../share/share?id={{item.id}}'  class='shaBtn' wx:if="{{item.bonus}}">分享成功得红包，最高可得{{item.bonus}}元</navigator>
+  <navigator url='../share/share?id={{item.id}}'  class='shaBtn' wx:if="{{item.bonus > 0}}">点击得红包，最高可得{{item.bonus}}元</navigator>
 </view>
 <view class="view-b"></view>
 <view class="tabbar">

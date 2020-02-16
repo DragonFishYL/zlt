@@ -46,6 +46,10 @@
 /* .searview {  position: relative;  padding-right: 130rpx;  border: 1px solid #e0e0e0;  border-right: 0;  border-radius: 10rpx;  box-sizing: border-box;  padding-left: 70rpx;  height: 85rpx;} .shasbg {  padding: 0 40rpx;} .searview button {  width: 130rpx;  height: 85rpx;  position: absolute;  right: 0;  top: -2rpx;  background: orange;  color: #fff;  font-size: 30rpx;  line-height: 85rpx;  border-radius: 0 10rpx 10rpx 0;} .searview input {  font-size: 28rpx;  color: #555;  height: 83rpx;} .icon-search {  position: absolute;  width: 31rpx;  height: 31rpx;  background-size: 31rpx auto;  left: 25rpx;  top: 27rpx;
 } */
 
+page{
+	background:#f2f2f2 !important;
+	margin-top:30rpx;
+}
 .shaImg {
   display: block;
   width: 100%;
@@ -115,6 +119,9 @@
   border-top:1rpx solid #e2e2e2;
 }
 .view-a{
+  background:#fff;
+  width:90%;
+  margin:0 auto;
   margin-bottom:10px;
 }
 .view-b{

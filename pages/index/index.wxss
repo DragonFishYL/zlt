@@ -144,7 +144,6 @@
     margin: 0 auto;
     margin-top: 25rpx;
     background: white;
-    padding-bottom: 30rpx;
 }
 
 .main_details>image {
@@ -153,7 +152,7 @@
 }
 
 .main_details_div {
-    padding: 0 20rpx;
+    padding: 20rpx;
 }
 
 .li_one {
@@ -205,4 +204,13 @@
   position: fixed;
   bottom: 0px;
   border-top:1rpx solid #e2e2e2;
+}
+
+.shaBtn {
+  display: block;
+  background: orange;
+  color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 80rpx;
 }

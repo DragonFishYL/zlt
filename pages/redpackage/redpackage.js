@@ -32,7 +32,9 @@ Page({
         openId: "",
 		redpackageimagestate:'none',
 		redpackageid:null,
-        redpackageimage: t.globalData.publicUrl + "/Public/Home/images/20200117205337redpackge.jpg"
+        redpackageimage: t.globalData.publicUrl + "/Public/Home/images/20200117205337redpackge.jpg",
+		redpackageimagestateok:'none',
+        redpackageimageok: t.globalData.publicUrl + "/Public/Home/images/20200211205420redpackageok.png"
     },
 	commisionsaction:function(d){
 		var id = d.target.dataset.id,that = this;
@@ -111,6 +113,11 @@ Page({
 			redpackageimagestate:'none',
 		});
 	},
+	redpackageimagestateok:function(){
+		this.setData({
+			redpackageimagestateok:'none',
+		});
+	},
 	redpackageimage:function(d){
 		var id = d.target.dataset.id,that = this;
 		console.log(d);
@@ -135,7 +142,10 @@ Page({
 							'content-type': 'application/x-www-form-urlencoded' // 默认值
 						},
 						success:function(res){
-							console.log(res);  
+							console.log(res); 
+							that.setData({
+								redpackageimagestateok:'block',
+							});
 							wx.showToast({
 								title: "领取成功",
 								icon: "success",

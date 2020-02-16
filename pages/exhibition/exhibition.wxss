@@ -273,3 +273,11 @@ page {
   bottom: 0px;
   border-top:1rpx solid #e2e2e2;
 }
+.shaBtn {
+  display: block;
+  background: orange;
+  color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+  line-height: 80rpx;
+}

@@ -46,6 +46,7 @@ Page({
 		bid:'',
 		bindex:'',
 		cid:'',
+		Number:'',
 		cindex:'',
 		multiIndex: [0, 0, 0]
     }, e(t, "total", ""), e(t, "name", ""), e(t, "area", ""), e(t, "areadanwei", ""), 
@@ -302,6 +303,8 @@ Page({
     },
     formSubmit: function(e) {
         console.log(e);
+		console.log(this.data.Number);
+		// return false;
         var t = this, o = !0, n = e.detail.value;
         return console.log(n), "" == n.phone || /^(13[0-9]|14[5-9]|15[012356789]|166|17[0-8]|18[0-9]|19[8-9])[0-9]{8}$/.test(n.phone) ? this.testForm(n) ? "" == n.busiPhone || /^(([0\+]\d{2,3}-)?(0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$/.exec(n.busiPhone) ? void (t.data.canSubmit && (t.setData({
             canSubmit: !1
@@ -312,7 +315,7 @@ Page({
                     console.log(a);
                     var s = t.data._num;
                     console.log(s);
-                    var c = n.phone, r = n.code, u = n.authName, d = n.authEmail, g = t.data.number, h = n.busiName, w = n.busiPhone, l = n.busiAddress, x = n.einfos, f = n.title, S = wx.getStorageSync("inviteOpenId");
+                    var c = n.phone, r = n.code, u = n.authName, d = n.authEmail, g = t.data.Number, h = n.busiName, w = n.busiPhone, l = n.busiAddress, x = n.einfos, f = n.title, S = wx.getStorageSync("inviteOpenId");
                     S = S || "";
                     var y = wx.getStorageSync("source");
                     y = y || "";
@@ -478,7 +481,7 @@ Page({
         });
     },
     exhibitionShow: function() {
-        var t, o = this, n = wx.getStorageSync("exhibition").showType;
+        var t, o = this, n = wx.getStorageSync("exhibition").showType;//console.log(n);console.log(666);return false;
         console.log(n), wx.setNavigationBarTitle({
             title: wx.getStorageSync("exhibition").company
         }), o.setData((t = {
@@ -508,8 +511,9 @@ Page({
 		wx.showLoading({ title: '加载中', });
         var e = this;
         this.authorization();
+		e.setData({"Number":wx.getStorageSync("exhibition").Number});
         var t = wx.getStorageSync("user").openid, o = wx.getStorageSync("exhibition").eid;
-        console.log(o), console.log(t);
+        //console.log(o), console.log(t);return false;
         wx.request({
             url: getApp().globalData.publicUrl + "/Member/positionDetailNext",
             data: {

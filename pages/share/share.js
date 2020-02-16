@@ -36,6 +36,8 @@ Page({
         uname: "",
         ZLTPhone: "",
         discount: "",
+        bonus: "",
+        xbonus: "",
         commitions: "",
         pricedanwei: "",
         areadanwei: "",
@@ -293,7 +295,7 @@ Page({
 	  if (wx.showLoading({
             title: "加载中",
             mask: !0
-        }), 1 == t) var n = wx.getStorageSync("zid"), o = getApp().globalData.publicUrl + "/Exhibition/exhibitionEnjoyWX?business_no=ZhanLeTaoWeChat&openid=" + i + "&type=" + t + "&zid=" + n; else if (2 == t) var s = wx.getStorageSync("exhibitionId"), o = getApp().globalData.publicUrl + "/Exhibition/exhibitionEnjoyWX?business_no=ZhanLeTaoWeChat&openid=" + i + "&type=" + t + "&eid=" + s;else if (4 == t) var s = e.id, o = getApp().globalData.publicUrl + "/Exhibition/exhibitionEnjoyWX?business_no=ZhanLeTaoWeChat&openid=" + i + "&type=" + t + "&xid=" + s;
+        }), 1 == t) var n = wx.getStorageSync("zid"), o = getApp().globalData.publicUrl + "/Exhibition/exhibitionEnjoyWX?business_no=ZhanLeTaoWeChat&openid=" + i + "&type=" + t + "&zid=" + n; else if (2 == t) var s = wx.getStorageSync("exhibitionId")?wx.getStorageSync("exhibitionId"):e.id, o = getApp().globalData.publicUrl + "/Exhibition/exhibitionEnjoyWX?business_no=ZhanLeTaoWeChat&openid=" + i + "&type=" + t + "&eid=" + s;else if (4 == t) var s = e.id, o = getApp().globalData.publicUrl + "/Exhibition/exhibitionEnjoyWX?business_no=ZhanLeTaoWeChat&openid=" + i + "&type=" + t + "&xid=" + s;
         wx.request({
             url: o,
             header: {
@@ -317,6 +319,8 @@ Page({
                     companyName: e.data.busiInfo.name,
                     gtype: e.data.position.gtype,
                     discount: e.data.exhibition.discount,
+                    bonus: e.data.exhibition.bonus,
+                    xbonus: e.data.exhibition.xbonus,
                     hidden: !1,
                     shareType: t,
                     uname: e.data.busiInfo.uname,
@@ -335,6 +339,8 @@ Page({
                     area: e.data.exhibition.area,
                     dtype: e.data.exhibition.dtype,
                     discount: e.data.exhibition.discount,
+                    bonus: e.data.exhibition.bonus,
+                    xbonus: e.data.exhibition.xbonus,
                     areadanwei: e.data.exhibition.areadanwei,
                     pricedanwei: e.data.exhibition.pricedanwei,
                     hidden: !0,
@@ -350,7 +356,7 @@ Page({
                     Parea: e.data.newData.xprice,
                     area: e.data.newData.xnum,
                     dtype: e.data.newData.xtype,
-                    discount: e.data.newData.bonus,
+                    bonus: e.data.newData.bonus,
                     commitions: e.data.newData.commitions,
                     hidden: !0,
                     shareType: t,

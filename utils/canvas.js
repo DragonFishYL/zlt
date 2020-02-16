@@ -47,7 +47,7 @@ module.exports = {
             l.setFontSize(40), l.fillText(c, 118, 35), l.fillText(g, 118, 74);
         } else l.setFontSize(40), l.fillText(s, 118, 42);
 		if(p == 4){
-			var m = r.company,price = r.Parea+'元/人  起',dis = '分享成功得红包,最高'+r.discount+'元';
+			var m = r.company,price = r.Parea+'元/人  起',dis = '点击得红包,最高'+r.bonus+'元';
 			if (l.setFontSize(31), i.getChairLength(m) > 40) {
 				var d = i.getChairIndex(m, 40), p = d[0], w = d[1];
 				l.fillText(p, 118, 80), l.fillText(w, 118, 115);
@@ -55,18 +55,25 @@ module.exports = {
 			l.fillText(o, 25, 150), l.setFontSize(50),l.setFillStyle("red"),l.fillText(price, 25, 210), l.drawImage(n[0].path, 0, 230, 750, 250);
 			l.setFillStyle('orange'),l.fillRect(0, 490, 750, 100),l.setFontSize(50),l.setFillStyle("#fff"), l.fillText(dis,25,555);
 		}else{
-		   null == r.pricedanwei && (r.pricedanwei = "元"), null == r.areadanwei && (r.areadanwei = "m²");
-			var m = r.company;
+		   // null == r.pricedanwei && (r.pricedanwei = "元"), null == r.areadanwei && (r.areadanwei = "m²");
+			// var m = r.company;
+			// if (l.setFontSize(31), i.getChairLength(m) > 40) {
+				// var d = i.getChairIndex(m, 40), p = d[0], w = d[1];
+				// l.fillText(p, 118, 80), l.fillText(w, 118, 115);
+			// } else l.fillText(m, 118, 100);
+			// if (l.drawImage(n[0].path, 0, 122, 750, 330), l.setFontSize(30), l.drawImage("../../common/img/time2.png", 25, 460, 40, 40), 
+			// l.fillText(o, 75, 490), l.drawImage("../../common/img/place2.png", 25, 500, 40, 40), 
+			// l.fillText(f, 75, 530), 0 != r.Parea && 0 != r.area) {
+				// var h = r.Parea + r.pricedanwei + "/" + r.area + r.areadanwei + "起        " + r.dtype + r.discount;
+				// l.setFontSize(50), l.setFillStyle("#fc6709"), l.fillText(h, 25, 590);
+			// }
+			var m = r.company,price = r.Parea+'元/'+ r.area + r.areadanwei+'起',dis = '点击得红包,最高'+r.bonus+'元',discount = r.dtype + r.discount;
 			if (l.setFontSize(31), i.getChairLength(m) > 40) {
 				var d = i.getChairIndex(m, 40), p = d[0], w = d[1];
 				l.fillText(p, 118, 80), l.fillText(w, 118, 115);
 			} else l.fillText(m, 118, 100);
-			if (l.drawImage(n[0].path, 0, 122, 750, 330), l.setFontSize(30), l.drawImage("../../common/img/time2.png", 25, 460, 40, 40), 
-			l.fillText(o, 75, 490), l.drawImage("../../common/img/place2.png", 25, 500, 40, 40), 
-			l.fillText(f, 75, 530), 0 != r.Parea && 0 != r.area) {
-				var h = r.Parea + r.pricedanwei + "/" + r.area + r.areadanwei + "起        " + r.dtype + r.discount;
-				l.setFontSize(50), l.setFillStyle("#fc6709"), l.fillText(h, 25, 590);
-			}
+			l.fillText(o, 25, 150), l.setFontSize(50),l.setFillStyle("red"),l.fillText(price, 25, 210),l.fillText(discount, 500, 210), l.drawImage(n[0].path, 0, 230, 750, 250);
+			l.setFillStyle('orange'),l.fillRect(0, 490, 750, 100),l.setFontSize(50),l.setFillStyle("#fff"),l.fillText(dis,25,555);
         }
         if (r.avatarUrl) x = r.avatarUrl; else var x = r.photo;
         wx.getImageInfo({
@@ -136,7 +143,7 @@ module.exports = {
             a.lineWidth = 1, a.strokeStyle = "#f1f1f1", a.stroke(), 0 != l.Parea && "0" != l.area) {
                 var T = l.Parea + "元/人起   "+l.area+"人起开团";
                 a.setFontSize(30), a.setFillStyle("#fc6709"), a.fillText(T, 48, 600);
-				var dis = '分享成功得红包,最高'+ l.discount +'元';
+				var dis = '点击得红包,最高'+ l.discount +'元';
 				a.setFillStyle('orange'),a.fillRect(22, 640, 703, 100),a.setFontSize(30),a.setFillStyle("#fff"),a.fillText(dis,180,700);
             }
             var I = l.qrcode;

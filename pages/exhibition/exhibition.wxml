@@ -51,9 +51,9 @@
                 </view>
                 <scroll-view bindscrolltolower="{{bindtolower?'bindDownLoad':'fiflterDownLoad'}}" scrollTop="{{scrollTop}}" scrollY="true" style="height:{{scrollHeight}}px;">
                     <view class="exhibition_top">
-                        <view bindtap="details" class="main_details" data-id="{{item.id}}" wx:for="{{exhibitionList}}" wx:key="{{index}}">
-                            <image mode="widthFix" src="{{item.thumbnail}}"></image>
-                            <view class="main_details_div">
+                        <view class="main_details" wx:for="{{exhibitionList}}" wx:key="{{index}}">
+                            <image mode="widthFix" src="{{item.thumbnail}}" bindtap="details" data-id="{{item.id}}"></image>
+                            <view class="main_details_div" bindtap="details" data-id="{{item.id}}">
                                 <view class="li_one">{{item.nameZh}}</view>
                                 <view class="li_two">{{item.seTime}}<text>{{item.backTime}}</text>
                                 </view>
@@ -67,6 +67,7 @@
                                     </span>
                                 </view>
                             </view>
+							<navigator url='../share/share?id={{item.id}}'  class='shaBtn' wx:if="{{item.isbonus == 1}}">点击得红包，最高可得{{item.bonus}}元</navigator>
                         </view>
                     </view>
                 </scroll-view>
